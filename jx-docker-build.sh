@@ -13,20 +13,21 @@ export DOCKER_ORG=garethjevans
 export VERSION=${TAG}
 export PUSH=false
 export PUSH_LATEST=false
+#export CACHE=--no-cache
+export CACHE=""
 
 pushd builder-base
 	./build.sh
 popd
 
-#declare -a arr=("maven" "javascript" "go" "gradle" "python" "scala" "rust" "csharp" "jenkins" "cwp")
-declare -a arr=("maven")
-
+BUILDERS="dlang go-maven gradle maven nodejs python python2 rust scala terraform"
+BROKEN="dotnet go"
 ## now loop through the above array
-for i in "${arr[@]}"
+for i in $BUILDERS
 do
     echo "building builder-$i"
 	pushd builder-$i
-		sed -i -e "s/FROM .*/FROM ${DOCKER_ORG}\/builder-base:${TAG}/" Dockerfile
+		sed -i "s/FROM .*/FROM ${DOCKER_ORG}\/builder-base:${TAG}/" Dockerfile
 		head -n 1 Dockerfile
     	docker build -t ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-$i:${TAG} -f Dockerfile .
 	popd
