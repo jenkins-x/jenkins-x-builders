@@ -4,18 +4,13 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-VERSION=$1
-#ORG=$2
-#RELEASE=$3
-
-export DOCKER_REGISTRY=docker.io
-export DOCKER_ORG=jenkinsxio
 export VERSION=$1
+export RELEASE=$2
+
 export PUSH=false
 export PUSH_LATEST=false
 #export CACHE=--no-cache
 export CACHE=""
-export RELEASE="pr"
 
 pushd builder-base
   ./build.sh
