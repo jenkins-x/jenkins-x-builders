@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 set -o errexit
+set -o nounset
 set -o pipefail
 
 TAG_NUM=$1
@@ -15,7 +16,6 @@ export PUSH=false
 export PUSH_LATEST=false
 #export CACHE=--no-cache
 export CACHE=""
-export SED='sed -i "" -e'
 
 pushd builder-base
 	./build.sh
@@ -28,7 +28,8 @@ for i in $BUILDERS
 do
     echo "building builder-$i"
 	pushd builder-$i
-		${SED} "s/FROM .*/FROM ${DOCKER_ORG}\/builder-base:${TAG}/" Dockerfile
+		sed -i.bak -e "s/FROM .*/FROM ${DOCKER_ORG}\/builder-base:${TAG}/" Dockerfile
+		rm Dockerfile.bak
 		head -n 1 Dockerfile
     	docker build ${CACHE} -t ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-$i:${TAG} -f Dockerfile .
 	popd
