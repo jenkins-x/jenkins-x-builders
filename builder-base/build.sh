@@ -19,6 +19,7 @@ echo "Building images with version ${VERSION}"
 echo "FROM centos:7" > Dockerfile
 echo "" >> Dockerfile
 cat Dockerfile.yum >> Dockerfile
+cat ../Dockerfile.common >> Dockerfile
 cat Dockerfile.common >> Dockerfile
 
 echo "Building ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-base:${VERSION}"
@@ -52,6 +53,7 @@ function build_image {
   echo "FROM $image" > Dockerfile.$name
   echo "" >> Dockerfile.$name
   cat Dockerfile.apt >> Dockerfile.$name
+  cat ../Dockerfile.common >> Dockerfile.$name
   cat Dockerfile.common >> Dockerfile.$name
 
   docker build -t ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-$name:${VERSION} -f Dockerfile.$name . > /dev/null 2>&1
