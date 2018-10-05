@@ -12,25 +12,24 @@ export PUSH_LATEST=false
 #export CACHE=--no-cache
 export CACHE=""
 
+export DOCKER_REGISTRY=docker.io
+
 pushd builder-base
   ./build.sh
 popd
-
-if [ "release" == "${RELEASE}" ]; then
-  export DOCKER_REGISTRY=docker.io
-fi
 
 BUILDERS="dlang go-maven gradle maven nodejs python python2 rust scala terraform"
 BROKEN="dotnet go"
 ## now loop through the above array
 for i in $BUILDERS
 do
-  echo "building builder-$i"
-  pushd builder-$i
+  echo "building builder-${i}"
+  pushd builder-${i}
     sed -i.bak -e "s/FROM .*/FROM ${DOCKER_ORG}\/builder-base:${VERSION}/" Dockerfile
     rm Dockerfile.bak
     head -n 1 Dockerfile
-    docker build ${CACHE} -t ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-$i:${VERSION} -f Dockerfile .
+    echo "Building ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-${i}:${VERSION}"
+    docker build ${CACHE} -t ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-${i}:${VERSION} -f Dockerfile . > /dev/null
   popd
 done
 
