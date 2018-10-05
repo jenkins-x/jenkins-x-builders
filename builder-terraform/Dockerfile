@@ -1,4 +1,4 @@
-FROM garethjevans/builder-base:1
+FROM jenkinsxio/builder-base:1
 
 ENV TERRAFORM 0.11.7
 RUN wget https://releases.hashicorp.com/terraform/${TERRAFORM}/terraform_${TERRAFORM}_linux_amd64.zip && \
