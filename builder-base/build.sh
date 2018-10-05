@@ -21,8 +21,10 @@ echo "" >> Dockerfile
 cat Dockerfile.yum >> Dockerfile
 cat Dockerfile.common >> Dockerfile
 
-docker build ${CACHE} -t ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-base:${VERSION} -f Dockerfile .
-docker build ${CACHE} -t ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-slim:${VERSION} -f Dockerfile.slim .
+echo "Building ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-base:${VERSION}"
+docker build ${CACHE} -t ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-base:${VERSION} -f Dockerfile . > /dev/null 2>&1
+echo "Building ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-slim:${VERSION}"
+docker build ${CACHE} -t ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-slim:${VERSION} -f Dockerfile.slim . > /dev/null 2>&1
 
 if [ "$PUSH" = "true" ]; then
   echo "Pushing the docker image"

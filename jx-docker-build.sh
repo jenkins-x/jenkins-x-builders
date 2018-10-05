@@ -30,7 +30,7 @@ do
     sed -i.bak -e "s/FROM .*/FROM ${DOCKER_ORG}\/builder-base:${VERSION}/" Dockerfile
     rm Dockerfile.bak
     head -n 1 Dockerfile
-    docker build ${CACHE} -t ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-$i:${VERSION} -f Dockerfile .
+    docker build ${CACHE} -t ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-$i:${VERSION} -f Dockerfile . > /dev/null 2>&1
   popd
 done
 
