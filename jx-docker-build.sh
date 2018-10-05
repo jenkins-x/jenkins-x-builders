@@ -15,6 +15,7 @@ export PUSH=false
 export PUSH_LATEST=false
 #export CACHE=--no-cache
 export CACHE=""
+export SED='sed -i "" -e'
 
 pushd builder-base
 	./build.sh
@@ -27,9 +28,9 @@ for i in $BUILDERS
 do
     echo "building builder-$i"
 	pushd builder-$i
-		sed -i "s/FROM .*/FROM ${DOCKER_ORG}\/builder-base:${TAG}/" Dockerfile
+		${SED} "s/FROM .*/FROM ${DOCKER_ORG}\/builder-base:${TAG}/" Dockerfile
 		head -n 1 Dockerfile
-    	docker build -t ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-$i:${TAG} -f Dockerfile .
+    	docker build ${CACHE} -t ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-$i:${TAG} -f Dockerfile .
 	popd
 done
 
