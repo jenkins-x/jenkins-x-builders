@@ -9,9 +9,9 @@ VERSION=$1
 #RELEASE=$3
 
 export DOCKER_REGISTRY=docker.io
-export DOCKER_ORG=garethjevans
+export DOCKER_ORG=jenkinsxio
 export VERSION=$1
-export PUSH=true
+export PUSH=false
 export PUSH_LATEST=false
 #export CACHE=--no-cache
 export CACHE=""
