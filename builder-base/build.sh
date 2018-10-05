@@ -54,7 +54,7 @@ function build_image {
   cat Dockerfile.apt >> Dockerfile.$name
   cat Dockerfile.common >> Dockerfile.$name
 
-  docker build -t ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-$name:${VERSION} -f Dockerfile.$name . > /dev/null 2>&
+  docker build -t ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-$name:${VERSION} -f Dockerfile.$name . > /dev/null 2>&1
 
   if [ "$PUSH" = "true" ]; then
     echo "Pushing the docker image"
