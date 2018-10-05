@@ -1,4 +1,4 @@
-FROM garethjevans/builder-base:dev_1
+FROM garethjevans/builder-base:1
 
 CMD ["gradle"]
 

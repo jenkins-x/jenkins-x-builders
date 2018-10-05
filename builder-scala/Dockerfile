@@ -1,4 +1,4 @@
-FROM garethjevans/builder-base:dev_1
+FROM garethjevans/builder-base:1
 
 ENV SCALA_VERSION 2.12.5
 ENV SBT_VERSION 1.1.2

@@ -1,4 +1,4 @@
-FROM garethjevans/builder-base:dev_1
+FROM garethjevans/builder-base:1
 
 # Maven
 ENV MAVEN_VERSION 3.5.3

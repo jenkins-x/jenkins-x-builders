@@ -1,4 +1,4 @@
-FROM garethjevans/builder-base:dev_1
+FROM garethjevans/builder-base:1
 
 RUN yum install -y https://centos7.iuscommunity.org/ius-release.rpm
 RUN yum update  -y
