@@ -12,13 +12,11 @@ export PUSH_LATEST=false
 #export CACHE=--no-cache
 export CACHE=""
 
+export DOCKER_REGISTRY=docker.io
+
 pushd builder-base
   ./build.sh
 popd
-
-if [ "release" == "${RELEASE}" ]; then
-  export DOCKER_REGISTRY=docker.io
-fi
 
 BUILDERS="dlang go-maven gradle maven nodejs python python2 rust scala terraform"
 BROKEN="dotnet go"
