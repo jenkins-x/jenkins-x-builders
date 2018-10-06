@@ -18,8 +18,8 @@ pushd builder-base
   ./build.sh
 popd
 
-BUILDERS="dlang go-maven gradle maven nodejs python python2 rust scala terraform"
-BROKEN="dotnet go"
+BUILDERS="dlang go go-maven gradle maven nodejs python python2 rust scala terraform"
+BROKEN="dotnet"
 ## now loop through the above array
 for i in $BUILDERS
 do
