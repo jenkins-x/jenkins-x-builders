@@ -19,6 +19,7 @@ pipeline {
         steps {
           checkout scm
           sh 'export VERSION=$PREVIEW_VERSION'
+          sh 'export PUSH=false'
           sh './jx-docker-build.sh $PREVIEW_VERSION $DOCKER_ORG pr'
         }
       }
@@ -27,6 +28,7 @@ pipeline {
           branch 'master'
         }
         steps {
+          sh 'export PUSH=true'
           git 'https://github.com/jenkins-x/jenkins-x-builders.git'
           sh "git config --global credential.helper store"
           sh "jx step validate --min-jx-version 1.1.73"
