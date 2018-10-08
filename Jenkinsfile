@@ -15,6 +15,7 @@ pipeline {
           PREVIEW_VERSION = "0.0.0-SNAPSHOT-$BRANCH_NAME-$BUILD_NUMBER"
           PREVIEW_NAMESPACE = "$APP_NAME-$BRANCH_NAME".toLowerCase()
           HELM_RELEASE = "$PREVIEW_NAMESPACE".toLowerCase()
+          PUSH = "false"
         }
         steps {
           checkout scm
@@ -26,6 +27,9 @@ pipeline {
         when {
           branch 'master'
         }
+        environment {
+          PUSH = "true"
+		}
         steps {
           git 'https://github.com/jenkins-x/jenkins-x-builders.git'
           sh "git config --global credential.helper store"
