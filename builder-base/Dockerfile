@@ -31,6 +31,7 @@ RUN curl -f -o ./endpoint-repo-1.7-1.x86_64.rpm https://packages.endpoint.com/rh
 RUN yum install -y java-1.8.0-openjdk-devel \
     java-1.8.0-openjdk-devel.i686
 
+ENV JX_VERSION 1.3.393
 # USER jenkins
 WORKDIR /home/jenkins
 
@@ -111,7 +112,6 @@ RUN curl -f -LO https://storage.googleapis.com/kubernetes-release/release/$(curl
   mv kubectl /usr/bin/
 
 # jx
-ENV JX_VERSION 1.3.375
 RUN curl -f -L https://github.com/jenkins-x/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv && \
   mv jx /usr/bin/
 
