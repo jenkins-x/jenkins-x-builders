@@ -15,11 +15,11 @@ pipeline {
           PREVIEW_VERSION = "0.0.0-SNAPSHOT-$BRANCH_NAME-$BUILD_NUMBER"
           PREVIEW_NAMESPACE = "$APP_NAME-$BRANCH_NAME".toLowerCase()
           HELM_RELEASE = "$PREVIEW_NAMESPACE".toLowerCase()
+          PUSH = "false"
         }
         steps {
           checkout scm
           sh 'export VERSION=$PREVIEW_VERSION'
-          sh 'export PUSH=false'
           sh './jx-docker-build.sh $PREVIEW_VERSION $DOCKER_ORG pr'
         }
       }
@@ -27,8 +27,10 @@ pipeline {
         when {
           branch 'master'
         }
+        environment {
+          PUSH = "true"
+		}
         steps {
-          sh 'export PUSH=true'
           git 'https://github.com/jenkins-x/jenkins-x-builders.git'
           sh "git config --global credential.helper store"
           sh "jx step validate --min-jx-version 1.1.73"
