@@ -53,3 +53,22 @@ do
     echo "Not pushing the docker image as PUSH=${PUSH}"
   fi
 done
+
+if [ "release" == "${RELEASE}" ]; then
+  updatebot push-version --kind \
+    helm jenkinsxio/builder-base ${VERSION} \
+    docker jenkinsxio/builder-slim ${VERSION} \
+    jenkinsxio/builder-ruby ${VERSION} \
+    jenkinsxio/builder-swift ${VERSION} \
+    jenkinsxio/builder-dlang ${VERSION} \
+    jenkinsxio/builder-go ${VERSION} \
+    jenkinsxio/builder-go-maven ${VERSION} \
+    jenkinsxio/builder-gradle ${VERSION} \
+    jenkinsxio/builder-maven ${VERSION} \
+    jenkinsxio/builder-nodejs ${VERSION} \
+    jenkinsxio/builder-python ${VERSION} \
+    jenkinsxio/builder-python2 ${VERSION} \
+    jenkinsxio/builder-rust ${VERSION} \
+    jenkinsxio/builder-scala ${VERSION} \
+    jenkinsxio/builder-terraform ${VERSION}
+fi
