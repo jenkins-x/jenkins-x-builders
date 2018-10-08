@@ -55,9 +55,9 @@ do
 done
 
 if [ "release" == "${RELEASE}" ]; then
-  updatebot push-version --kind \
-    helm jenkinsxio/builder-base ${VERSION} \
-    docker jenkinsxio/builder-slim ${VERSION} \
+  updatebot push-version --kind helm \
+    jenkinsxio/builder-base ${VERSION} \
+    jenkinsxio/builder-slim ${VERSION} \
     jenkinsxio/builder-ruby ${VERSION} \
     jenkinsxio/builder-swift ${VERSION} \
     jenkinsxio/builder-dlang ${VERSION} \
