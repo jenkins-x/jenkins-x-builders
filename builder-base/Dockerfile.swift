@@ -17,6 +17,7 @@ RUN apt-get install -y libappindicator1 fonts-liberation libasound2 libnspr4 lib
     rm google-chrome*.deb
  
 
+ENV JX_VERSION 1.3.403
 # USER jenkins
 WORKDIR /home/jenkins
 
@@ -97,7 +98,6 @@ RUN curl -f -LO https://storage.googleapis.com/kubernetes-release/release/$(curl
   mv kubectl /usr/bin/
 
 # jx
-ENV JX_VERSION 1.3.375
 RUN curl -f -L https://github.com/jenkins-x/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv && \
   mv jx /usr/bin/
 
