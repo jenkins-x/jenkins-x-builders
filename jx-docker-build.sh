@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
+#
+# Usage: jx-docker-build.sh VERSION release|do-not-release
+#
+# This script relies on these environment variables:
+#   DOCKER_ORG - docker organization
+#   PUSH       - true|false
 
 set -o errexit
 set -o nounset
@@ -17,14 +23,15 @@ pushd builder-base
   ./build.sh
 popd
 
-BUILDERS="dlang go go-maven gradle maven nodejs python python2 rust scala terraform"
+## newman depends on nodejs, so order is important
+BUILDERS="dlang go go-maven gradle maven nodejs newman python python2 rust scala terraform"
 BROKEN="dotnet"
 ## now loop through the above array
 for i in $BUILDERS
 do
   echo "building builder-${i}"
   pushd builder-${i}
-    sed -i.bak -e "s/FROM .*/FROM ${DOCKER_ORG}\/builder-base:${VERSION}/" Dockerfile
+    sed -i.bak -e "s/FROM \(.*\)\/builder-\(.*\):\(.*\)/FROM ${DOCKER_ORG}\/builder-\2:${VERSION}/" Dockerfile
     rm Dockerfile.bak
     head -n 1 Dockerfile
     echo "Building ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-${i}:${VERSION}"
@@ -65,6 +72,7 @@ if [ "release" == "${RELEASE}" ]; then
     jenkinsxio/builder-go-maven ${VERSION} \
     jenkinsxio/builder-gradle ${VERSION} \
     jenkinsxio/builder-maven ${VERSION} \
+    jenkinsxio/builder-newman ${VERSION} \
     jenkinsxio/builder-nodejs ${VERSION} \
     jenkinsxio/builder-python ${VERSION} \
     jenkinsxio/builder-python2 ${VERSION} \
