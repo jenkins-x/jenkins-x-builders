@@ -3,3 +3,6 @@ github:
   - name: jenkins-x
     includes:
     - jenkins-x-platform
+  - name: jenkins-x-charts
+    includes:
+    - jx-build-templates

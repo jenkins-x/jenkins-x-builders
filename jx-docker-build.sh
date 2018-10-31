@@ -85,4 +85,5 @@ if [ "release" == "${RELEASE}" ]; then
     jenkinsxio/builder-rust ${VERSION} \
     jenkinsxio/builder-scala ${VERSION} \
     jenkinsxio/builder-terraform ${VERSION}
+  updatebot push-regex -r "builderTag: (.*)" -v ${VERSION} jx-build-templates/values.yaml
 fi
