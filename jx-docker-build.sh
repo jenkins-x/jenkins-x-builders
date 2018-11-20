@@ -24,7 +24,7 @@ pushd builder-base
 popd
 
 ## newman depends on nodejs, so order is important
-BUILDERS="dlang go go-maven gradle maven nodejs newman python python2 rust scala terraform"
+BUILDERS="dlang go go-maven gradle maven maven-java11 nodejs newman python python2 rust scala terraform"
 BROKEN="dotnet"
 ## now loop through the above array
 for i in $BUILDERS
