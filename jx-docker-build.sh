@@ -78,6 +78,7 @@ if [ "release" == "${RELEASE}" ]; then
     jenkinsxio/builder-go-maven ${VERSION} \
     jenkinsxio/builder-gradle ${VERSION} \
     jenkinsxio/builder-maven ${VERSION} \
+    jenkinsxio/builder-maven-java11 ${VERSION} \
     jenkinsxio/builder-newman ${VERSION} \
     jenkinsxio/builder-nodejs ${VERSION} \
     jenkinsxio/builder-python ${VERSION} \
