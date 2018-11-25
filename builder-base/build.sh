@@ -2,6 +2,27 @@
 set -e
 set -u 
 
+# Retries a command on failure.
+# $1 - the max number of attempts
+# $2... - the command to run
+retry() {
+    local -r -i max_attempts="$1"; shift
+    local -r cmd="$@"
+    local -i attempt_num=1
+
+    until $cmd
+    do
+        if (( attempt_num == max_attempts ))
+        then
+            echo "Attempt $attempt_num failed and there are no more attempts left!"
+            return 1
+        else
+            echo "Attempt $attempt_num failed! Trying again in $attempt_num seconds..."
+            sleep $(( attempt_num++ ))
+        fi
+    done
+}
+
 if [ "$VERSION" = "" ]
 then
   echo "No VERSION env var so assuming a snapshot!"
@@ -23,20 +44,20 @@ cat ../Dockerfile.common >> Dockerfile
 cat Dockerfile.common >> Dockerfile
 
 echo "Building ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-base:${VERSION}"
-docker build ${CACHE} -t ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-base:${VERSION} -f Dockerfile .
+retry 5 docker build ${CACHE} -t ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-base:${VERSION} -f Dockerfile .
 echo "Building ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-slim:${VERSION}"
-docker build ${CACHE} -t ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-slim:${VERSION} -f Dockerfile.slim .
+retry 5 docker build ${CACHE} -t ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-slim:${VERSION} -f Dockerfile.slim .
 
 if [ "$PUSH" = "true" ]; then
   echo "Pushing the docker image"
-  docker push ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-base:${VERSION}
-  docker push ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-slim:${VERSION}
+  retry 5 docker push ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-base:${VERSION}
+  retry 5 docker push ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-slim:${VERSION}
 
   if [ "$PUSH_LATEST" = "true" ]; then
-    docker tag ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-base:${VERSION} ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-base:latest
-    docker push ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-base:latest
-    docker tag ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-slim:${VERSION} ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-slim:latest
-    docker push ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-slim:latest
+    retry 5 docker tag ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-base:${VERSION} ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-base:latest
+    retry 5 docker push ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-base:latest
+    retry 5 docker tag ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-slim:${VERSION} ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-slim:latest
+    retry 5 docker push ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-slim:latest
   else
     echo "Not pushing the latest docker image as PUSH_LATEST=$PUSH_LATEST"
   fi
@@ -56,15 +77,15 @@ function build_image {
   cat ../Dockerfile.common >> Dockerfile.$name
   cat Dockerfile.common >> Dockerfile.$name
 
-  docker build -t ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-$name:${VERSION} -f Dockerfile.$name . > /dev/null 2>&1
+  retry 5 docker build -t ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-$name:${VERSION} -f Dockerfile.$name . > /dev/null 2>&1
 
   if [ "$PUSH" = "true" ]; then
     echo "Pushing the docker image"
-    docker push ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-$name:${VERSION}
+    retry 5 docker push ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-$name:${VERSION}
 
     if [ "$PUSH_LATEST" = "true" ]; then
-      docker tag ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-$name:${VERSION} ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-$name:latest
-      docker push ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-$name:latest
+      retry 5 docker tag ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-$name:${VERSION} ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-$name:latest
+      retry 5 docker push ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-$name:latest
     else
       echo "Not pushing the latest docker image as PUSH_LATEST=$PUSH_LATEST"
     fi
