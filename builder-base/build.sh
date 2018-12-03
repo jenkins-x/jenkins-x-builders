@@ -45,6 +45,12 @@ cat Dockerfile.common >> Dockerfile
 
 echo "Building ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-base:${VERSION}"
 retry 5 docker build ${CACHE} -t ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-base:${VERSION} -f Dockerfile .
+
+echo "FROM centos:7" > Dockerfile.slim
+echo "" >> Dockerfile.slim
+cat ../Dockerfile.common >> Dockerfile.slim
+cat Dockerfile.slim.commands >> Dockerfile.slim
+
 echo "Building ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-slim:${VERSION}"
 retry 5 docker build ${CACHE} -t ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-slim:${VERSION} -f Dockerfile.slim .
 

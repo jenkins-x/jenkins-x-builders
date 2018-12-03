@@ -1,7 +1,5 @@
-FROM centos:7
 
 # helm
-ENV HELM_VERSION 2.10.0
 RUN curl -f https://storage.googleapis.com/kubernetes-helm/helm-v${HELM_VERSION}-linux-amd64.tar.gz  | tar xzv && \
   mv linux-amd64/helm /usr/bin/ && \
   rm -rf linux-amd64
@@ -19,7 +17,6 @@ RUN curl -f -L https://github.com/jstrachan/helm/releases/download/untagged-9337
   mv helm /usr/bin/helm3
 
 # jx-release-version
-ENV JX_RELEASE_VERSION 1.0.10
 RUN curl -f -o ./jx-release-version -L https://github.com/jenkins-x/jx-release-version/releases/download/v${JX_RELEASE_VERSION}/jx-release-version-linux && \
   mv jx-release-version /usr/bin/ && \
   chmod +x /usr/bin/jx-release-version
@@ -30,7 +27,6 @@ RUN curl -f -LO https://storage.googleapis.com/kubernetes-release/release/$(curl
   mv kubectl /usr/bin/
 
 # jx
-ENV JX_VERSION 1.3.375
 RUN curl -f -L https://github.com/jenkins-x/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv && \
   mv jx /usr/bin/
 
