@@ -19,5 +19,5 @@ docker push docker.io/$ORG/$APP_NAME:latest
 git tag -fa v${VERSION} -m "Release version ${VERSION}"
 git push origin v${VERSION}
 
-updatebot push-version --kind helm jenkinsxio/builder-maven-64 ${VERSION}
+updatebot push-version --kind helm jenkinsxio/builder-maven-32 ${VERSION}
 updatebot update-loop

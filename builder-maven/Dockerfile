@@ -1,4 +1,4 @@
-FROM jenkinsxio/builder-base:1
+FROM jenkinsxio/builder-base:0.1.114
 
 # Maven
 ENV MAVEN_VERSION 3.5.3
@@ -7,9 +7,5 @@ ENV M2_HOME /opt/apache-maven-$MAVEN_VERSION
 ENV maven.home $M2_HOME
 ENV M2 $M2_HOME/bin
 ENV PATH $M2:$PATH
-
-# Set JDK to be 32bit
-COPY set_java $M2
-RUN $M2/set_java && rm $M2/set_java
 
 CMD ["mvn","-version"]
