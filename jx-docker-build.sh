@@ -45,7 +45,7 @@ pushd builder-base
 popd
 
 ## newman depends on nodejs, so order is important
-BUILDERS="dlang go go-maven gradle maven maven-java11 maven-32 nodejs newman python python2 rust scala terraform"
+BUILDERS="dlang go go-maven gradle maven maven-java11 maven-32 nodejs newman python python2 python37 rust scala terraform"
 BROKEN="dotnet"
 ## now loop through the above array
 for i in $BUILDERS
@@ -105,6 +105,7 @@ if [ "release" == "${RELEASE}" ]; then
     jenkinsxio/builder-nodejs ${VERSION} \
     jenkinsxio/builder-python ${VERSION} \
     jenkinsxio/builder-python2 ${VERSION} \
+    jenkinsxio/builder-python37 ${VERSION} \
     jenkinsxio/builder-rust ${VERSION} \
     jenkinsxio/builder-scala ${VERSION} \
     jenkinsxio/builder-terraform ${VERSION}
