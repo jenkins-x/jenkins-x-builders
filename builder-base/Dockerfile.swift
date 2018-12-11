@@ -17,17 +17,27 @@ RUN apt-get install -y libappindicator1 fonts-liberation libasound2 libnspr4 lib
     rm google-chrome*.deb
  
 
+# lets keep all the main versions of components used in this file
+# to make life easier for updatebot to auto-Pull Request this stuff
+
+ENV DOCKER_VERSION 17.12.0
+ENV EXPOSECONTROLLER_VERSION 2.3.34
+ENV GCLOUD_VERSION 222.0.0
+ENV HELM_VERSION 2.11.0
+ENV JX_RELEASE_VERSION 1.0.10
+ENV JX_VERSION 1.3.646
+ENV SKAFFOLD_VERSION 0.19.0
+ENV UPDATEBOT_VERSION 1.1.31
+ENV REFLEX_VERSION 0.3.1
 # USER jenkins
 WORKDIR /home/jenkins
 
 # Docker
-ENV DOCKER_VERSION 17.12.0
 RUN curl -f https://download.docker.com/linux/static/stable/x86_64/docker-$DOCKER_VERSION-ce.tgz | tar xvz && \
   mv docker/docker /usr/bin/ && \
   rm -rf docker
 
 # helm
-ENV HELM_VERSION 2.10.0
 RUN curl -f https://storage.googleapis.com/kubernetes-helm/helm-v${HELM_VERSION}-linux-amd64.tar.gz  | tar xzv && \
   mv linux-amd64/helm /usr/bin/ && \
   rm -rf linux-amd64
@@ -53,7 +63,6 @@ RUN curl -f -L https://github.com/jstrachan/helm/releases/download/untagged-9337
 RUN rm *.tgz
 
 # gcloud
-ENV GCLOUD_VERSION 187.0.0
 RUN curl -f -L https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-${GCLOUD_VERSION}-linux-x86_64.tar.gz | tar xzv && \
   mv google-cloud-sdk /usr/bin/
 ENV PATH=$PATH:/usr/bin/google-cloud-sdk/bin
@@ -62,25 +71,21 @@ ENV PATH=$PATH:/usr/bin/google-cloud-sdk/bin
 RUN gcloud components install docker-credential-gcr
 
 # jx-release-version
-ENV JX_RELEASE_VERSION 1.0.10
 RUN curl -f -o ./jx-release-version -L https://github.com/jenkins-x/jx-release-version/releases/download/v${JX_RELEASE_VERSION}/jx-release-version-linux && \
   mv jx-release-version /usr/bin/ && \
   chmod +x /usr/bin/jx-release-version
 
 # exposecontroller
-ENV EXPOSECONTROLLER_VERSION 2.3.34
 RUN curl -f -L https://github.com/fabric8io/exposecontroller/releases/download/v$EXPOSECONTROLLER_VERSION/exposecontroller-linux-amd64 > exposecontroller && \
   chmod +x exposecontroller && \
   mv exposecontroller /usr/bin/
 
 # skaffold
-ENV SKAFFOLD_VERSION 0.11.0
 RUN curl -f -Lo skaffold https://github.com/GoogleCloudPlatform/skaffold/releases/download/v${SKAFFOLD_VERSION}/skaffold-linux-amd64 && \
   chmod +x skaffold && \
   mv skaffold /usr/bin
 
 # updatebot
-ENV UPDATEBOT_VERSION 1.1.26
 RUN curl -f  -o ./updatebot -L https://oss.sonatype.org/content/groups/public/io/jenkins/updatebot/updatebot/${UPDATEBOT_VERSION}/updatebot-${UPDATEBOT_VERSION}.jar && \
   chmod +x updatebot && \
   cp updatebot /usr/bin/ && \
@@ -97,7 +102,6 @@ RUN curl -f -LO https://storage.googleapis.com/kubernetes-release/release/$(curl
   mv kubectl /usr/bin/
 
 # jx
-ENV JX_VERSION 1.3.375
 RUN curl -f -L https://github.com/jenkins-x/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv && \
   mv jx /usr/bin/
 
@@ -117,7 +121,6 @@ RUN mkdir acr && \
     rm -rf acr
     
 # reflex
-ENV REFLEX_VERSION 0.3.1
 RUN curl -f -L https://github.com/ccojocar/reflex/releases/download/v${REFLEX_VERSION}/reflex_${REFLEX_VERSION}_linux_amd64.tar.gz | tar xzv && \
   mv reflex /usr/bin/
 
