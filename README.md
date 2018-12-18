@@ -1,10 +1,11 @@
 # jenkins-x-builders
 
-a monorepo containing all lvlstudio builders for jenkins-x.
+a monorepo containing builders for jenkins-x modified by lvlstudio.
 
-Select BUILDER_BASE_VERSION as a recent tag from
-https://hub.docker.com/r/jenkinsxio/builder-base/tags
-
+Usage:
 ```
 ./lvl-docker-build.sh BUILDER_BASE_VERSION
 ```
+
+Select the BUILDER_BASE_VERSION from a recent tag @
+https://hub.docker.com/r/jenkinsxio/builder-base/tags
