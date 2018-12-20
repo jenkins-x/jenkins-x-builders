@@ -1,0 +1,57 @@
+apiVersion: skaffold/v1beta1
+kind: Config
+build:
+  tagPolicy:
+    envTemplate:
+      template: "{{.IMAGE_NAME}}:{{.VERSION}}"
+  artifacts:
+  - image: gcr.io/jenkinsx-dev/builder-dlang
+    context: builder-dlang
+    docker: {}
+  - image: gcr.io/jenkinsx-dev/builder-go
+    context: builder-go
+    docker: {}
+  - image: gcr.io/jenkinsx-dev/builder-go-maven
+    context: builder-go-maven
+    docker: {}
+  - image: gcr.io/jenkinsx-dev/builder-gradle
+    context: builder-gradle
+    docker: {}
+  - image: gcr.io/jenkinsx-dev/builder-maven
+    context: builder-maven
+    docker: {}
+  - image: gcr.io/jenkinsx-dev/builder-maven-java11
+    context: builder-maven-java11
+    docker: {}
+  - image: gcr.io/jenkinsx-dev/builder-maven-32
+    context: builder-maven-32
+    docker: {}
+  - image: gcr.io/jenkinsx-dev/builder-nodejs
+    context: builder-nodejs
+    docker: {}
+  - image: gcr.io/jenkinsx-dev/builder-newman
+    context: builder-newman
+    docker: {}
+  - image: gcr.io/jenkinsx-dev/builder-python
+    context: builder-python
+    docker: {}
+  - image: gcr.io/jenkinsx-dev/builder-python2
+    context: builder-python2
+    docker: {}
+  - image: gcr.io/jenkinsx-dev/builder-python37
+    context: builder-python37
+    docker: {}
+  - image: gcr.io/jenkinsx-dev/builder-rust
+    context: builder-rust
+    docker: {}
+  - image: gcr.io/jenkinsx-dev/builder-scala
+    context: builder-scala
+    docker: {}
+  - image: gcr.io/jenkinsx-dev/builder-terraform
+    context: builder-terraform
+    docker: {}
+  googleCloudBuild:
+    projectId: jenkinsx-dev
+deploy:
+  kubectl:
+    manifests:
