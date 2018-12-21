@@ -23,6 +23,7 @@ build:
   googleCloudBuild:
     projectId: jenkinsxio
     timeout: 1200s
+    machineType: "N1_HIGHCPU_32"
 deploy:
   kubectl:
     manifests:
