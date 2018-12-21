@@ -22,6 +22,7 @@ build:
     docker: {}
   googleCloudBuild:
     projectId: jenkinsxio
+    timeout: 20m
 deploy:
   kubectl:
     manifests:
