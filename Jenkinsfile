@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
       ORG               = 'jenkins-x'
-      DOCKER_ORG        = 'jenkinsx-dev'
+      DOCKER_ORG        = 'jenkinsxio'
       APP_NAME          = 'jenkins-x-builders'
       GIT_PROVIDER      = 'github.com'
     }

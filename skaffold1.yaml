@@ -5,23 +5,23 @@ build:
     envTemplate:
       template: "{{.IMAGE_NAME}}:{{.VERSION}}"
   artifacts:
-  - image: gcr.io/jenkinsx-dev/builder-dlang
+  - image: gcr.io/jenkinsxio/builder-dlang
     context: builder-dlang
     docker: {}
-  - image: gcr.io/jenkinsx-dev/builder-go
+  - image: gcr.io/jenkinsxio/builder-go
     context: builder-go
     docker: {}
-  - image: gcr.io/jenkinsx-dev/builder-go-maven
+  - image: gcr.io/jenkinsxio/builder-go-maven
     context: builder-go-maven
     docker: {}
-  - image: gcr.io/jenkinsx-dev/builder-gradle
+  - image: gcr.io/jenkinsxio/builder-gradle
     context: builder-gradle
     docker: {}
-  - image: gcr.io/jenkinsx-dev/builder-maven
+  - image: gcr.io/jenkinsxio/builder-maven
     context: builder-maven
     docker: {}
   googleCloudBuild:
-    projectId: jenkinsx-dev
+    projectId: jenkinsxio
 deploy:
   kubectl:
     manifests:
