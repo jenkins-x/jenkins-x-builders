@@ -1,4 +1,12 @@
-FROM jenkinsxio/builder-maven:0.1.9
+FROM jenkinsxio/builder-base:1
+
+# Maven
+ENV MAVEN_VERSION 3.5.3
+RUN curl -f -L http://central.maven.org/maven2/org/apache/maven/apache-maven/$MAVEN_VERSION/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar -C /opt -xzv
+ENV M2_HOME /opt/apache-maven-$MAVEN_VERSION
+ENV maven.home $M2_HOME
+ENV M2 $M2_HOME/bin
+ENV PATH $M2:$PATH
 
 RUN curl https://download.java.net/java/ga/jdk11/openjdk-11_linux-x64_bin.tar.gz | tar -xz
 RUN mv /home/jenkins/jdk-11 /usr/java
