@@ -1,0 +1,28 @@
+apiVersion: skaffold/v1beta1
+kind: Config
+build:
+  tagPolicy:
+    envTemplate:
+      template: "{{.IMAGE_NAME}}:{{.VERSION}}"
+  artifacts:
+  - image: gcr.io/jenkinsx-dev/builder-base
+    context: .
+    docker:
+      dockerfile: Dockerfile.base
+  - image: gcr.io/jenkinsx-dev/builder-slim
+    context: .
+    docker:
+      dockerfile: Dockerfile.slim
+  - image: gcr.io/jenkinsx-dev/builder-ruby
+    context: .
+    docker:
+      dockerfile: Dockerfile.ruby
+  - image: gcr.io/jenkinsx-dev/builder-swift
+    context: .
+    docker:
+      dockerfile: Dockerfile.swift
+  googleCloudBuild:
+    projectId: jenkinsx-dev
+deploy:
+  kubectl:
+    manifests:
