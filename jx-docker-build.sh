@@ -62,7 +62,7 @@ if [ "release" == "${RELEASE}" ]; then
   jx step tag --version ${VERSION}
 fi
 
-skaffold build -v debug
+skaffold build
 
 if [ "release" == "${RELEASE}" ]; then
   updatebot push-version --kind helm \

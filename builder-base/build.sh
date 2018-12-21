@@ -59,4 +59,4 @@ function build_image {
 build_image "ruby" "ruby:2.5.1"
 build_image "swift" "swift:4.0.3"
 
-skaffold build -v debug
+skaffold build
