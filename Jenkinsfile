@@ -19,6 +19,7 @@ pipeline {
         }
         steps {
           checkout scm
+          sh "gcloud auth configure-docker"
           sh 'export VERSION=$PREVIEW_VERSION'
           sh './jx-docker-build.sh $PREVIEW_VERSION pr'
         }
