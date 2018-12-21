@@ -20,18 +20,6 @@ build:
   - image: gcr.io/jenkinsx-dev/builder-maven
     context: builder-maven
     docker: {}
-  - image: gcr.io/jenkinsx-dev/builder-maven-java11
-    context: builder-maven-java11
-    docker: {}
-  - image: gcr.io/jenkinsx-dev/builder-maven-32
-    context: builder-maven-32
-    docker: {}
-  - image: gcr.io/jenkinsx-dev/builder-nodejs
-    context: builder-nodejs
-    docker: {}
-  - image: gcr.io/jenkinsx-dev/builder-newman
-    context: builder-newman
-    docker: {}
   googleCloudBuild:
     projectId: jenkinsx-dev
 deploy:
