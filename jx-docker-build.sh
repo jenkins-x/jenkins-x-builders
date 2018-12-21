@@ -38,7 +38,7 @@ export PUSH_LATEST=false
 #export CACHE=--no-cache
 export CACHE=""
 
-export DOCKER_REGISTRY=docker.io
+export DOCKER_REGISTRY=gcr.io
 
 pushd builder-base
   ./build.sh
@@ -52,7 +52,7 @@ for i in $BUILDERS
 do
   echo "updating builder-${i}"
   pushd builder-${i}
-    sed -i.bak -e "s/FROM \(.*\)\/builder-\(.*\):\(.*\)/FROM ${DOCKER_ORG}\/builder-\2:${VERSION}/" Dockerfile
+    sed -i.bak -e "s/FROM \(.*\)\/builder-\(.*\):\(.*\)/FROM ${DOCKER_REGISTRY}\/${DOCKER_ORG}\/builder-\2:${VERSION}/" Dockerfile
     rm Dockerfile.bak
     head -n 1 Dockerfile
   popd
