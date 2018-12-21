@@ -23,7 +23,7 @@ build:
       dockerfile: Dockerfile.swift
   googleCloudBuild:
     projectId: jenkinsxio
-    timeout: 20m
+    timeout: 1200s
 deploy:
   kubectl:
     manifests:
