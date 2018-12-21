@@ -1,0 +1,30 @@
+apiVersion: skaffold/v1beta1
+kind: Config
+build:
+  tagPolicy:
+    envTemplate:
+      template: "{{.IMAGE_NAME}}:{{.VERSION}}"
+  artifacts:
+  - image: gcr.io/jenkinsx-dev/builder-python
+    context: builder-python
+    docker: {}
+  - image: gcr.io/jenkinsx-dev/builder-python2
+    context: builder-python2
+    docker: {}
+  - image: gcr.io/jenkinsx-dev/builder-python37
+    context: builder-python37
+    docker: {}
+  - image: gcr.io/jenkinsx-dev/builder-rust
+    context: builder-rust
+    docker: {}
+  - image: gcr.io/jenkinsx-dev/builder-scala
+    context: builder-scala
+    docker: {}
+  - image: gcr.io/jenkinsx-dev/builder-terraform
+    context: builder-terraform
+    docker: {}
+  googleCloudBuild:
+    projectId: jenkinsx-dev
+deploy:
+  kubectl:
+    manifests:
