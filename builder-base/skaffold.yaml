@@ -8,7 +8,7 @@ build:
   - image: gcr.io/jenkinsx-dev/builder-base
     context: .
     docker:
-      dockerfile: Dockerfile.base
+      dockerfile: Dockerfile
   - image: gcr.io/jenkinsx-dev/builder-slim
     context: .
     docker:
