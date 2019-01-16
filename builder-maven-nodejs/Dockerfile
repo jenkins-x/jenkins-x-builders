@@ -1,4 +1,4 @@
-FROM jenkinsxio/builder-maven-java11:0.1.166
+FROM jenkinsxio/builder-maven-java11:0.1.195
 
 RUN curl -f --silent --location https://rpm.nodesource.com/setup_9.x | bash - && \
   yum install -y nodejs gcc-c++ make bzip2 GConf2 gtk2 chromedriver chromium xorg-x11-server-Xvfb
