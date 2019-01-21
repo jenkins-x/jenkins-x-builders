@@ -20,9 +20,11 @@ pipeline {
           PUSH = "true"
         }
         steps {
-          checkout scm
-          sh 'export VERSION=$PREVIEW_VERSION'
-          sh './jx-docker-build.sh $PREVIEW_VERSION pr'
+          container('jx-base') {
+            //checkout scm
+            sh 'export VERSION=$PREVIEW_VERSION'
+            sh './jx-docker-build.sh $PREVIEW_VERSION pr'
+          }
         }
       }
       stage('Build Release') {
@@ -33,14 +35,16 @@ pipeline {
           PUSH = "true"
 		}
         steps {
-          git 'https://github.com/jenkins-x/jenkins-x-builders.git'
-          sh "git config --global credential.helper store"
-          sh "jx step validate --min-jx-version 1.1.73"
-          sh "jx step git credentials"
-          sh "echo \$(jx-release-version) > VERSION"
-          sh 'export VERSION=`cat VERSION`'
-          sh "jx step validate --min-jx-version 1.2.36"
-          sh './jx-docker-build.sh `cat VERSION` release'
+          container('jx-base') {
+            git 'https://github.com/jenkins-x/jenkins-x-builders.git'
+            sh "git config --global credential.helper store"
+            sh "jx step validate --min-jx-version 1.1.73"
+            sh "jx step git credentials"
+            sh "echo \$(jx-release-version) > VERSION"
+            sh 'export VERSION=`cat VERSION`'
+            sh "jx step validate --min-jx-version 1.2.36"
+            sh './jx-docker-build.sh `cat VERSION` release'
+          }
         }
       }
     }
