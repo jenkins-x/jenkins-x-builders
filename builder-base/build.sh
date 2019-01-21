@@ -53,13 +53,15 @@ if [ "$PUSH" = "true" ]; then
   retry 5 docker push ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-base:${VERSION}
   retry 5 docker push ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-slim:${VERSION}
 
-  if [ "$PUSH_LATEST" = "true" ]; then
-    retry 5 docker tag ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-base:${VERSION} ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-base:latest
-    retry 5 docker push ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-base:latest
-    retry 5 docker tag ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-slim:${VERSION} ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-slim:latest
-    retry 5 docker push ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-slim:latest
-  else
-    echo "Not pushing the latest docker image as PUSH_LATEST=$PUSH_LATEST"
+  if [ "release" == "${RELEASE}" ]; then
+    if [ "$PUSH_LATEST" = "true" ]; then
+      retry 5 docker tag ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-base:${VERSION} ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-base:latest
+      retry 5 docker push ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-base:latest
+      retry 5 docker tag ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-slim:${VERSION} ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-slim:latest
+      retry 5 docker push ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-slim:latest
+    else
+      echo "Not pushing the latest docker image as PUSH_LATEST=$PUSH_LATEST"
+    fi
   fi
 else
   echo "Not pushing the docker image as PUSH=$PUSH"
@@ -83,11 +85,13 @@ function build_image {
     echo "Pushing the docker image"
     retry 5 docker push ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-$name:${VERSION}
 
-    if [ "$PUSH_LATEST" = "true" ]; then
-      retry 5 docker tag ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-$name:${VERSION} ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-$name:latest
-      retry 5 docker push ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-$name:latest
-    else
-      echo "Not pushing the latest docker image as PUSH_LATEST=$PUSH_LATEST"
+    if [ "release" == "${RELEASE}" ]; then
+      if [ "$PUSH_LATEST" = "true" ]; then
+        retry 5 docker tag ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-$name:${VERSION} ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-$name:latest
+        retry 5 docker push ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-$name:latest
+      else
+        echo "Not pushing the latest docker image as PUSH_LATEST=$PUSH_LATEST"
+      fi
     fi
   else
     echo "Not pushing the docker image as PUSH=$PUSH"

@@ -34,7 +34,7 @@ retry() {
 export VERSION=$1
 export RELEASE=$2
 
-export PUSH_LATEST=false
+export PUSH_LATEST=true
 #export CACHE=--no-cache
 export CACHE=""
 
