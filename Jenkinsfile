@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+      label = "jenkins-jx-base"
+    }
     environment {
       ORG               = 'jenkins-x'
       DOCKER_ORG        = 'jenkinsxio'
