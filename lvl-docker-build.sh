@@ -48,7 +48,7 @@ export DOCKER_ORG=lvlstudio
 # popd
 
 ## newman depends on nodejs, so order is important
-BUILDERS="nodejs nodejs-mongodb nodejs-mysql"
+BUILDERS="nodejs nodejs-mongodb nodejs-mysql nodejs-elasticsearch"
 BROKEN="dotnet"
 ## now loop through the above array
 for i in $BUILDERS
