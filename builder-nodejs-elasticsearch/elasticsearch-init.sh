@@ -11,10 +11,18 @@ while [ $i -lt $max ]; do
   if curl "localhost:9200/_cluster/health" > /dev/null 2>&1; then
     break
   fi
-  echo "Attempting to connect to elasticsearch"
+  echo "pinging elasticsearch..."
   sleep 1s
-  i=$(( i + 1))
+  i=$(( i + 1 ))
 done
 
+echo
+
+if [ $i -lt $max ]; then
+  echo "elasticsearch up and running"
+else 
+  echo "elastic search failed to respond"
+  false
+fi
 
 
