@@ -1,0 +1,62 @@
+apiVersion: skaffold/v1beta3
+kind: Config
+build:
+  tagPolicy:
+    envTemplate:
+      template: "{{.IMAGE_NAME}}:{{.VERSION}}"
+  artifacts:
+  - image: docker.io/jenkinsxio/builder-dlang
+    context: builder-dlang
+    docker: {}
+  - image: docker.io/jenkinsxio/builder-go
+    context: builder-go
+    docker: {}
+  - image: docker.io/jenkinsxio/builder-go-maven
+    context: builder-go-maven
+    docker: {}
+  - image: docker.io/jenkinsxio/builder-gradle
+    context: builder-gradle
+    docker: {}
+  - image: docker.io/jenkinsxio/builder-maven
+    context: builder-maven
+    docker: {}
+  - image: docker.io/jenkinsxio/builder-maven-java11
+    context: builder-maven-java11
+    docker: {}
+  - image: docker.io/jenkinsxio/builder-maven-32
+    context: builder-maven-32
+    docker: {}
+  - image: docker.io/jenkinsxio/builder-nodejs
+    context: builder-nodejs
+    docker: {}
+  - image: docker.io/jenkinsxio/builder-newman
+    context: builder-newman
+    docker: {}
+  - image: docker.io/jenkinsxio/builder-python
+    context: builder-python
+    docker: {}
+  - image: docker.io/jenkinsxio/builder-python2
+    context: builder-python2
+    docker: {}
+  - image: docker.io/jenkinsxio/builder-python37
+    context: builder-python37
+    docker: {}
+  - image: docker.io/jenkinsxio/builder-rust
+    context: builder-rust
+    docker: {}
+  - image: docker.io/jenkinsxio/builder-scala
+    context: builder-scala
+    docker: {}
+  - image: docker.io/jenkinsxio/builder-terraform
+    context: builder-terraform
+    docker: {}
+  kaniko:
+    buildContext:
+      localDir: {}
+    pullSecretName: kaniko-secret
+    namespace: jx
+    dockerConfig:
+      path: /home/jenkins/.docker/config.json
+deploy:
+  kubectl:
+    manifests:

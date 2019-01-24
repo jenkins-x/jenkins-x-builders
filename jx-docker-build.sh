@@ -62,9 +62,7 @@ if [ "release" == "${RELEASE}" ]; then
   jx step tag --version ${VERSION}
 fi
 
-skaffold build -f skaffold1.yaml
-skaffold build -f skaffold2.yaml
-skaffold build -f skaffold3.yaml
+skaffold build -f skaffold.yaml
 
 if [ "release" == "${RELEASE}" ]; then
   updatebot push-version --kind helm \

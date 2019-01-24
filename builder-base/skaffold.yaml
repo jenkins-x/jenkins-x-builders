@@ -1,30 +1,33 @@
-apiVersion: skaffold/v1beta1
+apiVersion: skaffold/v1beta3
 kind: Config
 build:
   tagPolicy:
     envTemplate:
       template: "{{.IMAGE_NAME}}:{{.VERSION}}"
   artifacts:
-  - image: gcr.io/jenkinsxio/builder-base
+  - image: docker.io/jenkinsxio/builder-base
     context: .
     docker:
       dockerfile: Dockerfile
-  - image: gcr.io/jenkinsxio/builder-slim
+  - image: docker.io/jenkinsxio/builder-slim
     context: .
     docker:
       dockerfile: Dockerfile.slim
-  - image: gcr.io/jenkinsxio/builder-ruby
+  - image: docker.io/jenkinsxio/builder-ruby
     context: .
     docker:
       dockerfile: Dockerfile.ruby
-  - image: gcr.io/jenkinsxio/builder-swift
+  - image: docker.io/jenkinsxio/builder-swift
     context: .
     docker:
       dockerfile: Dockerfile.swift
-  googleCloudBuild:
-    projectId: jenkinsxio
-    timeout: 1200s
-    machineType: "N1_HIGHCPU_32"
+  kaniko:
+    buildContext:
+      localDir: {}
+#    pullSecretName: kaniko-secret
+    namespace: jx
+    dockerConfig:
+      path: /home/jenkins/.docker/config.json
 deploy:
   kubectl:
     manifests:
