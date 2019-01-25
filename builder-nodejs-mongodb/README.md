@@ -1,4 +1,4 @@
-This is the section to include your `myvalues.yaml` file. Make sure to replace `BUILDER_VERSION` with the proper tag published in the [docker repository](https://cloud.docker.com/repository/docker/lvlstudio/builder-nodejs-mongodb).
+This is the section to include your `myvalues.yaml` file. Make sure to replace `BUILDER_VERSION` with the proper tag published on the [docker repository](https://cloud.docker.com/repository/docker/lvlstudio/builder-nodejs-mongodb).
 
 ```
 jenkins:
