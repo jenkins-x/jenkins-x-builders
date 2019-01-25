@@ -41,6 +41,6 @@ jenkins:
 ```
 
 Modify your app Jenkinsfile to use pipeline agent label `jenkins-nodejs-mysql` and container `nodejs-mysql` (instead of `jenkins-nodejs` and `nodejs`). 
-Set the `MYSQL_USER`, `MYSQL_PASSWORD` and `MYSQL_DATABASE` environment variables and call the `/mysql-init.sh` to create the database and start mysql before running your tests in both PR and master branches.
+Set the `MYSQL_USER`, `MYSQL_PASSWORD` and `MYSQL_DATABASE` environment variables and call `mysql-init.sh` before running your tests in both PR and master branches to start mysql and create the test database schema.
 
 ![](./Jenkinsfile.png)
