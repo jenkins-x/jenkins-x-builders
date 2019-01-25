@@ -33,7 +33,11 @@ jenkins:
             RequestMemory: "512Mi"
             LimitCpu: "2"
             LimitMemory: "2048Mi"
-
+            # You may want to change this to true while testing a new image
+            # AlwaysPullImage: true            
+            Command: "/bin/sh -c"
+            Args: "cat"
+            Tty: true
 ```
 
 Modify your app Jenkinsfile to use pipeline agent label `jenkins-nodejs-mongodb` and container `nodejs-mongodb` (instead of `jenkins-nodejs` and `nodejs`). 
