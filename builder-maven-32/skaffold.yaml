@@ -1,0 +1,22 @@
+apiVersion: skaffold/v1beta3
+kind: Config
+build:
+  tagPolicy:
+    envTemplate:
+      template: "{{.IMAGE_NAME}}:{{.VERSION}}"
+  artifacts:
+  - image: docker.io/jenkinsxio/builder-maven-32
+    context: .
+    docker: {}
+  kaniko:
+    buildContext:
+      gcsBucket: jenkinsx-dev-skaffold-kaniko
+    pullSecretName: kaniko-secret
+    namespace: jx
+    dockerConfig:
+      secretName: jenkins-docker-cfg
+    flags:
+    - --single-snapshot
+deploy:
+  kubectl:
+    manifests:

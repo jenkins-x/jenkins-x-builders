@@ -21,13 +21,17 @@ build:
     context: .
     docker:
       dockerfile: Dockerfile.swift
+deploy:
+  kubectl:
   kaniko:
     buildContext:
-      localDir: {}
-#    pullSecretName: kaniko-secret
+      gcsBucket: jenkinsx-dev-skaffold-kaniko
+    pullSecretName: kaniko-secret
     namespace: jx
     dockerConfig:
-      path: /home/jenkins/.docker/config.json
+      secretName: jenkins-docker-cfg
+    flags:
+    - --single-snapshot
 deploy:
   kubectl:
     manifests:
