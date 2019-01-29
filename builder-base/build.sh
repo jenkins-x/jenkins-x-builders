@@ -43,6 +43,30 @@ cat Dockerfile.yum >> Dockerfile
 cat ../Dockerfile.common >> Dockerfile
 cat Dockerfile.common >> Dockerfile
 
+echo "Building ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-base:${VERSION}"
+retry 5 docker build ${CACHE} -t ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-base:${VERSION} -f Dockerfile .
+echo "Building ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-slim:${VERSION}"
+retry 5 docker build ${CACHE} -t ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-slim:${VERSION} -f Dockerfile.slim .
+
+if [ "$PUSH" = "true" ]; then
+  echo "Pushing the docker image"
+  retry 5 docker push ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-base:${VERSION}
+  retry 5 docker push ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-slim:${VERSION}
+
+  if [ "release" == "${RELEASE}" ]; then
+    if [ "$PUSH_LATEST" = "true" ]; then
+      retry 5 docker tag ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-base:${VERSION} ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-base:latest
+      retry 5 docker push ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-base:latest
+      retry 5 docker tag ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-slim:${VERSION} ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-slim:latest
+      retry 5 docker push ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-slim:latest
+    else
+      echo "Not pushing the latest docker image as PUSH_LATEST=$PUSH_LATEST"
+    fi
+  fi
+else
+  echo "Not pushing the docker image as PUSH=$PUSH"
+fi
+
 function build_image {
   name=$1
   image=$2
@@ -54,9 +78,25 @@ function build_image {
   cat Dockerfile.apt >> Dockerfile.$name
   cat ../Dockerfile.common >> Dockerfile.$name
   cat Dockerfile.common >> Dockerfile.$name
+
+  retry 5 docker build -t ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-$name:${VERSION} -f Dockerfile.$name . > /dev/null 2>&1
+
+  if [ "$PUSH" = "true" ]; then
+    echo "Pushing the docker image"
+    retry 5 docker push ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-$name:${VERSION}
+
+    if [ "release" == "${RELEASE}" ]; then
+      if [ "$PUSH_LATEST" = "true" ]; then
+        retry 5 docker tag ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-$name:${VERSION} ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-$name:latest
+        retry 5 docker push ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-$name:latest
+      else
+        echo "Not pushing the latest docker image as PUSH_LATEST=$PUSH_LATEST"
+      fi
+    fi
+  else
+    echo "Not pushing the docker image as PUSH=$PUSH"
+  fi
 }  
 
 build_image "ruby" "ruby:2.5.1"
 build_image "swift" "swift:4.0.3"
-
-skaffold build
