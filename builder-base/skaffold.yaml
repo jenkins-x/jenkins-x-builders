@@ -13,14 +13,14 @@ build:
 #    context: .
 #    docker:
 #      dockerfile: Dockerfile.slim
-  - image: docker.io/jenkinsxio/builder-ruby
-    context: .
-    docker:
-      dockerfile: Dockerfile.ruby
-  - image: docker.io/jenkinsxio/builder-swift
-    context: .
-    docker:
-      dockerfile: Dockerfile.swift
+#  - image: docker.io/jenkinsxio/builder-ruby
+#    context: .
+#    docker:
+#      dockerfile: Dockerfile.ruby
+#  - image: docker.io/jenkinsxio/builder-swift
+#    context: .
+#    docker:
+#      dockerfile: Dockerfile.swift
   kaniko:
     buildContext:
       gcsBucket: jenkinsx-dev-skaffold-kaniko
