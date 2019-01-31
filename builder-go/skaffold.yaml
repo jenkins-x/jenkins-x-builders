@@ -16,6 +16,8 @@ build:
     image: gcr.io/kaniko-project/executor:v0.8.0
     dockerConfig:
       secretName: jenkins-docker-cfg
+    cache:
+      repo: docker.io/jenkinsxio/builder-base
     flags:
     - --single-snapshot
     - --reproducible

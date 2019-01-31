@@ -17,7 +17,7 @@ build:
     dockerConfig:
       secretName: jenkins-docker-cfg
     cache:
-      repo: docker.io/jenkinsxio/builder-cache
+      repo: docker.io/jenkinsxio/builder-base
     flags:
     - --single-snapshot
     - --reproducible
