@@ -5,65 +5,7 @@ build:
     envTemplate:
       template: "{{.IMAGE_NAME}}:{{.VERSION}}"
   artifacts:
-
-  - image: docker.io/jenkinsxio/builder-dlang
-    context: .
-    docker: {}
-  - image: docker.io/jenkinsxio/builder-go
-    context: .
-    docker: {}
-  - image: docker.io/jenkinsxio/builder-go-maven
-    context: .
-    docker: {}
-  - image: docker.io/jenkinsxio/builder-gradle
-    context: .
-    docker: {}
-  - image: docker.io/jenkinsxio/builder-gradle4
-    context: .
-    docker: {}
   - image: docker.io/jenkinsxio/builder-gradle5
-    context: .
-    docker: {}
-  - image: docker.io/jenkinsxio/builder-maven
-    context: .
-    docker: {}
-  - image: docker.io/jenkinsxio/builder-maven-32
-    context: .
-    docker: {}
-  - image: docker.io/jenkinsxio/builder-maven-java11
-    context: .
-    docker: {}
-  - image: docker.io/jenkinsxio/builder-maven-nodejs
-    context: .
-    docker: {}
-  - image: docker.io/jenkinsxio/builder-nodejs
-    context: .
-    docker: {}
-  - image: docker.io/jenkinsxio/builder-nodejs10x
-    context: .
-    docker: {}
-  - image: docker.io/jenkinsxio/builder-nodejs8x
-    context: .
-    docker: {}
-  - image: docker.io/jenkinsxio/builder-newman
-    context: .
-    docker: {}
-  - image: docker.io/jenkinsxio/builder-python
-    context: .
-    docker: {}
-  - image: docker.io/jenkinsxio/builder-python2
-    context: .
-    docker: {}
-  - image: docker.io/jenkinsxio/builder-python37
-    context: .
-    docker: {}
-  - image: docker.io/jenkinsxio/builder-rust
-    context: .
-    docker: {}
-  - image: docker.io/jenkinsxio/builder-scala
-    context: .
-    docker: {}
-  - image: docker.io/jenkinsxio/builder-terraform
     context: .
     docker: {}
   kaniko:
