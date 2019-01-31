@@ -12,6 +12,7 @@ build:
     buildContext:
       gcsBucket: jenkinsx-dev-skaffold-kaniko
     pullSecretName: kaniko-secret
+    image: gcr.io/kaniko-project/executor:v0.8.0
     namespace: jx
     dockerConfig:
       secretName: jenkins-docker-cfg
