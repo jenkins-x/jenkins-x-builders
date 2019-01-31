@@ -31,6 +31,7 @@ build:
       secretName: jenkins-docker-cfg
     flags:
     - --single-snapshot
+    - --reproducible
 deploy:
   kubectl:
     manifests:
