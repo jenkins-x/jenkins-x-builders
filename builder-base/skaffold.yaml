@@ -9,10 +9,10 @@ build:
     context: .
     docker:
       dockerfile: Dockerfile
-  - image: docker.io/jenkinsxio/builder-slim
-    context: .
-    docker:
-      dockerfile: Dockerfile.slim
+#  - image: docker.io/jenkinsxio/builder-slim
+#    context: .
+#    docker:
+#      dockerfile: Dockerfile.slim
   - image: docker.io/jenkinsxio/builder-ruby
     context: .
     docker:
@@ -29,6 +29,7 @@ build:
     image: gcr.io/kaniko-project/executor:v0.8.0
     dockerConfig:
       secretName: jenkins-docker-cfg
+    cache:
     flags:
     - --single-snapshot
     - --reproducible
