@@ -4,3 +4,4 @@
 .idea/
 builder-base/Dockerfile.ruby
 builder-base/Dockerfile.swift
+builder-base/Dockerfile.slim

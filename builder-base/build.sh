@@ -43,6 +43,11 @@ cat Dockerfile.yum >> Dockerfile
 cat ../Dockerfile.common >> Dockerfile
 cat Dockerfile.common >> Dockerfile
 
+echo "FROM centos:7" > Dockerfile.slim
+echo "" >> Dockerfile.slim
+cat ../Dockerfile.common >> Dockerfile.slim
+cat Dockerfile.slim.commands >> Dockerfile.slim
+
 function build_image {
   name=$1
   image=$2
