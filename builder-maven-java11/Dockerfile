@@ -1,4 +1,4 @@
-FROM jenkinsxio/builder-maven:0.1.211
+FROM jenkinsxio/builder-maven:0.1.226
 
 RUN curl https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz | tar -xz
 RUN mv /home/jenkins/jdk-11.0.2 /usr/java
