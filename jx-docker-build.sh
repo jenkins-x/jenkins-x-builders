@@ -68,25 +68,7 @@ do
   pushd builder-${i}
     head -n 1 Dockerfile
     echo "Building ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-${i}:${VERSION}"
-    retry 5 docker build ${CACHE} -t ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-${i}:${VERSION} -f Dockerfile .
-
-    if [ "${PUSH}" == "true" ]; then
-      echo "Pushing builder-${i}:${VERSION} to ${DOCKER_REGISTRY}"
-      retry 5 docker push ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-${i}:${VERSION}
-
-      if [ "release" == "${RELEASE}" ]; then
-        if [ "${PUSH_LATEST}" == "true" ]; then
-          echo "Pushing builder-${i}:latest to ${DOCKER_REGISTRY}"
-          retry 5 docker tag ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-${i}:${VERSION} ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-${i}:latest
-          retry 5 docker push ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-${i}:latest
-        else
-          echo "Not pushing the latest docker image as PUSH_LATEST=${PUSH_LATEST}"
-        fi
-      fi
-    else
-      echo "Not pushing the docker image as PUSH=${PUSH}"
-    fi
-
+    skaffold build -f skaffold.yaml
   popd
 done
 
