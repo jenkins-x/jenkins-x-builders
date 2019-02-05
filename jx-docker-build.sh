@@ -34,7 +34,7 @@ retry() {
 export VERSION=$1
 export RELEASE=$2
 
-export PUSH_LATEST=false
+export PUSH_LATEST=true
 #export CACHE=--no-cache
 export CACHE=""
 
@@ -45,7 +45,7 @@ pushd builder-base
 popd
 
 ## newman depends on nodejs, so order is important
-BUILDERS="dlang go go-maven gradle maven maven-java11 nodejs newman python python2 rust scala terraform"
+BUILDERS="dlang go go-maven gradle gradle4 gradle5 maven maven-java11 maven-nodejs maven-32 nodejs nodejs8x nodejs10x newman aws-cdk python python2 python37 rust scala terraform"
 BROKEN="dotnet"
 ## now loop through the above array
 for i in $BUILDERS
@@ -68,28 +68,13 @@ do
   pushd builder-${i}
     head -n 1 Dockerfile
     echo "Building ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-${i}:${VERSION}"
-    retry 5 docker build ${CACHE} -t ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-${i}:${VERSION} -f Dockerfile .
-
-    if [ "${PUSH}" = "true" ]; then
-      echo "Pushing builder-${i}:${VERSION} to ${DOCKER_REGISTRY}"
-      retry 5 docker push ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-${i}:${VERSION}
-
-      if [ "${PUSH_LATEST}" = "true" ]; then
-        echo "Pushing builder-${i}:latest to ${DOCKER_REGISTRY}"
-        retry 5 docker tag ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-${i}:${VERSION} ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-${i}:latest
-        retry 5 docker push ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-${i}:latest
-      else
-        echo "Not pushing the latest docker image as PUSH_LATEST=${PUSH_LATEST}"
-      fi
-    else
-      echo "Not pushing the docker image as PUSH=${PUSH}"
-    fi
-
+    retry 3 skaffold build -f skaffold.yaml
   popd
 done
 
 if [ "release" == "${RELEASE}" ]; then
   updatebot push-version --kind helm \
+    jenkinsxio/builder-aws-cdk ${VERSION} \
     jenkinsxio/builder-base ${VERSION} \
     jenkinsxio/builder-slim ${VERSION} \
     jenkinsxio/builder-ruby ${VERSION} \
@@ -98,14 +83,22 @@ if [ "release" == "${RELEASE}" ]; then
     jenkinsxio/builder-go ${VERSION} \
     jenkinsxio/builder-go-maven ${VERSION} \
     jenkinsxio/builder-gradle ${VERSION} \
+    jenkinsxio/builder-gradle4 ${VERSION} \
+    jenkinsxio/builder-gradle5 ${VERSION} \
     jenkinsxio/builder-maven ${VERSION} \
+    jenkinsxio/builder-maven-32 ${VERSION} \
     jenkinsxio/builder-maven-java11 ${VERSION} \
+    jenkinsxio/builder-maven-nodejs ${VERSION} \
     jenkinsxio/builder-newman ${VERSION} \
     jenkinsxio/builder-nodejs ${VERSION} \
+    jenkinsxio/builder-nodejs8x ${VERSION} \
+    jenkinsxio/builder-nodejs10x ${VERSION} \
     jenkinsxio/builder-python ${VERSION} \
     jenkinsxio/builder-python2 ${VERSION} \
+    jenkinsxio/builder-python37 ${VERSION} \
     jenkinsxio/builder-rust ${VERSION} \
     jenkinsxio/builder-scala ${VERSION} \
     jenkinsxio/builder-terraform ${VERSION}
   updatebot push-regex -r "builderTag: (.*)" -v ${VERSION} jx-build-templates/values.yaml
+  updatebot push-regex -r "\s+tag: (.*)" -v ${VERSION} --previous-line "\s+repository: jenkinsxio/builder-go" values.yaml
 fi

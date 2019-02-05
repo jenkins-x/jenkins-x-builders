@@ -1,6 +1,0 @@
-github:
-  organisations:
-  - name: jenkins-x
-    includes:
-    - builder-*
-    - jenkins-x-platform
