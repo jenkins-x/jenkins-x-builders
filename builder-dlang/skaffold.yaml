@@ -18,6 +18,7 @@ build:
     image: rawlingsj/executor:dev21
     cache:
       repo: jenkins-x-docker-registry.jx.svc.cluster.local:5000/ 
+      dir: /workspace
 deploy:
   kubectl:
     manifests:
