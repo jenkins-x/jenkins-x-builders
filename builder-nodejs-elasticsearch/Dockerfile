@@ -1,4 +1,4 @@
-FROM jenkinsxio/builder-base:0.1.153
+FROM jenkinsxio/builder-base:0.1.232
 
 COPY ./elasticsearch-init.sh /
 
