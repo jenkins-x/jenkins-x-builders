@@ -28,7 +28,7 @@ build:
     namespace: jx
     image: rawlingsj/executor:dev21
     cache:
-      repo: jenkins-x-docker-registry.jx.svc.cluster.local:5000/
+      repo: jenkins-x-docker-registry.jx.svc.cluster.local:5000/builder-base
     dockerConfig:
       secretName: jenkins-docker-cfg
     flags:
