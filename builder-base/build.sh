@@ -64,4 +64,4 @@ function build_image {
 build_image "ruby" "ruby:2.5.1"
 build_image "swift" "swift:4.0.3"
 
-retry 1 skaffold build -f skaffold.yaml -v debug
+retry 1 skaffold build -f skaffold.yaml
