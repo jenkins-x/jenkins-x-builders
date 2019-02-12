@@ -17,7 +17,7 @@ build:
       secretName: jenkins-docker-cfg
     image: rawlingsj/executor:dev21
     cache:
-      repo: jenkins-x-docker-registry.jx.svc.cluster.local:5000/builder-go-maven 
+      repo: jenkins-x-docker-registry.jx.svc.cluster.local:5000/builder/cache
     flags:
     - --cache-dir=/workspace
 deploy:
