@@ -13,12 +13,13 @@ build:
       gcsBucket: jenkinsx-dev-skaffold-kaniko
     pullSecretName: kaniko-secret
     namespace: jx
-    image: gcr.io/kaniko-project/executor:v0.8.0
     dockerConfig:
       secretName: jenkins-docker-cfg
+    image: rawlingsj/executor:dev21
+    cache:
+      repo: jenkins-x-docker-registry.jx.svc.cluster.local:5000/builder-nodejs10x 
     flags:
-    - --single-snapshot
-    - --reproducible
+    - --cache-dir=/workspace
 deploy:
   kubectl:
     manifests:
