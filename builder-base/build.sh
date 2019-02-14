@@ -37,16 +37,9 @@ fi
 
 echo "Building images with version ${VERSION}"
 
-echo "FROM centos:7" > Dockerfile
-echo "" >> Dockerfile
-cat Dockerfile.yum >> Dockerfile
-cat ../Dockerfile.common >> Dockerfile
-cat Dockerfile.common >> Dockerfile
-
-echo "FROM centos:7" > Dockerfile.slim
-echo "" >> Dockerfile.slim
-cat ../Dockerfile.common >> Dockerfile.slim
-cat Dockerfile.slim.commands >> Dockerfile.slim
+cat Dockerfile > Dockerfile.base
+cat ../Dockerfile.common >> Dockerfile.base
+cat Dockerfile.common >> Dockerfile.base
 
 function build_image {
   name=$1
@@ -59,9 +52,9 @@ function build_image {
   cat Dockerfile.apt >> Dockerfile.$name
   cat ../Dockerfile.common >> Dockerfile.$name
   cat Dockerfile.common >> Dockerfile.$name
-}  
+}
 
 build_image "ruby" "ruby:2.5.1"
 build_image "swift" "swift:4.0.3"
 
-retry 1 skaffold build -f skaffold.yaml
+retry 3 skaffold build -f skaffold.yaml

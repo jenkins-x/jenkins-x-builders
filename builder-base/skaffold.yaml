@@ -8,11 +8,7 @@ build:
   - image: docker.io/jenkinsxio/builder-base
     context: .
     docker:
-      dockerfile: Dockerfile
-  - image: docker.io/jenkinsxio/builder-slim
-    context: .
-    docker:
-      dockerfile: Dockerfile.slim
+      dockerfile: Dockerfile.base
   - image: docker.io/jenkinsxio/builder-ruby
     context: .
     docker:
