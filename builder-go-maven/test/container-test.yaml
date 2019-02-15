@@ -1,0 +1,17 @@
+schemaVersion: '2.0.0' # Make sure to test the latest schema version
+commandTests:
+- name: 'java'
+  command: 'java'
+  args: ['-version']
+  excludedError: ['.*FAIL.*']
+  expectedError: ['.*openjdk version \"1.8.0.*']
+- name: 'mvn'
+  command: 'mvn'
+  args: ['--version']
+  excludedError: ['.*FAIL.*']
+  expectedOutput: ['.*Apache Maven 3.5.3.*']
+- name: 'go'
+  command: 'go'
+  args: ['version']
+  excludedError: ['.*FAIL.*']
+  expectedOutput: ['.*go version go1.11.*']
