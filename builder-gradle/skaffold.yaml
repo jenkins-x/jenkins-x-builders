@@ -20,6 +20,10 @@ build:
       repo: jenkins-x-docker-registry.jx.svc.cluster.local:5000/builder/cache
     flags:
     - --cache-dir=/workspace
+test:
+- image: docker.io/jenkinsxio/builder-gradle
+  structureTests:
+  - ./test/*
 deploy:
   kubectl:
     manifests:
