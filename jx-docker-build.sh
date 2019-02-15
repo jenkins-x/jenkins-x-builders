@@ -35,7 +35,6 @@ export VERSION=$1
 export RELEASE=$2
 
 export PUSH_LATEST=true
-#export CACHE=--no-cache
 export CACHE=""
 
 export DOCKER_REGISTRY=docker.io
@@ -76,7 +75,6 @@ if [ "release" == "${RELEASE}" ]; then
   updatebot push-version --kind helm \
     jenkinsxio/builder-aws-cdk ${VERSION} \
     jenkinsxio/builder-base ${VERSION} \
-    jenkinsxio/builder-slim ${VERSION} \
     jenkinsxio/builder-ruby ${VERSION} \
     jenkinsxio/builder-swift ${VERSION} \
     jenkinsxio/builder-dlang ${VERSION} \

@@ -1,6 +1,5 @@
 FROM jenkinsxio/builder-base:1
 
-RUN yum -y groupinstall 'Development Tools'
 RUN curl -f -o /etc/yum.repos.d/vbatts-bazel-epel-7.repo  https://copr.fedorainfracloud.org/coprs/vbatts/bazel/repo/epel-7/vbatts-bazel-epel-7.repo && \
   yum install -y bazel
 
@@ -22,14 +21,10 @@ RUN wget https://github.com/progrium/gh-release/releases/download/v$GH_RELEASE_V
   mv gh-release /usr/local/gh-release && \
   rm gh-release_${GH_RELEASE_VERSION}_linux_x86_64.tgz
 
-ENV JQ_RELEASE_VERSION 1.5
-RUN wget https://github.com/stedolan/jq/releases/download/jq-${JQ_RELEASE_VERSION}/jq-linux64 && mv jq-linux64 jq && chmod +x jq && cp jq /usr/bin/jq
-
 ENV PROTOBUF 3.5.1
 RUN wget https://github.com/google/protobuf/releases/download/v${PROTOBUF}/protoc-${PROTOBUF}-linux-x86_64.zip && \
   unzip protoc-${PROTOBUF}-linux-x86_64.zip -d protoc && \
   chmod +x protoc && cp protoc/bin/protoc /usr/bin/protoc && rm -rf protoc
-
 
 ENV PATH $PATH:/usr/local/go/bin
 ENV PATH $PATH:/usr/local/glide

@@ -31,20 +31,4 @@ RUN yes | sdkmanager \
     "platforms;android-28" \
     "build-tools;28.0.0"
 	
-#	&& echo "Adding gradle user and group" \
-#	&& addgroup -S -g 1000 gradle \
-#	&& adduser -D -S -G gradle -u 1000 -s /bin/ash gradle \
-#	&& mkdir /home/gradle/.gradle \
-#	&& chown -R gradle:gradle /home/gradle \
-#	\
-#	&& echo "Symlinking root Gradle cache to gradle Gradle cache" \
-#	&& ln -s /home/gradle/.gradle /root/.gradle
-
-# Create Gradle volume
-#USER gradle
-#VOLUME "/home/gradle/.gradle"
-#WORKDIR /home/gradle
-
-#RUN set -o errexit -o nounset \
-#	&& echo "Testing Gradle installation" \
-#	&& gradle --version
+RUN gradle --version
