@@ -30,6 +30,13 @@ build:
       secretName: jenkins-docker-cfg
     flags:
     - --cache-dir=/workspace
+test:
+- image: docker.io/jenkinsxio/builder-base
+  structureTests:
+  - ./test-base/*
+- image: docker.io/jenkinsxio/builder-ruby
+  structureTests:
+  - ./test-ruby/*
 deploy:
   kubectl:
     manifests:
