@@ -8,10 +8,10 @@ build:
   - image: docker.io/jenkinsxio/builder-nodejs10x
     context: .
     docker: {}
-#test:
-#- image: docker.io/jenkinsxio/builder-nodejs10x
-#  structureTests:
-#  - ./test/*
+test:
+- image: docker.io/jenkinsxio/builder-nodejs10x
+  structureTests:
+  - ./test/*
 deploy:
   kubectl:
     manifests:
