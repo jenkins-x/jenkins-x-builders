@@ -4,4 +4,4 @@ commandTests:
   command: 'terraform'
   args: ['--version']
   excludedError: ['.*FAIL.*']
-  expectedOutput: ['.*Apache Maven 3.5.3.*']
+  expectedOutput: ['.*Terraform v0.11.*']

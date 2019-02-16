@@ -8,17 +8,18 @@ build:
   - image: docker.io/jenkinsxio/builder-scala
     context: .
     docker: {}
-test:
-- image: docker.io/jenkinsxio/builder-scala
-  structureTests:
-  - ./test/*
+#test:
+#- image: docker.io/jenkinsxio/builder-scala
+#  structureTests:
+#  - ./test/*
 deploy:
   kubectl:
     manifests:
 profiles:
 - name: local
   build:
-    local: {}
+    local:
+      push: false
 - name: kaniko
   build:
     kaniko:

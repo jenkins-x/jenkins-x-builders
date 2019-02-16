@@ -8,13 +8,18 @@ build:
   - image: docker.io/jenkinsxio/builder-nodejs8x
     context: .
     docker: {}
+test:
+- image: docker.io/jenkinsxio/builder-nodejs8x
+  structureTests:
+  - ./test/*
 deploy:
   kubectl:
     manifests:
 profiles:
 - name: local
   build:
-    local: {}
+    local:
+      push: false
 - name: kaniko
   build:
     kaniko:

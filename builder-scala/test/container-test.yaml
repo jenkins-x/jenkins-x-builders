@@ -1,12 +1,7 @@
 schemaVersion: '2.0.0' # Make sure to test the latest schema version
 commandTests:
-- name: 'scala'
-  command: 'scala'
-  args: ['-version']
-  excludedError: ['.*FAIL.*']
-  expectedError: ['.*openjdk version \"1.8.0.*']
 - name: 'sbt'
   command: 'sbt'
-  args: ['--version']
+  args: ['-v']
   excludedError: ['.*FAIL.*']
   expectedOutput: ['.*Apache Maven 3.5.3.*']

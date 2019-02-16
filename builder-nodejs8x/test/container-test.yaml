@@ -1,7 +1,7 @@
 schemaVersion: '2.0.0' # Make sure to test the latest schema version
 commandTests:
-- name: 'nodejs'
-  command: 'nodejs'
-  args: ['version']
+- name: 'node'
+  command: 'node'
+  args: ['-v']
   excludedError: ['.*FAIL.*']
-  expectedError: ['.*openjdk version \"1.8.0.*']
+  expectedOutput: ['.*v8.*']

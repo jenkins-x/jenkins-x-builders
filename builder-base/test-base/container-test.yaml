@@ -7,9 +7,9 @@ commandTests:
   expectedError: ['.*openjdk version \"1.8.0.*']
 - name: 'helm'
   command: 'helm'
-  args: ['version']
+  args: ['version','--client']
   excludedError: ['.*FAIL.*']
-  expectedOutput: ['.*Apache Maven 3.5.3.*']
+  expectedOutput: ['.*Client: &version.Version{SemVer:.*']
 - name: 'jx'
   command: 'jx'
   args: ['--version']

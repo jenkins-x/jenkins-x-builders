@@ -4,4 +4,4 @@ commandTests:
   command: 'python'
   args: ['--version']
   excludedError: ['.*FAIL.*']
-  expectedError: ['.*openjdk version \"1.8.0.*']
+  expectedError: ['.*Python 2.7.*']
