@@ -14,7 +14,8 @@ deploy:
 profiles:
 - name: local
   build:
-    local: {}
+    local:
+      push: false
 - name: kaniko
   build:
     kaniko:
