@@ -61,15 +61,15 @@ if [ "release" == "${RELEASE}" ]; then
   jx step tag --version ${VERSION}
 fi
 
-for i in $BUILDERS
-do
-  echo "building builder-${i}"
-  pushd builder-${i}
-    head -n 1 Dockerfile
-    echo "Building ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-${i}:${VERSION}"
-    retry 3 skaffold build -f skaffold.yaml
-  popd
-done
+#for i in $BUILDERS
+#do
+#  echo "building builder-${i}"
+#  pushd builder-${i}
+#    head -n 1 Dockerfile
+#    echo "Building ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-${i}:${VERSION}"
+#    retry 3 skaffold build -f skaffold.yaml
+#  popd
+#done
 
 if [ "release" == "${RELEASE}" ]; then
   updatebot push-version --kind helm \
