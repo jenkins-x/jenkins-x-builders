@@ -67,7 +67,12 @@ do
   pushd builder-${i}
     head -n 1 Dockerfile
     echo "Building ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-${i}:${VERSION}"
-    retry 3 skaffold build -p kaniko -f skaffold.yaml
+    retry 3 skaffold build -p kaniko -f skaffold.yaml --skip-tests
+    if [ -f ./test/container-test.yaml ]; then
+      container-structure-test test \
+        --image ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-${i}/${VERSION} \
+        --config test/container-test.yaml
+    fi
   popd
 done
 

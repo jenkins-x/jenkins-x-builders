@@ -21,7 +21,7 @@ test:
 - image: docker.io/jenkinsxio/builder-base
   structureTests:
   - ./test-base/*
-- image: docker.io/jenkinsxio/builder-ruby
+- image: docker.io/jenkinsxio/builder-ruby:{{.VERSION}}
   structureTests:
   - ./test-ruby/*
 deploy:
