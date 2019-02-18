@@ -1,2 +1,2 @@
-FROM jenkinsxio/builder-baseimage:0.0.4
+FROM jenkinsxio/builder-baseimage:0.0.5
 
