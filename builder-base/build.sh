@@ -58,3 +58,11 @@ build_image "ruby" "ruby:2.5.1"
 build_image "swift" "swift:4.0.3"
 
 retry 3 skaffold build -p kaniko -f skaffold.yaml --skip-tests
+      
+container-structure-test test \
+  --image ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-base/${VERSION} \
+  --config test-base/container-test.yaml
+
+container-structure-test test \
+  --image ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-ruby/${VERSION} \
+  --config test-ruby/container-test.yaml
