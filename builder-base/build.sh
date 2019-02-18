@@ -43,18 +43,16 @@ cat Dockerfile.common >> Dockerfile.base
 
 function build_image {
   name=$1
-  image=$2
-  echo "pack $name uses image: $image"
+  base=$2
+  echo "pack $name uses base image: $base"
 
   # generate a docker image
-  echo "FROM $image" > Dockerfile.$name
-  echo "" >> Dockerfile.$name
-  cat Dockerfile.apt >> Dockerfile.$name
+  cat Dockerfile.$base > Dockerfile.$name
   cat ../Dockerfile.common >> Dockerfile.$name
   cat Dockerfile.common >> Dockerfile.$name
 }
 
-build_image "ruby" "ruby:2.5.1"
-build_image "swift" "swift:4.0.3"
+build_image "ruby" "rubybase"
+build_image "swift" "swiftbase"
 
 retry 3 skaffold build -f skaffold.yaml
