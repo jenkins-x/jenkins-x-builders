@@ -9,13 +9,8 @@ RUN curl -f https://download.docker.com/linux/static/stable/x86_64/docker-$DOCKE
 # helm
 RUN curl -f https://storage.googleapis.com/kubernetes-helm/helm-v${HELM_VERSION}-linux-amd64.tar.gz  | tar xzv && \
   mv linux-amd64/helm /usr/bin/ && \
+  mv linux-amd64/tiller /usr/bin/ && \
   rm -rf linux-amd64
-
-# tiller - using a hacked version until 2.11.x
-RUN curl -f -L https://github.com/jstrachan/helm-tiller-release/releases/download/2.10.0/tiller.tar.gz -o tiller.tgz && \
-  tar xf tiller.tgz && \
-  chmod +x tiller && \
-  mv tiller /usr/bin/
 
 # helm3
 # RUN curl -L https://storage.googleapis.com/kubernetes-helm/helm-dev-v3-linux-amd64.tar.gz | tar xzv && \
