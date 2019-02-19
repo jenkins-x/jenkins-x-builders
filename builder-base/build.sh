@@ -60,19 +60,17 @@ build_image "swift" "swift:4.0.3"
 retry 3 skaffold build -p kaniko -f skaffold.yaml --skip-tests
 
 IMAGE_NAME="${DOCKER_ORG}/builder-base:${VERSION}"
-IMAGE_NAME_LOWERCASE=$(echo $IMAGE_NAME | tr '[:upper:]' '[:lower:]')
 docker pull ${IMAGE_NAME}
 
-echo "Testing ${IMAGE_NAME_LOWERCASE}"     
+echo "Testing ${IMAGE_NAME}"     
 container-structure-test test \
-  --image ${IMAGE_NAME_LOWERCASE} \
+  --image ${IMAGE_NAME} \
   --config test-base/container-test.yaml
 
 IMAGE_NAME="${DOCKER_ORG}/builder-ruby:${VERSION}"
-IMAGE_NAME_LOWERCASE=$(echo $IMAGE_NAME | tr '[:upper:]' '[:lower:]')
 docker pull ${IMAGE_NAME}
 
-echo "Testing ${IMAGE_NAME_LOWERCASE}"     
+echo "Testing ${IMAGE_NAME}"     
 container-structure-test test \
-  --image ${IMAGE_NAME_LOWERCASE} \
+  --image ${IMAGE_NAME} \
   --config test-ruby/container-test.yaml

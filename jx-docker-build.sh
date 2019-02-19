@@ -70,10 +70,9 @@ do
     retry 3 skaffold build -p kaniko -f skaffold.yaml --skip-tests
     if [ -f ./test/container-test.yaml ]; then
       IMAGE_NAME="${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-${i}:${VERSION}"
-      IMAGE_NAME_LOWERCASE=$(echo $IMAGE_NAME | tr '[:upper:]' '[:lower:]')
       docker pull ${IMAGE_NAME}
       container-structure-test test \
-        --image ${IMAGE_NAME_LOWERCASE} \
+        --image ${IMAGE_NAME} \
         --config test/container-test.yaml
     fi
   popd
