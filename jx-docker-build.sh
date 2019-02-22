@@ -67,7 +67,7 @@ do
   pushd builder-${i}
     head -n 1 Dockerfile
     echo "Building ${DOCKER_REGISTRY}/${DOCKER_ORG}/builder-${i}:${VERSION}"
-    retry 3 skaffold build -f skaffold.yaml
+    retry 3 skaffold build -f skaffold.yaml -v debug
   popd
 done
 

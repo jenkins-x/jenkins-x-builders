@@ -2,15 +2,19 @@
 WORKDIR /home/jenkins
 
 # Docker
-RUN curl -f https://download.docker.com/linux/static/stable/x86_64/docker-$DOCKER_VERSION-ce.tgz | tar xvz && \
-  mv docker/docker /usr/bin/ && \
-  rm -rf docker
+RUN curl -f https://download.docker.com/linux/static/stable/x86_64/docker-$DOCKER_VERSION-ce.tgz -o docker.tgz
+RUN tar xf docker.tgz
+RUN mv docker/docker /usr/bin/
+RUN rm -rf docker
+RUN rm docker.tgz
 
 # helm
-RUN curl -f https://storage.googleapis.com/kubernetes-helm/helm-v${HELM_VERSION}-linux-amd64.tar.gz  | tar xzv && \
-  mv linux-amd64/helm /usr/bin/ && \
-  mv linux-amd64/tiller /usr/bin/ && \
-  rm -rf linux-amd64
+RUN curl -f https://storage.googleapis.com/kubernetes-helm/helm-v${HELM_VERSION}-linux-amd64.tar.gz -o helm.tgz
+RUN tar xf helm.tgz
+RUN mv linux-amd64/helm /usr/bin/
+RUN mv linux-amd64/tiller /usr/bin/
+RUN rm -rf linux-amd64
+RUN rm helm.tgz
 
 # helm3
 # RUN curl -L https://storage.googleapis.com/kubernetes-helm/helm-dev-v3-linux-amd64.tar.gz | tar xzv && \
@@ -20,16 +24,17 @@ RUN curl -f https://storage.googleapis.com/kubernetes-helm/helm-v${HELM_VERSION}
 # lets use a patched release until this PR is merged or helm3 works again ;)
 # https://github.com/kubernetes/helm/pull/4257#issuecomment-399491118
 
-RUN curl -f -L https://github.com/jstrachan/helm/releases/download/untagged-93375777c6644a452a64/helm-linux-amd64.tar.gz -o helm3.tgz && \
-  tar xf helm3.tgz && \
-  mv helm /usr/bin/helm3
-
-RUN rm *.tgz
+RUN curl -f -L https://github.com/jstrachan/helm/releases/download/untagged-93375777c6644a452a64/helm-linux-amd64.tar.gz -o helm3.tgz
+RUN tar xf helm3.tgz
+RUN mv helm /usr/bin/helm3
+RUN rm helm3.tgz
 
 # gcloud
-RUN curl -f -L https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-${GCLOUD_VERSION}-linux-x86_64.tar.gz | tar xzv && \
-  mv google-cloud-sdk /usr/bin/
+RUN curl -f -L https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-${GCLOUD_VERSION}-linux-x86_64.tar.gz -o gcloud.tgz
+RUN tar xf gcloud.tgz
+RUN mv google-cloud-sdk /usr/bin/
 ENV PATH=$PATH:/usr/bin/google-cloud-sdk/bin
+RUN rm gcloud.tgz
 
 # install the docker credential plugin
 RUN gcloud components install docker-credential-gcr

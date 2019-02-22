@@ -55,4 +55,4 @@ function build_image {
 build_image "ruby" "rubybase"
 build_image "swift" "swiftbase"
 
-retry 3 skaffold build -f skaffold.yaml
+retry 3 skaffold build -f skaffold.yaml -v debug
