@@ -99,4 +99,5 @@ if [ "release" == "${RELEASE}" ]; then
     jenkinsxio/builder-terraform ${VERSION}
   updatebot push-regex -r "builderTag: (.*)" -v ${VERSION} jx-build-templates/values.yaml
   updatebot push-regex -r "\s+tag: (.*)" -v ${VERSION} --previous-line "\s+repository: jenkinsxio/builder-go" values.yaml
+  updatebot push-regex -r "\s+tag: (.*)" -v ${VERSION} --previous-line "\s+repository: jenkinsxio/builder-maven" values.yaml
 fi
