@@ -1,0 +1,2 @@
+FROM jenkinsxio/builder-ruby-baseimage:0.0.5
+

@@ -11,4 +11,5 @@ RUN \
 RUN \
   curl -f https://bintray.com/sbt/rpm/rpm | tee /etc/yum.repos.d/bintray-sbt-rpm.repo && \
   yum install -y sbt-$SBT_VERSION && \
-  sbt sbtVersion
+  sbt sbtVersion && \
+  yum clean all

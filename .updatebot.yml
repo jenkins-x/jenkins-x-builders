@@ -6,3 +6,4 @@ github:
   - name: jenkins-x-charts
     includes:
     - jx-build-templates
+    - prow

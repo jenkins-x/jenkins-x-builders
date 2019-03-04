@@ -2,8 +2,7 @@ FROM jenkinsxio/builder-base:1
 
 ENV PYTHONVERSION 3.7.1
 
-RUN yum update  -y
-RUN yum -y install gcc openssl-devel bzip2-devel libffi-devel
+RUN yum -y install gcc openssl-devel bzip2-devel libffi-devel && yum clean all
 
 RUN cd /usr/src && \
     wget https://www.python.org/ftp/python/${PYTHONVERSION}/Python-${PYTHONVERSION}.tgz && \

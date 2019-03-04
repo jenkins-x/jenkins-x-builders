@@ -8,11 +8,7 @@ build:
   - image: docker.io/jenkinsxio/builder-base
     context: .
     docker:
-      dockerfile: Dockerfile
-  - image: docker.io/jenkinsxio/builder-slim
-    context: .
-    docker:
-      dockerfile: Dockerfile.slim
+      dockerfile: Dockerfile.base
   - image: docker.io/jenkinsxio/builder-ruby
     context: .
     docker:
@@ -26,12 +22,14 @@ build:
       gcsBucket: jenkinsx-dev-skaffold-kaniko
     pullSecretName: kaniko-secret
     namespace: jx
-    image: gcr.io/kaniko-project/executor:v0.8.0
+    timeout: 30m
+    image: rawlingsj/executor:dev21
+    cache:
+      repo: jenkins-x-docker-registry.jx.svc.cluster.local:5000/builder/cache
     dockerConfig:
       secretName: jenkins-docker-cfg
     flags:
-    - --single-snapshot
-    - --reproducible
+    - --cache-dir=/workspace
 deploy:
   kubectl:
     manifests:
