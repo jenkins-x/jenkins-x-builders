@@ -9,7 +9,7 @@ ENV M2 $M2_HOME/bin
 ENV PATH $M2:$PATH
 
 # Set JDK to be 32bit
-COPY set_java $M2
+COPY /workspace/workspace/builder-go-maven/set_java $M2
 RUN $M2/set_java && rm $M2/set_java
 
 CMD ["mvn","-version"]
