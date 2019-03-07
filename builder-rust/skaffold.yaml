@@ -8,18 +8,25 @@ build:
   - image: docker.io/jenkinsxio/builder-rust
     context: .
     docker: {}
-  kaniko:
-    buildContext:
-      gcsBucket: jenkinsx-dev-skaffold-kaniko
-    pullSecretName: kaniko-secret
-    namespace: jx
-    dockerConfig:
-      secretName: jenkins-docker-cfg
-    image: rawlingsj/executor:dev21
-    cache:
-      repo: jenkins-x-docker-registry.jx.svc.cluster.local:5000/builder/cache
-    flags:
-    - --cache-dir=/workspace
 deploy:
   kubectl:
     manifests:
+profiles:
+- name: local
+  build:
+    local:
+      push: false
+- name: kaniko
+  build:
+    kaniko:
+      buildContext:
+        gcsBucket: jenkinsx-dev-skaffold-kaniko
+      pullSecretName: kaniko-secret
+      namespace: jx
+      dockerConfig:
+        secretName: jenkins-docker-cfg
+      image: rawlingsj/executor:dev21
+      cache:
+        repo: jenkins-x-docker-registry.jx.svc.cluster.local:5000/builder/cache
+      flags:
+      - --cache-dir=/workspace

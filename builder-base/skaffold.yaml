@@ -17,19 +17,33 @@ build:
     context: .
     docker:
       dockerfile: Dockerfile.swift
-  kaniko:
-    buildContext:
-      gcsBucket: jenkinsx-dev-skaffold-kaniko
-    pullSecretName: kaniko-secret
-    namespace: jx
-    timeout: 30m
-    image: rawlingsj/executor:dev21
-    cache:
-      repo: jenkins-x-docker-registry.jx.svc.cluster.local:5000/builder/cache
-    dockerConfig:
-      secretName: jenkins-docker-cfg
-    flags:
-    - --cache-dir=/workspace
+test:
+- image: docker.io/jenkinsxio/builder-base
+  structureTests:
+  - ./test-base/*
+- image: docker.io/jenkinsxio/builder-ruby:{{.VERSION}}
+  structureTests:
+  - ./test-ruby/*
 deploy:
   kubectl:
     manifests:
+profiles:
+- name: local
+  build:
+    local:
+      push: false
+- name: kaniko
+  build:
+    kaniko:
+      buildContext:
+        gcsBucket: jenkinsx-dev-skaffold-kaniko
+      pullSecretName: kaniko-secret
+      namespace: jx
+      timeout: 30m
+      image: rawlingsj/executor:dev21
+      cache:
+        repo: jenkins-x-docker-registry.jx.svc.cluster.local:5000/builder/cache
+      dockerConfig:
+        secretName: jenkins-docker-cfg
+      flags:
+      - --cache-dir=/workspace

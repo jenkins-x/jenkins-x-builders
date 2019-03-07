@@ -55,4 +55,20 @@ function build_image {
 build_image "ruby" "rubybase"
 build_image "swift" "swiftbase"
 
-retry 3 skaffold build -f skaffold.yaml
+retry 3 skaffold build -p kaniko -f skaffold.yaml --skip-tests
+
+IMAGE_NAME="${DOCKER_ORG}/builder-base:${VERSION}"
+docker pull ${IMAGE_NAME}
+
+echo "Testing ${IMAGE_NAME}"     
+container-structure-test test \
+  --image ${IMAGE_NAME} \
+  --config test-base/container-test.yaml
+
+IMAGE_NAME="${DOCKER_ORG}/builder-ruby:${VERSION}"
+docker pull ${IMAGE_NAME}
+
+echo "Testing ${IMAGE_NAME}"     
+container-structure-test test \
+  --image ${IMAGE_NAME} \
+  --config test-ruby/container-test.yaml

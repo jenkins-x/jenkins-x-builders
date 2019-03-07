@@ -1,0 +1,7 @@
+schemaVersion: '2.0.0' # Make sure to test the latest schema version
+commandTests:
+- name: 'go'
+  command: 'go'
+  args: ['version']
+  excludedError: ['.*FAIL.*']
+  expectedOutput: ['.*go version go1.11.*']

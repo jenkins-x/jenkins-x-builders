@@ -2,6 +2,7 @@
 
 # IntelliJ
 .idea/
+builder-base/Dockerfile.base
 builder-base/Dockerfile.ruby
 builder-base/Dockerfile.swift
 builder-base/Dockerfile.slim

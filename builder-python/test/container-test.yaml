@@ -1,0 +1,7 @@
+schemaVersion: '2.0.0' # Make sure to test the latest schema version
+commandTests:
+- name: 'python3'
+  command: 'python3'
+  args: ['--version']
+  excludedError: ['.*FAIL.*']
+  expectedOutput: ['.*Python 3.6.*']

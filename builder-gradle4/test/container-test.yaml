@@ -1,0 +1,12 @@
+schemaVersion: '2.0.0' # Make sure to test the latest schema version
+commandTests:
+- name: 'java'
+  command: 'java'
+  args: ['-version']
+  excludedError: ['.*FAIL.*']
+  expectedError: ['.*openjdk version \"1.8.0.*']
+- name: 'gradle'
+  command: 'gradle'
+  args: ['--version']
+  excludedError: ['.*FAIL.*']
+  expectedOutput: ['.*Gradle 4.10.*']
