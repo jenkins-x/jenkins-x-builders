@@ -3,7 +3,8 @@ FROM jenkinsxio/builder-base:0.1.238
 ENV \
     DMD_PATH=/opt/dlang
 
-RUN yum install -y gcc openssl-devel
+RUN yum install -y gcc openssl-devel \
+    && yum clean all
 
 RUN curl -fsS https://dlang.org/install.sh | bash -s dmd install -p /opt \
     && export DMD_VERSION=$(ls /opt | grep dmd) \

@@ -1,6 +1,6 @@
 FROM jenkinsxio/builder-base:0.1.238
 
-RUN yum install -y gcc 
+RUN yum install -y gcc && yum clean all
 
 RUN wget https://static.rust-lang.org/rustup/dist/x86_64-unknown-linux-gnu/rustup-init && \
   chmod +x rustup-init &&\
