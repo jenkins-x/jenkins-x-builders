@@ -1,7 +1,0 @@
-schemaVersion: '2.0.0' # Make sure to test the latest schema version
-commandTests:
-- name: 'sbt'
-  command: 'sbt'
-  args: ['-v']
-  excludedError: ['.*FAIL.*']
-  expectedOutput: ['.*Apache Maven 3.5.3.*']
