@@ -1,4 +1,4 @@
-FROM jenkinsxio/builder-base:0.1.238
+FROM jenkinsxio/builder-base:0.1.275
 
 RUN yum install -y python python-libs python-devel python-pip && yum clean all
 

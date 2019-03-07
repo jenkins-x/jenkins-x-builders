@@ -1,4 +1,4 @@
-FROM jenkinsxio/builder-base:0.1.238
+FROM jenkinsxio/builder-base:0.1.275
 
 ENV PYTHONVERSION 3.7.1
 
