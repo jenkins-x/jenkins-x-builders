@@ -44,7 +44,7 @@ pushd builder-base
 popd
 
 ## newman depends on nodejs, so order is important
-BUILDERS="dlang go go-maven gradle gradle4 gradle5 maven maven-java11 maven-nodejs maven-32 nodejs nodejs8x nodejs10x newman aws-cdk python python2 python37 rust scala terraform"
+BUILDERS="dlang go go-maven gradle gradle4 gradle5 maven maven-java11 maven-nodejs maven-32 nodejs nodejs8x nodejs10x newman aws-cdk awscli awscli-local python python2 python37 rust scala terraform"
 BROKEN="dotnet"
 ## now loop through the above array
 for i in $BUILDERS
@@ -81,6 +81,8 @@ done
 if [ "release" == "${RELEASE}" ]; then
   updatebot push-version --kind helm \
     jenkinsxio/builder-aws-cdk ${VERSION} \
+    jenkinsxio/builder-awscli ${VERSION} \
+    jenkinsxio/builder-awscli-local ${VERSION} \
     jenkinsxio/builder-base ${VERSION} \
     jenkinsxio/builder-ruby ${VERSION} \
     jenkinsxio/builder-swift ${VERSION} \
