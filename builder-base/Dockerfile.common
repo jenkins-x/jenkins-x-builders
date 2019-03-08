@@ -65,10 +65,6 @@ RUN curl -f -LO https://storage.googleapis.com/kubernetes-release/release/$(curl
   chmod +x kubectl && \
   mv kubectl /usr/bin/
 
-# jx
-RUN curl -f -L https://github.com/jenkins-x/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv && \
-  mv jx /usr/bin/
-
 # aws ecr docker credential helper.
 # Currently using https://github.com/estahn/amazon-ecr-credential-helper as there are no releases yet in the main repo
 # Main repo issues tracking at https://github.com/awslabs/amazon-ecr-credential-helper/issues/80

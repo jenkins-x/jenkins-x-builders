@@ -17,12 +17,11 @@ set -o nounset
 set -o pipefail
 
 
-BUILDERS="dlang go go-maven gradle gradle4 gradle5 maven maven-java11 maven-nodejs maven-32 nodejs nodejs8x nodejs10x newman aws-cdk python python2 python37 rust scala terraform"
+BUILDERS="go-maven maven-nodejs aws-cdk aws-cli"
 
 
 DOCKER_ORG=$1
 VERSION=$2
-
 
 ## now loop through the above array
 for i in $BUILDERS

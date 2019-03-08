@@ -1,4 +1,4 @@
-FROM gcr.io/jenkinsx-dev/builder-base:0.1.238
+FROM gcr.io/jenkinsxio/builder-base:0.0.1
 
 # Maven
 ENV MAVEN_VERSION 3.5.3
@@ -15,5 +15,10 @@ RUN ln -s /usr/java/bin/java /usr/bin/java
 RUN ln -s /usr/java/bin/javac /usr/bin/javac
 RUN ln -s /usr/java/bin/javadoc /usr/bin/javadoc
 ENV JAVA_HOME /usr/java
+
+# jx
+ENV JX_VERSION 1.3.967
+RUN curl -f -L https://github.com/jenkins-x/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv && \
+  mv jx /usr/bin/
 
 CMD ["mvn","-version"]

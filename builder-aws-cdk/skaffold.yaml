@@ -5,7 +5,7 @@ build:
     envTemplate:
       template: "{{.IMAGE_NAME}}:{{.VERSION}}"
   artifacts:
-  - image: gcr.io/jenkinsx-dev/builder-aws-cdk
+  - image: gcr.io/jenkinsxio/builder-aws-cdk
     context: .
     docker: {}
 deploy:

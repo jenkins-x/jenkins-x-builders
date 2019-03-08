@@ -1,4 +1,4 @@
-FROM jenkinsxio/builder-python37:1
+FROM gcr.io/jenkinsxio/builder-python37:1
 
 RUN easy_install-3.7 pip
 

@@ -1,4 +1,4 @@
-FROM gcr.io/jenkinsx-dev/builder-go:0.1.238
+FROM gcr.io/jenkinsxio/builder-go:0.1.238
 
 # Maven
 ENV MAVEN_VERSION 3.5.3
@@ -11,5 +11,10 @@ ENV PATH $M2:$PATH
 # Set JDK to be 32bit
 COPY /workspace/workspace/builder-go-maven/set_java $M2
 RUN $M2/set_java && rm $M2/set_java
+
+# jx
+ENV JX_VERSION 1.3.967
+RUN curl -f -L https://github.com/jenkins-x/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv && \
+  mv jx /usr/bin/
 
 CMD ["mvn","-version"]
