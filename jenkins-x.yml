@@ -36,7 +36,6 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
                 - --cache-dir=/workspace
-                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
             - name: build-and-push-ruby-base
               command: /kaniko/executor
               args:
@@ -46,7 +45,6 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
                 - --cache-dir=/workspace
-                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
             - name: build-and-push-swift-base
               command: /kaniko/executor
               args:
@@ -56,7 +54,6 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
                 - --cache-dir=/workspace
-                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
             - name: replace-versions
               image: centos:7
               command: /workspace/workspace/replace-versions.sh
@@ -72,7 +69,6 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
                 - --cache-dir=/workspace
-                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
             - name: build-and-push-go
               command: /kaniko/executor
               args:
@@ -82,7 +78,6 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
                 - --cache-dir=/workspace
-                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
             - name: build-and-push-gradle
               command: /kaniko/executor
               args:
@@ -92,7 +87,6 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
                 - --cache-dir=/workspace
-                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
             - name: build-and-push-gradle4
               command: /kaniko/executor
               args:
@@ -102,7 +96,6 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
                 - --cache-dir=/workspace
-                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
             - name: build-and-push-gradle5
               command: /kaniko/executor
               args:
@@ -112,7 +105,6 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
                 - --cache-dir=/workspace
-                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
             - name: build-and-push-maven
               command: /kaniko/executor
               args:
@@ -122,7 +114,6 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
                 - --cache-dir=/workspace
-                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
             - name: build-and-push-maven-32
               command: /kaniko/executor
               args:
@@ -132,7 +123,6 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
                 - --cache-dir=/workspace
-                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
             - name: build-and-push-maven-java11
               command: /kaniko/executor
               args:
@@ -142,7 +132,6 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
                 - --cache-dir=/workspace
-                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
             - name: build-and-push-newman
               command: /kaniko/executor
               args:
@@ -152,7 +141,6 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
                 - --cache-dir=/workspace
-                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
             - name: build-and-push-nodejs8x
               command: /kaniko/executor
               args:
@@ -162,7 +150,6 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
                 - --cache-dir=/workspace
-                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
             - name: build-and-push-nodejs10x
               command: /kaniko/executor
               args:
@@ -172,7 +159,6 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
                 - --cache-dir=/workspace
-                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
             - name: build-and-push-python
               command: /kaniko/executor
               args:
@@ -182,7 +168,6 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
                 - --cache-dir=/workspace
-                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
             - name: build-and-push-python2
               command: /kaniko/executor
               args:
@@ -192,7 +177,6 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
                 - --cache-dir=/workspace
-                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
             - name: build-and-push-python37
               command: /kaniko/executor
               args:
@@ -202,7 +186,6 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
                 - --cache-dir=/workspace
-                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
             - name: build-and-push-rust
               command: /kaniko/executor
               args:
@@ -212,7 +195,6 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
                 - --cache-dir=/workspace
-                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
             - name: build-and-push-scala
               command: /kaniko/executor
               args:
@@ -222,7 +204,6 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
                 - --cache-dir=/workspace
-                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
             - name: build-and-push-terraform
               command: /kaniko/executor
               args:
@@ -232,7 +213,6 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
                 - --cache-dir=/workspace
-                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
             - name: build-and-push-aws-cdk
               command: /kaniko/executor
               args:
@@ -242,7 +222,6 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
                 - --cache-dir=/workspace
-                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
             - name: build-and-push-go-maven
               command: /kaniko/executor
               args:
@@ -252,7 +231,6 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
                 - --cache-dir=/workspace
-                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
             - name: build-and-push-maven-nodejs
               command: /kaniko/executor
               args:
@@ -262,7 +240,6 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
                 - --cache-dir=/workspace
-                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
     release:
       pipeline:
         agent:
@@ -272,7 +249,20 @@ pipelineConfig:
             environment:
               - name: PUSH_LATEST
                 value: false
+              - name: GOOGLE_APPLICATION_CREDENTIALS
+                value: /builder/home/kaniko-secret.json
             steps:
+              - image: jenkinsxio/jx:1.3.963
+                command: jx
+                args:
+                  - step
+                  - credential
+                  - -s
+                  - gcs-jenkinsx-chartmuseum
+                  - -k
+                  - gcs-chartmuseum.key.json
+                  - -f
+                  - /builder/home/kaniko-secret.json
               - name: build-base
                 image: centos:7
                 command: /workspace/workspace/builder-base/build-ng.sh
@@ -285,7 +275,6 @@ pipelineConfig:
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
                   - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
               - name: build-and-push-ruby-base
                 command: /kaniko/executor
                 args:
@@ -295,7 +284,6 @@ pipelineConfig:
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
                   - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
               - name: build-and-push-swift-base
                 command: /kaniko/executor
                 args:
@@ -305,7 +293,6 @@ pipelineConfig:
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
                   - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
               - name: replace-versions
                 image: centos:7
                 command: /workspace/workspace/replace-versions.sh
@@ -321,7 +308,6 @@ pipelineConfig:
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
                   - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
               - name: build-and-push-go
                 command: /kaniko/executor
                 args:
@@ -331,7 +317,6 @@ pipelineConfig:
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
                   - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
               - name: build-and-push-gradle
                 command: /kaniko/executor
                 args:
@@ -341,7 +326,6 @@ pipelineConfig:
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
                   - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
               - name: build-and-push-gradle4
                 command: /kaniko/executor
                 args:
@@ -351,7 +335,6 @@ pipelineConfig:
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
                   - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
               - name: build-and-push-gradle5
                 command: /kaniko/executor
                 args:
@@ -361,7 +344,6 @@ pipelineConfig:
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
                   - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
               - name: build-and-push-maven
                 command: /kaniko/executor
                 args:
@@ -371,7 +353,6 @@ pipelineConfig:
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
                   - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
               - name: build-and-push-maven-32
                 command: /kaniko/executor
                 args:
@@ -381,7 +362,6 @@ pipelineConfig:
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
                   - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
               - name: build-and-push-maven-java11
                 command: /kaniko/executor
                 args:
@@ -391,7 +371,6 @@ pipelineConfig:
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
                   - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
               - name: build-and-push-newman
                 command: /kaniko/executor
                 args:
@@ -401,7 +380,6 @@ pipelineConfig:
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
                   - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
               - name: build-and-push-nodejs8x
                 command: /kaniko/executor
                 args:
@@ -411,7 +389,6 @@ pipelineConfig:
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
                   - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
               - name: build-and-push-nodejs10x
                 command: /kaniko/executor
                 args:
@@ -421,7 +398,6 @@ pipelineConfig:
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
                   - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
               - name: build-and-push-python
                 command: /kaniko/executor
                 args:
@@ -431,7 +407,6 @@ pipelineConfig:
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
                   - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
               - name: build-and-push-python2
                 command: /kaniko/executor
                 args:
@@ -441,7 +416,6 @@ pipelineConfig:
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
                   - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
               - name: build-and-push-python37
                 command: /kaniko/executor
                 args:
@@ -451,7 +425,6 @@ pipelineConfig:
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
                   - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
               - name: build-and-push-rust
                 command: /kaniko/executor
                 args:
@@ -461,7 +434,6 @@ pipelineConfig:
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
                   - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
               - name: build-and-push-scala
                 command: /kaniko/executor
                 args:
@@ -471,7 +443,6 @@ pipelineConfig:
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
                   - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
               - name: build-and-push-terraform
                 command: /kaniko/executor
                 args:
@@ -481,7 +452,6 @@ pipelineConfig:
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
                   - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
               - name: build-and-push-aws-cdk
                 command: /kaniko/executor
                 args:
@@ -491,7 +461,6 @@ pipelineConfig:
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
                   - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
               - name: build-and-push-go-maven
                 command: /kaniko/executor
                 args:
@@ -501,7 +470,6 @@ pipelineConfig:
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
                   - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
               - name: build-and-push-maven-nodejs
                 command: /kaniko/executor
                 args:
@@ -511,7 +479,6 @@ pipelineConfig:
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
                   - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
               - name: update-bot
                 image: jenkinxio:maven-builder
                 command: ./update-bot.sh
