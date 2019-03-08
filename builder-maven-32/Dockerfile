@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-FROM jenkinsxio/builder-base:0.1.238
-=======
-FROM gcr.io/jenkinsx-dev/builder-base:1
->>>>>>> Change images from docker hub to gcr
+FROM gcr.io/jenkinsx-dev/builder-base:0.1.238
 
 # Maven
 ENV MAVEN_VERSION 3.5.3
@@ -13,7 +9,7 @@ ENV M2 $M2_HOME/bin
 ENV PATH $M2:$PATH
 
 # Set JDK to be 32bit
-COPY /workspace/workspace/builder-maven-32/set_java $M2
+COPY set_java $M2
 RUN $M2/set_java && rm $M2/set_java
 
 CMD ["mvn","-version"]

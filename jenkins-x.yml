@@ -60,6 +60,27 @@ pipelineConfig:
               args:
                 - gcr.io\/jenkinsx-dev
                 - ${inputs.params.version}
+# cache base images
+
+# builders
+            - name: build-and-push-python
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-python/Dockerfile
+                - --destination=gcr.io/jenkinsx-dev/builder-python:${inputs.params.version}
+                - --context=/workspace/workspace
+                - --cache-repo=gcr.io/jenkinsx-dev/cache
+                - --cache=true
+                - --cache-dir=/workspace
+            - name: build-and-push-maven-32
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-maven-32/Dockerfile
+                - --destination=gcr.io/jenkinsx-dev/builder-maven-32:${inputs.params.version}
+                - --context=/workspace/workspace/builder-maven-32
+                - --cache-repo=gcr.io/jenkinsx-dev/cache
+                - --cache=true
+                - --cache-dir=/workspace
             - name: build-and-push-dlang
               command: /kaniko/executor
               args:
@@ -114,15 +135,6 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
                 - --cache-dir=/workspace
-            - name: build-and-push-maven-32
-              command: /kaniko/executor
-              args:
-                - --dockerfile=/workspace/workspace/builder-maven-32/Dockerfile
-                - --destination=gcr.io/jenkinsx-dev/builder-maven-32:${inputs.params.version}
-                - --context=/workspace/workspace
-                - --cache-repo=gcr.io/jenkinsx-dev/cache
-                - --cache=true
-                - --cache-dir=/workspace
             - name: build-and-push-maven-java11
               command: /kaniko/executor
               args:
@@ -155,15 +167,6 @@ pipelineConfig:
               args:
                 - --dockerfile=/workspace/workspace/builder-nodejs10x/Dockerfile
                 - --destination=gcr.io/jenkinsx-dev/builder-nodejs8x:${inputs.params.version}
-                - --context=/workspace/workspace
-                - --cache-repo=gcr.io/jenkinsx-dev/cache
-                - --cache=true
-                - --cache-dir=/workspace
-            - name: build-and-push-python
-              command: /kaniko/executor
-              args:
-                - --dockerfile=/workspace/workspace/builder-python/Dockerfile
-                - --destination=gcr.io/jenkinsx-dev/builder-python:${inputs.params.version}
                 - --context=/workspace/workspace
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
@@ -358,7 +361,7 @@ pipelineConfig:
                 args:
                   - --dockerfile=/workspace/workspace/builder-maven-32/Dockerfile
                   - --destination=gcr.io/jenkinsx-dev/builder-maven-32:${inputs.params.version}
-                  - --context=/workspace/workspace
+                  - --context=/workspace/workspace/builder-maven-32
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
                   - --cache-dir=/workspace
@@ -398,15 +401,7 @@ pipelineConfig:
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
                   - --cache-dir=/workspace
-              - name: build-and-push-python
-                command: /kaniko/executor
-                args:
-                  - --dockerfile=/workspace/workspace/builder-python/Dockerfile
-                  - --destination=gcr.io/jenkinsx-dev/builder-python:${inputs.params.version}
-                  - --context=/workspace/workspace
-                  - --cache-repo=gcr.io/jenkinsx-dev/cache
-                  - --cache=true
-                  - --cache-dir=/workspace
+
               - name: build-and-push-python2
                 command: /kaniko/executor
                 args:
