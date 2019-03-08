@@ -13,17 +13,9 @@ RUN curl -f https://storage.googleapis.com/kubernetes-helm/helm-v${HELM_VERSION}
   rm -rf linux-amd64
 
 # helm3
-# RUN curl -L https://storage.googleapis.com/kubernetes-helm/helm-dev-v3-linux-amd64.tar.gz | tar xzv && \
-#  mv linux-amd64/helm /usr/bin/helm3 && \
-#  rm -rf linux-amd64
-
-# lets use a patched release until this PR is merged or helm3 works again ;)
-# https://github.com/kubernetes/helm/pull/4257#issuecomment-399491118
-
 RUN curl -f -L https://github.com/jstrachan/helm/releases/download/untagged-93375777c6644a452a64/helm-linux-amd64.tar.gz -o helm3.tgz && \
   tar xf helm3.tgz && \
   mv helm /usr/bin/helm3
-
 RUN rm *.tgz
 
 # gcloud
@@ -65,10 +57,6 @@ RUN curl -f -LO https://storage.googleapis.com/kubernetes-release/release/$(curl
   chmod +x kubectl && \
   mv kubectl /usr/bin/
 
-# jx
-RUN curl -f -L https://github.com/jenkins-x/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv && \
-  mv jx /usr/bin/
-
 # aws ecr docker credential helper.
 # Currently using https://github.com/estahn/amazon-ecr-credential-helper as there are no releases yet in the main repo
 # Main repo issues tracking at https://github.com/awslabs/amazon-ecr-credential-helper/issues/80
@@ -89,5 +77,10 @@ RUN curl -f -L https://github.com/ccojocar/reflex/releases/download/v${REFLEX_VE
   mv reflex /usr/bin/
 
 ENV PATH ${PATH}:/opt/google/chrome
+
+# jx
+ENV JX_VERSION 1.3.967
+RUN curl -f -L https://github.com/jenkins-x/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv && \
+  mv jx /usr/bin/
 
 CMD ["helm","version"]
