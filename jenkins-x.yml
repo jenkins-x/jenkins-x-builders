@@ -297,7 +297,7 @@ pipelineConfig:
                 image: centos:7
                 command: /workspace/workspace/replace-versions.sh
                 args:
-                  - jenkinsxio
+                  - gcr.io/jenkinsx-dev
                   - ${inputs.params.version}
               - name: build-and-push-dlang
                 command: /kaniko/executor
