@@ -117,7 +117,7 @@ pipelineConfig:
             - name: build-and-push-maven-32
               command: /kaniko/executor
               args:
-                - --dockerfile=/workspace/workspace/builder-maven-32/Dockerfile.ng
+                - --dockerfile=/workspace/workspace/builder-maven-32/Dockerfile
                 - --destination=gcr.io/jenkinsx-dev/builder-maven-32:${inputs.params.version}
                 - --context=/workspace/workspace
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
@@ -225,7 +225,7 @@ pipelineConfig:
             - name: build-and-push-go-maven
               command: /kaniko/executor
               args:
-                - --dockerfile=/workspace/workspace/builder-go-maven/Dockerfile.ng
+                - --dockerfile=/workspace/workspace/builder-go-maven/Dockerfile
                 - --destination=gcr.io/jenkinsx-dev/builder-go-maven:${inputs.params.version}
                 - --context=/workspace/workspace
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
@@ -356,7 +356,7 @@ pipelineConfig:
               - name: build-and-push-maven-32
                 command: /kaniko/executor
                 args:
-                  - --dockerfile=/workspace/workspace/builder-maven-32/Dockerfile.ng
+                  - --dockerfile=/workspace/workspace/builder-maven-32/Dockerfile
                   - --destination=gcr.io/jenkinsx-dev/builder-maven-32:${inputs.params.version}
                   - --context=/workspace/workspace
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
@@ -464,7 +464,7 @@ pipelineConfig:
               - name: build-and-push-go-maven
                 command: /kaniko/executor
                 args:
-                  - --dockerfile=/workspace/workspace/builder-go-maven/Dockerfile.ng
+                  - --dockerfile=/workspace/workspace/builder-go-maven/Dockerfile
                   - --destination=gcr.io/jenkinsx-dev/builder-go-maven:${inputs.params.version}
                   - --context=/workspace/workspace
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
