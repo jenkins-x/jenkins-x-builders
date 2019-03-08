@@ -24,232 +24,232 @@ pipelineConfig:
                 - --cache=true
                 - --cache-dir=/workspace
                 - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
-              - name: build-and-push-ruby-base
-                command: /kaniko/executor
-                args:
-                  - --dockerfile=/workspace/workspace/builder-base/Dockerfile.rubybase
-                  - --destination=docker.io/jenkinsxio/builder-ruby:${inputs.params.version}
-                  - --context=/workspace/workspace
-                  - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
-                  - --cache=true
-                  - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
-              - name: build-and-push-swift-base
-                command: /kaniko/executor
-                args:
-                  - --dockerfile=/workspace/workspace/builder-base/Dockerfile.swiftbase
-                  - --destination=docker.io/jenkinsxio/builder-swift:${inputs.params.version}
-                  - --context=/workspace/workspace
-                  - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
-                  - --cache=true
-                  - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
-              - name: replace-versions
-                image: centos:7
-                command: /workspace/workspace/replace-versions.sh
-                args:
-                  - jenkinsxio
-                  - ${inputs.params.version}
-              - name: build-and-push-dlang
-                command: /kaniko/executor
-                args:
-                  - --dockerfile=/workspace/workspace/builder-dlang/Dockerfile
-                  - --destination=docker.io/jenkinsxio/builder-dlang:${inputs.params.version}
-                  - --context=/workspace/workspace
-                  - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
-                  - --cache=true
-                  - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
-              - name: build-and-push-go
-                command: /kaniko/executor
-                args:
-                  - --dockerfile=/workspace/workspace/builder-go/Dockerfile
-                  - --destination=docker.io/jenkinsxio/builder-go:${inputs.params.version}
-                  - --context=/workspace/workspace
-                  - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
-                  - --cache=true
-                  - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
-              - name: build-and-push-gradle
-                command: /kaniko/executor
-                args:
-                  - --dockerfile=/workspace/workspace/builder-gradle/Dockerfile
-                  - --destination=docker.io/jenkinsxio/builder-gradle:${inputs.params.version}
-                  - --context=/workspace/workspace
-                  - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
-                  - --cache=true
-                  - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
-              - name: build-and-push-gradle4
-                command: /kaniko/executor
-                args:
-                  - --dockerfile=/workspace/workspace/builder-gradle4/Dockerfile
-                  - --destination=docker.io/jenkinsxio/builder-gradle4:${inputs.params.version}
-                  - --context=/workspace/workspace
-                  - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
-                  - --cache=true
-                  - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
-              - name: build-and-push-gradle5
-                command: /kaniko/executor
-                args:
-                  - --dockerfile=/workspace/workspace/builder-gradle5/Dockerfile
-                  - --destination=docker.io/jenkinsxio/builder-gradle5:${inputs.params.version}
-                  - --context=/workspace/workspace
-                  - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
-                  - --cache=true
-                  - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
-              - name: build-and-push-maven
-                command: /kaniko/executor
-                args:
-                  - --dockerfile=/workspace/workspace/builder-maven/Dockerfile
-                  - --destination=docker.io/jenkinsxio/builder-maven:${inputs.params.version}
-                  - --context=/workspace/workspace
-                  - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
-                  - --cache=true
-                  - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
-              - name: build-and-push-maven-32
-                command: /kaniko/executor
-                args:
-                  - --dockerfile=/workspace/workspace/builder-maven-32/Dockerfile.ng
-                  - --destination=docker.io/jenkinsxio/builder-maven-32:${inputs.params.version}
-                  - --context=/workspace/workspace
-                  - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
-                  - --cache=true
-                  - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
-              - name: build-and-push-maven-java11
-                command: /kaniko/executor
-                args:
-                  - --dockerfile=/workspace/workspace/builder-maven-java11/Dockerfile
-                  - --destination=docker.io/jenkinsxio/builder-maven-java11:${inputs.params.version}
-                  - --context=/workspace/workspace
-                  - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
-                  - --cache=true
-                  - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
-              - name: build-and-push-newman
-                command: /kaniko/executor
-                args:
-                  - --dockerfile=/workspace/workspace/builder-newman/Dockerfile
-                  - --destination=docker.io/jenkinsxio/builder-newman:${inputs.params.version}
-                  - --context=/workspace/workspace
-                  - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
-                  - --cache=true
-                  - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
-              - name: build-and-push-nodejs8x
-                command: /kaniko/executor
-                args:
-                  - --dockerfile=/workspace/workspace/builder-nodejs8x/Dockerfile
-                  - --destination=docker.io/jenkinsxio/builder-nodejs8x:${inputs.params.version}
-                  - --context=/workspace/workspace
-                  - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
-                  - --cache=true
-                  - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
-              - name: build-and-push-nodejs10x
-                command: /kaniko/executor
-                args:
-                  - --dockerfile=/workspace/workspace/builder-nodejs10x/Dockerfile
-                  - --destination=docker.io/jenkinsxio/builder-nodejs8x:${inputs.params.version}
-                  - --context=/workspace/workspace
-                  - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
-                  - --cache=true
-                  - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
-              - name: build-and-push-python
-                command: /kaniko/executor
-                args:
-                  - --dockerfile=/workspace/workspace/builder-python/Dockerfile
-                  - --destination=docker.io/jenkinsxio/builder-python:${inputs.params.version}
-                  - --context=/workspace/workspace
-                  - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
-                  - --cache=true
-                  - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
-              - name: build-and-push-python2
-                command: /kaniko/executor
-                args:
-                  - --dockerfile=/workspace/workspace/builder-python2/Dockerfile
-                  - --destination=docker.io/jenkinsxio/builder-python2:${inputs.params.version}
-                  - --context=/workspace/workspace
-                  - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
-                  - --cache=true
-                  - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
-              - name: build-and-push-python37
-                command: /kaniko/executor
-                args:
-                  - --dockerfile=/workspace/workspace/builder-python37/Dockerfile
-                  - --destination=docker.io/jenkinsxio/builder-python37:${inputs.params.version}
-                  - --context=/workspace/workspace
-                  - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
-                  - --cache=true
-                  - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
-              - name: build-and-push-rust
-                command: /kaniko/executor
-                args:
-                  - --dockerfile=/workspace/workspace/builder-rust/Dockerfile
-                  - --destination=docker.io/jenkinsxio/builder-rust:${inputs.params.version}
-                  - --context=/workspace/workspace
-                  - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
-                  - --cache=true
-                  - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
-              - name: build-and-push-scala
-                command: /kaniko/executor
-                args:
-                  - --dockerfile=/workspace/workspace/builder-scala/Dockerfile
-                  - --destination=docker.io/jenkinsxio/builder-scala:${inputs.params.version}
-                  - --context=/workspace/workspace
-                  - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
-                  - --cache=true
-                  - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
-              - name: build-and-push-terraform
-                command: /kaniko/executor
-                args:
-                  - --dockerfile=/workspace/workspace/builder-terraform/Dockerfile
-                  - --destination=docker.io/jenkinsxio/builder-terraform:${inputs.params.version}
-                  - --context=/workspace/workspace
-                  - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
-                  - --cache=true
-                  - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
-              - name: build-and-push-aws-cdk
-                command: /kaniko/executor
-                args:
-                  - --dockerfile=/workspace/workspace/builder-aws-cdk/Dockerfile
-                  - --destination=docker.io/jenkinsxio/builder-aws-cdk:${inputs.params.version}
-                  - --context=/workspace/workspace
-                  - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
-                  - --cache=true
-                  - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
-              - name: build-and-push-go-maven
-                command: /kaniko/executor
-                args:
-                  - --dockerfile=/workspace/workspace/builder-go-maven/Dockerfile.ng
-                  - --destination=docker.io/jenkinsxio/builder-go-maven:${inputs.params.version}
-                  - --context=/workspace/workspace
-                  - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
-                  - --cache=true
-                  - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
-              - name: build-and-push-maven-nodejs
-                command: /kaniko/executor
-                args:
-                  - --dockerfile=/workspace/workspace/builder-maven-nodejs/Dockerfile
-                  - --destination=docker.io/jenkinsxio/builder-maven-nodejs:${inputs.params.version}
-                  - --context=/workspace/workspace
-                  - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
-                  - --cache=true
-                  - --cache-dir=/workspace
-                  - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
+            - name: build-and-push-ruby-base
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-base/Dockerfile.rubybase
+                - --destination=docker.io/jenkinsxio/builder-ruby:${inputs.params.version}
+                - --context=/workspace/workspace
+                - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
+                - --cache=true
+                - --cache-dir=/workspace
+                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
+            - name: build-and-push-swift-base
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-base/Dockerfile.swiftbase
+                - --destination=docker.io/jenkinsxio/builder-swift:${inputs.params.version}
+                - --context=/workspace/workspace
+                - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
+                - --cache=true
+                - --cache-dir=/workspace
+                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
+            - name: replace-versions
+              image: centos:7
+              command: /workspace/workspace/replace-versions.sh
+              args:
+                - jenkinsxio
+                - ${inputs.params.version}
+            - name: build-and-push-dlang
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-dlang/Dockerfile
+                - --destination=docker.io/jenkinsxio/builder-dlang:${inputs.params.version}
+                - --context=/workspace/workspace
+                - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
+                - --cache=true
+                - --cache-dir=/workspace
+                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
+            - name: build-and-push-go
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-go/Dockerfile
+                - --destination=docker.io/jenkinsxio/builder-go:${inputs.params.version}
+                - --context=/workspace/workspace
+                - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
+                - --cache=true
+                - --cache-dir=/workspace
+                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
+            - name: build-and-push-gradle
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-gradle/Dockerfile
+                - --destination=docker.io/jenkinsxio/builder-gradle:${inputs.params.version}
+                - --context=/workspace/workspace
+                - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
+                - --cache=true
+                - --cache-dir=/workspace
+                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
+            - name: build-and-push-gradle4
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-gradle4/Dockerfile
+                - --destination=docker.io/jenkinsxio/builder-gradle4:${inputs.params.version}
+                - --context=/workspace/workspace
+                - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
+                - --cache=true
+                - --cache-dir=/workspace
+                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
+            - name: build-and-push-gradle5
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-gradle5/Dockerfile
+                - --destination=docker.io/jenkinsxio/builder-gradle5:${inputs.params.version}
+                - --context=/workspace/workspace
+                - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
+                - --cache=true
+                - --cache-dir=/workspace
+                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
+            - name: build-and-push-maven
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-maven/Dockerfile
+                - --destination=docker.io/jenkinsxio/builder-maven:${inputs.params.version}
+                - --context=/workspace/workspace
+                - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
+                - --cache=true
+                - --cache-dir=/workspace
+                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
+            - name: build-and-push-maven-32
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-maven-32/Dockerfile.ng
+                - --destination=docker.io/jenkinsxio/builder-maven-32:${inputs.params.version}
+                - --context=/workspace/workspace
+                - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
+                - --cache=true
+                - --cache-dir=/workspace
+                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
+            - name: build-and-push-maven-java11
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-maven-java11/Dockerfile
+                - --destination=docker.io/jenkinsxio/builder-maven-java11:${inputs.params.version}
+                - --context=/workspace/workspace
+                - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
+                - --cache=true
+                - --cache-dir=/workspace
+                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
+            - name: build-and-push-newman
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-newman/Dockerfile
+                - --destination=docker.io/jenkinsxio/builder-newman:${inputs.params.version}
+                - --context=/workspace/workspace
+                - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
+                - --cache=true
+                - --cache-dir=/workspace
+                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
+            - name: build-and-push-nodejs8x
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-nodejs8x/Dockerfile
+                - --destination=docker.io/jenkinsxio/builder-nodejs8x:${inputs.params.version}
+                - --context=/workspace/workspace
+                - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
+                - --cache=true
+                - --cache-dir=/workspace
+                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
+            - name: build-and-push-nodejs10x
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-nodejs10x/Dockerfile
+                - --destination=docker.io/jenkinsxio/builder-nodejs8x:${inputs.params.version}
+                - --context=/workspace/workspace
+                - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
+                - --cache=true
+                - --cache-dir=/workspace
+                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
+            - name: build-and-push-python
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-python/Dockerfile
+                - --destination=docker.io/jenkinsxio/builder-python:${inputs.params.version}
+                - --context=/workspace/workspace
+                - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
+                - --cache=true
+                - --cache-dir=/workspace
+                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
+            - name: build-and-push-python2
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-python2/Dockerfile
+                - --destination=docker.io/jenkinsxio/builder-python2:${inputs.params.version}
+                - --context=/workspace/workspace
+                - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
+                - --cache=true
+                - --cache-dir=/workspace
+                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
+            - name: build-and-push-python37
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-python37/Dockerfile
+                - --destination=docker.io/jenkinsxio/builder-python37:${inputs.params.version}
+                - --context=/workspace/workspace
+                - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
+                - --cache=true
+                - --cache-dir=/workspace
+                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
+            - name: build-and-push-rust
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-rust/Dockerfile
+                - --destination=docker.io/jenkinsxio/builder-rust:${inputs.params.version}
+                - --context=/workspace/workspace
+                - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
+                - --cache=true
+                - --cache-dir=/workspace
+                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
+            - name: build-and-push-scala
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-scala/Dockerfile
+                - --destination=docker.io/jenkinsxio/builder-scala:${inputs.params.version}
+                - --context=/workspace/workspace
+                - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
+                - --cache=true
+                - --cache-dir=/workspace
+                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
+            - name: build-and-push-terraform
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-terraform/Dockerfile
+                - --destination=docker.io/jenkinsxio/builder-terraform:${inputs.params.version}
+                - --context=/workspace/workspace
+                - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
+                - --cache=true
+                - --cache-dir=/workspace
+                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
+            - name: build-and-push-aws-cdk
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-aws-cdk/Dockerfile
+                - --destination=docker.io/jenkinsxio/builder-aws-cdk:${inputs.params.version}
+                - --context=/workspace/workspace
+                - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
+                - --cache=true
+                - --cache-dir=/workspace
+                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
+            - name: build-and-push-go-maven
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-go-maven/Dockerfile.ng
+                - --destination=docker.io/jenkinsxio/builder-go-maven:${inputs.params.version}
+                - --context=/workspace/workspace
+                - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
+                - --cache=true
+                - --cache-dir=/workspace
+                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
+            - name: build-and-push-maven-nodejs
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-maven-nodejs/Dockerfile
+                - --destination=docker.io/jenkinsxio/builder-maven-nodejs:${inputs.params.version}
+                - --context=/workspace/workspace
+                - --cache-repo=jenkins-x-docker-registry.jx.svc.cluster.local:5000/
+                - --cache=true
+                - --cache-dir=/workspace
+                - --skip-tls-verify-registry=jenkins-x-docker-registry.jx.svc.cluster.local:5000
     release:
       pipeline:
         agent:
