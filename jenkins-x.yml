@@ -18,7 +18,7 @@ pipelineConfig:
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/workspace/builder-base/Dockerfile.base
-                - --destination=docker.io/jenkinsxio/builder-base:${inputs.params.version}
+                - --destination=gcr.io/jenkinsx-dev/builder-base:${inputs.params.version}
                 - --context=/workspace/workspace
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
@@ -28,7 +28,7 @@ pipelineConfig:
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/workspace/builder-base/Dockerfile.rubybase
-                - --destination=docker.io/jenkinsxio/builder-ruby:${inputs.params.version}
+                - --destination=gcr.io/jenkinsx-dev/builder-ruby:${inputs.params.version}
                 - --context=/workspace/workspace
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
@@ -38,7 +38,7 @@ pipelineConfig:
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/workspace/builder-base/Dockerfile.swiftbase
-                - --destination=docker.io/jenkinsxio/builder-swift:${inputs.params.version}
+                - --destination=gcr.io/jenkinsx-dev/builder-swift:${inputs.params.version}
                 - --context=/workspace/workspace
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
@@ -54,7 +54,7 @@ pipelineConfig:
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/workspace/builder-dlang/Dockerfile
-                - --destination=docker.io/jenkinsxio/builder-dlang:${inputs.params.version}
+                - --destination=gcr.io/jenkinsx-dev/builder-dlang:${inputs.params.version}
                 - --context=/workspace/workspace
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
@@ -64,7 +64,7 @@ pipelineConfig:
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/workspace/builder-go/Dockerfile
-                - --destination=docker.io/jenkinsxio/builder-go:${inputs.params.version}
+                - --destination=gcr.io/jenkinsx-dev/builder-go:${inputs.params.version}
                 - --context=/workspace/workspace
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
@@ -74,7 +74,7 @@ pipelineConfig:
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/workspace/builder-gradle/Dockerfile
-                - --destination=docker.io/jenkinsxio/builder-gradle:${inputs.params.version}
+                - --destination=gcr.io/jenkinsx-dev/builder-gradle:${inputs.params.version}
                 - --context=/workspace/workspace
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
@@ -84,7 +84,7 @@ pipelineConfig:
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/workspace/builder-gradle4/Dockerfile
-                - --destination=docker.io/jenkinsxio/builder-gradle4:${inputs.params.version}
+                - --destination=gcr.io/jenkinsx-dev/builder-gradle4:${inputs.params.version}
                 - --context=/workspace/workspace
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
@@ -94,7 +94,7 @@ pipelineConfig:
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/workspace/builder-gradle5/Dockerfile
-                - --destination=docker.io/jenkinsxio/builder-gradle5:${inputs.params.version}
+                - --destination=gcr.io/jenkinsx-dev/builder-gradle5:${inputs.params.version}
                 - --context=/workspace/workspace
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
@@ -104,7 +104,7 @@ pipelineConfig:
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/workspace/builder-maven/Dockerfile
-                - --destination=docker.io/jenkinsxio/builder-maven:${inputs.params.version}
+                - --destination=gcr.io/jenkinsx-dev/builder-maven:${inputs.params.version}
                 - --context=/workspace/workspace
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
@@ -114,7 +114,7 @@ pipelineConfig:
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/workspace/builder-maven-32/Dockerfile.ng
-                - --destination=docker.io/jenkinsxio/builder-maven-32:${inputs.params.version}
+                - --destination=gcr.io/jenkinsx-dev/builder-maven-32:${inputs.params.version}
                 - --context=/workspace/workspace
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
@@ -124,7 +124,7 @@ pipelineConfig:
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/workspace/builder-maven-java11/Dockerfile
-                - --destination=docker.io/jenkinsxio/builder-maven-java11:${inputs.params.version}
+                - --destination=gcr.io/jenkinsx-dev/builder-maven-java11:${inputs.params.version}
                 - --context=/workspace/workspace
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
@@ -134,7 +134,7 @@ pipelineConfig:
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/workspace/builder-newman/Dockerfile
-                - --destination=docker.io/jenkinsxio/builder-newman:${inputs.params.version}
+                - --destination=gcr.io/jenkinsx-dev/builder-newman:${inputs.params.version}
                 - --context=/workspace/workspace
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
@@ -144,7 +144,7 @@ pipelineConfig:
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/workspace/builder-nodejs8x/Dockerfile
-                - --destination=docker.io/jenkinsxio/builder-nodejs8x:${inputs.params.version}
+                - --destination=gcr.io/jenkinsx-dev/builder-nodejs8x:${inputs.params.version}
                 - --context=/workspace/workspace
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
@@ -154,7 +154,7 @@ pipelineConfig:
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/workspace/builder-nodejs10x/Dockerfile
-                - --destination=docker.io/jenkinsxio/builder-nodejs8x:${inputs.params.version}
+                - --destination=gcr.io/jenkinsx-dev/builder-nodejs8x:${inputs.params.version}
                 - --context=/workspace/workspace
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
@@ -164,7 +164,7 @@ pipelineConfig:
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/workspace/builder-python/Dockerfile
-                - --destination=docker.io/jenkinsxio/builder-python:${inputs.params.version}
+                - --destination=gcr.io/jenkinsx-dev/builder-python:${inputs.params.version}
                 - --context=/workspace/workspace
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
@@ -174,7 +174,7 @@ pipelineConfig:
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/workspace/builder-python2/Dockerfile
-                - --destination=docker.io/jenkinsxio/builder-python2:${inputs.params.version}
+                - --destination=gcr.io/jenkinsx-dev/builder-python2:${inputs.params.version}
                 - --context=/workspace/workspace
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
@@ -184,7 +184,7 @@ pipelineConfig:
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/workspace/builder-python37/Dockerfile
-                - --destination=docker.io/jenkinsxio/builder-python37:${inputs.params.version}
+                - --destination=gcr.io/jenkinsx-dev/builder-python37:${inputs.params.version}
                 - --context=/workspace/workspace
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
@@ -194,7 +194,7 @@ pipelineConfig:
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/workspace/builder-rust/Dockerfile
-                - --destination=docker.io/jenkinsxio/builder-rust:${inputs.params.version}
+                - --destination=gcr.io/jenkinsx-dev/builder-rust:${inputs.params.version}
                 - --context=/workspace/workspace
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
@@ -204,7 +204,7 @@ pipelineConfig:
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/workspace/builder-scala/Dockerfile
-                - --destination=docker.io/jenkinsxio/builder-scala:${inputs.params.version}
+                - --destination=gcr.io/jenkinsx-dev/builder-scala:${inputs.params.version}
                 - --context=/workspace/workspace
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
@@ -214,7 +214,7 @@ pipelineConfig:
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/workspace/builder-terraform/Dockerfile
-                - --destination=docker.io/jenkinsxio/builder-terraform:${inputs.params.version}
+                - --destination=gcr.io/jenkinsx-dev/builder-terraform:${inputs.params.version}
                 - --context=/workspace/workspace
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
@@ -224,7 +224,7 @@ pipelineConfig:
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/workspace/builder-aws-cdk/Dockerfile
-                - --destination=docker.io/jenkinsxio/builder-aws-cdk:${inputs.params.version}
+                - --destination=gcr.io/jenkinsx-dev/builder-aws-cdk:${inputs.params.version}
                 - --context=/workspace/workspace
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
@@ -234,7 +234,7 @@ pipelineConfig:
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/workspace/builder-go-maven/Dockerfile.ng
-                - --destination=docker.io/jenkinsxio/builder-go-maven:${inputs.params.version}
+                - --destination=gcr.io/jenkinsx-dev/builder-go-maven:${inputs.params.version}
                 - --context=/workspace/workspace
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
@@ -244,7 +244,7 @@ pipelineConfig:
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/workspace/builder-maven-nodejs/Dockerfile
-                - --destination=docker.io/jenkinsxio/builder-maven-nodejs:${inputs.params.version}
+                - --destination=gcr.io/jenkinsx-dev/builder-maven-nodejs:${inputs.params.version}
                 - --context=/workspace/workspace
                 - --cache-repo=gcr.io/jenkinsx-dev/cache
                 - --cache=true
@@ -267,7 +267,7 @@ pipelineConfig:
                 command: /kaniko/executor
                 args:
                   - --dockerfile=/workspace/workspace/builder-base/Dockerfile.base
-                  - --destination=docker.io/jenkinsxio/builder-base:${inputs.params.version}
+                  - --destination=gcr.io/jenkinsx-dev/builder-base:${inputs.params.version}
                   - --context=/workspace/workspace
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
@@ -277,7 +277,7 @@ pipelineConfig:
                 command: /kaniko/executor
                 args:
                   - --dockerfile=/workspace/workspace/builder-base/Dockerfile.rubybase
-                  - --destination=docker.io/jenkinsxio/builder-ruby:${inputs.params.version}
+                  - --destination=gcr.io/jenkinsx-dev/builder-ruby:${inputs.params.version}
                   - --context=/workspace/workspace
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
@@ -287,7 +287,7 @@ pipelineConfig:
                 command: /kaniko/executor
                 args:
                   - --dockerfile=/workspace/workspace/builder-base/Dockerfile.swiftbase
-                  - --destination=docker.io/jenkinsxio/builder-swift:${inputs.params.version}
+                  - --destination=gcr.io/jenkinsx-dev/builder-swift:${inputs.params.version}
                   - --context=/workspace/workspace
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
@@ -303,7 +303,7 @@ pipelineConfig:
                 command: /kaniko/executor
                 args:
                   - --dockerfile=/workspace/workspace/builder-dlang/Dockerfile
-                  - --destination=docker.io/jenkinsxio/builder-dlang:${inputs.params.version}
+                  - --destination=gcr.io/jenkinsx-dev/builder-dlang:${inputs.params.version}
                   - --context=/workspace/workspace
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
@@ -313,7 +313,7 @@ pipelineConfig:
                 command: /kaniko/executor
                 args:
                   - --dockerfile=/workspace/workspace/builder-go/Dockerfile
-                  - --destination=docker.io/jenkinsxio/builder-go:${inputs.params.version}
+                  - --destination=gcr.io/jenkinsx-dev/builder-go:${inputs.params.version}
                   - --context=/workspace/workspace
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
@@ -323,7 +323,7 @@ pipelineConfig:
                 command: /kaniko/executor
                 args:
                   - --dockerfile=/workspace/workspace/builder-gradle/Dockerfile
-                  - --destination=docker.io/jenkinsxio/builder-gradle:${inputs.params.version}
+                  - --destination=gcr.io/jenkinsx-dev/builder-gradle:${inputs.params.version}
                   - --context=/workspace/workspace
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
@@ -333,7 +333,7 @@ pipelineConfig:
                 command: /kaniko/executor
                 args:
                   - --dockerfile=/workspace/workspace/builder-gradle4/Dockerfile
-                  - --destination=docker.io/jenkinsxio/builder-gradle4:${inputs.params.version}
+                  - --destination=gcr.io/jenkinsx-dev/builder-gradle4:${inputs.params.version}
                   - --context=/workspace/workspace
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
@@ -343,7 +343,7 @@ pipelineConfig:
                 command: /kaniko/executor
                 args:
                   - --dockerfile=/workspace/workspace/builder-gradle5/Dockerfile
-                  - --destination=docker.io/jenkinsxio/builder-gradle5:${inputs.params.version}
+                  - --destination=gcr.io/jenkinsx-dev/builder-gradle5:${inputs.params.version}
                   - --context=/workspace/workspace
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
@@ -353,7 +353,7 @@ pipelineConfig:
                 command: /kaniko/executor
                 args:
                   - --dockerfile=/workspace/workspace/builder-maven/Dockerfile
-                  - --destination=docker.io/jenkinsxio/builder-maven:${inputs.params.version}
+                  - --destination=gcr.io/jenkinsx-dev/builder-maven:${inputs.params.version}
                   - --context=/workspace/workspace
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
@@ -363,7 +363,7 @@ pipelineConfig:
                 command: /kaniko/executor
                 args:
                   - --dockerfile=/workspace/workspace/builder-maven-32/Dockerfile.ng
-                  - --destination=docker.io/jenkinsxio/builder-maven-32:${inputs.params.version}
+                  - --destination=gcr.io/jenkinsx-dev/builder-maven-32:${inputs.params.version}
                   - --context=/workspace/workspace
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
@@ -373,7 +373,7 @@ pipelineConfig:
                 command: /kaniko/executor
                 args:
                   - --dockerfile=/workspace/workspace/builder-maven-java11/Dockerfile
-                  - --destination=docker.io/jenkinsxio/builder-maven-java11:${inputs.params.version}
+                  - --destination=gcr.io/jenkinsx-dev/builder-maven-java11:${inputs.params.version}
                   - --context=/workspace/workspace
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
@@ -383,7 +383,7 @@ pipelineConfig:
                 command: /kaniko/executor
                 args:
                   - --dockerfile=/workspace/workspace/builder-newman/Dockerfile
-                  - --destination=docker.io/jenkinsxio/builder-newman:${inputs.params.version}
+                  - --destination=gcr.io/jenkinsx-dev/builder-newman:${inputs.params.version}
                   - --context=/workspace/workspace
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
@@ -393,7 +393,7 @@ pipelineConfig:
                 command: /kaniko/executor
                 args:
                   - --dockerfile=/workspace/workspace/builder-nodejs8x/Dockerfile
-                  - --destination=docker.io/jenkinsxio/builder-nodejs8x:${inputs.params.version}
+                  - --destination=gcr.io/jenkinsx-dev/builder-nodejs8x:${inputs.params.version}
                   - --context=/workspace/workspace
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
@@ -403,7 +403,7 @@ pipelineConfig:
                 command: /kaniko/executor
                 args:
                   - --dockerfile=/workspace/workspace/builder-nodejs10x/Dockerfile
-                  - --destination=docker.io/jenkinsxio/builder-nodejs8x:${inputs.params.version}
+                  - --destination=gcr.io/jenkinsx-dev/builder-nodejs8x:${inputs.params.version}
                   - --context=/workspace/workspace
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
@@ -413,7 +413,7 @@ pipelineConfig:
                 command: /kaniko/executor
                 args:
                   - --dockerfile=/workspace/workspace/builder-python/Dockerfile
-                  - --destination=docker.io/jenkinsxio/builder-python:${inputs.params.version}
+                  - --destination=gcr.io/jenkinsx-dev/builder-python:${inputs.params.version}
                   - --context=/workspace/workspace
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
@@ -423,7 +423,7 @@ pipelineConfig:
                 command: /kaniko/executor
                 args:
                   - --dockerfile=/workspace/workspace/builder-python2/Dockerfile
-                  - --destination=docker.io/jenkinsxio/builder-python2:${inputs.params.version}
+                  - --destination=gcr.io/jenkinsx-dev/builder-python2:${inputs.params.version}
                   - --context=/workspace/workspace
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
@@ -433,7 +433,7 @@ pipelineConfig:
                 command: /kaniko/executor
                 args:
                   - --dockerfile=/workspace/workspace/builder-python37/Dockerfile
-                  - --destination=docker.io/jenkinsxio/builder-python37:${inputs.params.version}
+                  - --destination=gcr.io/jenkinsx-dev/builder-python37:${inputs.params.version}
                   - --context=/workspace/workspace
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
@@ -443,7 +443,7 @@ pipelineConfig:
                 command: /kaniko/executor
                 args:
                   - --dockerfile=/workspace/workspace/builder-rust/Dockerfile
-                  - --destination=docker.io/jenkinsxio/builder-rust:${inputs.params.version}
+                  - --destination=gcr.io/jenkinsx-dev/builder-rust:${inputs.params.version}
                   - --context=/workspace/workspace
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
@@ -453,7 +453,7 @@ pipelineConfig:
                 command: /kaniko/executor
                 args:
                   - --dockerfile=/workspace/workspace/builder-scala/Dockerfile
-                  - --destination=docker.io/jenkinsxio/builder-scala:${inputs.params.version}
+                  - --destination=gcr.io/jenkinsx-dev/builder-scala:${inputs.params.version}
                   - --context=/workspace/workspace
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
@@ -463,7 +463,7 @@ pipelineConfig:
                 command: /kaniko/executor
                 args:
                   - --dockerfile=/workspace/workspace/builder-terraform/Dockerfile
-                  - --destination=docker.io/jenkinsxio/builder-terraform:${inputs.params.version}
+                  - --destination=gcr.io/jenkinsx-dev/builder-terraform:${inputs.params.version}
                   - --context=/workspace/workspace
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
@@ -473,7 +473,7 @@ pipelineConfig:
                 command: /kaniko/executor
                 args:
                   - --dockerfile=/workspace/workspace/builder-aws-cdk/Dockerfile
-                  - --destination=docker.io/jenkinsxio/builder-aws-cdk:${inputs.params.version}
+                  - --destination=gcr.io/jenkinsx-dev/builder-aws-cdk:${inputs.params.version}
                   - --context=/workspace/workspace
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
@@ -483,7 +483,7 @@ pipelineConfig:
                 command: /kaniko/executor
                 args:
                   - --dockerfile=/workspace/workspace/builder-go-maven/Dockerfile.ng
-                  - --destination=docker.io/jenkinsxio/builder-go-maven:${inputs.params.version}
+                  - --destination=gcr.io/jenkinsx-dev/builder-go-maven:${inputs.params.version}
                   - --context=/workspace/workspace
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true
@@ -493,7 +493,7 @@ pipelineConfig:
                 command: /kaniko/executor
                 args:
                   - --dockerfile=/workspace/workspace/builder-maven-nodejs/Dockerfile
-                  - --destination=docker.io/jenkinsxio/builder-maven-nodejs:${inputs.params.version}
+                  - --destination=gcr.io/jenkinsx-dev/builder-maven-nodejs:${inputs.params.version}
                   - --context=/workspace/workspace
                   - --cache-repo=gcr.io/jenkinsx-dev/cache
                   - --cache=true

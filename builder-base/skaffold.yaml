@@ -5,15 +5,15 @@ build:
     envTemplate:
       template: "{{.IMAGE_NAME}}:{{.VERSION}}"
   artifacts:
-  - image: docker.io/jenkinsxio/builder-base
+  - image: gcr.io/jenkinsx-dev/builder-base
     context: .
     docker:
       dockerfile: Dockerfile.base
-  - image: docker.io/jenkinsxio/builder-ruby
+  - image: gcr.io/jenkinsx-dev/builder-ruby
     context: .
     docker:
       dockerfile: Dockerfile.ruby
-  - image: docker.io/jenkinsxio/builder-swift
+  - image: gcr.io/jenkinsx-dev/builder-swift
     context: .
     docker:
       dockerfile: Dockerfile.swift

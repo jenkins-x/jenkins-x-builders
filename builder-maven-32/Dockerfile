@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 FROM jenkinsxio/builder-base:0.1.238
+=======
+FROM gcr.io/jenkinsx-dev/builder-base:1
+>>>>>>> Change images from docker hub to gcr
 
 # Maven
 ENV MAVEN_VERSION 3.5.3
