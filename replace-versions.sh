@@ -17,18 +17,14 @@ set -o nounset
 set -o pipefail
 
 
-BUILDERS="go-maven maven-nodejs aws-cdk aws-cli"
-
-
-DOCKER_ORG=$1
-VERSION=$2
+BUILDERS="go-maven maven-nodejs aws-cdk awscli"
 
 ## now loop through the above array
 for i in $BUILDERS
 do
   echo "updating builder-${i}"
   pushd builder-${i}
-    sed -i.bak -e "s/FROM \(.*\)\/builder-\(.*\):\(.*\)/FROM ${DOCKER_ORG}\/builder-\2:${VERSION}/" Dockerfile
+    sed -i.bak -e "s/FROM \(.*\)\/builder-\(.*\):\(.*\)/FROM gcr.io\/jenkinsxio\/builder-\2:${VERSION}/" Dockerfile
     rm Dockerfile.bak
     head -n 1 Dockerfile
   popd
