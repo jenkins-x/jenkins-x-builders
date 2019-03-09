@@ -1,4 +1,4 @@
-FROM jenkinsxio/builder-base:0.1.238
+FROM gcr.io/jenkinsxio/builder-base:0.0.1
 
 ENV PYTHONVERSION 3.7.1
 
@@ -16,5 +16,15 @@ RUN cd /usr/src && \
 
 RUN ln -s /usr/local/bin/python3.7 /usr/bin/python3
 RUN yum -y remove gcc openssl-devel bzip2-devel
+
+RUN easy_install-3.7 pip
+
+RUN pip install --upgrade pip
+RUN pip install --upgrade awscli
+
+# jx
+ENV JX_VERSION 1.3.967
+RUN curl -f -L https://github.com/jenkins-x/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv && \
+  mv jx /usr/bin/
 
 CMD ["python3", "--version"]

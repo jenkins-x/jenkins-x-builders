@@ -5,11 +5,11 @@ build:
     envTemplate:
       template: "{{.IMAGE_NAME}}:{{.VERSION}}"
   artifacts:
-  - image: docker.io/jenkinsxio/builder-python
+  - image: gcr.io/jenkinsxio/builder-python
     context: .
     docker: {}
 test:
-- image: docker.io/jenkinsxio/builder-python
+- image: gcr.io/jenkinsxio/builder-python
   structureTests:
   - ./test/*
 deploy:

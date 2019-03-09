@@ -5,7 +5,7 @@ build:
     envTemplate:
       template: "{{.IMAGE_NAME}}:{{.VERSION}}"
   artifacts:
-  - image: docker.io/jenkinsxio/builder-maven-nodejs
+  - image: gcr.io/jenkinsxio/builder-maven-nodejs
     context: .
     docker: {}
 deploy:

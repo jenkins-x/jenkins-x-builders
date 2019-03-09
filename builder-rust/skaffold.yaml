@@ -5,7 +5,7 @@ build:
     envTemplate:
       template: "{{.IMAGE_NAME}}:{{.VERSION}}"
   artifacts:
-  - image: docker.io/jenkinsxio/builder-rust
+  - image: gcr.io/jenkinsxio/builder-rust
     context: .
     docker: {}
 deploy:

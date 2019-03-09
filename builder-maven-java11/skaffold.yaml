@@ -5,7 +5,7 @@ build:
     envTemplate:
       template: "{{.IMAGE_NAME}}:{{.VERSION}}"
   artifacts:
-  - image: docker.io/jenkinsxio/builder-maven-java11
+  - image: gcr.io/jenkinsxio/builder-maven-java11
     context: .
     docker: {}
 deploy:

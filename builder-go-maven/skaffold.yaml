@@ -5,11 +5,11 @@ build:
     envTemplate:
       template: "{{.IMAGE_NAME}}:{{.VERSION}}"
   artifacts:
-  - image: docker.io/jenkinsxio/builder-go-maven
+  - image: gcr.io/jenkinsxio/builder-go-maven
     context: .
     docker: {}
 test:
-- image: docker.io/jenkinsxio/builder-go-maven
+- image: gcr.io/jenkinsxio/builder-go-maven
   structureTests:
   - ./test/*
 deploy:

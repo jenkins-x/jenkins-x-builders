@@ -1,4 +1,4 @@
-FROM jenkinsxio/builder-base:0.1.238
+FROM gcr.io/jenkinsxio/builder-base:0.0.1
 
 # Maven
 ENV MAVEN_VERSION 3.5.3
@@ -7,5 +7,10 @@ ENV M2_HOME /opt/apache-maven-$MAVEN_VERSION
 ENV maven.home $M2_HOME
 ENV M2 $M2_HOME/bin
 ENV PATH $M2:$PATH
+
+# jx
+ENV JX_VERSION 1.3.967
+RUN curl -f -L https://github.com/jenkins-x/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv && \
+  mv jx /usr/bin/
 
 CMD ["mvn","-version"]

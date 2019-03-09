@@ -5,11 +5,11 @@ build:
     envTemplate:
       template: "{{.IMAGE_NAME}}:{{.VERSION}}"
   artifacts:
-  - image: docker.io/jenkinsxio/builder-scala
+  - image: gcr.io/jenkinsxio/builder-scala
     context: .
     docker: {}
 #test:
-#- image: docker.io/jenkinsxio/builder-scala
+#- image: gcr.io/jenkinsxio/builder-scala
 #  structureTests:
 #  - ./test/*
 deploy:

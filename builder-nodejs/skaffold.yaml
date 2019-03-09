@@ -5,11 +5,11 @@ build:
     envTemplate:
       template: "{{.IMAGE_NAME}}:{{.VERSION}}"
   artifacts:
-  - image: docker.io/jenkinsxio/builder-nodejs
+  - image: gcr.io/jenkinsxio/builder-nodejs
     context: .
     docker: {}
 test:
-- image: docker.io/jenkinsxio/builder-nodejs
+- image: gcr.io/jenkinsxio/builder-nodejs
   structureTests:
   - ./test/*
 deploy:
