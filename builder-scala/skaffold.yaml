@@ -9,7 +9,7 @@ build:
     context: .
     docker: {}
 #test:
-#- image: docker.io/jenkinsxio/builder-scala
+#- image: gcr.io/jenkinsxio/builder-scala
 #  structureTests:
 #  - ./test/*
 deploy:

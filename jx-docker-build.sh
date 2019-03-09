@@ -37,7 +37,7 @@ export RELEASE=$2
 export PUSH_LATEST=true
 export CACHE=""
 
-export DOCKER_REGISTRY=docker.io
+export DOCKER_REGISTRY=gcr.io
 
 pushd builder-base
   ./build.sh

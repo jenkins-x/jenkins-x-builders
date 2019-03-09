@@ -5,7 +5,7 @@ build:
     envTemplate:
       template: "{{.IMAGE_NAME}}:{{.VERSION}}"
   artifacts:
-  - image: docker.io/jenkinsxio/builder-awscli-local
+  - image: gcr.io/jenkinsxio/builder-awscli-local
     context: .
     docker: {}
   kaniko:

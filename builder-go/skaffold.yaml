@@ -9,7 +9,7 @@ build:
     context: .
     docker: {}
 test:
-- image: docker.io/jenkinsxio/builder-go
+- image: gcr.io/jenkinsxio/builder-go
   structureTests:
   - ./test/*
 deploy:

@@ -9,7 +9,7 @@ build:
     context: .
     docker: {}
 test:
-- image: docker.io/jenkinsxio/builder-gradle
+- image: gcr.io/jenkinsxio/builder-gradle
   structureTests:
   - ./test/*
 deploy:

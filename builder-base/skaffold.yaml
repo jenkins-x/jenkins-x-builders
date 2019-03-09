@@ -18,10 +18,10 @@ build:
     docker:
       dockerfile: Dockerfile.swift
 test:
-- image: docker.io/jenkinsxio/builder-base
+- image: gcr.io/jenkinsxio/builder-base
   structureTests:
   - ./test-base/*
-- image: docker.io/jenkinsxio/builder-ruby:{{.VERSION}}
+- image: gcr.io/jenkinsxio/builder-ruby:{{.VERSION}}
   structureTests:
   - ./test-ruby/*
 deploy:

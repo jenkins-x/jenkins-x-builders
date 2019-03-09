@@ -9,7 +9,7 @@ build:
     context: .
     docker: {}
 test:
-- image: docker.io/jenkinsxio/builder-maven-32
+- image: gcr.io/jenkinsxio/builder-maven-32
   structureTests:
   - ./test/*
 deploy:

@@ -9,7 +9,7 @@ build:
     context: .
     docker: {}
 test:
-- image: docker.io/jenkinsxio/builder-terraform
+- image: gcr.io/jenkinsxio/builder-terraform
   structureTests:
   - ./test/*
 deploy:
