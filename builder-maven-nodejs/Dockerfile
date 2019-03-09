@@ -1,7 +1,12 @@
 FROM gcr.io/jenkinsxio/builder-maven-java11:0.1.238
 
-RUN curl -f --silent --location https://rpm.nodesource.com/setup_9.x | bash - && \
-  yum install -y nodejs gcc-c++ make bzip2 GConf2 gtk2 chromedriver chromium xorg-x11-server-Xvfb
+# split RUN command to help caching layers
+RUN yum install -y gcc-c++ make bzip2 GConf2 gtk2 
+RUN yum install -y chromedriver 
+RUN yum install -y chromium 
+RUN yum install -y xorg-x11-server-Xvfb
+RUN curl -f --silent --location https://rpm.nodesource.com/setup_9.x | bash -
+RUN yum install -y nodejs
 
 RUN npm i -g watch-cli vsce typescript
 

@@ -48,6 +48,15 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
                 - --cache-dir=/workspace
+            - name: build-and-push-maven-nodejs
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-maven-nodejs/Dockerfile
+                - --destination=gcr.io/jenkinsxio/builder-maven-nodejs:${inputs.params.version}
+                - --context=/workspace/workspace
+                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache=true
+                - --cache-dir=/workspace
             - name: build-and-push-go
               command: /kaniko/executor
               args:
@@ -62,15 +71,6 @@ pipelineConfig:
               args:
                 - --dockerfile=/workspace/workspace/builder-python37/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-python37:${inputs.params.version}
-                - --context=/workspace/workspace
-                - --cache-repo=gcr.io/jenkinsxio/cache
-                - --cache=true
-                - --cache-dir=/workspace
-            - name: build-and-push-maven-nodejs
-              command: /kaniko/executor
-              args:
-                - --dockerfile=/workspace/workspace/builder-maven-nodejs/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-maven-nodejs:${inputs.params.version}
                 - --context=/workspace/workspace
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true

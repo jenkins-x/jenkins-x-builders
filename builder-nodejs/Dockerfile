@@ -1,8 +1,10 @@
 FROM gcr.io/jenkinsxio/builder-base:0.0.1
 
-RUN curl -f --silent --location https://rpm.nodesource.com/setup_11.x | bash - && \
-  yum install -y nodejs gcc-c++ make bzip2 GConf2 gtk2 chromedriver chromium xorg-x11-server-Xvfb && \
-  yum clean all
+# split RUN command to help caching layers
+RUN yum install -y gcc-c++ make bzip2 GConf2 gtk2 chromedriver chromium xorg-x11-server-Xvfb
+RUN curl -f --silent --location https://rpm.nodesource.com/setup_11.x | bash -
+RUN yum install -y nodejs
+RUN yum clean all
 
 RUN npm i -g watch-cli vsce typescript
 
