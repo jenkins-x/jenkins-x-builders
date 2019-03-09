@@ -1,2 +1,0 @@
-FROM gcr.io/jenkinsxio/builder-swift-baseimage:0.0.5
-
