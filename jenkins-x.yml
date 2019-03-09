@@ -452,5 +452,5 @@ pipelineConfig:
 
             # update downstream dependencies
             - name: update-bot
-              image: jenkinxio:maven-builder
+              image: gcr.io/jenkinsxio/builder-maven-java11:${inputs.params.version}
               command: ./update-bot.sh
