@@ -165,6 +165,15 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
                 - --cache-dir=/workspace
+            - name: build-and-push-nodejs
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-nodejs/Dockerfile
+                - --destination=gcr.io/jenkinsxio/builder-nodejs:${inputs.params.version}
+                - --context=/workspace/workspace
+                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache=true
+                - --cache-dir=/workspace
             - name: build-and-push-nodejs8x
               command: /kaniko/executor
               args:
@@ -399,6 +408,15 @@ pipelineConfig:
               args:
                 - --dockerfile=/workspace/workspace/builder-newman/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-newman:${inputs.params.version}
+                - --context=/workspace/workspace
+                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache=true
+                - --cache-dir=/workspace
+            - name: build-and-push-nodejs
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-nodejs/Dockerfile
+                - --destination=gcr.io/jenkinsxio/builder-nodejs:${inputs.params.version}
                 - --context=/workspace/workspace
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
