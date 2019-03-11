@@ -21,6 +21,7 @@ RUN easy_install-3.7 pip
 
 RUN pip install --upgrade pip
 RUN pip install --upgrade awscli
+RUN pip install --upgrade awscli-local
 
 # jx
 ENV JX_VERSION 1.3.967
