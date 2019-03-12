@@ -6,7 +6,6 @@ set -o pipefail
 
 updatebot push-version --kind helm \
     jenkinsxio/builder-aws-cdk ${VERSION} \
-    jenkinsxio/builder-base ${VERSION} \
     jenkinsxio/builder-ruby ${VERSION} \
     jenkinsxio/builder-swift ${VERSION} \
     jenkinsxio/builder-dlang ${VERSION} \
@@ -15,6 +14,7 @@ updatebot push-version --kind helm \
     jenkinsxio/builder-gradle ${VERSION} \
     jenkinsxio/builder-gradle4 ${VERSION} \
     jenkinsxio/builder-gradle5 ${VERSION} \
+    jenkinsxio/builder-jx ${VERSION} \
     jenkinsxio/builder-maven ${VERSION} \
     jenkinsxio/builder-maven-32 ${VERSION} \
     jenkinsxio/builder-maven-java11 ${VERSION} \
