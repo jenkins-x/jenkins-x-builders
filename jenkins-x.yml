@@ -36,7 +36,7 @@ pipelineConfig:
                 - --cache-dir=/workspace
                 - --image=gcr.io/jenkinsxio/builder-swift:0.0.1 # TDOD need to have these updated by updatebots
                 - --image=gcr.io/jenkinsxio/builder-ruby:0.0.1
-                - --image=gcr.io/jenkinsxio/builder-base:0.0.1
+                - --image=gcr.io/jenkinsxio/builder-base:0.0.4
 
             # builders
             - name: build-and-push-maven-java11
@@ -269,7 +269,7 @@ pipelineConfig:
                 - --cache-dir=/workspace
                 - --image=gcr.io/jenkinsxio/builder-swift:0.0.1 # TDOD need to have these updated by updatebots
                 - --image=gcr.io/jenkinsxio/builder-ruby:0.0.1
-                - --image=gcr.io/jenkinsxio/builder-base:0.0.1
+                - --image=gcr.io/jenkinsxio/builder-base:0.0.4
 
             - name: build-and-push-jx
               command: /kaniko/executor
