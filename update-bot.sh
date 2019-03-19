@@ -5,9 +5,6 @@ set -o nounset
 set -o pipefail
 
 updatebot push-version --kind helm \
-    gcr.io/jenkinsxio/builder-aws-cdk ${VERSION} \
-    gcr.io/jenkinsxio/builder-awscli ${VERSION} \
-    gcr.io/jenkinsxio/builder-awscli-local ${VERSION} \
     gcr.io/jenkinsxio/builder-ruby ${VERSION} \
     gcr.io/jenkinsxio/builder-swift ${VERSION} \
     gcr.io/jenkinsxio/builder-dlang ${VERSION} \
