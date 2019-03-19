@@ -17,7 +17,7 @@ set -o nounset
 set -o pipefail
 
 
-BUILDERS="aws-cdk awscli awscli-local go-maven maven-nodejs"
+BUILDERS="go-maven maven-nodejs"
 
 ## now loop through the above array
 for i in $BUILDERS
