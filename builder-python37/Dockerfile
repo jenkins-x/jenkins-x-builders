@@ -23,7 +23,7 @@ RUN pip install --upgrade pip
 RUN pip install --upgrade awscli
 
 # jx
-ENV JX_VERSION 1.3.967
+ENV JX_VERSION 1.3.992
 RUN curl -f -L https://github.com/jenkins-x/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv && \
   mv jx /usr/bin/
 
