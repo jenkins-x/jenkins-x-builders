@@ -201,6 +201,15 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
                 - --cache-dir=/workspace
+            - name: build-and-push-ruby
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-ruby/Dockerfile
+                - --destination=gcr.io/jenkinsxio/builder-ruby:${inputs.params.version}
+                - --context=/workspace/workspace
+                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache=true
+                - --cache-dir=/workspace
             - name: build-and-push-rust
               command: /kaniko/executor
               args:
@@ -215,6 +224,15 @@ pipelineConfig:
               args:
                 - --dockerfile=/workspace/workspace/builder-scala/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-scala:${inputs.params.version}
+                - --context=/workspace/workspace
+                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache=true
+                - --cache-dir=/workspace
+            - name: build-and-push-swift
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-swift/Dockerfile
+                - --destination=gcr.io/jenkinsxio/builder-swift:${inputs.params.version}
                 - --context=/workspace/workspace
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
@@ -448,6 +466,15 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
                 - --cache-dir=/workspace
+            - name: build-and-push-ruby
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-ruby/Dockerfile
+                - --destination=gcr.io/jenkinsxio/builder-ruby:${inputs.params.version}
+                - --context=/workspace/workspace
+                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache=true
+                - --cache-dir=/workspace
             - name: build-and-push-rust
               command: /kaniko/executor
               args:
@@ -462,6 +489,15 @@ pipelineConfig:
               args:
                 - --dockerfile=/workspace/workspace/builder-scala/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-scala:${inputs.params.version}
+                - --context=/workspace/workspace
+                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache=true
+                - --cache-dir=/workspace
+            - name: build-and-push-swift
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-swift/Dockerfile
+                - --destination=gcr.io/jenkinsxio/builder-swift:${inputs.params.version}
                 - --context=/workspace/workspace
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
