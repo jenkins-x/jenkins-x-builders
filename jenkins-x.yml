@@ -228,24 +228,6 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
                 - --cache-dir=/workspace
-            - name: build-and-push-awscli-local
-              command: /kaniko/executor
-              args:
-                - --dockerfile=/workspace/workspace/builder-awscli-local/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-awscli-local:${inputs.params.version}
-                - --context=/workspace/workspace
-                - --cache-repo=gcr.io/jenkinsxio/cache
-                - --cache=true
-                - --cache-dir=/workspace
-            - name: build-and-push-awscli
-              command: /kaniko/executor
-              args:
-                - --dockerfile=/workspace/workspace/builder-awscli/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-awscli:${inputs.params.version}
-                - --context=/workspace/workspace
-                - --cache-repo=gcr.io/jenkinsxio/cache
-                - --cache=true
-                - --cache-dir=/workspace
 
     release:
       pipeline:
@@ -493,26 +475,6 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
                 - --cache-dir=/workspace
-            - name: build-and-push-awscli-local
-              command: /kaniko/executor
-              args:
-                - --dockerfile=/workspace/workspace/builder-awscli-local/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-awscli-local:${inputs.params.version}
-                - --context=/workspace/workspace
-                - --cache-repo=gcr.io/jenkinsxio/cache
-                - --cache=true
-                - --cache-dir=/workspace
-            - name: build-and-push-awscli
-              command: /kaniko/executor
-              args:
-                - --dockerfile=/workspace/workspace/builder-awscli/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-awscli:${inputs.params.version}
-                - --context=/workspace/workspace
-                - --cache-repo=gcr.io/jenkinsxio/cache
-                - --cache=true
-                - --cache-dir=/workspace
-
-
 
             # update downstream dependencies
             - name: update-bot
