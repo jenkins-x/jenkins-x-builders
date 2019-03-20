@@ -13,6 +13,6 @@ RUN curl -f -Lo terragrunt https://github.com/gruntwork-io/terragrunt/releases/d
 ENV PATH $PATH:/usr/local/
 
 # jx
-ENV JX_VERSION 1.3.995
+ENV JX_VERSION 1.3.998
 RUN curl -f -L https://github.com/jenkins-x/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv && \
   mv jx /usr/bin/
