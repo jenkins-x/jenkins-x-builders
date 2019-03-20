@@ -36,7 +36,7 @@ pipelineConfig:
                 - --cache-dir=/workspace
                 - --image=gcr.io/jenkinsxio/builder-swiftbase:0.0.11
                 - --image=gcr.io/jenkinsxio/builder-rubybase:0.0.8
-                - --image=gcr.io/jenkinsxio/builder-base:0.0.11
+                - --image=gcr.io/jenkinsxio/builder-base:0.0.12
 
             # builders
             - name: build-and-push-maven-java11
@@ -287,7 +287,7 @@ pipelineConfig:
                 - --cache-dir=/workspace
                 - --image=gcr.io/jenkinsxio/builder-swiftbase:0.0.11
                 - --image=gcr.io/jenkinsxio/builder-rubybase:0.0.8
-                - --image=gcr.io/jenkinsxio/builder-base:0.0.11
+                - --image=gcr.io/jenkinsxio/builder-base:0.0.12
 
             - name: build-and-push-jx
               command: /kaniko/executor
