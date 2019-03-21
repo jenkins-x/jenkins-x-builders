@@ -1,4 +1,4 @@
-FROM gcr.io/jenkinsxio/builder-base:0.0.13
+FROM gcr.io/jenkinsxio/builder-base:0.0.14
 
 ENV \
     DMD_PATH=/opt/dlang
