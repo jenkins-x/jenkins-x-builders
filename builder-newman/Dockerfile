@@ -1,4 +1,4 @@
-FROM gcr.io/jenkinsxio/builder-base:0.0.8
+FROM gcr.io/jenkinsxio/builder-base:0.0.13
 
 RUN curl -f --silent --location https://rpm.nodesource.com/setup_9.x | bash - && \
   yum install -y nodejs && \
