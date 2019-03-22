@@ -1,4 +1,4 @@
-FROM gcr.io/jenkinsxio/builder-base:0.0.13
+FROM gcr.io/jenkinsxio/builder-base:0.0.14
 
 RUN yum install -y gcc-c++ make bzip2 GConf2 gtk2 chromedriver chromium xorg-x11-server-Xvfb && \
 	curl -f --silent --location https://rpm.nodesource.com/setup_11.x | bash -  && \
@@ -15,6 +15,6 @@ RUN curl -f -L -o /tmp/yarn.tgz https://github.com/yarnpkg/yarn/releases/downloa
 	ln -s /opt/yarn/bin/yarn /usr/local/bin/yarn
 
 # jx
-ENV JX_VERSION 1.3.998
+ENV JX_VERSION 1.3.1007
 RUN curl -f -L https://github.com/jenkins-x/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv && \
   mv jx /usr/bin/
