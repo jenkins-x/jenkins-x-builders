@@ -34,9 +34,9 @@ pipelineConfig:
               command: /kaniko/warmer
               args:
                 - --cache-dir=/workspace
-                - --image=gcr.io/jenkinsxio/builder-swift:0.0.1 # TDOD need to have these updated by updatebots
-                - --image=gcr.io/jenkinsxio/builder-ruby:0.0.1
-                - --image=gcr.io/jenkinsxio/builder-base:0.0.1
+                - --image=gcr.io/jenkinsxio/builder-swiftbase:0.0.11
+                - --image=gcr.io/jenkinsxio/builder-rubybase:0.0.14
+                - --image=gcr.io/jenkinsxio/builder-base:0.0.12
 
             # builders
             - name: build-and-push-maven-java11
@@ -201,6 +201,15 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
                 - --cache-dir=/workspace
+            - name: build-and-push-ruby
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-ruby/Dockerfile
+                - --destination=gcr.io/jenkinsxio/builder-ruby:${inputs.params.version}
+                - --context=/workspace/workspace
+                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache=true
+                - --cache-dir=/workspace
             - name: build-and-push-rust
               command: /kaniko/executor
               args:
@@ -215,6 +224,15 @@ pipelineConfig:
               args:
                 - --dockerfile=/workspace/workspace/builder-scala/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-scala:${inputs.params.version}
+                - --context=/workspace/workspace
+                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache=true
+                - --cache-dir=/workspace
+            - name: build-and-push-swift
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-swift/Dockerfile
+                - --destination=gcr.io/jenkinsxio/builder-swift:${inputs.params.version}
                 - --context=/workspace/workspace
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
@@ -267,9 +285,9 @@ pipelineConfig:
               command: /kaniko/warmer
               args:
                 - --cache-dir=/workspace
-                - --image=gcr.io/jenkinsxio/builder-swift:0.0.1 # TDOD need to have these updated by updatebots
-                - --image=gcr.io/jenkinsxio/builder-ruby:0.0.1
-                - --image=gcr.io/jenkinsxio/builder-base:0.0.1
+                - --image=gcr.io/jenkinsxio/builder-swiftbase:0.0.11
+                - --image=gcr.io/jenkinsxio/builder-rubybase:0.0.14
+                - --image=gcr.io/jenkinsxio/builder-base:0.0.12
 
             - name: build-and-push-jx
               command: /kaniko/executor
@@ -448,6 +466,15 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
                 - --cache-dir=/workspace
+            - name: build-and-push-ruby
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-ruby/Dockerfile
+                - --destination=gcr.io/jenkinsxio/builder-ruby:${inputs.params.version}
+                - --context=/workspace/workspace
+                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache=true
+                - --cache-dir=/workspace
             - name: build-and-push-rust
               command: /kaniko/executor
               args:
@@ -466,6 +493,15 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
                 - --cache-dir=/workspace
+            - name: build-and-push-swift
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-swift/Dockerfile
+                - --destination=gcr.io/jenkinsxio/builder-swift:${inputs.params.version}
+                - --context=/workspace/workspace
+                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache=true
+                - --cache-dir=/workspace
             - name: build-and-push-terraform
               command: /kaniko/executor
               args:
@@ -478,5 +514,5 @@ pipelineConfig:
 
             # update downstream dependencies
             - name: update-bot
-              image: gcr.io/jenkinsxio/builder-maven-java11:${inputs.params.version}
+              image: gcr.io/jenkinsxio/builder-maven:${inputs.params.version}
               command: ./update-bot.sh
