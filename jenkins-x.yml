@@ -47,6 +47,24 @@ pipelineConfig:
                 - --image=gcr.io/jenkinsxio/builder-rubybase:0.0.21
 
             # builders
+            - name: build-and-push-go
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-go/Dockerfile
+                - --destination=gcr.io/jenkinsxio/builder-go:${inputs.params.version}
+                - --context=/workspace/workspace
+                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache=true
+                - --cache-dir=/workspace
+            - name: build-and-push-go-maven
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-go-maven/Dockerfile
+                - --destination=gcr.io/jenkinsxio/builder-go-maven:${inputs.params.version}
+                - --context=/workspace/workspace
+                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache=true
+                - --cache-dir=/workspace
             - name: build-and-push-jx
               command: /kaniko/executor
               args:
@@ -74,29 +92,11 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
                 - --cache-dir=/workspace
-            - name: build-and-push-go
-              command: /kaniko/executor
-              args:
-                - --dockerfile=/workspace/workspace/builder-go/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-go:${inputs.params.version}
-                - --context=/workspace/workspace
-                - --cache-repo=gcr.io/jenkinsxio/cache
-                - --cache=true
-                - --cache-dir=/workspace
             - name: build-and-push-python37
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/workspace/builder-python37/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-python37:${inputs.params.version}
-                - --context=/workspace/workspace
-                - --cache-repo=gcr.io/jenkinsxio/cache
-                - --cache=true
-                - --cache-dir=/workspace
-            - name: build-and-push-go-maven
-              command: /kaniko/executor
-              args:
-                - --dockerfile=/workspace/workspace/builder-go-maven/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-go-maven:${inputs.params.version}
                 - --context=/workspace/workspace
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
