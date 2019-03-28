@@ -1,4 +1,7 @@
-FROM gcr.io/jenkinsxio/builder-base:0.0.14
+FROM gcr.io/jenkinsxio/builder-base:0.0.21
+
+RUN yum remove -y java-1.8.0-openjdk-devel java-1.8.0-openjdk-headless
+RUN yum install -y java-1.8.0-openjdk-devel.i386
 
 # Maven
 ENV MAVEN_VERSION 3.5.3
