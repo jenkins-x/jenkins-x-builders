@@ -74,6 +74,12 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
                 - --cache-dir=/workspace
+            - name: test-go
+              image: gcr.io/jenkinsxio/builder-base:0.0.21
+              command: ./test-container.sh
+              args:
+                - gcr.io/jenkinsxio/builder-go:${inputs.params.version}
+                - builder-go/test/container-test.yaml
             - name: build-and-push-python37
               command: /kaniko/executor
               args:
@@ -83,6 +89,12 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
                 - --cache-dir=/workspace
+            - name: test-python37
+              image: gcr.io/jenkinsxio/builder-base:0.0.21
+              command: ./test-container.sh
+              args:
+                - gcr.io/jenkinsxio/builder-python37:${inputs.params.version}
+                - builder-python37/test/container-test.yaml
             - name: build-and-push-go-maven
               command: /kaniko/executor
               args:
@@ -92,6 +104,12 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
                 - --cache-dir=/workspace
+            - name: test-go-maven
+              image: gcr.io/jenkinsxio/builder-base:0.0.21
+              command: ./test-container.sh
+              args:
+                - gcr.io/jenkinsxio/builder-go-maven:${inputs.params.version}
+                - builder-go-maven/test/container-test.yaml
             - name: build-and-push-jx
               command: /kaniko/executor
               args:
@@ -101,6 +119,12 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
                 - --cache-dir=/workspace
+            - name: test-jx
+              image: gcr.io/jenkinsxio/builder-base:0.0.21
+              command: ./test-container.sh
+              args:
+                - gcr.io/jenkinsxio/builder-jx:${inputs.params.version}
+                - builder-jx/test/container-test.yaml
             - name: build-and-push-python
               command: /kaniko/executor
               args:
@@ -110,6 +134,12 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
                 - --cache-dir=/workspace
+            - name: test-python
+              image: gcr.io/jenkinsxio/builder-base:0.0.21
+              command: ./test-container.sh
+              args:
+                - gcr.io/jenkinsxio/builder-python:${inputs.params.version}
+                - builder-python/test/container-test.yaml
             - name: build-and-push-maven-32
               command: /kaniko/executor
               args:
@@ -119,6 +149,12 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
                 - --cache-dir=/workspace
+            - name: test-maven-32
+              image: gcr.io/jenkinsxio/builder-base:0.0.21
+              command: ./test-container.sh
+              args:
+                - gcr.io/jenkinsxio/builder-maven-32:${inputs.params.version}
+                - builder-maven-32/test/container-test.yaml
             - name: build-and-push-dlang
               command: /kaniko/executor
               args:
@@ -137,6 +173,12 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
                 - --cache-dir=/workspace
+            - name: test-gradle
+              image: gcr.io/jenkinsxio/builder-base:0.0.21
+              command: ./test-container.sh
+              args:
+                - gcr.io/jenkinsxio/builder-gradle:${inputs.params.version}
+                - builder-gradle/test/container-test.yaml
             - name: build-and-push-gradle4
               command: /kaniko/executor
               args:
@@ -146,6 +188,12 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
                 - --cache-dir=/workspace
+            - name: test-gradle4
+              image: gcr.io/jenkinsxio/builder-base:0.0.21
+              command: ./test-container.sh
+              args:
+                - gcr.io/jenkinsxio/builder-gradle4:${inputs.params.version}
+                - builder-gradle4/test/container-test.yaml
             - name: build-and-push-gradle5
               command: /kaniko/executor
               args:
@@ -155,6 +203,12 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
                 - --cache-dir=/workspace
+            - name: test-gradle5
+              image: gcr.io/jenkinsxio/builder-base:0.0.21
+              command: ./test-container.sh
+              args:
+                - gcr.io/jenkinsxio/builder-gradle5:${inputs.params.version}
+                - builder-gradle5/test/container-test.yaml
             - name: build-and-push-maven
               command: /kaniko/executor
               args:
@@ -164,6 +218,12 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
                 - --cache-dir=/workspace
+            - name: test-maven
+              image: gcr.io/jenkinsxio/builder-base:0.0.21
+              command: ./test-container.sh
+              args:
+                - gcr.io/jenkinsxio/builder-maven:${inputs.params.version}
+                - builder-maven/test/container-test.yaml
             - name: build-and-push-newman
               command: /kaniko/executor
               args:
@@ -182,6 +242,12 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
                 - --cache-dir=/workspace
+            - name: test-nodejs
+              image: gcr.io/jenkinsxio/builder-base:0.0.21
+              command: ./test-container.sh
+              args:
+                - gcr.io/jenkinsxio/builder-nodejs:${inputs.params.version}
+                - builder-nodejs/test/container-test.yaml
             - name: build-and-push-nodejs8x
               command: /kaniko/executor
               args:
@@ -191,15 +257,27 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
                 - --cache-dir=/workspace
+            - name: test-nodejs8x
+              image: gcr.io/jenkinsxio/builder-base:0.0.21
+              command: ./test-container.sh
+              args:
+                - gcr.io/jenkinsxio/builder-nodejs8x:${inputs.params.version}
+                - builder-nodejs8x/test/container-test.yaml
             - name: build-and-push-nodejs10x
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/workspace/builder-nodejs10x/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-nodejs8x:${inputs.params.version}
+                - --destination=gcr.io/jenkinsxio/builder-nodejs10x:${inputs.params.version}
                 - --context=/workspace/workspace
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
                 - --cache-dir=/workspace
+            - name: test-nodejs10x
+              image: gcr.io/jenkinsxio/builder-base:0.0.21
+              command: ./test-container.sh
+              args:
+                - gcr.io/jenkinsxio/builder-nodejs10x:${inputs.params.version}
+                - builder-nodejs10x/test/container-test.yaml
             - name: build-and-push-python2
               command: /kaniko/executor
               args:
@@ -209,6 +287,12 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
                 - --cache-dir=/workspace
+            - name: test-python2
+              image: gcr.io/jenkinsxio/builder-base:0.0.21
+              command: ./test-container.sh
+              args:
+                - gcr.io/jenkinsxio/builder-python2:${inputs.params.version}
+                - builder-python2/test/container-test.yaml
             - name: build-and-push-ruby
               command: /kaniko/executor
               args:
@@ -254,6 +338,12 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
                 - --cache-dir=/workspace
+            - name: test-terraform
+              image: gcr.io/jenkinsxio/builder-base:0.0.21
+              command: ./test-container.sh
+              args:
+                - gcr.io/jenkinsxio/builder-terraform:${inputs.params.version}
+                - builder-terraform/test/container-test.yaml
 
     release:
       pipeline:
