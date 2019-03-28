@@ -12,6 +12,14 @@ pipelineConfig:
                 value: false
               - name: GOOGLE_APPLICATION_CREDENTIALS
                 value: /builder/home/kaniko-secret.json
+              - name: GIT_COMMITTER_EMAIL
+                value: jenkins-x@googlegroups.com
+              - name: GIT_COMMITTER_NAME
+                value: jenkins-x-bot
+              - name: GIT_AUTHOR_EMAIL
+                value: jenkins-x@googlegroups.com
+              - name: GIT_AUTHOR_NAME
+                value: jenkins-x-bot
             steps:
             - image: centos:7
               command: ./replace-versions.sh
@@ -34,9 +42,9 @@ pipelineConfig:
               command: /kaniko/warmer
               args:
                 - --cache-dir=/workspace
-                - --image=gcr.io/jenkinsxio/builder-swiftbase:0.0.20
-                - --image=gcr.io/jenkinsxio/builder-base:0.0.20
-                - --image=gcr.io/jenkinsxio/builder-rubybase:0.0.20
+                - --image=gcr.io/jenkinsxio/builder-swiftbase:0.0.21
+                - --image=gcr.io/jenkinsxio/builder-base:0.0.21
+                - --image=gcr.io/jenkinsxio/builder-rubybase:0.0.21
 
             # builders
             - name: build-and-push-maven-java11
@@ -285,9 +293,9 @@ pipelineConfig:
               command: /kaniko/warmer
               args:
                 - --cache-dir=/workspace
-                - --image=gcr.io/jenkinsxio/builder-swiftbase:0.0.20
-                - --image=gcr.io/jenkinsxio/builder-base:0.0.20
-                - --image=gcr.io/jenkinsxio/builder-rubybase:0.0.20
+                - --image=gcr.io/jenkinsxio/builder-swiftbase:0.0.21
+                - --image=gcr.io/jenkinsxio/builder-base:0.0.21
+                - --image=gcr.io/jenkinsxio/builder-rubybase:0.0.21
 
             - name: build-and-push-jx
               command: /kaniko/executor
