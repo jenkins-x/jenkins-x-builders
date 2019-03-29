@@ -88,7 +88,7 @@ pipelineConfig:
               args:
                 - --dockerfile=/workspace/workspace/builder-go-maven/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-go-maven:${inputs.params.version}
-                - --context=/workspace/workspace
+                - --context=/workspace/workspace/builder-go-maven
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
                 - --cache-dir=/workspace
@@ -353,7 +353,7 @@ pipelineConfig:
               args:
                 - --dockerfile=/workspace/workspace/builder-go-maven/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-go-maven:${inputs.params.version}
-                - --context=/workspace/workspace
+                - --context=/workspace/workspace/builder-go-maven
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
                 - --cache-dir=/workspace
