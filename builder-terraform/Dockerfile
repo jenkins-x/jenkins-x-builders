@@ -1,4 +1,4 @@
-FROM gcr.io/jenkinsxio/builder-base:0.0.21
+FROM gcr.io/jenkinsxio/builder-base:0.0.25
 
 ENV TERRAFORM 0.11.11
 RUN wget https://releases.hashicorp.com/terraform/${TERRAFORM}/terraform_${TERRAFORM}_linux_amd64.zip && \
