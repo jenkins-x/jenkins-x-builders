@@ -1,4 +1,4 @@
-FROM gcr.io/jenkinsxio/builder-base:0.0.25
+FROM gcr.io/jenkinsxio/builder-base:0.0.0-SNAPSHOT-PR-12-18
 
 ENV SCALA_VERSION 2.12.5
 ENV SBT_VERSION 1.1.2
