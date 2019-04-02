@@ -1,4 +1,4 @@
-FROM gcr.io/jenkinsxio/builder-base:0.0.25
+FROM gcr.io/jenkinsxio/builder-base:0.0.14
 
 RUN yum install -y https://centos7.iuscommunity.org/ius-release.rpm
 RUN yum install -y python36u python36u-libs python36u-devel python36u-pip && yum clean all
