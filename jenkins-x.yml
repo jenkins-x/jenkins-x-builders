@@ -155,6 +155,15 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
                 - --cache-dir=/workspace
+            - name: build-and-push-gradle5-java11
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-gradle5-java11/Dockerfile
+                - --destination=gcr.io/jenkinsxio/builder-gradle5-java11:${inputs.params.version}
+                - --context=/workspace/workspace
+                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache=true
+                - --cache-dir=/workspace                
             - name: build-and-push-maven
               command: /kaniko/executor
               args:
@@ -420,6 +429,15 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
                 - --cache-dir=/workspace
+            - name: build-and-push-gradle5-java11
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/workspace/builder-gradle5-java11/Dockerfile
+                - --destination=gcr.io/jenkinsxio/builder-gradle5-java11:${inputs.params.version}
+                - --context=/workspace/workspace
+                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache=true
+                - --cache-dir=/workspace                
             - name: build-and-push-maven
               command: /kaniko/executor
               args:
