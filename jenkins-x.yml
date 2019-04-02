@@ -30,9 +30,9 @@ pipelineConfig:
                 - step
                 - credential
                 - -s
-                - gcr
+                - kaniko-secret
                 - -k
-                - jenkins-x-infra-bf55d322c9bb.json
+                - kaniko-secret
                 - -f
                 - /builder/home/kaniko-secret.json
 
@@ -281,9 +281,9 @@ pipelineConfig:
                 - step
                 - credential
                 - -s
-                - gcr
+                - kaniko-secret
                 - -k
-                - jenkins-x-infra-bf55d322c9bb.json
+                - kaniko-secret
                 - -f
                 - /builder/home/kaniko-secret.json
 
