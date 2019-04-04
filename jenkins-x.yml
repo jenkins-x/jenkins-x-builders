@@ -92,7 +92,7 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
                 - --cache-dir=/workspace
-            - name: build-and-push-go-maven
+            - name: build-and-push-jx
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-jx/Dockerfile
@@ -306,7 +306,7 @@ pipelineConfig:
                 - --image=gcr.io/jenkinsxio/builder-base:0.0.14
                 - --image=gcr.io/jenkinsxio/builder-rubybase:0.0.14
 
-            - name: build-and-push-jx
+            - name: build-and-push-jx2
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-jx/Dockerfile
@@ -357,7 +357,7 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
                 - --cache-dir=/workspace
-            - name: build-and-push-go-maven
+            - name: build-and-push-go-maven2
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-go-maven/Dockerfile
@@ -366,7 +366,7 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
                 - --cache-dir=/workspace
-            - name: build-and-push-jx2
+            - name: build-and-push-jx3
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-jx/Dockerfile
