@@ -1,4 +1,4 @@
-FROM gcr.io/jenkinsxio/builder-base:0.0.14
+FROM gcr.io/jenkinsxio/builder-base:0.0.30
 
 RUN yum install -y gcc && yum clean all
 
