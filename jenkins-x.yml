@@ -164,6 +164,15 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
                 - --cache-dir=/workspace
+            - name: build-and-push-machine-learning
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/source/builder-machine-learning/Dockerfile
+                - --destination=gcr.io/jenkinsxio/builder-machine-learning:${inputs.params.version}
+                - --context=/workspace/source
+                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache=true
+                - --cache-dir=/workspace
             - name: build-and-push-maven
               command: /kaniko/executor
               args:
@@ -434,6 +443,15 @@ pipelineConfig:
               args:
                 - --dockerfile=/workspace/source/builder-gradle5-java11/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-gradle5-java11:${inputs.params.version}
+                - --context=/workspace/source
+                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache=true
+                - --cache-dir=/workspace
+            - name: build-and-push-machine-learning
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/source/builder-machine-learning/Dockerfile
+                - --destination=gcr.io/jenkinsxio/builder-machine-learning:${inputs.params.version}
                 - --context=/workspace/source
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
