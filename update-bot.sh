@@ -32,3 +32,4 @@ updatebot push-regex -r "builderTag: (.*)" -v ${VERSION} jx-build-templates/valu
 updatebot push-regex -r "\s+tag: (.*)" -v ${VERSION} --previous-line "\s+repository: gcr.io/jenkinsxio/builder-go" jenkins-x-platform/values.yaml
 updatebot push-regex -r "\s+tag: (.*)" -v ${VERSION} --previous-line "\s+repository: gcr.io/jenkinsxio/builder-go" values.yaml
 updatebot push-regex -r "\s+tag: (.*)" -v ${VERSION} --previous-line "\s+repository: gcr.io/jenkinsxio/builder-maven" prow/values.yaml
+updatebot push-regex -r "\s+tag: (.*)" -v ${VERSION} --previous-line "\s+repository: gcr.io/jenkinsxio/builder-maven" environment-controller/values.yaml
