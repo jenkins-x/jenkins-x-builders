@@ -1,6 +1,6 @@
 FROM gcr.io/jenkinsxio/builder-base:0.0.30
 
-RUN curl -f -o /etc/yum.repos.d/cloudfoundry-cli.repo https://packages.cloudfoundry.org/fedora/cloudfoundry-cli.repo \
+RUN yum-config-manager --add-repo https://packages.cloudfoundry.org/fedora/cloudfoundry-cli.repo \
   && yum install -y cf-cli \
   && yum clean all
 
