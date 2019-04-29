@@ -65,6 +65,15 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
                 - --cache-dir=/workspace
+            - name: build-and-push-cf
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/source/builder-cf/Dockerfile
+                - --destination=gcr.io/jenkinsxio/builder-cf:${inputs.params.version}
+                - --context=/workspace/source
+                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache=true
+                - --cache-dir=/workspace
             - name: build-and-push-go
               command: /kaniko/executor
               args:
@@ -344,6 +353,15 @@ pipelineConfig:
               args:
                 - --dockerfile=/workspace/source/builder-maven-nodejs/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-maven-nodejs:${inputs.params.version}
+                - --context=/workspace/source
+                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache=true
+                - --cache-dir=/workspace
+            - name: build-and-push-cf
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/source/builder-cf/Dockerfile
+                - --destination=gcr.io/jenkinsxio/builder-cf:${inputs.params.version}
                 - --context=/workspace/source
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
