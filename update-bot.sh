@@ -14,6 +14,7 @@ updatebot push-version --kind helm \
     gcr.io/jenkinsxio/builder-gradle4 ${VERSION} \
     gcr.io/jenkinsxio/builder-gradle5 ${VERSION} \
     gcr.io/jenkinsxio/builder-jx ${VERSION} \
+    gcr.io/jenkinsxio/builder-machine-learning ${VERSION} \
     gcr.io/jenkinsxio/builder-maven ${VERSION} \
     gcr.io/jenkinsxio/builder-maven-32 ${VERSION} \
     gcr.io/jenkinsxio/builder-maven-java11 ${VERSION} \
