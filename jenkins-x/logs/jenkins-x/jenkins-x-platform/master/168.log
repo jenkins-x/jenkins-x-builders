@@ -1,0 +1,141 @@
+Step: build-step-credential-initializer-p8ndv:
+
+{"level":"warn","ts":1557664945.6099381,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/backport-container-name-fix\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1557664945.610478,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Step: build-step-git-source-jenkins-x-jenkins-x-platform-ma-l8m4x:
+
+{"level":"warn","ts":1557664946.2121353,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/backport-container-name-fix\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1557664948.3925788,"logger":"fallback-logger","caller":"git-init/main.go:99","msg":"Successfully cloned \"https://github.com/jenkins-x/jenkins-x-platform\" @ \"v2.0.273\" in path \"/workspace/source\""}
+Step: build-step-place-tools:
+
+Step: build-step-git-merge:
+
+Warning failed to load version: failed to parse version -dev+548a93a-dev+981c48321: No Major.Minor.Patch elements found
+Using SHAs from PULL_REFS=master:17ae73e0ebdaa69e25974fcd62c1682c29271872
+time="2019-05-12T12:42:30Z" level=warning msg="no SHAs to merge, falling back to initial cloned commit"
+Step: build-step-basic-auth-username:
+
+/builder/home/basic-auth-user.json
+Step: build-step-basic-auth-password:
+
+/builder/home/basic-auth-pass.json
+Step: build-step-step4:
+
+helm init --client-only
+Creating /builder/home/.helm 
+Creating /builder/home/.helm/repository 
+Creating /builder/home/.helm/repository/cache 
+Creating /builder/home/.helm/repository/local 
+Creating /builder/home/.helm/plugins 
+Creating /builder/home/.helm/starters 
+Creating /builder/home/.helm/cache/archive 
+Creating /builder/home/.helm/repository/repositories.yaml 
+Adding stable repo with URL: https://kubernetes-charts.storage.googleapis.com 
+Adding local repo with URL: http://127.0.0.1:8879/charts 
+$HELM_HOME has been configured at /builder/home/.helm.
+Not installing Tiller due to 'client-only' flag having been set
+Happy Helming!
+helm repo add ** http://chartmuseum.jenkins-x.io
+"**" has been added to your repositories
+helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com
+"incubator" has been added to your repositories
+helm repo add stable https://kubernetes-charts.storage.googleapis.com
+"stable" has been added to your repositories
+helm repo add monocular https://helm.github.io/monocular
+"monocular" has been added to your repositories
+rm -rf jenkins-x-platform/charts
+rm -rf jenkins-x-platform/jenkins-x*.tgz
+rm -rf jenkins-x-platform/requirements.lock
+helm dependency build jenkins-x-platform
+Hang tight while we grab the latest from your chart repositories...
+...Unable to get an update from the "local" chart repository (http://127.0.0.1:8879/charts):
+	Get http://127.0.0.1:8879/charts/index.yaml: dial tcp 127.0.0.1:8879: connect: connection refused
+...Successfully got an update from the "monocular" chart repository
+...Successfully got an update from the "incubator" chart repository
+...Successfully got an update from the "stable" chart repository
+...Successfully got an update from the "**" chart repository
+Update Complete. ⎈Happy Helming!⎈
+Saving 17 charts
+Downloading jenkins from repo http://chartmuseum.jenkins-x.io
+Downloading exposecontroller from repo http://chartmuseum.jenkins-x.io
+Downloading exposecontroller from repo http://chartmuseum.jenkins-x.io
+Downloading chartmuseum from repo http://chartmuseum.jenkins-x.io
+Downloading nexus from repo http://chartmuseum.jenkins-x.io
+Downloading heapster from repo https://kubernetes-charts.storage.googleapis.com
+Downloading monocular from repo http://chartmuseum.jenkins-x.io
+Downloading docker-registry from repo https://kubernetes-charts.storage.googleapis.com
+Downloading ** from repo http://chartmuseum.jenkins-x.io
+Downloading ** from repo http://chartmuseum.jenkins-x.io
+Downloading ** from repo http://chartmuseum.jenkins-x.io
+Downloading ** from repo http://chartmuseum.jenkins-x.io
+Downloading ** from repo http://chartmuseum.jenkins-x.io
+Downloading ** from repo http://chartmuseum.jenkins-x.io
+Downloading ** from repo http://chartmuseum.jenkins-x.io
+Downloading ** from repo http://chartmuseum.jenkins-x.io
+Downloading ** from repo http://chartmuseum.jenkins-x.io
+Deleting outdated charts
+helm lint jenkins-x-platform
+==> Linting jenkins-x-platform
+Lint OK
+
+1 chart(s) linted, no failures
+sed -i -e "s/version:.*/version: 2.0.274/" jenkins-x-platform/Chart.yaml
+git add jenkins-x-platform/Chart.yaml
+git commit -a -m "release 2.0.274" --allow-empty
+[master bbda16d6] release 2.0.274
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+git tag -fa v2.0.274 -m "Release version 2.0.274"
+git push origin v2.0.274
+To https://github.com/jenkins-x/jenkins-x-platform
+ * [new tag]           v2.0.274 -> v2.0.274
+helm package jenkins-x-platform
+Successfully packaged chart and saved it to: /workspace/source/jenkins-x-platform-2.0.274.tgz
+curl --fail -u *****:************ --data-binary "@jenkins-x-platform-2.0.274.tgz" http://jenkins-x-chartmuseum:8080/api/charts
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 66612    0     0  100 66612      0  66097  0:00:01  0:00:01 --:--:-- 66148100 66626  100    14  100 66612     12  57616  0:00:01  0:00:01 --:--:-- 57573100 66626  100    14  100 66612     12  57611  0:00:01  0:00:01 --:--:-- 57573
+{"saved":true}helm repo update
+Hang tight while we grab the latest from your chart repositories...
+...Skip local chart repository
+...Successfully got an update from the "monocular" chart repository
+...Successfully got an update from the "incubator" chart repository
+...Successfully got an update from the "**" chart repository
+...Successfully got an update from the "stable" chart repository
+Update Complete. ⎈ Happy Helming!⎈ 
+rm -rf jenkins-x*.tgz
+updatebot push-version --kind make CHART_VERSION 2.0.274
+[main] INFO io.jenkins.updatebot.commands.PushSourceChanges - Looking for .git-credentials in /root
+[main] INFO io.jenkins.updatebot.commands.PushSourceChanges - Looking for .git-credentials in /builder/home
+[main] INFO io.jenkins.updatebot.git.GitHelper - Loaded 1 git credentials from /builder/home/.git-credentials
+[main] INFO io.jenkins.updatebot.commands.PushSourceChanges - Loaded from git credentials
+[main] INFO io.jenkins.updatebot.repository.Repositories - repository jenkins-x/cloud-environments has excludeUpdateLoop: null
+[main] INFO io.jenkins.updatebot.repository.Repositories - Cloning: jenkins-x/cloud-environments to .updatebot-repos/github/jenkins-x/cloud-environments
+[main] INFO io.jenkins.updatebot.git.GitPluginCLI - Cloning into 'cloud-environments'...
+[main] WARN io.jenkins.updatebot.git.GitPluginCLI - No name available for GitHub login!
+[main] WARN io.jenkins.updatebot.git.GitPluginCLI - No email available for GitHub login!
+[main] INFO io.jenkins.updatebot.commands.ModifyFilesCommandSupport - Checkout branch: master from jenkins-x/cloud-environments in .updatebot-repos/github/jenkins-x/cloud-environments
+[main] WARN io.jenkins.updatebot.support.ProcessHelper - Failed to run command git branch -D updatebot-8433be38-74d2-4f7d-8b90-2eff7e12f921 in ././.updatebot-repos/github/jenkins-x/cloud-environments : exit 1
+[updatebot-8433be38-74d2-4f7d-8b90-2eff7e12f921 90140f5] fix(version): update CHART_VERSION to 2.0.274
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[main] INFO io.jenkins.updatebot.commands.ModifyFilesCommandSupport - Updated PR https://github.com/jenkins-x/cloud-environments/pull/1
+updatebot push-regex -r "JX_PLATFORM_VERSION=(.*)" -v 2.0.274 build.sh
+[main] INFO io.jenkins.updatebot.commands.PushSourceChanges - Looking for .git-credentials in /root
+[main] INFO io.jenkins.updatebot.commands.PushSourceChanges - Looking for .git-credentials in /builder/home
+[main] INFO io.jenkins.updatebot.git.GitHelper - Loaded 1 git credentials from /builder/home/.git-credentials
+[main] INFO io.jenkins.updatebot.commands.PushSourceChanges - Loaded from git credentials
+[main] INFO io.jenkins.updatebot.repository.Repositories - repository jenkins-x/cloud-environments has excludeUpdateLoop: null
+[main] INFO io.jenkins.updatebot.repository.Repositories - Checkout branch: master from jenkins-x/cloud-environments in .updatebot-repos/github/jenkins-x/cloud-environments
+[main] INFO io.jenkins.updatebot.repository.Repositories - Pull branch: master from jenkins-x/cloud-environments in .updatebot-repos/github/jenkins-x/cloud-environments
+[main] INFO io.jenkins.updatebot.git.GitPluginCLI - Already up to date.
+[main] WARN io.jenkins.updatebot.git.GitPluginCLI - No name available for GitHub login!
+[main] WARN io.jenkins.updatebot.git.GitPluginCLI - No email available for GitHub login!
+[main] INFO io.jenkins.updatebot.commands.ModifyFilesCommandSupport - Checkout branch: master from jenkins-x/cloud-environments in .updatebot-repos/github/jenkins-x/cloud-environments
+[main] INFO io.jenkins.updatebot.commands.PushRegexChanges - Updating regex: [JX_PLATFORM_VERSION=(.*)] with value 2.0.274 in: ././.updatebot-repos/github/jenkins-x/cloud-environments repo: git://github.com/jenkins-x/cloud-environments.git
+[main] INFO io.jenkins.updatebot.kind.regex.RegexUpdater - Using Previous Line regex: null
+[main] INFO io.jenkins.updatebot.kind.regex.RegexUpdater - Checking for matches against files [build.sh]
+[main] WARN io.jenkins.updatebot.kind.regex.RegexUpdater - Unable to match any files using '[build.sh]'
+** step create version pr -f "jenkins-x/*" -b --images
+the latest builder image version is 0.1.451
+error: failed to fork GitHub repo jenkins-x/jenkins-x-versions to user rawlingsj: Failed to fork repository jenkins-x/jenkins-x-versions due to: POST https://api.github.com/repos/jenkins-x/jenkins-x-versions/forks: 401 Bad credentials []
+make: *** [release] Error 1
+{"component":"entrypoint","error":"wrapped process failed: exit status 2","level":"error","msg":"Error executing test process","time":"2019-05-12T12:43:57Z"}
