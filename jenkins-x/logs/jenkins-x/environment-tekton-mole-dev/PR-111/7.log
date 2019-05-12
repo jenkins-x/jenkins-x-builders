@@ -1,0 +1,54 @@
+Step: build-step-credential-initializer-mwzsg:
+
+{"level":"warn","ts":1557704462.140071,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/backport-container-name-fix\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1557704462.1409967,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Step: build-step-git-source-jenkins-x-environment-tekton-mo-2g7t2:
+
+{"level":"warn","ts":1557704462.7107532,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/backport-container-name-fix\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1557704464.6414337,"logger":"fallback-logger","caller":"git-init/main.go:99","msg":"Successfully cloned \"https://github.com/jenkins-x/environment-tekton-mole-dev\" @ \"b392424b387594c5d43143981bc391142bf87cd2\" in path \"/workspace/source\""}
+Step: build-step-place-tools:
+
+Step: build-step-git-merge:
+
+Warning failed to load version: failed to parse version -dev+548a93a-dev+981c48321: No Major.Minor.Patch elements found
+Using SHAs from PULL_REFS=master:4977e3aa81fa19cd9b484fcde025054c4d1beafc,111:b392424b387594c5d43143981bc391142bf87cd2
+ran git fetch --unshallow origin b392424b387594c5d43143981bc391142bf87cd2: 4977e3aa81fa19cd9b484fcde025054c4d1beafc: in 
+ran git checkout master in 
+ran git reset --hard 4977e3aa81fa19cd9b484fcde025054c4d1beafc in 
+ran clean --force -d . in 
+ran git merge b392424b387594c5d43143981bc391142bf87cd2 in 
+Step: build-step-helm-build:
+
+rm -rf charts
+rm -rf requirements.lock
+helm init --client-only
+Creating /builder/home/.helm 
+Creating /builder/home/.helm/repository 
+Creating /builder/home/.helm/repository/cache 
+Creating /builder/home/.helm/repository/local 
+Creating /builder/home/.helm/plugins 
+Creating /builder/home/.helm/starters 
+Creating /builder/home/.helm/cache/archive 
+Creating /builder/home/.helm/repository/repositories.yaml 
+Adding stable repo with URL: https://kubernetes-charts.storage.googleapis.com 
+Adding local repo with URL: http://127.0.0.1:8879/charts 
+$HELM_HOME has been configured at /builder/home/.helm.
+Not installing Tiller due to 'client-only' flag having been set
+Happy Helming!
+helm repo add jenkins-x http://chartmuseum.jenkins-x.io
+"jenkins-x" has been added to your repositories
+helm repo add bitnami https://charts.bitnami.com/bitnami
+"bitnami" has been added to your repositories
+helm repo add stable https://kubernetes-charts.storage.googleapis.com
+"stable" has been added to your repositories
+** step helm build
+{"level":"warning","msg":"No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080\n","time":"2019-05-12T23:41:23Z"}
+{"level":"info","msg":"Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080\n","time":"2019-05-12T23:41:24Z"}
+{"level":"info","msg":"Successfully added Helm repository jenkins-x-chartmuseum.\n","time":"2019-05-12T23:41:31Z"}
+{"level":"info","msg":"Adding missing Helm repo: chartmuseum.**.charts-****.cloudbees.com https://chartmuseum.**.charts-****.cloudbees.com\n","time":"2019-05-12T23:41:31Z"}
+{"level":"info","msg":"Successfully added Helm repository chartmuseum.**.charts-****.cloudbees.com.\n","time":"2019-05-12T23:41:32Z"}
+helm lint .
+==> Linting .
+Lint OK
+
+1 chart(s) linted, no failures
