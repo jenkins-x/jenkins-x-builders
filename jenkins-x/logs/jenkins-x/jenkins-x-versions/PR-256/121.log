@@ -1,0 +1,318 @@
+Step: build-step-credential-initializer-6xl8m:
+
+{"level":"warn","ts":1557666032.1002772,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/backport-container-name-fix\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1557666032.102898,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Step: build-step-git-source-jenkins-x-jenkins-x-versions-pr-bbj96:
+
+{"level":"warn","ts":1557666033.800757,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/backport-container-name-fix\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1557666035.515784,"logger":"fallback-logger","caller":"git-init/main.go:99","msg":"Successfully cloned \"https://github.com/jenkins-x/jenkins-x-versions\" @ \"cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e\" in path \"/workspace/source\""}
+Step: build-step-place-tools:
+
+Step: build-step-git-merge:
+
+Warning failed to load version: failed to parse version -dev+548a93a-dev+981c48321: No Major.Minor.Patch elements found
+Using SHAs from PULL_REFS=master:0e90f5dc98aec3a4daac41b5c450ee40590d128f,256:cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e
+ran git fetch --unshallow origin cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e: 0e90f5dc98aec3a4daac41b5c450ee40590d128f: in 
+ran git checkout master in 
+ran git reset --hard 0e90f5dc98aec3a4daac41b5c450ee40590d128f in 
+ran clean --force -d . in 
+ran git merge cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e in 
+Step: build-step-runci:
+
++ export GH_USERNAME=*************-test
++ GH_USERNAME=*************-test
++ export GH_OWNER=cb-kubecd
++ GH_OWNER=cb-kubecd
+++ ** step credential -s *************-test-github
++ export GH_CREDS_PSW=****************************************
++ GH_CREDS_PSW=****************************************
+++ ** step credential -s test-jenkins-user
++ export JENKINS_CREDS_PSW=************
++ JENKINS_CREDS_PSW=************
+++ ** step credential -k bdd-credentials.json -s bdd-secret -f sa.json
++ export GKE_SA=sa.json
++ GKE_SA=sa.json
++ export BUILD_NUMBER=
++ BUILD_NUMBER=
++ JX_HOME=/tmp/**home
++ KUBECONFIG=/tmp/**home/config
++ mkdir -p /tmp/**home
++ ** --version
+2.0.118
++ ** step git credentials
+Generated Git credentials file /builder/home/git/credentials
++ gcloud auth activate-service-account --key-file sa.json
+Activated service account credentials for: [jenkins-x-bdd@jenkins-x-bdd.iam.gserviceaccount.com]
++ git config --global --add user.name JenkinsXBot
++ git config --global --add user.email jenkins-x@googlegroups.com
++ echo 'running the BDD tests with JX_HOME = /tmp/**home'
+running the BDD tests with JX_HOME = /tmp/**home
++ ** step bdd --use-revision --version-repo-pr --versions-repo https://github.com/jenkins-x/jenkins-x-versions.git --config **/bdd/knative-build/cluster.yaml --gopath /tmp --git-provider=github --git-username *************-test --git-owner cb-kubecd --git-api-token **************************************** --default-*****-password ************ --no-delete-app --no-delete-repo --tests install --tests test-create-spring
+found git revision cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e: branch PR-256
+using versions git repo https://github.com/jenkins-x/jenkins-x-versions.git and ref cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e
+
+Creating cluster pr-256-121-kn-gkebdd
+using stable version 2.0.276 from charts of jenkins-x/jenkins-x-platform from 
+loaded version 2.0.276 from Makefile in directory 
+
+running command: ** create cluster gke --prow --knative-build --project-id=jenkins-x-bdd -m=n1-standard-2 --min-num-nodes=3 --max-num-nodes=5 -z=europe-west1-c --skip-login --cluster-name pr-256-121-kn-gkebdd --batch-mode --version 2.0.276 --labels cluster=kn-gkebdd,branch=pr-256 --git-provider-url https://github.com --versions-repo https://github.com/jenkins-x/jenkins-x-versions.git --versions-ref cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e --git-username *************-test --environment-git-owner cb-kubecd --git-api-token **************¬ --default-*****-password **************¬
+Updated property [core/project].
+Let's ensure we have container and compute enabled on your project
+No apis need to be enable as they are already enabled: container compute
+Creating cluster...
+Initialising cluster ...
+Setting the dev namespace to: **
+Namespace ** created 
+ 
+Using helmBinary helm with feature flag: none
+Context "gke_jenkins-x-bdd_europe-west1-c_pr-256-121-kn-gkebdd" modified.
+Storing the kubernetes provider gke in the TeamSettings
+Enabling helm template mode in the TeamSettings
+Git configured for user: JenkinsXBot and email jenkins-x@googlegroups.com
+Trying to create ClusterRoleBinding jenkins-x-bdd-jenkins-x-bdd-iam-gserviceaccount-com-cluster-*****-binding for role: cluster-***** for user jenkins-x-bdd@jenkins-x-bdd.iam.gserviceaccount.com
+ clusterrolebindings.rbac.authorization.k8s.io "jenkins-x-bdd-jenkins-x-bdd-iam-gserviceaccount-com-cluster-*****-binding" not found
+Created ClusterRoleBinding jenkins-x-bdd-jenkins-x-bdd-iam-gserviceaccount-com-cluster-*****-binding
+Using helm2
+Skipping tiller
+Using helmBinary helm with feature flag: template-mode
+Initialising Helm 'init --client-only'
+helm installed and configured
+Current configuration dir: /builder/home/.**
+versionRepository: https://github.com/jenkins-x/jenkins-x-versions.git git ref: cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e
+Deleting and cloning the Jenkins X versions repo
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with revision cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e to /builder/home/.**/jenkins-x-versions
+From https://github.com/jenkins-x/jenkins-x-versions
+ * branch            cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e -> FETCH_HEAD
+using stable version 1.3.1 from charts of stable/nginx-ingress from /builder/home/.**/jenkins-x-versions
+Installing using helm binary: helm
+Current configuration dir: /builder/home/.**
+versionRepository: https://github.com/jenkins-x/jenkins-x-versions.git git ref: cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e
+Deleting and cloning the Jenkins X versions repo
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with revision cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e to /builder/home/.**/jenkins-x-versions
+From https://github.com/jenkins-x/jenkins-x-versions
+ * branch            cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e -> FETCH_HEAD
+Fetched chart stable/nginx-ingress to dir /tmp/helm-template-workdir-827574490/**ing/chartFiles/nginx-ingress
+Generating Chart Template 'template --name **ing --namespace kube-system /tmp/helm-template-workdir-827574490/**ing/chartFiles/nginx-ingress --output-dir /tmp/helm-template-workdir-827574490/**ing/output --debug --set rbac.create=true --set controller.extraArgs.publish-service=kube-system/**ing-nginx-ingress-controller'
+Applying generated chart stable/nginx-ingress YAML via kubectl in dir: /tmp/helm-template-workdir-827574490/**ing/output
+clusterrole.rbac.authorization.k8s.io/**ing-nginx-ingress created
+clusterrolebinding.rbac.authorization.k8s.io/**ing-nginx-ingress created
+configmap/**ing-nginx-ingress-controller created
+deployment.extensions/**ing-nginx-ingress-controller created
+service/**ing-nginx-ingress-controller created
+deployment.extensions/**ing-nginx-ingress-default-backend created
+service/**ing-nginx-ingress-default-backend created
+role.rbac.authorization.k8s.io/**ing-nginx-ingress created
+rolebinding.rbac.authorization.k8s.io/**ing-nginx-ingress created
+serviceaccount/**ing-nginx-ingress created
+
+Removing Kubernetes resources from older releases using selector: jenkins.io/chart-release=**ing,jenkins.io/version!=1.3.1 from all pvc configmap release sa role rolebinding secret
+Removing Kubernetes resources from older releases using selector: jenkins.io/chart-release=**ing,jenkins.io/version!=1.3.1,jenkins.io/namespace=kube-system from clusterrole clusterrolebinding
+Waiting for external loadbalancer to be created and update the nginx-ingress-controller service in kube-system namespace
+Note: this loadbalancer will fail to be provisioned if you have insufficient quotas, this can happen easily on a GKE free account. To view quotas run: gcloud compute project-info describe
+External loadbalancer created
+Waiting to find the external host name of the ingress controller Service in namespace kube-system with name **ing-nginx-ingress-controller
+No domain flag provided so using default 104.155.32.142.nip.io to generate Ingress rules
+nginx ingress controller installed and configured
+Lets set up a Git user name and API token to be able to perform CI/CD
+
+Select the CI/CD pipelines Git server and user
+Setting the pipelines Git server https://github.com and user name *************-test.
+Saving the Git authentication configuration
+Current configuration dir: /builder/home/.**
+versionRepository: https://github.com/jenkins-x/jenkins-x-versions.git git ref: cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e
+Deleting and cloning the Jenkins X versions repo
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with revision cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e to /builder/home/.**/jenkins-x-versions
+From https://github.com/jenkins-x/jenkins-x-versions
+ * branch            cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e -> FETCH_HEAD
+Current configuration dir: /builder/home/.**
+options.Flags.CloudEnvRepository: https://github.com/jenkins-x/cloud-environments
+options.Flags.LocalCloudEnvironment: false
+Cloning the Jenkins X cloud environments repo to /builder/home/.**/cloud-environments
+Enumerating objects: 1382, done.
+Total 1382 (delta 0), reused 0 (delta 0), pack-reused 1382
+Setting the dev namespace to: **
+Generated helm values /builder/home/.**/extraValues.yaml
+Creating Secret **-install-config in namespace **
+Installing Jenkins X platform helm chart from: /builder/home/.**/cloud-environments/env-gke
+Configuring the TeamSettings for Prow with engine KnativeBuild
+Setting the current namespace to: **
+
+Setting up prow config into namespace **
+
+Installing knative into namespace **
+Current configuration dir: /builder/home/.**
+versionRepository: https://github.com/jenkins-x/jenkins-x-versions.git git ref: cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e
+Deleting and cloning the Jenkins X versions repo
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with revision cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e to /builder/home/.**/jenkins-x-versions
+From https://github.com/jenkins-x/jenkins-x-versions
+ * branch            cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e -> FETCH_HEAD
+using stable version 0.1.19 from charts of jenkins-x/knative-build from /builder/home/.**/jenkins-x-versions
+Updating Helm repository...
+Helm repository update done.
+Fetched chart jenkins-x/knative-build to dir /tmp/helm-template-workdir-827574490/knative-build/chartFiles/knative-build
+Generating Chart Template 'template --name knative-build --namespace ** /tmp/helm-template-workdir-827574490/knative-build/chartFiles/knative-build --output-dir /tmp/helm-template-workdir-827574490/knative-build/output --debug --set  --set tillerNamespace= --set build.auth.git.username=*************-test --set build.auth.git.username=*************-test --set build.auth.git.password=**************************************** --values /builder/home/.**/cloud-environments/env-gke/myvalues.yaml'
+Applying Helm hook crd-install YAML via kubectl in file: /tmp/helm-template-workdir-827574490/knative-build/helmHooks/knative-build/templates/build-crd.yaml
+customresourcedefinition.apiextensions.k8s.io/builds.build.knative.dev created
+
+Applying Helm hook crd-install YAML via kubectl in file: /tmp/helm-template-workdir-827574490/knative-build/helmHooks/knative-build/templates/build-template-cluster-crd.yaml
+customresourcedefinition.apiextensions.k8s.io/clusterbuildtemplates.build.knative.dev created
+
+Applying Helm hook crd-install YAML via kubectl in file: /tmp/helm-template-workdir-827574490/knative-build/helmHooks/knative-build/templates/build-template-crd.yaml
+customresourcedefinition.apiextensions.k8s.io/buildtemplates.build.knative.dev created
+
+Applying Helm hook crd-install YAML via kubectl in file: /tmp/helm-template-workdir-827574490/knative-build/helmHooks/knative-build/templates/image-crd.yaml
+customresourcedefinition.apiextensions.k8s.io/images.caching.internal.knative.dev created
+
+Applying generated chart jenkins-x/knative-build YAML via kubectl in dir: /tmp/helm-template-workdir-827574490/knative-build/output
+clusterrole.rbac.authorization.k8s.io/knative-build-bot created
+clusterrolebinding.rbac.authorization.k8s.io/knative-build-bot-** created
+role.rbac.authorization.k8s.io/knative-build-bot created
+rolebinding.rbac.authorization.k8s.io/knative-build-bot created
+serviceaccount/knative-build-bot created
+secret/knative-basic-user-pass created
+clusterrole.rbac.authorization.k8s.io/knative-build-***** created
+clusterrolebinding.rbac.authorization.k8s.io/build-controller-*****-** created
+configmap/config-logging created
+deployment.extensions/build-controller created
+service/build-controller created
+serviceaccount/build-controller created
+clusterrolebinding.rbac.authorization.k8s.io/helm-role-** created
+serviceaccount/helm created
+image.caching.internal.knative.dev/git-init created
+image.caching.internal.knative.dev/nop created
+
+Removing Kubernetes resources from older releases using selector: jenkins.io/chart-release=knative-build,jenkins.io/version!=0.1.19 from all pvc configmap release sa role rolebinding secret
+Removing Kubernetes resources from older releases using selector: jenkins.io/chart-release=knative-build,jenkins.io/version!=0.1.19,jenkins.io/namespace=** from clusterrole clusterrolebinding
+Current configuration dir: /builder/home/.**
+versionRepository: https://github.com/jenkins-x/jenkins-x-versions.git git ref: cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e
+Deleting and cloning the Jenkins X versions repo
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with revision cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e to /builder/home/.**/jenkins-x-versions
+From https://github.com/jenkins-x/jenkins-x-versions
+ * branch            cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e -> FETCH_HEAD
+using stable version 0.0.419 from charts of jenkins-x/prow-knative from /builder/home/.**/jenkins-x-versions
+
+Installing Prow into namespace **
+with values file /builder/home/.**/cloud-environments/env-gke/myvalues.yaml
+Current configuration dir: /builder/home/.**
+versionRepository: https://github.com/jenkins-x/jenkins-x-versions.git git ref: cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e
+Deleting and cloning the Jenkins X versions repo
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with revision cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e to /builder/home/.**/jenkins-x-versions
+From https://github.com/jenkins-x/jenkins-x-versions
+ * branch            cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e -> FETCH_HEAD
+Updating Helm repository...
+Helm repository update done.
+Fetched chart jenkins-x/prow to dir /tmp/helm-template-workdir-827574490/**-prow/chartFiles/prow
+Generating Chart Template 'template --name **-prow --namespace ** /tmp/helm-template-workdir-827574490/**-prow/chartFiles/prow --output-dir /tmp/helm-template-workdir-827574490/**-prow/output --debug --set  --set tillerNamespace= --set build.auth.git.username=*************-test --set user=*************-test --set oauthToken=**************************************** --set hmacToken=363e775a810bb0556975e0aaac0fb735a8c220c79 --values /builder/home/.**/cloud-environments/env-gke/myvalues.yaml'
+Applying generated chart jenkins-x/prow YAML via kubectl in dir: /tmp/helm-template-workdir-827574490/**-prow/output
+clusterrole.rbac.authorization.k8s.io/prow-build created
+clusterrolebinding.rbac.authorization.k8s.io/prow-build-** created
+deployment.extensions/prow-build created
+serviceaccount/prow-build created
+deployment.extensions/buildnum created
+rolebinding.rbac.authorization.k8s.io/buildnum created
+role.rbac.authorization.k8s.io/buildnum created
+serviceaccount/buildnum created
+service/buildnum created
+clusterrolebinding.rbac.authorization.k8s.io/cluster-*****-binding-** created
+clusterrole.rbac.authorization.k8s.io/crier created
+clusterrolebinding.rbac.authorization.k8s.io/crier-** created
+deployment.extensions/crier created
+rolebinding.rbac.authorization.k8s.io/crier created
+role.rbac.authorization.k8s.io/crier created
+serviceaccount/crier created
+deployment.extensions/deck created
+rolebinding.rbac.authorization.k8s.io/deck created
+role.rbac.authorization.k8s.io/deck created
+serviceaccount/deck created
+service/deck created
+secret/hmac-token created
+deployment.extensions/hook created
+rolebinding.rbac.authorization.k8s.io/hook created
+role.rbac.authorization.k8s.io/hook created
+serviceaccount/hook created
+service/hook created
+deployment.extensions/horologium created
+rolebinding.rbac.authorization.k8s.io/horologium created
+role.rbac.authorization.k8s.io/horologium created
+serviceaccount/horologium created
+secret/oauth-token created
+clusterrole.rbac.authorization.k8s.io/pipeline created
+clusterrolebinding.rbac.authorization.k8s.io/pipeline-** created
+deployment.extensions/pipeline created
+serviceaccount/pipeline created
+deployment.extensions/plank created
+rolebinding.rbac.authorization.k8s.io/plank created
+role.rbac.authorization.k8s.io/plank created
+serviceaccount/plank created
+customresourcedefinition.apiextensions.k8s.io/prowjobs.prow.k8s.io created
+deployment.extensions/sinker created
+rolebinding.rbac.authorization.k8s.io/sinker created
+role.rbac.authorization.k8s.io/sinker created
+serviceaccount/sinker created
+deployment.extensions/tide created
+rolebinding.rbac.authorization.k8s.io/tide created
+role.rbac.authorization.k8s.io/tide created
+serviceaccount/tide created
+service/tide created
+
+Removing Kubernetes resources from older releases using selector: jenkins.io/chart-release=**-prow,jenkins.io/version!=0.0.419 from all pvc configmap release sa role rolebinding secret
+Removing Kubernetes resources from older releases using selector: jenkins.io/chart-release=**-prow,jenkins.io/version!=0.0.419,jenkins.io/namespace=** from clusterrole clusterrolebinding
+
+Installing BuildTemplates into namespace **
+Current configuration dir: /builder/home/.**
+versionRepository: https://github.com/jenkins-x/jenkins-x-versions.git git ref: cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e
+Deleting and cloning the Jenkins X versions repo
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with revision cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e to /builder/home/.**/jenkins-x-versions
+From https://github.com/jenkins-x/jenkins-x-versions
+ * branch            cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e -> FETCH_HEAD
+using stable version 0.0.602 from charts of jenkins-x/**-build-templates from /builder/home/.**/jenkins-x-versions
+Updating Helm repository...
+Helm repository update done.
+Fetched chart jenkins-x/**-build-templates to dir /tmp/helm-template-workdir-827574490/**-build-templates/chartFiles/**-build-templates
+Generating Chart Template 'template --name **-build-templates --namespace ** /tmp/helm-template-workdir-827574490/**-build-templates/chartFiles/**-build-templates --output-dir /tmp/helm-template-workdir-827574490/**-build-templates/output --debug'
+Applying generated chart jenkins-x/**-build-templates YAML via kubectl in dir: /tmp/helm-template-workdir-827574490/**-build-templates/output
+buildtemplate.build.knative.dev/environment-apply created
+buildtemplate.build.knative.dev/environment-build created
+buildtemplate.build.knative.dev/jenkins-base created
+buildtemplate.build.knative.dev/jenkins-csharp created
+buildtemplate.build.knative.dev/jenkins-cwp created
+buildtemplate.build.knative.dev/jenkins-elixir created
+buildtemplate.build.knative.dev/jenkins-go created
+buildtemplate.build.knative.dev/jenkins-go-nodocker created
+buildtemplate.build.knative.dev/jenkins-go-script-bdd created
+buildtemplate.build.knative.dev/jenkins-go-script-ci created
+buildtemplate.build.knative.dev/jenkins-go-script-release created
+buildtemplate.build.knative.dev/jenkins-gradle created
+buildtemplate.build.knative.dev/jenkins-javascript created
+buildtemplate.build.knative.dev/jenkins-jenkins created
+buildtemplate.build.knative.dev/jenkins-maven created
+buildtemplate.build.knative.dev/jenkins-python created
+buildtemplate.build.knative.dev/jenkins-ruby created
+buildtemplate.build.knative.dev/jenkins-rust created
+buildtemplate.build.knative.dev/jenkins-scala created
+buildtemplate.build.knative.dev/jenkins-test created
+buildtemplate.build.knative.dev/knative-chart-ci created
+buildtemplate.build.knative.dev/knative-chart-release created
+buildtemplate.build.knative.dev/knative-deploy created
+buildtemplate.build.knative.dev/knative-maven-ci created
+buildtemplate.build.knative.dev/knative-maven-release created
+
+Removing Kubernetes resources from older releases using selector: jenkins.io/chart-release=**-build-templates,jenkins.io/version!=0.0.602 from all pvc configmap release sa role rolebinding secret
+Removing Kubernetes resources from older releases using selector: jenkins.io/chart-release=**-build-templates,jenkins.io/version!=0.0.602,jenkins.io/namespace=** from clusterrole clusterrolebinding
+Installing ** into namespace **
+Installing jenkins-x-platform version: 2.0.276
+Adding values file /builder/home/.**/cloud-environments/env-gke/myvalues.yaml
+Adding values file /builder/home/.**/*****Secrets.yaml
+Adding values file /builder/home/.**/extraValues.yaml
+Adding values file /builder/home/.**/cloud-environments/env-gke/secrets.yaml
+Current configuration dir: /builder/home/.**
+versionRepository: https://github.com/jenkins-x/jenkins-x-versions.git git ref: cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e
+Deleting and cloning the Jenkins X versions repo
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with revision cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e to /builder/home/.**/jenkins-x-versions
+From https://github.com/jenkins-x/jenkins-x-versions
+ * branch            cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e -> FETCH_HEAD
+ERROR: error creating cluster installing the Jenkins X platform: failed to install/upgrade the jenkins-x platform chart: failed to run 'helm fetch -d /tmp/helm-template-workdir-827574490/jenkins-x/chartFiles --untar jenkins-x/jenkins-x-platform --version 2.0.276' command in directory '', output: 'Error: chart "jenkins-x-platform" matching "2.0.276" not found in jenkins-x index. (try 'helm repo update'). No chart version found for jenkins-x-platform-2.0.276'
+error: installing the Jenkins X platform: failed to install/upgrade the jenkins-x platform chart: failed to run 'helm fetch -d /tmp/helm-template-workdir-827574490/jenkins-x/chartFiles --untar jenkins-x/jenkins-x-platform --version 2.0.276' command in directory '', output: 'Error: chart "jenkins-x-platform" matching "2.0.276" not found in jenkins-x index. (try 'helm repo update'). No chart version found for jenkins-x-platform-2.0.276'
+ERROR: Error: Command failed  ** create cluster gke --prow --knative-build --project-id=jenkins-x-bdd -m=n1-standard-2 --min-num-nodes=3 --max-num-nodes=5 -z=europe-west1-c --skip-login --cluster-name pr-256-121-kn-gkebdd --batch-mode --version 2.0.276 --labels cluster=kn-gkebdd,branch=pr-256 --git-provider-url https://github.com --versions-repo https://github.com/jenkins-x/jenkins-x-versions.git --versions-ref cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e --git-username *************-test --environment-git-owner cb-kubecd --git-api-token **************¬ --default-*****-password **************¬
+error: exit status 1
+{"component":"entrypoint","error":"wrapped process failed: exit status 1","level":"error","msg":"Error executing test process","time":"2019-05-12T13:05:47Z"}
