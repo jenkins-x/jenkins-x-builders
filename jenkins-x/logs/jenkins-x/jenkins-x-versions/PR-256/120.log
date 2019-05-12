@@ -1,0 +1,162 @@
+Step: build-step-credential-initializer-hlh7m:
+
+{"level":"warn","ts":1557666017.7370543,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/backport-container-name-fix\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1557666017.7374938,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Step: build-step-git-source-jenkins-x-jenkins-x-versions-pr-mwmmq:
+
+{"level":"warn","ts":1557666021.3207543,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/backport-container-name-fix\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1557666022.735347,"logger":"fallback-logger","caller":"git-init/main.go:99","msg":"Successfully cloned \"https://github.com/jenkins-x/jenkins-x-versions\" @ \"cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e\" in path \"/workspace/source\""}
+Step: build-step-place-tools:
+
+Step: build-step-git-merge:
+
+Warning failed to load version: failed to parse version -dev+548a93a-dev+981c48321: No Major.Minor.Patch elements found
+Using SHAs from PULL_REFS=master:0e90f5dc98aec3a4daac41b5c450ee40590d128f,256:cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e
+ran git fetch --unshallow origin cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e: 0e90f5dc98aec3a4daac41b5c450ee40590d128f: in 
+ran git checkout master in 
+ran git reset --hard 0e90f5dc98aec3a4daac41b5c450ee40590d128f in 
+ran clean --force -d . in 
+ran git merge cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e in 
+Step: build-step-runci:
+
+++ ** step credential -s **-pipeline-git-github-ghe
++ export GHE_CREDS_PSW=****************************************
++ GHE_CREDS_PSW=****************************************
+++ ** step credential -s test-jenkins-user
++ export JENKINS_CREDS_PSW=************
++ JENKINS_CREDS_PSW=************
+++ ** step credential -k bdd-credentials.json -s bdd-secret -f sa.json
++ export GKE_SA=sa.json
++ GKE_SA=sa.json
++ echo BRANCH_NAME=PR-256
+BRANCH_NAME=PR-256
++ echo 'the downward API labels are:'
+the downward API labels are:
++ cat /etc/podinfo/labels
+branch="PR-256"
+context="tiller"
+created-by-prow="true"
+jenkins.io/task-stage-name="ci"
+owner="jenkins-x"
+prowJobName="ce790a9f-74b5-11e9-a6f2-e2a09a4f09b4"
+repo="jenkins-x-versions"
+tekton.dev/pipeline="jenkins-x-jenkins-x-versions-pr-120"
+tekton.dev/pipelineRun="jenkins-x-jenkins-x-versions-pr-120"
+tekton.dev/task="jenkins-x-jenkins-x-versions-pr-ci-120"
+tekton.dev/taskRun="jenkins-x-jenkins-x-versions-pr-120-ci-pmwzg"+ export BUILD_NUMBER=
++ BUILD_NUMBER=
++ JX_HOME=/tmp/**home
++ KUBECONFIG=/tmp/**home/config
++ mkdir -p /tmp/**home
++ ** --version
+2.0.118
++ ** step git credentials
+Generated Git credentials file /builder/home/git/credentials
++ gcloud auth activate-service-account --key-file sa.json
+Activated service account credentials for: [jenkins-x-bdd@jenkins-x-bdd.iam.gserviceaccount.com]
++ git config --global --add user.name JenkinsXBot
++ git config --global --add user.email jenkins-x@googlegroups.com
++ echo 'running the BDD tests with JX_HOME = /tmp/**home'
+running the BDD tests with JX_HOME = /tmp/**home
++ ** step bdd --use-revision --version-repo-pr --versions-repo https://github.com/jenkins-x/jenkins-x-versions.git --config **/bdd/tiller/cluster.yaml --gopath /tmp --git-provider=ghe --git-provider-url=https://github.beescloud.com --git-username **** --git-api-token **************************************** --default-*****-password ************ --no-delete-app --no-delete-repo --tests install --tests test-create-spring
+found git revision cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e: branch PR-256
+using versions git repo https://github.com/jenkins-x/jenkins-x-versions.git and ref cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e
+
+Creating cluster pr-256-120-tiller-gkebdd
+using stable version 2.0.276 from charts of jenkins-x/jenkins-x-platform from 
+loaded version 2.0.276 from Makefile in directory 
+
+running command: ** create cluster gke --project-id=jenkins-x-bdd --no-tiller=false -m=n1-standard-2 --min-num-nodes=3 --max-num-nodes=5 -z=europe-west1-c --skip-login --cluster-name pr-256-120-tiller-gkebdd --batch-mode --version 2.0.276 --labels cluster=tiller-gkebdd,branch=pr-256 --git-provider-url https://github.beescloud.com --versions-repo https://github.com/jenkins-x/jenkins-x-versions.git --versions-ref cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e --git-username **** --git-api-token **************¬ --default-*****-password **************¬
+Updated property [core/project].
+Let's ensure we have container and compute enabled on your project
+No apis need to be enable as they are already enabled: container compute
+Creating cluster...
+Initialising cluster ...
+Setting the dev namespace to: **
+Namespace ** created 
+ 
+Using helmBinary helm with feature flag: none
+Context "gke_jenkins-x-bdd_europe-west1-c_pr-256-120-tiller-gkebdd" modified.
+Storing the kubernetes provider gke in the TeamSettings
+Git configured for user: JenkinsXBot and email jenkins-x@googlegroups.com
+Trying to create ClusterRoleBinding jenkins-x-bdd-jenkins-x-bdd-iam-gserviceaccount-com-cluster-*****-binding for role: cluster-***** for user jenkins-x-bdd@jenkins-x-bdd.iam.gserviceaccount.com
+ clusterrolebindings.rbac.authorization.k8s.io "jenkins-x-bdd-jenkins-x-bdd-iam-gserviceaccount-com-cluster-*****-binding" not found
+Created ClusterRoleBinding jenkins-x-bdd-jenkins-x-bdd-iam-gserviceaccount-com-cluster-*****-binding
+Using helm2
+Configuring tiller
+Created ServiceAccount tiller in namespace kube-system
+Trying to create ClusterRoleBinding tiller for role: cluster-***** and ServiceAccount: kube-system/tiller
+Created ClusterRoleBinding tiller
+Initialising helm using ServiceAccount tiller in namespace kube-system
+Initialising Helm 'init --service-account tiller --tiller-namespace kube-system'
+Initialising Helm 'init --service-account tiller --tiller-namespace kube-system --upgrade --wait --force-upgrade'
+Waiting for tiller-deploy to be ready in tiller namespace kube-system
+helm installed and configured
+Current configuration dir: /builder/home/.**
+versionRepository: https://github.com/jenkins-x/jenkins-x-versions.git git ref: cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e
+Deleting and cloning the Jenkins X versions repo
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with revision cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e to /builder/home/.**/jenkins-x-versions
+From https://github.com/jenkins-x/jenkins-x-versions
+ * branch            cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e -> FETCH_HEAD
+using stable version 1.3.1 from charts of stable/nginx-ingress from /builder/home/.**/jenkins-x-versions
+Installing using helm binary: helm
+Current configuration dir: /builder/home/.**
+versionRepository: https://github.com/jenkins-x/jenkins-x-versions.git git ref: cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e
+Deleting and cloning the Jenkins X versions repo
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with revision cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e to /builder/home/.**/jenkins-x-versions
+From https://github.com/jenkins-x/jenkins-x-versions
+ * branch            cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e -> FETCH_HEAD
+Upgrading Chart 'upgrade --namespace kube-system --install --force --timeout 6000 --version 1.3.1 --set rbac.create=true --set controller.extraArgs.publish-service=kube-system/**ing-nginx-ingress-controller **ing stable/nginx-ingress'
+Waiting for external loadbalancer to be created and update the nginx-ingress-controller service in kube-system namespace
+Note: this loadbalancer will fail to be provisioned if you have insufficient quotas, this can happen easily on a GKE free account. To view quotas run: gcloud compute project-info describe
+External loadbalancer created
+Waiting to find the external host name of the ingress controller Service in namespace kube-system with name **ing-nginx-ingress-controller
+No domain flag provided so using default 35.189.194.178.nip.io to generate Ingress rules
+nginx ingress controller installed and configured
+Lets set up a Git user name and API token to be able to perform CI/CD
+
+Select the CI/CD pipelines Git server and user
+Setting the pipelines Git server https://github.beescloud.com and user name ****.
+Saving the Git authentication configuration
+Current configuration dir: /builder/home/.**
+versionRepository: https://github.com/jenkins-x/jenkins-x-versions.git git ref: cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e
+Deleting and cloning the Jenkins X versions repo
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with revision cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e to /builder/home/.**/jenkins-x-versions
+From https://github.com/jenkins-x/jenkins-x-versions
+ * branch            cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e -> FETCH_HEAD
+Current configuration dir: /builder/home/.**
+options.Flags.CloudEnvRepository: https://github.com/jenkins-x/cloud-environments
+options.Flags.LocalCloudEnvironment: false
+Cloning the Jenkins X cloud environments repo to /builder/home/.**/cloud-environments
+Enumerating objects: 1382, done.
+Total 1382 (delta 0), reused 0 (delta 0), pack-reused 1382
+Setting the dev namespace to: **
+Generated helm values /builder/home/.**/extraValues.yaml
+Creating Secret **-install-config in namespace **
+Installing Jenkins X platform helm chart from: /builder/home/.**/cloud-environments/env-gke
+Setting the current namespace to: **
+Waiting for tiller pod to be ready, service account name is tiller, namespace is **, tiller namespace is kube-system
+Waiting for cluster role binding to be defined, named tiller-role-binding in namespace **
+ 
+Trying to create ClusterRoleBinding tiller-role-binding for role: cluster-***** and ServiceAccount: **/tiller
+Created ClusterRoleBinding tiller-role-binding
+tiller cluster role defined: cluster-***** in namespace **
+tiller pod running
+Installing ** into namespace **
+Installing jenkins-x-platform version: 2.0.276
+Adding values file /builder/home/.**/cloud-environments/env-gke/myvalues.yaml
+Adding values file /builder/home/.**/*****Secrets.yaml
+Adding values file /builder/home/.**/extraValues.yaml
+Adding values file /builder/home/.**/cloud-environments/env-gke/secrets.yaml
+Current configuration dir: /builder/home/.**
+versionRepository: https://github.com/jenkins-x/jenkins-x-versions.git git ref: cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e
+Deleting and cloning the Jenkins X versions repo
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with revision cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e to /builder/home/.**/jenkins-x-versions
+From https://github.com/jenkins-x/jenkins-x-versions
+ * branch            cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e -> FETCH_HEAD
+Upgrading Chart 'upgrade --namespace ** --install --timeout 6000 --version 2.0.276 --values /builder/home/.**/cloud-environments/env-gke/myvalues.yaml --values /builder/home/.**/*****Secrets.yaml --values /builder/home/.**/extraValues.yaml --values /builder/home/.**/cloud-environments/env-gke/secrets.yaml jenkins-x jenkins-x/jenkins-x-platform'
+ERROR: error creating cluster installing the Jenkins X platform: failed to install/upgrade the jenkins-x platform chart: failed to run 'helm upgrade --namespace ** --install --timeout 6000 --version 2.0.276 --values /builder/home/.**/cloud-environments/env-gke/myvalues.yaml --values /builder/home/.**/*****Secrets.yaml --values /builder/home/.**/extraValues.yaml --values /builder/home/.**/cloud-environments/env-gke/secrets.yaml jenkins-x jenkins-x/jenkins-x-platform' command in directory '', output: 'Error: failed to download "jenkins-x/jenkins-x-platform" (hint: running `helm repo update` may help)'
+error: installing the Jenkins X platform: failed to install/upgrade the jenkins-x platform chart: failed to run 'helm upgrade --namespace ** --install --timeout 6000 --version 2.0.276 --values /builder/home/.**/cloud-environments/env-gke/myvalues.yaml --values /builder/home/.**/*****Secrets.yaml --values /builder/home/.**/extraValues.yaml --values /builder/home/.**/cloud-environments/env-gke/secrets.yaml jenkins-x jenkins-x/jenkins-x-platform' command in directory '', output: 'Error: failed to download "jenkins-x/jenkins-x-platform" (hint: running `helm repo update` may help)'
+ERROR: Error: Command failed  ** create cluster gke --project-id=jenkins-x-bdd --no-tiller=false -m=n1-standard-2 --min-num-nodes=3 --max-num-nodes=5 -z=europe-west1-c --skip-login --cluster-name pr-256-120-tiller-gkebdd --batch-mode --version 2.0.276 --labels cluster=tiller-gkebdd,branch=pr-256 --git-provider-url https://github.beescloud.com --versions-repo https://github.com/jenkins-x/jenkins-x-versions.git --versions-ref cfbec476d01f58db8533bb17cccd8c8cd2e3cd0e --git-username **** --git-api-token **************¬ --default-*****-password **************¬
+error: exit status 1
+{"component":"entrypoint","error":"wrapped process failed: exit status 1","level":"error","msg":"Error executing test process","time":"2019-05-12T13:05:46Z"}
