@@ -9,7 +9,7 @@ pipelineConfig:
           - name: build-and-push
             environment:
               - name: PUSH_LATEST
-                value: false
+                value: "false"
               - name: GOOGLE_APPLICATION_CREDENTIALS
                 value: /builder/home/kaniko-secret.json
               - name: GIT_COMMITTER_EMAIL
@@ -290,7 +290,7 @@ pipelineConfig:
           - name: build-base
             environment:
               - name: PUSH_LATEST
-                value: false
+                value: "false"
               - name: GOOGLE_APPLICATION_CREDENTIALS
                 value: /builder/home/kaniko-secret.json
               - name: GIT_COMMITTER_EMAIL
