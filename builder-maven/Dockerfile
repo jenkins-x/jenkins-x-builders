@@ -19,11 +19,10 @@ ENV OPENAPI_GHREPO openapitools/openapi-generator
 ENV OPENAPI_GROUPID org.openapitools
 ENV OPENAPI_ARTIFACTID openapi-generator-cli
 ENV OPENAPI_JAR $OPENAPI_ARTIFACTID-$OPENAPI_VERSION.jar
-#DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 ENV OPENAPI_REPO central::default::https://repo1.maven.org/maven2/
 ENV OPENAPI_DIR /usr/openapi
 ENV OPENAPI_CODEGEN_BIN $OPENAPI_DIR/$OPENAPI_JAR
 RUN mkdir -p $OPENAPI_DIR
-RUN mvn --no-transfer-progress org.apache.maven.plugins:maven-dependency-plugin:2.9:get -DremoteRepositories=$OPENAPI_REPO -Dartifact=$OPENAPI_GROUPID:$OPENAPI_ARTIFACTID:$OPENAPI_VERSION -Dtransitive=false -Ddest=$OPENAPI_CODEGEN_JAR
+RUN mvn --no-transfer-progress org.apache.maven.plugins:maven-dependency-plugin:2.9:get -DremoteRepositories=$OPENAPI_REPO -Dartifact=$OPENAPI_GROUPID:$OPENAPI_ARTIFACTID:$OPENAPI_VERSION -Dtransitive=false -Ddest=$OPENAPI_CODEGEN_BIN
 
 CMD ["mvn","-version"]
