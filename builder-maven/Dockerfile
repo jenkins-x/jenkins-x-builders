@@ -13,4 +13,17 @@ ENV JX_VERSION 2.0.137
 RUN curl -f -L https://github.com/jenkins-x/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv && \
   mv jx /usr/bin/
 
+# openapi generator
+ENV OPENAPI_VERSION 4.0.0
+ENV OPENAPI_GHREPO openapitools/openapi-generator
+ENV OPENAPI_GROUPID org.openapitools
+ENV OPENAPI_ARTIFACTID openapi-generator-cli
+ENV OPENAPI_JAR $OPENAPI_ARTIFACTID-$OPENAPI_VERSION.jar
+#DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+ENV OPENAPI_REPO central::default::https://repo1.maven.org/maven2/
+ENV OPENAPI_DIR /usr/openapi
+ENV OPENAPI_CODEGEN_BIN $OPENAPI_DIR/$OPENAPI_JAR
+RUN mkdir -p $OPENAPI_DIR
+RUN mvn --no-transfer-progress org.apache.maven.plugins:maven-dependency-plugin:2.9:get -DremoteRepositories=$OPENAPI_REPO -Dartifact=$OPENAPI_GROUPID:$OPENAPI_ARTIFACTID:$OPENAPI_VERSION -Dtransitive=false -Ddest=$OPENAPI_CODEGEN_JAR
+
 CMD ["mvn","-version"]
