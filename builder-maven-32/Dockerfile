@@ -1,4 +1,4 @@
-FROM gcr.io/jenkinsxio/builder-base:0.0.32
+FROM gcr.io/jenkinsxio/builder-base:0.0.34
 
 RUN yum remove -y java-1.8.0-openjdk-devel java-1.8.0-openjdk-headless
 RUN yum install -y java-1.8.0-openjdk-devel.i686

@@ -1,4 +1,4 @@
-FROM gcr.io/jenkinsxio/builder-base:0.0.32
+FROM gcr.io/jenkinsxio/builder-base:0.0.34
 
 # jx
 ENV JX_VERSION 2.0.137
