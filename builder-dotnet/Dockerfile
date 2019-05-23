@@ -6,6 +6,6 @@ RUN rpm -Uvh https://packages.microsoft.com/config/rhel/7/packages-microsoft-pro
     && yum clean all
 
 # jx
-ENV JX_VERSION 2.0.163
+ENV JX_VERSION 2.0.167
 RUN curl -f -L https://github.com/jenkins-x/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv && \
   mv jx /usr/bin/
