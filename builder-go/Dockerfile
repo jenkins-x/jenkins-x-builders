@@ -59,7 +59,12 @@ RUN go get github.com/golang/protobuf/proto && \
   go get github.com/golang/protobuf/protoc-gen-go && \ 
   go get -u github.com/micro/micro && \
   mv $GOPATH/bin/* /usr/local/ && \ 
-  cp -r $GOPATH/src/* /usr/local/go/src    
+  cp -r $GOPATH/src/* /usr/local/go/src
+
+# Go JUnit reporter; converts go test output to junit xml
+RUN go get github.com/jstemmer/go-junit-report && \
+  mv $GOPATH/bin/go-junit-report /usr/local/ && \
+  rm -rf $GOPATH/src/github.com/jstemmer
 
 # jx
 ENV JX_VERSION 2.0.168
