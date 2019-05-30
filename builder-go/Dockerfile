@@ -59,7 +59,12 @@ RUN go get github.com/golang/protobuf/proto && \
   go get github.com/golang/protobuf/protoc-gen-go && \ 
   go get -u github.com/micro/micro && \
   mv $GOPATH/bin/* /usr/local/ && \ 
-  cp -r $GOPATH/src/* /usr/local/go/src    
+  cp -r $GOPATH/src/* /usr/local/go/src
+
+# Gotestsum; nicer output for tests and converts go test output to junit xml
+RUN go get gotest.tools/gotestsum && \
+  mv $GOPATH/bin/gotestsum /usr/local/ && \
+  rm -rf $GOPATH/src/gotest.tools
 
 # jx
 ENV JX_VERSION 2.0.189
