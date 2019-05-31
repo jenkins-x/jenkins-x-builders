@@ -1,4 +1,4 @@
-FROM gcr.io/jenkinsxio/builder-base:0.0.35
+FROM gcr.io/jenkinsxio/builder-go:0.1.238
 
 ENV TERRAFORM 0.12.0
 RUN wget https://releases.hashicorp.com/terraform/${TERRAFORM}/terraform_${TERRAFORM}_linux_amd64.zip && \
@@ -11,8 +11,3 @@ RUN curl -f -Lo terragrunt https://github.com/gruntwork-io/terragrunt/releases/d
   mv terragrunt /usr/bin
 
 ENV PATH $PATH:/usr/local/
-
-# jx
-ENV JX_VERSION 2.0.194
-RUN curl -f -L https://github.com/jenkins-x/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv && \
-  mv jx /usr/bin/

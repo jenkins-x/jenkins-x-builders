@@ -15,9 +15,4 @@ ENV PATH $M2:$PATH
 COPY set_java $M2
 RUN $M2/set_java && rm $M2/set_java
 
-# jx
-ENV JX_VERSION 2.0.194
-RUN curl -f -L https://github.com/jenkins-x/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv && \
-  mv jx /usr/bin/
-
 CMD ["mvn","-version"]
