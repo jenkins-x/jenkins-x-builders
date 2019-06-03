@@ -18,6 +18,7 @@ updatebot push-version --kind helm \
     gcr.io/jenkinsxio/builder-maven ${VERSION} \
     gcr.io/jenkinsxio/builder-maven-32 ${VERSION} \
     gcr.io/jenkinsxio/builder-maven-java11 ${VERSION} \
+    gcr.io/jenkinsxio/builder-maven-graalvm ${VERSION} \
     gcr.io/jenkinsxio/builder-maven-nodejs ${VERSION} \
     gcr.io/jenkinsxio/builder-newman ${VERSION} \
     gcr.io/jenkinsxio/builder-nodejs ${VERSION} \
