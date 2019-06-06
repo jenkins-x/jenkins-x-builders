@@ -56,6 +56,15 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
                 - --cache-dir=/workspace
+            - name: build-and-push-maven-graalvm
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/source/builder-maven-graalvm/Dockerfile
+                - --destination=gcr.io/jenkinsxio/builder-maven-graalvm:${inputs.params.version}
+                - --context=/workspace/source
+                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache=true
+                - --cache-dir=/workspace
             - name: build-and-push-maven-nodejs
               command: /kaniko/executor
               args:
@@ -344,6 +353,15 @@ pipelineConfig:
               args:
                 - --dockerfile=/workspace/source/builder-maven-java11/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-maven-java11:${inputs.params.version}
+                - --context=/workspace/source
+                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache=true
+                - --cache-dir=/workspace
+            - name: build-and-push-maven-graalvm
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/source/builder-maven-graalvm/Dockerfile
+                - --destination=gcr.io/jenkinsxio/builder-maven-graalvm:${inputs.params.version}
                 - --context=/workspace/source
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
