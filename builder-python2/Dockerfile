@@ -1,4 +1,4 @@
-FROM gcr.io/jenkinsxio/builder-base:0.0.36
+FROM gcr.io/jenkinsxio/builder-base:0.0.37
 
 RUN yum install -y python python-libs python-devel python-pip && yum clean all
 
