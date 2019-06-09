@@ -54,12 +54,12 @@ RUN go get github.com/derekparker/delve/cmd/dlv && \
   mv $GOPATH/bin/* /usr/local/ && \
   rm -rf $GOPATH/src/github.com/derekparker
 
-RUN go get github.com/golang/protobuf/proto && \
-  go get github.com/micro/protoc-gen-micro && \
-  go get github.com/golang/protobuf/protoc-gen-go && \ 
-  go get -u github.com/micro/micro && \
-  mv $GOPATH/bin/* /usr/local/ && \ 
-  cp -r $GOPATH/src/* /usr/local/go/src
+#RUN go get github.com/golang/protobuf/proto && \
+#  go get github.com/micro/protoc-gen-micro && \
+#  go get github.com/golang/protobuf/protoc-gen-go && \ 
+#  go get -u github.com/micro/micro && \
+#  mv $GOPATH/bin/* /usr/local/ && \ 
+#  cp -r $GOPATH/src/* /usr/local/go/src
 
 # Gotestsum; nicer output for tests and converts go test output to junit xml
 RUN go get gotest.tools/gotestsum && \
