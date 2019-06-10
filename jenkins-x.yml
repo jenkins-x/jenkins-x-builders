@@ -596,3 +596,8 @@ pipelineConfig:
             - name: update-bot
               image: gcr.io/jenkinsxio/builder-maven:${inputs.params.version}
               command: ./update-bot.sh
+
+            # Create the release notes
+            - name: changelog
+              image: gcr.io/jenkinsxio/builder-go:${inputs.params.version}
+              command: ./changelog.sh
