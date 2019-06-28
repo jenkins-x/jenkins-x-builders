@@ -49,7 +49,7 @@ pipelineConfig:
           - name: build-and-push
             # builders
             parallel:
-              - name: maven-java11
+              - name: batch-one
                 steps:
                   - image: jenkinsxio/jx:1.3.963
                     command: jx
@@ -71,19 +71,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: maven-graalvm
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-maven-graalvm
                     command: /kaniko/executor
                     args:
@@ -93,19 +80,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: maven-nodejs
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-maven-nodejs
                     command: /kaniko/executor
                     args:
@@ -115,19 +89,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: cf
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-cf
                     command: /kaniko/executor
                     args:
@@ -137,7 +98,7 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: go
+              - name: batch-two
                 steps:
                   - image: jenkinsxio/jx:1.3.963
                     command: jx
@@ -159,19 +120,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: python37
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-python37
                     command: /kaniko/executor
                     args:
@@ -181,19 +129,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: go-maven
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-go-maven
                     command: /kaniko/executor
                     args:
@@ -203,19 +138,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: jx
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-jx
                     command: /kaniko/executor
                     args:
@@ -225,7 +147,7 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: python
+              - name: batch-three
                 steps:
                   - image: jenkinsxio/jx:1.3.963
                     command: jx
@@ -247,19 +169,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: maven-32
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-maven-32
                     command: /kaniko/executor
                     args:
@@ -269,19 +178,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: dlang
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-dlang
                     command: /kaniko/executor
                     args:
@@ -291,19 +187,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: gradle
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-gradle
                     command: /kaniko/executor
                     args:
@@ -313,7 +196,7 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: gradle4
+              - name: batch-four
                 steps:
                   - image: jenkinsxio/jx:1.3.963
                     command: jx
@@ -335,19 +218,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: gradle5
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-gradle5
                     command: /kaniko/executor
                     args:
@@ -357,19 +227,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: gradle5-java11
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-gradle5-java11
                     command: /kaniko/executor
                     args:
@@ -379,19 +236,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: machine-learning
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-machine-learning
                     command: /kaniko/executor
                     args:
@@ -401,7 +245,7 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: machine-learning-gpu
+              - name: batch-five
                 steps:
                   - image: jenkinsxio/jx:1.3.963
                     command: jx
@@ -423,19 +267,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: maven
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-maven
                     command: /kaniko/executor
                     args:
@@ -445,19 +276,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: newman
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-newman
                     command: /kaniko/executor
                     args:
@@ -467,19 +285,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: nodejs
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-nodejs
                     command: /kaniko/executor
                     args:
@@ -489,7 +294,7 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: nodejs8x
+              - name: batch-six
                 steps:
                   - image: jenkinsxio/jx:1.3.963
                     command: jx
@@ -511,19 +316,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: nodejs10x
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-nodejs10x
                     command: /kaniko/executor
                     args:
@@ -533,19 +325,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: python2
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-python2
                     command: /kaniko/executor
                     args:
@@ -555,19 +334,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: ruby
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-ruby
                     command: /kaniko/executor
                     args:
@@ -577,7 +343,7 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: rust
+              - name: batch-seven
                 steps:
                   - image: jenkinsxio/jx:1.3.963
                     command: jx
@@ -599,19 +365,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: scala
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-scala
                     command: /kaniko/executor
                     args:
@@ -621,19 +374,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: swift
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-swift
                     command: /kaniko/executor
                     args:
@@ -643,19 +383,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: terraform
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-terraform
                     command: /kaniko/executor
                     args:
@@ -721,7 +448,7 @@ pipelineConfig:
           - name: build-and-push
             # builders
             parallel:
-              - name: maven-java11
+              - name: batch-one
                 steps:
                   - image: jenkinsxio/jx:1.3.963
                     command: jx
@@ -743,19 +470,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: maven-graalvm
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-maven-graalvm
                     command: /kaniko/executor
                     args:
@@ -765,19 +479,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: maven-nodejs
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-maven-nodejs
                     command: /kaniko/executor
                     args:
@@ -787,19 +488,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: cf
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-cf
                     command: /kaniko/executor
                     args:
@@ -809,7 +497,7 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: go
+              - name: batch-two
                 steps:
                   - image: jenkinsxio/jx:1.3.963
                     command: jx
@@ -831,19 +519,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: python37
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-python37
                     command: /kaniko/executor
                     args:
@@ -853,19 +528,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: go-maven
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-go-maven
                     command: /kaniko/executor
                     args:
@@ -875,19 +537,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: jx
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-jx
                     command: /kaniko/executor
                     args:
@@ -897,7 +546,7 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: python
+              - name: batch-three
                 steps:
                   - image: jenkinsxio/jx:1.3.963
                     command: jx
@@ -919,19 +568,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: maven-32
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-maven-32
                     command: /kaniko/executor
                     args:
@@ -941,19 +577,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: dlang
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-dlang
                     command: /kaniko/executor
                     args:
@@ -963,19 +586,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: gradle
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-gradle
                     command: /kaniko/executor
                     args:
@@ -985,7 +595,7 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: gradle4
+              - name: batch-four
                 steps:
                   - image: jenkinsxio/jx:1.3.963
                     command: jx
@@ -1007,19 +617,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: gradle5
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-gradle5
                     command: /kaniko/executor
                     args:
@@ -1029,19 +626,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: gradle5-java11
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-gradle5-java11
                     command: /kaniko/executor
                     args:
@@ -1051,19 +635,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: machine-learning
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-machine-learning
                     command: /kaniko/executor
                     args:
@@ -1073,7 +644,7 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: machine-learning-gpu
+              - name: batch-five
                 steps:
                   - image: jenkinsxio/jx:1.3.963
                     command: jx
@@ -1095,19 +666,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: maven
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-maven
                     command: /kaniko/executor
                     args:
@@ -1117,19 +675,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: newman
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-newman
                     command: /kaniko/executor
                     args:
@@ -1139,19 +684,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: nodejs
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-nodejs
                     command: /kaniko/executor
                     args:
@@ -1161,7 +693,7 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: nodejs8x
+              - name: batch-six
                 steps:
                   - image: jenkinsxio/jx:1.3.963
                     command: jx
@@ -1183,19 +715,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: nodejs10x
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-nodejs10x
                     command: /kaniko/executor
                     args:
@@ -1205,19 +724,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: python2
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-python2
                     command: /kaniko/executor
                     args:
@@ -1227,19 +733,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: ruby
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-ruby
                     command: /kaniko/executor
                     args:
@@ -1249,7 +742,7 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: rust
+              - name: batch-seven
                 steps:
                   - image: jenkinsxio/jx:1.3.963
                     command: jx
@@ -1271,19 +764,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: scala
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-scala
                     command: /kaniko/executor
                     args:
@@ -1293,19 +773,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: swift
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-swift
                     command: /kaniko/executor
                     args:
@@ -1315,19 +782,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-              - name: terraform
-                steps:
-                  - image: jenkinsxio/jx:1.3.963
-                    command: jx
-                    args:
-                      - step
-                      - credential
-                      - -s
-                      - kaniko-secret
-                      - -k
-                      - kaniko-secret
-                      - -f
-                      - /builder/home/kaniko-secret.json
                   - name: build-and-push-terraform
                     command: /kaniko/executor
                     args:
