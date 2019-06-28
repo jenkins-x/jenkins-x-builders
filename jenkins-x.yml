@@ -36,16 +36,6 @@ pipelineConfig:
                 - -f
                 - /builder/home/kaniko-secret.json
 
-            # cache base images
-            - name: warm-cache
-              image: gcr.io/kaniko-project/warmer
-              command: /kaniko/warmer
-              args:
-                - --cache-dir=/workspace
-                - --image=gcr.io/jenkinsxio/builder-swiftbase:0.0.40
-                - --image=gcr.io/jenkinsxio/builder-base:0.0.40
-                - --image=gcr.io/jenkinsxio/builder-rubybase:0.0.40
-
           - name: build-and-push
             # builders
             parallel:
@@ -62,6 +52,16 @@ pipelineConfig:
                       - kaniko-secret
                       - -f
                       - /builder/home/kaniko-secret.json
+                  # cache base images
+                  - name: warm-cache
+                    image: gcr.io/kaniko-project/warmer
+                    command: /kaniko/warmer
+                    args:
+                      - --cache-dir=/workspace
+                      - --image=gcr.io/jenkinsxio/builder-swiftbase:0.0.40
+                      - --image=gcr.io/jenkinsxio/builder-base:0.0.40
+                      - --image=gcr.io/jenkinsxio/builder-rubybase:0.0.40
+
                   - name: build-and-push-maven-java11
                     command: /kaniko/executor
                     args:
@@ -111,6 +111,16 @@ pipelineConfig:
                       - kaniko-secret
                       - -f
                       - /builder/home/kaniko-secret.json
+                  # cache base images
+                  - name: warm-cache
+                    image: gcr.io/kaniko-project/warmer
+                    command: /kaniko/warmer
+                    args:
+                      - --cache-dir=/workspace
+                      - --image=gcr.io/jenkinsxio/builder-swiftbase:0.0.40
+                      - --image=gcr.io/jenkinsxio/builder-base:0.0.40
+                      - --image=gcr.io/jenkinsxio/builder-rubybase:0.0.40
+
                   - name: build-and-push-go
                     command: /kaniko/executor
                     args:
@@ -160,6 +170,16 @@ pipelineConfig:
                       - kaniko-secret
                       - -f
                       - /builder/home/kaniko-secret.json
+                  # cache base images
+                  - name: warm-cache
+                    image: gcr.io/kaniko-project/warmer
+                    command: /kaniko/warmer
+                    args:
+                      - --cache-dir=/workspace
+                      - --image=gcr.io/jenkinsxio/builder-swiftbase:0.0.40
+                      - --image=gcr.io/jenkinsxio/builder-base:0.0.40
+                      - --image=gcr.io/jenkinsxio/builder-rubybase:0.0.40
+
                   - name: build-and-push-python
                     command: /kaniko/executor
                     args:
@@ -209,6 +229,16 @@ pipelineConfig:
                       - kaniko-secret
                       - -f
                       - /builder/home/kaniko-secret.json
+                  # cache base images
+                  - name: warm-cache
+                    image: gcr.io/kaniko-project/warmer
+                    command: /kaniko/warmer
+                    args:
+                      - --cache-dir=/workspace
+                      - --image=gcr.io/jenkinsxio/builder-swiftbase:0.0.40
+                      - --image=gcr.io/jenkinsxio/builder-base:0.0.40
+                      - --image=gcr.io/jenkinsxio/builder-rubybase:0.0.40
+
                   - name: build-and-push-gradle4
                     command: /kaniko/executor
                     args:
@@ -258,6 +288,16 @@ pipelineConfig:
                       - kaniko-secret
                       - -f
                       - /builder/home/kaniko-secret.json
+                  # cache base images
+                  - name: warm-cache
+                    image: gcr.io/kaniko-project/warmer
+                    command: /kaniko/warmer
+                    args:
+                      - --cache-dir=/workspace
+                      - --image=gcr.io/jenkinsxio/builder-swiftbase:0.0.40
+                      - --image=gcr.io/jenkinsxio/builder-base:0.0.40
+                      - --image=gcr.io/jenkinsxio/builder-rubybase:0.0.40
+
                   - name: build-and-push-machine-learning-gpu
                     command: /kaniko/executor
                     args:
@@ -307,6 +347,16 @@ pipelineConfig:
                       - kaniko-secret
                       - -f
                       - /builder/home/kaniko-secret.json
+                  # cache base images
+                  - name: warm-cache
+                    image: gcr.io/kaniko-project/warmer
+                    command: /kaniko/warmer
+                    args:
+                      - --cache-dir=/workspace
+                      - --image=gcr.io/jenkinsxio/builder-swiftbase:0.0.40
+                      - --image=gcr.io/jenkinsxio/builder-base:0.0.40
+                      - --image=gcr.io/jenkinsxio/builder-rubybase:0.0.40
+
                   - name: build-and-push-nodejs8x
                     command: /kaniko/executor
                     args:
@@ -356,6 +406,16 @@ pipelineConfig:
                       - kaniko-secret
                       - -f
                       - /builder/home/kaniko-secret.json
+                  # cache base images
+                  - name: warm-cache
+                    image: gcr.io/kaniko-project/warmer
+                    command: /kaniko/warmer
+                    args:
+                      - --cache-dir=/workspace
+                      - --image=gcr.io/jenkinsxio/builder-swiftbase:0.0.40
+                      - --image=gcr.io/jenkinsxio/builder-base:0.0.40
+                      - --image=gcr.io/jenkinsxio/builder-rubybase:0.0.40
+
                   - name: build-and-push-rust
                     command: /kaniko/executor
                     args:
@@ -461,6 +521,16 @@ pipelineConfig:
                       - kaniko-secret
                       - -f
                       - /builder/home/kaniko-secret.json
+                  # cache base images
+                  - name: warm-cache
+                    image: gcr.io/kaniko-project/warmer
+                    command: /kaniko/warmer
+                    args:
+                      - --cache-dir=/workspace
+                      - --image=gcr.io/jenkinsxio/builder-swiftbase:0.0.40
+                      - --image=gcr.io/jenkinsxio/builder-base:0.0.40
+                      - --image=gcr.io/jenkinsxio/builder-rubybase:0.0.40
+
                   - name: build-and-push-maven-java11
                     command: /kaniko/executor
                     args:
@@ -510,6 +580,16 @@ pipelineConfig:
                       - kaniko-secret
                       - -f
                       - /builder/home/kaniko-secret.json
+                  # cache base images
+                  - name: warm-cache
+                    image: gcr.io/kaniko-project/warmer
+                    command: /kaniko/warmer
+                    args:
+                      - --cache-dir=/workspace
+                      - --image=gcr.io/jenkinsxio/builder-swiftbase:0.0.40
+                      - --image=gcr.io/jenkinsxio/builder-base:0.0.40
+                      - --image=gcr.io/jenkinsxio/builder-rubybase:0.0.40
+
                   - name: build-and-push-go
                     command: /kaniko/executor
                     args:
@@ -559,6 +639,16 @@ pipelineConfig:
                       - kaniko-secret
                       - -f
                       - /builder/home/kaniko-secret.json
+                  # cache base images
+                  - name: warm-cache
+                    image: gcr.io/kaniko-project/warmer
+                    command: /kaniko/warmer
+                    args:
+                      - --cache-dir=/workspace
+                      - --image=gcr.io/jenkinsxio/builder-swiftbase:0.0.40
+                      - --image=gcr.io/jenkinsxio/builder-base:0.0.40
+                      - --image=gcr.io/jenkinsxio/builder-rubybase:0.0.40
+
                   - name: build-and-push-python
                     command: /kaniko/executor
                     args:
@@ -608,6 +698,16 @@ pipelineConfig:
                       - kaniko-secret
                       - -f
                       - /builder/home/kaniko-secret.json
+                  # cache base images
+                  - name: warm-cache
+                    image: gcr.io/kaniko-project/warmer
+                    command: /kaniko/warmer
+                    args:
+                      - --cache-dir=/workspace
+                      - --image=gcr.io/jenkinsxio/builder-swiftbase:0.0.40
+                      - --image=gcr.io/jenkinsxio/builder-base:0.0.40
+                      - --image=gcr.io/jenkinsxio/builder-rubybase:0.0.40
+
                   - name: build-and-push-gradle4
                     command: /kaniko/executor
                     args:
@@ -657,6 +757,16 @@ pipelineConfig:
                       - kaniko-secret
                       - -f
                       - /builder/home/kaniko-secret.json
+                  # cache base images
+                  - name: warm-cache
+                    image: gcr.io/kaniko-project/warmer
+                    command: /kaniko/warmer
+                    args:
+                      - --cache-dir=/workspace
+                      - --image=gcr.io/jenkinsxio/builder-swiftbase:0.0.40
+                      - --image=gcr.io/jenkinsxio/builder-base:0.0.40
+                      - --image=gcr.io/jenkinsxio/builder-rubybase:0.0.40
+
                   - name: build-and-push-machine-learning-gpu
                     command: /kaniko/executor
                     args:
@@ -706,6 +816,16 @@ pipelineConfig:
                       - kaniko-secret
                       - -f
                       - /builder/home/kaniko-secret.json
+                  # cache base images
+                  - name: warm-cache
+                    image: gcr.io/kaniko-project/warmer
+                    command: /kaniko/warmer
+                    args:
+                      - --cache-dir=/workspace
+                      - --image=gcr.io/jenkinsxio/builder-swiftbase:0.0.40
+                      - --image=gcr.io/jenkinsxio/builder-base:0.0.40
+                      - --image=gcr.io/jenkinsxio/builder-rubybase:0.0.40
+
                   - name: build-and-push-nodejs8x
                     command: /kaniko/executor
                     args:
@@ -755,6 +875,16 @@ pipelineConfig:
                       - kaniko-secret
                       - -f
                       - /builder/home/kaniko-secret.json
+                  # cache base images
+                  - name: warm-cache
+                    image: gcr.io/kaniko-project/warmer
+                    command: /kaniko/warmer
+                    args:
+                      - --cache-dir=/workspace
+                      - --image=gcr.io/jenkinsxio/builder-swiftbase:0.0.40
+                      - --image=gcr.io/jenkinsxio/builder-base:0.0.40
+                      - --image=gcr.io/jenkinsxio/builder-rubybase:0.0.40
+
                   - name: build-and-push-rust
                     command: /kaniko/executor
                     args:
