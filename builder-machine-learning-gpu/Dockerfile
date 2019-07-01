@@ -29,7 +29,7 @@ RUN curl -fLo anaconda.sh https://repo.anaconda.com/archive/Anaconda${ANACONDAVE
 sh ./anaconda.sh -b && \
 eval "$(/root/anaconda3/bin/conda shell.bash hook)" && \
 conda init && \
-conda install -c conda-forge -c pytorch onnx=1.4.1 flake8=3.7.7 hypothesis=4.10.0 pytorch=1.0.1 -y && \
+conda install -c conda-forge -c pytorch onnx=1.5.0 flake8=3.7.7 hypothesis=4.10.0 pytorch=1.1.0 -y && \
 rm anaconda.sh
 
 # Latest Git large file store support
