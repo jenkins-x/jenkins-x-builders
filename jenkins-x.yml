@@ -35,7 +35,12 @@ pipelineConfig:
                 - kaniko-secret
                 - -f
                 - /builder/home/kaniko-secret.json
-
+            # create warmer directory
+            - name: create-warmer-dir
+              image: centos:7
+              command: mkdir
+              args:
+                - /workspace/source/warmer
             # cache base images
             - name: warm-cache
               image: gcr.io/kaniko-project/warmer
