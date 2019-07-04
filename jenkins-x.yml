@@ -41,7 +41,7 @@ pipelineConfig:
               image: gcr.io/kaniko-project/warmer
               command: /kaniko/warmer
               args:
-                - --cache-dir=/workspace
+                - --cache-dir=/workspace/source/warmer
                 - --image=gcr.io/jenkinsxio/builder-swiftbase:0.0.41
                 - --image=gcr.io/jenkinsxio/builder-base:0.0.41
                 - --image=gcr.io/jenkinsxio/builder-rubybase:0.0.41
@@ -70,7 +70,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-maven-graalvm
                     command: /kaniko/executor
                     args:
@@ -79,7 +79,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-maven-nodejs
                     command: /kaniko/executor
                     args:
@@ -88,7 +88,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-cf
                     command: /kaniko/executor
                     args:
@@ -97,7 +97,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
               - name: batch-two
                 steps:
                   - image: jenkinsxio/jx:1.3.963
@@ -119,7 +119,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-python37
                     command: /kaniko/executor
                     args:
@@ -128,7 +128,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-go-maven
                     command: /kaniko/executor
                     args:
@@ -137,7 +137,7 @@ pipelineConfig:
                       - --context=/workspace/source/builder-go-maven
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-jx
                     command: /kaniko/executor
                     args:
@@ -146,7 +146,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
               - name: batch-three
                 steps:
                   - image: jenkinsxio/jx:1.3.963
@@ -168,7 +168,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-maven-32
                     command: /kaniko/executor
                     args:
@@ -177,7 +177,7 @@ pipelineConfig:
                       - --context=/workspace/source/builder-maven-32
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-dlang
                     command: /kaniko/executor
                     args:
@@ -186,7 +186,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-gradle
                     command: /kaniko/executor
                     args:
@@ -195,7 +195,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
               - name: batch-four
                 steps:
                   - image: jenkinsxio/jx:1.3.963
@@ -217,7 +217,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-gradle5
                     command: /kaniko/executor
                     args:
@@ -226,7 +226,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-gradle5-java11
                     command: /kaniko/executor
                     args:
@@ -235,7 +235,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-machine-learning
                     command: /kaniko/executor
                     args:
@@ -244,7 +244,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
               - name: batch-five
                 steps:
                   - image: jenkinsxio/jx:1.3.963
@@ -266,7 +266,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-maven
                     command: /kaniko/executor
                     args:
@@ -275,7 +275,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-newman
                     command: /kaniko/executor
                     args:
@@ -284,7 +284,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-nodejs
                     command: /kaniko/executor
                     args:
@@ -293,7 +293,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
               - name: batch-six
                 steps:
                   - image: jenkinsxio/jx:1.3.963
@@ -315,7 +315,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-nodejs10x
                     command: /kaniko/executor
                     args:
@@ -324,7 +324,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-python2
                     command: /kaniko/executor
                     args:
@@ -333,7 +333,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-ruby
                     command: /kaniko/executor
                     args:
@@ -342,7 +342,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
               - name: batch-seven
                 steps:
                   - image: jenkinsxio/jx:1.3.963
@@ -364,7 +364,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-scala
                     command: /kaniko/executor
                     args:
@@ -373,7 +373,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-swift
                     command: /kaniko/executor
                     args:
@@ -382,7 +382,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-terraform
                     command: /kaniko/executor
                     args:
@@ -391,7 +391,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
 
     release:
       pipeline:
@@ -430,7 +430,7 @@ pipelineConfig:
               image: gcr.io/kaniko-project/warmer
               command: /kaniko/warmer
               args:
-                - --cache-dir=/workspace
+                - --cache-dir=/workspace/source/warmer
                 - --image=gcr.io/jenkinsxio/builder-swiftbase:0.0.41
                 - --image=gcr.io/jenkinsxio/builder-base:0.0.41
                 - --image=gcr.io/jenkinsxio/builder-rubybase:0.0.41
@@ -443,7 +443,7 @@ pipelineConfig:
                 - --context=/workspace/source
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
-                - --cache-dir=/workspace
+                - --cache-dir=/workspace/source/warmer
 
           - name: build-and-push
             # builders
@@ -469,7 +469,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-maven-graalvm
                     command: /kaniko/executor
                     args:
@@ -478,7 +478,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-maven-nodejs
                     command: /kaniko/executor
                     args:
@@ -487,7 +487,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-cf
                     command: /kaniko/executor
                     args:
@@ -496,7 +496,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
               - name: batch-two
                 steps:
                   - image: jenkinsxio/jx:1.3.963
@@ -518,7 +518,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-python37
                     command: /kaniko/executor
                     args:
@@ -527,7 +527,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-go-maven
                     command: /kaniko/executor
                     args:
@@ -536,7 +536,7 @@ pipelineConfig:
                       - --context=/workspace/source/builder-go-maven
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-jx
                     command: /kaniko/executor
                     args:
@@ -545,7 +545,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
               - name: batch-three
                 steps:
                   - image: jenkinsxio/jx:1.3.963
@@ -567,7 +567,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-maven-32
                     command: /kaniko/executor
                     args:
@@ -576,7 +576,7 @@ pipelineConfig:
                       - --context=/workspace/source/builder-maven-32
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-dlang
                     command: /kaniko/executor
                     args:
@@ -585,7 +585,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-gradle
                     command: /kaniko/executor
                     args:
@@ -594,7 +594,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
               - name: batch-four
                 steps:
                   - image: jenkinsxio/jx:1.3.963
@@ -616,7 +616,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-gradle5
                     command: /kaniko/executor
                     args:
@@ -625,7 +625,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-gradle5-java11
                     command: /kaniko/executor
                     args:
@@ -634,7 +634,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-machine-learning
                     command: /kaniko/executor
                     args:
@@ -643,7 +643,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
               - name: batch-five
                 steps:
                   - image: jenkinsxio/jx:1.3.963
@@ -665,7 +665,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-maven
                     command: /kaniko/executor
                     args:
@@ -674,7 +674,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-newman
                     command: /kaniko/executor
                     args:
@@ -683,7 +683,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-nodejs
                     command: /kaniko/executor
                     args:
@@ -692,7 +692,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
               - name: batch-six
                 steps:
                   - image: jenkinsxio/jx:1.3.963
@@ -714,7 +714,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-nodejs10x
                     command: /kaniko/executor
                     args:
@@ -723,7 +723,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-python2
                     command: /kaniko/executor
                     args:
@@ -732,7 +732,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-ruby
                     command: /kaniko/executor
                     args:
@@ -741,7 +741,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
               - name: batch-seven
                 steps:
                   - image: jenkinsxio/jx:1.3.963
@@ -763,7 +763,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-scala
                     command: /kaniko/executor
                     args:
@@ -772,7 +772,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-swift
                     command: /kaniko/executor
                     args:
@@ -781,7 +781,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
                   - name: build-and-push-terraform
                     command: /kaniko/executor
                     args:
@@ -790,7 +790,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
-                      - --cache-dir=/workspace
+                      - --cache-dir=/workspace/source/warmer
 
           - name: complete-release
             steps:
