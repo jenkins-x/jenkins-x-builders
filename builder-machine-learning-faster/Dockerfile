@@ -1,0 +1,6 @@
+FROM gcr.io/jenkinsxio/builder-machine-learning:0.1.551
+
+# jx
+ENV JX_VERSION 2.0.420
+RUN curl -f -L https://github.com/jenkins-x/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv && \
+  mv jx /usr/bin/
