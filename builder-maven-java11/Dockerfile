@@ -17,7 +17,7 @@ RUN ln -s /usr/java/bin/javadoc /usr/bin/javadoc
 ENV JAVA_HOME /usr/java
 
 # jx
-ENV JX_VERSION 2.0.418
+ENV JX_VERSION 2.0.420
 RUN curl -f -L https://github.com/jenkins-x/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv && \
   mv jx /usr/bin/
 
