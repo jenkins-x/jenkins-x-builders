@@ -32,7 +32,6 @@ updatebot push-version --kind helm \
     gcr.io/jenkinsxio/builder-scala ${VERSION} \
     gcr.io/jenkinsxio/builder-terraform ${VERSION}
 updatebot push-regex -r "builderTag: (.*)" -v ${VERSION} jx-build-templates/values.yaml
-updatebot push-regex -r "\s+tag: (.*)" -v ${VERSION} --previous-line "\s+repository: gcr.io/jenkinsxio/builder-go" jenkins-x-platform/values.yaml
-updatebot push-regex -r "\s+tag: (.*)" -v ${VERSION} --previous-line "\s+repository: gcr.io/jenkinsxio/builder-go" values.yaml
+updatebot push-regex -r "\s+tag: (.*)" -v ${VERSION} --previous-line "\s+repository: gcr.io/jenkinsxio/builder-(.*)" jenkins-x-platform/values.yaml
 updatebot push-regex -r "\s+tag: (.*)" -v ${VERSION} --previous-line "\s+repository: gcr.io/jenkinsxio/builder-maven" prow/values.yaml
 updatebot push-regex -r "\s+tag: (.*)" -v ${VERSION} --previous-line "\s+repository: gcr.io/jenkinsxio/builder-maven" environment-controller/values.yaml
