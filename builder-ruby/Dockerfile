@@ -1,4 +1,4 @@
-FROM gcr.io/jenkinsxio/builder-rubybase:0.0.42
+FROM gcr.io/jenkinsxio/builder-rubybase:0.0.43
 
 # jx
 ENV JX_VERSION 2.0.444
