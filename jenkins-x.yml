@@ -182,24 +182,25 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
                 - --cache-dir=/workspace
-            - name: build-and-push-machine-learning
-              command: /kaniko/executor
-              args:
-                - --dockerfile=/workspace/source/builder-machine-learning/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-machine-learning:${inputs.params.version}
-                - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
-                - --cache=true
-                - --cache-dir=/workspace
-            - name: build-and-push-machine-learning-gpu
-              command: /kaniko/executor
-              args:
-                - --dockerfile=/workspace/source/builder-machine-learning-gpu/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-machine-learning-gpu:${inputs.params.version}
-                - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
-                - --cache=true
-                - --cache-dir=/workspace
+#  TODO: Skipping machine learning until we have a more efficient way to build them
+#            - name: build-and-push-machine-learning
+#              command: /kaniko/executor
+#              args:
+#                - --dockerfile=/workspace/source/builder-machine-learning/Dockerfile
+#                - --destination=gcr.io/jenkinsxio/builder-machine-learning:${inputs.params.version}
+#                - --context=/workspace/source
+#                - --cache-repo=gcr.io/jenkinsxio/cache
+#                - --cache=true
+#                - --cache-dir=/workspace
+#            - name: build-and-push-machine-learning-gpu
+#              command: /kaniko/executor
+#              args:
+#                - --dockerfile=/workspace/source/builder-machine-learning-gpu/Dockerfile
+#                - --destination=gcr.io/jenkinsxio/builder-machine-learning-gpu:${inputs.params.version}
+#                - --context=/workspace/source
+#                - --cache-repo=gcr.io/jenkinsxio/cache
+#                - --cache=true
+#                - --cache-dir=/workspace
             - name: build-and-push-maven
               command: /kaniko/executor
               args:
@@ -492,24 +493,25 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
                 - --cache-dir=/workspace
-            - name: build-and-push-machine-learning
-              command: /kaniko/executor
-              args:
-                - --dockerfile=/workspace/source/builder-machine-learning/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-machine-learning:${inputs.params.version}
-                - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
-                - --cache=true
-                - --cache-dir=/workspace
-            - name: build-and-push-machine-learning-gpu
-              command: /kaniko/executor
-              args:
-                - --dockerfile=/workspace/source/builder-machine-learning-gpu/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-machine-learning-gpu:${inputs.params.version}
-                - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
-                - --cache=true
-                - --cache-dir=/workspace
+#  TODO: Skipping machine learning until we have a more efficient way to build them
+#            - name: build-and-push-machine-learning
+#              command: /kaniko/executor
+#              args:
+#                - --dockerfile=/workspace/source/builder-machine-learning/Dockerfile
+#                - --destination=gcr.io/jenkinsxio/builder-machine-learning:${inputs.params.version}
+#                - --context=/workspace/source
+#                - --cache-repo=gcr.io/jenkinsxio/cache
+#                - --cache=true
+#                - --cache-dir=/workspace
+#            - name: build-and-push-machine-learning-gpu
+#              command: /kaniko/executor
+#              args:
+#                - --dockerfile=/workspace/source/builder-machine-learning-gpu/Dockerfile
+#                - --destination=gcr.io/jenkinsxio/builder-machine-learning-gpu:${inputs.params.version}
+#                - --context=/workspace/source
+#                - --cache-repo=gcr.io/jenkinsxio/cache
+#                - --cache=true
+#                - --cache-dir=/workspace
             - name: build-and-push-maven
               command: /kaniko/executor
               args:
