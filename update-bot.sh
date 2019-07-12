@@ -13,8 +13,9 @@ jx step create pr chart --name gcr.io/jenkinsxio/builder-gradle --version ${VERS
 jx step create pr chart --name gcr.io/jenkinsxio/builder-gradle4 --version ${VERSION} --repo https://github.com/jenkins-x/jenkins-x-platform.git
 jx step create pr chart --name gcr.io/jenkinsxio/builder-gradle5 --version ${VERSION} --repo https://github.com/jenkins-x/jenkins-x-platform.git
 jx step create pr chart --name gcr.io/jenkinsxio/builder-jx --version ${VERSION} --repo https://github.com/jenkins-x/jenkins-x-platform.git
-jx step create pr chart --name gcr.io/jenkinsxio/builder-machine-learning --version ${VERSION} --repo https://github.com/jenkins-x/jenkins-x-platform.git
-jx step create pr chart --name gcr.io/jenkinsxio/builder-machine-learning-gpu --version ${VERSION} --repo https://github.com/jenkins-x/jenkins-x-platform.git
+# TODO: Skipping machine learning builders until we have a more efficient way to build them.
+#jx step create pr chart --name gcr.io/jenkinsxio/builder-machine-learning --version ${VERSION} --repo https://github.com/jenkins-x/jenkins-x-platform.git
+#jx step create pr chart --name gcr.io/jenkinsxio/builder-machine-learning-gpu --version ${VERSION} --repo https://github.com/jenkins-x/jenkins-x-platform.git
 jx step create pr chart --name gcr.io/jenkinsxio/builder-maven --version ${VERSION} --repo https://github.com/jenkins-x/jenkins-x-platform.git --repo https://github.com/jenkins-x-charts/environment-controller.git --repo https://github.com/jenkins-x-charts/prow.git
 jx step create pr chart --name gcr.io/jenkinsxio/builder-maven-32 --version ${VERSION} --repo https://github.com/jenkins-x/jenkins-x-platform.git
 jx step create pr chart --name gcr.io/jenkinsxio/builder-maven-java11 --version ${VERSION} --repo https://github.com/jenkins-x/jenkins-x-platform.git
