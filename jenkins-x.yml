@@ -3,6 +3,13 @@ pipelineConfig:
   pipelines:
     pullRequest:
       pipeline:
+        options:
+          containerOptions:
+            resources:
+              limits:
+                memory: 10Gi
+              requests:
+                memory: 6Gi
         agent:
           image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
         stages:
@@ -303,6 +310,13 @@ pipelineConfig:
 
     release:
       pipeline:
+        options:
+          containerOptions:
+            resources:
+              limits:
+                memory: 10Gi
+              requests:
+                memory: 6Gi
         agent:
           image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
         stages:
