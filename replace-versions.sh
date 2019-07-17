@@ -16,16 +16,22 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+function combine_with_base_image {
+  base=$1
+  builders=$2
 
-BUILDERS="go-maven maven-nodejs terraform"
+  for i in $builders
+  do
+    echo "updating builder-${i}"
+    pushd builder-${i}
+      cp Dockerfile Dockerfile.bak
+      cat /workspace/source/Dockerfile.${base}base > Dockerfile
+      cat Dockerfile.bak >> Dockerfile
+      rm Dockerfile.bak
+      head -n 1 Dockerfile
+    popd
+  done
+}
 
-## now loop through the above array
-for i in $BUILDERS
-do
-  echo "updating builder-${i}"
-  pushd builder-${i}
-    sed -i.bak -e "s/FROM \(.*\)\/builder-\(.*\):\(.*\)/FROM gcr.io\/jenkinsxio\/builder-\2:${VERSION}/" Dockerfile
-    rm Dockerfile.bak
-    head -n 1 Dockerfile
-  popd
-done
+combine_with_base_image "maven" "maven-java11 maven-nodejs"
+combine_with_base_image "go" "go go-maven terraform"
