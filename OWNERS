@@ -6,6 +6,8 @@ approvers:
 - garethjevans
 - i0n
 - pmuir
+- warrenbailey
+- abayer
 - jenkins-x-bot
 reviewers:
 - rawlingsj
@@ -15,4 +17,6 @@ reviewers:
 - garethjevans
 - i0n
 - pmuir
+- warrenbailey
+- abayer
 - jenkins-x-bot
