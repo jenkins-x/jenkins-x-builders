@@ -566,7 +566,7 @@ pipelineConfig:
               command: /kaniko/executor
               args:
                 - --dockerfile=/workspace/source/builder-nodejs10x/Dockerfile
-                - --destination=gcr.io/jenkinsxio/builder-nodejs8x:${inputs.params.version}
+                - --destination=gcr.io/jenkinsxio/builder-nodejs10x:${inputs.params.version}
                 - --context=/workspace/source
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
