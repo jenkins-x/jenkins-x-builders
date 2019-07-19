@@ -4,9 +4,8 @@ ENV \
     DMD_PATH=/opt/dlang
 
 RUN yum install -y gcc openssl-devel \
-    && yum clean all
-
-RUN curl -fsS https://dlang.org/install.sh | bash -s dmd install -p /opt \
+    && yum clean all \
+    && curl -fsS https://dlang.org/install.sh | bash -s dmd install -p /opt \
     && export DMD_VERSION=$(ls /opt | grep dmd) \
     && mv /opt/${DMD_VERSION} ${DMD_PATH}
 

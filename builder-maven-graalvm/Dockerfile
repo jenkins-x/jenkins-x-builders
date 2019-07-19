@@ -2,7 +2,6 @@ FROM gcr.io/jenkinsxio/builder-base:0.0.44
 
 # Maven
 ENV MAVEN_VERSION 3.5.3
-RUN curl -f -L http://central.maven.org/maven2/org/apache/maven/apache-maven/$MAVEN_VERSION/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar -C /opt -xzv
 ENV M2_HOME /opt/apache-maven-$MAVEN_VERSION
 ENV maven.home $M2_HOME
 ENV M2 $M2_HOME/bin
@@ -18,7 +17,8 @@ ARG INSTALL_PKGS="gzip"
 ENV GRAALVM_HOME /opt/graalvm
 ENV JAVA_HOME /opt/graalvm
 
-RUN yum install -y ${INSTALL_PKGS} && \
+RUN curl -f -L http://central.maven.org/maven2/org/apache/maven/apache-maven/$MAVEN_VERSION/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar -C /opt -xzv && \
+     yum install -y ${INSTALL_PKGS} && \
      ### Installation of GraalVM
 	 mkdir -p ${GRAALVM_HOME} && \
 	 cd ${GRAALVM_HOME} && \

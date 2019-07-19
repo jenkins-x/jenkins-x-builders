@@ -2,9 +2,8 @@ FROM gcr.io/jenkinsxio/builder-base:0.0.44
 
 RUN curl -f --silent --location https://rpm.nodesource.com/setup_9.x | bash - && \
   yum install -y nodejs && \
-  yum clean all
-
-RUN npm install -g newman
+  yum clean all && \
+  npm install -g newman
 
 # jx
 ENV JX_VERSION 2.0.500

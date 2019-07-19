@@ -24,15 +24,13 @@ RUN set -o errexit -o nounset \
 	&& rm gradle.zip \
 	&& mkdir -p /opt \
 	&& mv "gradle-${GRADLE_VERSION}" "${GRADLE_HOME}/" \
-	&& ln -s "${GRADLE_HOME}/bin/gradle" /usr/bin/gradle
-
-# JDK 11
-RUN curl https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz | tar -xz
-RUN mv /home/jenkins/jdk-11.0.2 /usr/java
-RUN rm /usr/bin/java /usr/bin/javac /usr/bin/javadoc
-RUN ln -s /usr/java/bin/java /usr/bin/java
-RUN ln -s /usr/java/bin/javac /usr/bin/javac
-RUN ln -s /usr/java/bin/javadoc /usr/bin/javadoc
+	&& ln -s "${GRADLE_HOME}/bin/gradle" /usr/bin/gradle \
+	&& curl https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz | tar -xz \
+	&& mv /home/jenkins/jdk-11.0.2 /usr/java \
+	&& rm /usr/bin/java /usr/bin/javac /usr/bin/javadoc \
+	&& ln -s /usr/java/bin/java /usr/bin/java \
+	&& ln -s /usr/java/bin/javac /usr/bin/javac \
+	&& ln -s /usr/java/bin/javadoc /usr/bin/javadoc
 ENV JAVA_HOME /usr/java	
 	
 RUN gradle --version
