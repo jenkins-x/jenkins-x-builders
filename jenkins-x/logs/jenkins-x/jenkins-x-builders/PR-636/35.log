@@ -7,3 +7,464 @@ Unable to retrieve container logs for docker://3fb9042953b7450b0b5435ecafd4f649c
 Step: build-step-place-tools:
 
 Unable to retrieve container logs for docker://487dade947798904532329a7019bb0770ca153a4c47acb729d92e1dc13b4e424
+Step: build-step-git-source-jenkins-x-jenkins-x-builders-pr-dk2s8:
+
+{"level":"warn","ts":1565211623.0290213,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1565211624.8710651,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/jenkins-x/jenkins-x-builders @ 1a335082d7a834e6e677cf9670f4965a7e374615 in path /workspace/source"}
+Step: build-step-git-merge:
+
+Warning failed to load version: failed to parse version -dev+9e73adc0b: No Major.Minor.Patch elements found
+time="2019-08-07T21:00:25Z" level=info msg="got "
+Using SHAs from PULL_REFS=master:de84a9c89157abcddea80fbe0fe918f59fe02647,636:1a335082d7a834e6e677cf9670f4965a7e374615
+ran git fetch --unshallow origin 1a335082d7a834e6e677cf9670f4965a7e374615: de84a9c89157abcddea80fbe0fe918f59fe02647: in 
+ran git checkout master in 
+ran git reset --hard de84a9c89157abcddea80fbe0fe918f59fe02647 in 
+ran clean --force -d . in 
+ran git merge 1a335082d7a834e6e677cf9670f4965a7e374615 in 
+Step: build-step-step2:
+
+updating builder-maven-java11
+/workspace/source/builder-maven-java11 /workspace/source
+FROM gcr.io/jenkinsxio/builder-base:0.0.44
+/workspace/source
+updating builder-maven-nodejs
+/workspace/source/builder-maven-nodejs /workspace/source
+FROM gcr.io/jenkinsxio/builder-base:0.0.44
+/workspace/source
+updating builder-go
+/workspace/source/builder-go /workspace/source
+FROM gcr.io/jenkinsxio/builder-base:0.0.44
+/workspace/source
+updating builder-go-maven
+/workspace/source/builder-go-maven /workspace/source
+FROM gcr.io/jenkinsxio/builder-base:0.0.44
+/workspace/source
+updating builder-terraform
+/workspace/source/builder-terraform /workspace/source
+FROM gcr.io/jenkinsxio/builder-base:0.0.44
+/workspace/source
+Step: build-step-step3:
+
+/builder/home/kaniko-secret.json
+Step: build-step-warm-cache:
+
+Step: build-step-build-and-push-gradle4:
+
+[36mINFO[0m[0000] Downloading base image gcr.io/jenkinsxio/builder-base:0.0.45 
+[36mINFO[0m[0000] Found sha256:4b5edd0093e2154c3b8e56247f72b0c50f931fb7c559a7e267bfcc9fa202e8ee in local cache 
+[36mINFO[0m[0000] Found manifest at /workspace/sha256:4b5edd0093e2154c3b8e56247f72b0c50f931fb7c559a7e267bfcc9fa202e8ee.json 
+[36mINFO[0m[0000] Checking for cached layer gcr.io/jenkinsxio/cache:f6ba2e83798ce60cb8e81dd334bfad9b229f952f2dcd2d34628f74c014a2940f... 
+[36mINFO[0m[0001] Using caching version of cmd: RUN set -o errexit -o nounset     && echo "Set URLS"     && GRADLE_URL="https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip"     && SHA256_URL="${GRADLE_URL}.sha256"         && echo "Determine sha256sum"     && GRADLE_DOWNLOAD_SHA256=$(curl -sLf "${SHA256_URL}")     	&& echo "Downloading Gradle" 	&& wget -q -O gradle.zip "${GRADLE_URL}" 		&& echo "Checking download hash" 	&& echo "${GRADLE_DOWNLOAD_SHA256} *gradle.zip" | sha256sum -c - 		&& echo "Installing Gradle" 	&& unzip -q gradle.zip 	&& rm gradle.zip 	&& mkdir -p /opt 	&& mv "gradle-${GRADLE_VERSION}" "${GRADLE_HOME}/" 	&& ln -s "${GRADLE_HOME}/bin/gradle" /usr/bin/gradle 
+[36mINFO[0m[0001] Checking for cached layer gcr.io/jenkinsxio/cache:9a5ab4f7578ca71eac56b569687e94e14cb79cf2932024e861cb2f625684697c... 
+[36mINFO[0m[0002] Using caching version of cmd: RUN wget https://dl.google.com/android/repository/sdk-tools-linux-${ANDROID_VERSION}.zip &&   unzip sdk-tools-linux-${ANDROID_VERSION}.zip -d android-sdk-linux && mv android-sdk-linux /opt/ 
+[36mINFO[0m[0002] Checking for cached layer gcr.io/jenkinsxio/cache:598242d72a1ef142d50d7835ae959f4dac8cf221182826265bee4025dbb299ea... 
+[36mINFO[0m[0015] Using caching version of cmd: RUN yes | sdkmanager --licenses 
+[36mINFO[0m[0015] Checking for cached layer gcr.io/jenkinsxio/cache:bf7d4bac905f9b346947102fd86e82c98d2343d3f568625597f20169e5395d42... 
+[36mINFO[0m[0015] Using caching version of cmd: RUN sdkmanager "platform-tools" 
+[36mINFO[0m[0015] Checking for cached layer gcr.io/jenkinsxio/cache:9968fa606e94566f42af2e4d9bbd7ffbf89a17acdb1566f99302e783074aa199... 
+[36mINFO[0m[0016] Using caching version of cmd: RUN yes | sdkmanager     "platforms;android-28"     "build-tools;28.0.0" 
+[36mINFO[0m[0016] Checking for cached layer gcr.io/jenkinsxio/cache:0fa02869665a0da171db79fcc4d11b1c02ff42ae86869450d344bb0c1c03694c... 
+[36mINFO[0m[0016] No cached layer found for cmd RUN curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/ 
+[36mINFO[0m[0016] Unpacking rootfs as cmd RUN curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/ requires it. 
+[36mINFO[0m[0078] Taking snapshot of full filesystem...        
+[36mINFO[0m[0116] CMD ["gradle"]                               
+[36mINFO[0m[0116] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0116] ENV GRADLE_HOME /opt/gradle                  
+[36mINFO[0m[0116] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0116] ENV GRADLE_VERSION 4.10.3                    
+[36mINFO[0m[0116] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0116] RUN set -o errexit -o nounset     && echo "Set URLS"     && GRADLE_URL="https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip"     && SHA256_URL="${GRADLE_URL}.sha256"         && echo "Determine sha256sum"     && GRADLE_DOWNLOAD_SHA256=$(curl -sLf "${SHA256_URL}")     	&& echo "Downloading Gradle" 	&& wget -q -O gradle.zip "${GRADLE_URL}" 		&& echo "Checking download hash" 	&& echo "${GRADLE_DOWNLOAD_SHA256} *gradle.zip" | sha256sum -c - 		&& echo "Installing Gradle" 	&& unzip -q gradle.zip 	&& rm gradle.zip 	&& mkdir -p /opt 	&& mv "gradle-${GRADLE_VERSION}" "${GRADLE_HOME}/" 	&& ln -s "${GRADLE_HOME}/bin/gradle" /usr/bin/gradle 
+[36mINFO[0m[0116] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0119] Taking snapshot of files...                  
+[36mINFO[0m[0120] ENV ANDROID_VERSION 4333796                  
+[36mINFO[0m[0120] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0120] ENV ANDROID_HOME /opt/android-sdk-linux      
+[36mINFO[0m[0120] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0120] RUN wget https://dl.google.com/android/repository/sdk-tools-linux-${ANDROID_VERSION}.zip &&   unzip sdk-tools-linux-${ANDROID_VERSION}.zip -d android-sdk-linux && mv android-sdk-linux /opt/ 
+[36mINFO[0m[0120] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0131] Taking snapshot of files...                  
+[36mINFO[0m[0137] ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/tools/bin:${ANDROID_HOME}/platform-tools 
+[36mINFO[0m[0137] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0137] RUN yes | sdkmanager --licenses              
+[36mINFO[0m[0137] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0138] Taking snapshot of files...                  
+[36mINFO[0m[0138] RUN sdkmanager "platform-tools"              
+[36mINFO[0m[0138] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0139] Taking snapshot of files...                  
+[36mINFO[0m[0140] RUN yes | sdkmanager     "platforms;android-28"     "build-tools;28.0.0" 
+[36mINFO[0m[0140] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0148] Taking snapshot of files...                  
+[36mINFO[0m[0155] ENV JX_VERSION 2.0.568                       
+[36mINFO[0m[0155] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0155] RUN curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/ 
+[36mINFO[0m[0155] cmd: /bin/sh                                 
+[36mINFO[0m[0155] args: [-c curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/] 
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   612    0   612    0     0   1718      0 --:--:-- --:--:-- --:--:--  1714
+LICENSE
+README.md
+changelog.md
+**
+  0 65.6M    0  594k    0     0   479k      0  0:02:20  0:00:01  0:02:19  479k 32 65.6M   32 21.5M    0     0  9913k      0  0:00:06  0:00:02  0:00:04 21.2M 80 65.6M   80 53.1M    0     0  16.4M      0  0:00:03  0:00:03 --:--:-- 26.4M100 65.6M  100 65.6M    0     0  17.7M      0  0:00:03  0:00:03 --:--:-- 26.5M
+[36mINFO[0m[0159] Taking snapshot of full filesystem...        
+[36mINFO[0m[0170] Adding whiteout for /tmp/hsperfdata_root/5981 
+[36mINFO[0m[0200] RUN gradle --version                         
+[36mINFO[0m[0200] cmd: /bin/sh                                 
+[36mINFO[0m[0200] args: [-c gradle --version]                  
+[36mINFO[0m[0200] Pushing layer gcr.io/jenkinsxio/cache:0fa02869665a0da171db79fcc4d11b1c02ff42ae86869450d344bb0c1c03694c to cache now 
+
+Welcome to Gradle 4.10.3!
+
+Here are the highlights of this release:
+ - Incremental Java compilation by default
+ - Periodic Gradle caches cleanup
+ - Gradle Kotlin DSL 1.0-RC6
+ - Nested included builds
+ - SNAPSHOT plugin versions in the `plugins {}` block
+
+For more details see https://docs.gradle.org/4.10.3/release-notes.html
+
+
+------------------------------------------------------------
+Gradle 4.10.3
+------------------------------------------------------------
+
+Build time:   2018-12-05 00:50:54 UTC
+Revision:     e76905e3a1034e6f724566aeb985621347ff43bc
+
+Kotlin DSL:   1.0-rc-6
+Kotlin:       1.2.61
+Groovy:       2.4.15
+Ant:          Apache Ant(TM) version 1.9.11 compiled on March 23 2018
+JVM:          1.8.0_212 (Oracle Corporation 25.212-b04)
+OS:           Linux 4.14.127+ amd64
+
+[36mINFO[0m[0201] Taking snapshot of full filesystem...        
+2019/08/07 21:04:52 pushed blob: sha256:7b807ec1b7780d741daaf42eca8f36f9eb3bcb3bb3a660436f0a65ac59fc1df9
+2019/08/07 21:05:01 pushed blob: sha256:306aec4f4eb63d182978563d78ed96bc30dd6607105e33111cc2ee7d3a8ca413
+2019/08/07 21:05:02 gcr.io/jenkinsxio/cache:0fa02869665a0da171db79fcc4d11b1c02ff42ae86869450d344bb0c1c03694c: digest: sha256:cf11c1c7581b20dbbabc53d08114b15ad953b89c48e2ed2f804bd086caa73637 size: 429
+[36mINFO[0m[0227] Pushing layer gcr.io/jenkinsxio/cache:80dde3ca9f4d9f87d9a246b08b4aba0834aa1ad924633a070cb137fa22431874 to cache now 
+2019/08/07 21:05:20 pushed blob: sha256:0366669b2fa9a46daa9da5904ecc45620b1662a3dd9658f9a041f1f6ee364ec1
+2019/08/07 21:05:20 pushed blob: sha256:7f5b97b0469137f9cf6c7f986090953b8c8d74579ba3548c6847e856ea9a66a6
+2019/08/07 21:05:22 gcr.io/jenkinsxio/cache:80dde3ca9f4d9f87d9a246b08b4aba0834aa1ad924633a070cb137fa22431874: digest: sha256:54f64813b9e5cc547192f2e88cb0f8b4d7d6e14ca1ffcdeede86fc9ada87e21c size: 426
+2019/08/07 21:05:22 existing blob: sha256:beeb2bddff350965322c530827ce314058a5af7f4f628d9ef9c97dd73e48d016
+2019/08/07 21:05:22 existing blob: sha256:429b38434357f169ce8a79a4bb39ca386ccf658ae7482b6ff602a86e6191960e
+2019/08/07 21:05:22 existing blob: sha256:b2919518b0ce2fd1a64eb2007c34232d8b60257d80fa45b67b9121e132b4e3db
+2019/08/07 21:05:22 existing blob: sha256:8ba884070f611d31cb2c42eddb691319dc9facf5e0ec67672fcfa135181ab3df
+2019/08/07 21:05:22 existing blob: sha256:b6fba42ef133eece995deb10c314cf8baa51ec1bd7dbea9ab259a5d79dcdfda1
+2019/08/07 21:05:22 existing blob: sha256:c5a0b7e8f77e1ac8afb62771d8d0325ee0f87791ee6ba486a6c40d4ba1d46125
+2019/08/07 21:05:22 existing blob: sha256:306aec4f4eb63d182978563d78ed96bc30dd6607105e33111cc2ee7d3a8ca413
+2019/08/07 21:05:22 existing blob: sha256:a8354d42e6911ab8001edfffa1934a1a9b357d1541f5cecc792b9a4172d76f46
+2019/08/07 21:05:22 existing blob: sha256:7c017636a6a609d8d318a4bebb3b6cc13feaf476f6a2ecc83d28e117314d5f6f
+2019/08/07 21:05:22 existing blob: sha256:2cde0a33cb63aa41a1ab3fbdc3afc787a086314a625c30f7b68bc7ac02c6660e
+2019/08/07 21:05:22 existing blob: sha256:d773df446b2002f5750748d96b7929546effb66991006aa6fb556a70823be462
+2019/08/07 21:05:22 existing blob: sha256:cf9e3958d06a3ad26e44d702f64228735d63903a9edc8b0f43d0286342fc0fbd
+2019/08/07 21:05:22 existing blob: sha256:5470abb626135f17b82fe46ee94962781a8aba7069a4c0b1898182daa4f429e3
+2019/08/07 21:05:22 existing blob: sha256:6756e87e029cdeb551ccf519eaebcf80e3441dd2bb37ed39b7c2268b4774b10b
+2019/08/07 21:05:22 existing blob: sha256:a792e7bf7b54dea6a827d27b81fc3674eef2c0ca65b9ccabb75b887a74bd06d2
+2019/08/07 21:05:22 existing blob: sha256:065e519718393bdd264839cafc4d57eb600832a903765af6d41af5819dd4d160
+2019/08/07 21:05:22 existing blob: sha256:8ba4d28c69c100373c4b96f3da07cbd5b170e0c17989fcc003c29cf28f86e3ae
+2019/08/07 21:05:22 existing blob: sha256:5069d699406c01c82af4f4e6147348dc551cb5d39e0d20dd1750bdce5b49c585
+2019/08/07 21:05:22 existing blob: sha256:7ec2ffb56c90d8cad824dd30eeb4abbbc7321596c47a7dca90095935c3c2b656
+2019/08/07 21:05:22 existing blob: sha256:b1c1d1dc3c9b9ab62839f55f0b0da8856c9afa9d6fd1df987a48f582cc28183c
+2019/08/07 21:05:22 existing blob: sha256:bee0a13648017886c5915ce5dec608f24dbea7b8a1e044c8fb2105ceea408afa
+2019/08/07 21:05:22 existing blob: sha256:a99d55345bae39430f75db8c3f6f9dc774baf8d7672bb5c5f5f6be9d7bdf4dae
+2019/08/07 21:05:22 existing blob: sha256:d8c575b2b52888c9ee09cee8dba37cd3b3035555769295d514229d43fbf47d8e
+2019/08/07 21:05:22 existing blob: sha256:0366669b2fa9a46daa9da5904ecc45620b1662a3dd9658f9a041f1f6ee364ec1
+2019/08/07 21:05:22 existing blob: sha256:92ade984df77a2da628fb1374cdf03f767152d12cd5df74465e4bc8bb39edb58
+2019/08/07 21:05:22 existing blob: sha256:6d138d81df365a45ab5fcf8e3f3da8357c45afe495207ecd09d2af0eb98505c5
+2019/08/07 21:05:22 existing blob: sha256:897e54f35a4b2ed07f22d316f09a9aa9ea68765f226654989a175bb51361e86e
+2019/08/07 21:05:22 existing blob: sha256:bf9a53bcc9019aae02864e6e43264e06837c7d984b9cf6132aca44a98ba348e6
+2019/08/07 21:05:22 existing blob: sha256:e5e2dacee7b09f7927bbd054ec3859e5555a27d569da5193f4cabac285053f9b
+2019/08/07 21:05:22 existing blob: sha256:b1587e65165c461940963893326da19b2bc15471f6191bfdd9194758cb886aa6
+2019/08/07 21:05:22 existing blob: sha256:ce53723240799b4450ccf6661e55e7277a52d14666b060a129af4125a69ac70e
+2019/08/07 21:05:22 existing blob: sha256:e9bce06a847e3879c73e81411ccb712580ba0dd7b2837f2ac365d19d13487b5d
+2019/08/07 21:05:25 pushed blob: sha256:8ec1bdbc0932872c07f2c769b7c0fd7a84c44396b6df4d1e5e8d306df63435df
+2019/08/07 21:05:26 pushed blob: sha256:ab83cabff3bde83ffd6e94853d608688809bda1a960ab788df281ecd697660e1
+2019/08/07 21:05:29 pushed blob: sha256:ca3fb034a8f2980f4e5606a2abdaa3d7578bb81dddebe79ae67dfc0dcea94b3e
+2019/08/07 21:05:33 pushed blob: sha256:7e75b2804bc4f39e26d7527d70cd3bbacb997cf546da7d3369444e062f324671
+2019/08/07 21:05:51 pushed blob: sha256:57b2bca667b05c9f87e7e5e1c4928d34c46f694e53a8e7b5d772fa9cfe698a6e
+2019/08/07 21:05:57 pushed blob: sha256:363dbcb3ff4f48438375eb053bcda23ae0dd9be8be240839670df1b4f5a605ba
+2019/08/07 21:05:59 gcr.io/jenkinsxio/builder-gradle4:0.0.0-SNAPSHOT-PR-636-35: digest: sha256:92949c08efb658d55fb70ffb771525d9e1d184f5784f094dd5dc86215e870a8c size: 6345
+Step: build-step-build-and-push-gradle5:
+
+[36mINFO[0m[0000] Downloading base image gcr.io/jenkinsxio/builder-base:0.0.45 
+[36mINFO[0m[0000] Found sha256:4b5edd0093e2154c3b8e56247f72b0c50f931fb7c559a7e267bfcc9fa202e8ee in local cache 
+[36mINFO[0m[0000] Found manifest at /workspace/sha256:4b5edd0093e2154c3b8e56247f72b0c50f931fb7c559a7e267bfcc9fa202e8ee.json 
+[36mINFO[0m[0000] Checking for cached layer gcr.io/jenkinsxio/cache:41062bec564892cd8158dabbfdfb510505bc9f6d713c270031beaa1906c826f2... 
+[36mINFO[0m[0001] Using caching version of cmd: RUN set -o errexit -o nounset     && echo "Set URLS"     && GRADLE_URL="https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip"     && SHA256_URL="${GRADLE_URL}.sha256"         && echo "Determine sha256sum"     && GRADLE_DOWNLOAD_SHA256=$(curl -sLf "${SHA256_URL}")     	&& echo "Downloading Gradle" 	&& wget -q -O gradle.zip "${GRADLE_URL}" 		&& echo "Checking download hash" 	&& echo "${GRADLE_DOWNLOAD_SHA256} *gradle.zip" | sha256sum -c - 		&& echo "Installing Gradle" 	&& unzip -q gradle.zip 	&& rm gradle.zip 	&& mkdir -p /opt 	&& mv "gradle-${GRADLE_VERSION}" "${GRADLE_HOME}/" 	&& ln -s "${GRADLE_HOME}/bin/gradle" /usr/bin/gradle 
+[36mINFO[0m[0001] Checking for cached layer gcr.io/jenkinsxio/cache:dd48b5ab99fdedad8ef4a73a2010eb0b8fa1531b7bb6d7d4ea8cd0449e9f8e3a... 
+[36mINFO[0m[0001] Using caching version of cmd: RUN wget https://dl.google.com/android/repository/sdk-tools-linux-${ANDROID_VERSION}.zip &&   unzip sdk-tools-linux-${ANDROID_VERSION}.zip -d android-sdk-linux && mv android-sdk-linux /opt/ 
+[36mINFO[0m[0001] Checking for cached layer gcr.io/jenkinsxio/cache:56ac4055805bb87bfe217ea9d5860950af3ef080a22402caea191296094635e8... 
+[36mINFO[0m[0002] Using caching version of cmd: RUN yes | sdkmanager --licenses 
+[36mINFO[0m[0002] Checking for cached layer gcr.io/jenkinsxio/cache:f032aab87d541b4328df887a4530dc6cda7a65026c8108a86189d1583ab8fa5b... 
+[36mINFO[0m[0003] Using caching version of cmd: RUN sdkmanager "platform-tools" 
+[36mINFO[0m[0003] Checking for cached layer gcr.io/jenkinsxio/cache:83352caad72430e04220c2cac746fd17c5667ea8a654a2ca539753bca360e729... 
+[36mINFO[0m[0004] Using caching version of cmd: RUN yes | sdkmanager     "platforms;android-28"     "build-tools;28.0.0" 
+[36mINFO[0m[0004] Checking for cached layer gcr.io/jenkinsxio/cache:e9117c6b88570e823e42ffd4ecd45f4e9e8cdde3d9b0c2f07de7163e21747317... 
+[36mINFO[0m[0004] Using caching version of cmd: RUN gradle --version 
+[36mINFO[0m[0004] Checking for cached layer gcr.io/jenkinsxio/cache:350c0857da78a443080f5c97601b0b40429da59d5f86c7b62eb5527b64004235... 
+[36mINFO[0m[0005] No cached layer found for cmd RUN curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/ 
+[36mINFO[0m[0005] Unpacking rootfs as cmd RUN curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/ requires it. 
+[36mINFO[0m[0065] Taking snapshot of full filesystem...        
+[36mINFO[0m[0095] CMD ["gradle"]                               
+[36mINFO[0m[0095] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0095] ENV GRADLE_HOME /opt/gradle                  
+[36mINFO[0m[0095] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0095] ENV GRADLE_VERSION 5.1                       
+[36mINFO[0m[0095] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0095] RUN set -o errexit -o nounset     && echo "Set URLS"     && GRADLE_URL="https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip"     && SHA256_URL="${GRADLE_URL}.sha256"         && echo "Determine sha256sum"     && GRADLE_DOWNLOAD_SHA256=$(curl -sLf "${SHA256_URL}")     	&& echo "Downloading Gradle" 	&& wget -q -O gradle.zip "${GRADLE_URL}" 		&& echo "Checking download hash" 	&& echo "${GRADLE_DOWNLOAD_SHA256} *gradle.zip" | sha256sum -c - 		&& echo "Installing Gradle" 	&& unzip -q gradle.zip 	&& rm gradle.zip 	&& mkdir -p /opt 	&& mv "gradle-${GRADLE_VERSION}" "${GRADLE_HOME}/" 	&& ln -s "${GRADLE_HOME}/bin/gradle" /usr/bin/gradle 
+[36mINFO[0m[0095] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0097] Taking snapshot of files...                  
+[36mINFO[0m[0099] ENV ANDROID_VERSION 4333796                  
+[36mINFO[0m[0099] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0099] ENV ANDROID_HOME /opt/android-sdk-linux      
+[36mINFO[0m[0099] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0099] RUN wget https://dl.google.com/android/repository/sdk-tools-linux-${ANDROID_VERSION}.zip &&   unzip sdk-tools-linux-${ANDROID_VERSION}.zip -d android-sdk-linux && mv android-sdk-linux /opt/ 
+[36mINFO[0m[0099] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0107] Taking snapshot of files...                  
+[36mINFO[0m[0113] ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/tools/bin:${ANDROID_HOME}/platform-tools 
+[36mINFO[0m[0113] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0113] RUN yes | sdkmanager --licenses              
+[36mINFO[0m[0113] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0113] Taking snapshot of files...                  
+[36mINFO[0m[0113] RUN sdkmanager "platform-tools"              
+[36mINFO[0m[0113] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0115] Taking snapshot of files...                  
+[36mINFO[0m[0115] RUN yes | sdkmanager     "platforms;android-28"     "build-tools;28.0.0" 
+[36mINFO[0m[0115] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0125] Taking snapshot of files...                  
+[36mINFO[0m[0133] RUN gradle --version                         
+[36mINFO[0m[0133] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0133] Taking snapshot of files...                  
+[36mINFO[0m[0133] ENV JX_VERSION 2.0.568                       
+[36mINFO[0m[0133] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0133] RUN curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/ 
+[36mINFO[0m[0133] cmd: /bin/sh                                 
+[36mINFO[0m[0133] args: [-c curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/] 
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   612    0   612    0     0   1610      0 --:--:-- --:--:-- --:--:--  1610
+LICENSE
+README.md
+changelog.md
+**
+  0 65.6M    0  212k    0     0   170k      0  0:06:34  0:00:01  0:06:33  170k  1 65.6M    1  790k    0     0   353k      0  0:03:10  0:00:02  0:03:08  585k  1 65.6M    1 1316k    0     0   408k      0  0:02:44  0:00:03  0:02:41  559k  2 65.6M    2 1912k    0     0   454k      0  0:02:27  0:00:04  0:02:23  574k  4 65.6M    4 2693k    0     0   514k      0  0:02:10  0:00:05  0:02:05  621k  5 65.6M    5 3475k    0     0   558k      0  0:02:00  0:00:06  0:01:54  656k  6 65.6M    6 4173k    0     0   579k      0  0:01:56  0:00:07  0:01:49  680k  7 65.6M    7 4937k    0     0   599k      0  0:01:52  0:00:08  0:01:44  722k  8 65.6M    8 5617k    0     0   609k      0  0:01:50  0:00:09  0:01:41  738k  9 65.6M    9 6213k    0     0   608k      0  0:01:50  0:00:10  0:01:40  708k 10 65.6M   10 6909k    0     0   616k      0  0:01:49  0:00:11  0:01:38  688k 11 65.6M   11 7539k    0     0   616k      0  0:01:48  0:00:12  0:01:36  671k 12 65.6M   12 8185k    0     0   619k      0  0:01:48  0:00:13  0:01:35  652k 13 65.6M   13 8933k    0     0   627k      0  0:01:47  0:00:14  0:01:33  660k 14 65.6M   14 9579k    0     0   628k      0  0:01:46  0:00:15  0:01:31  670k 15 65.6M   15 10.0M    0     0   632k      0  0:01:46  0:00:16  0:01:30  668k 15 65.6M   15 10.4M    0     0   619k      0  0:01:48  0:00:17  0:01:31  626k 16 65.6M   16 10.8M    0     0   607k      0  0:01:50  0:00:18  0:01:32  575k 17 65.6M   17 11.2M    0     0   599k      0  0:01:52  0:00:19  0:01:33  519k 17 65.6M   17 11.6M    0     0   590k      0  0:01:53  0:00:20  0:01:33  474k 18 65.6M   18 12.0M    0     0   580k      0  0:01:55  0:00:21  0:01:34  412k 18 65.6M   18 12.4M    0     0   574k      0  0:01:57  0:00:22  0:01:35  417k 19 65.6M   19 12.9M    0     0   571k      0  0:01:57  0:00:23  0:01:34  440k 20 65.6M   20 13.4M    0     0   568k      0  0:01:58  0:00:24  0:01:34  450k 21 65.6M   21 14.0M    0     0   568k      0  0:01:58  0:00:25  0:01:33  478k 22 65.6M   22 14.6M    0     0   570k      0  0:01:57  0:00:26  0:01:31  529k 23 65.6M   23 15.2M    0     0   572k      0  0:01:57  0:00:27  0:01:30  566k 24 65.6M   24 15.8M    0     0   573k      0  0:01:57  0:00:28  0:01:29  583k 24 65.6M   24 16.3M    0     0   573k      0  0:01:57  0:00:29  0:01:28  594k 25 65.6M   25 16.9M    0     0   575k      0  0:01:56  0:00:30  0:01:26  610k 26 65.6M   26 17.5M    0     0   574k      0  0:01:56  0:00:31  0:01:25  594k 27 65.6M   27 18.0M    0     0   572k      0  0:01:57  0:00:32  0:01:25  569k 27 65.6M   27 18.3M    0     0   564k      0  0:01:58  0:00:33  0:01:25  514k 28 65.6M   28 18.7M    0     0   559k      0  0:02:00  0:00:34  0:01:26  480k 29 65.6M   29 19.1M    0     0   557k      0  0:02:00  0:00:35  0:01:25  446k 29 65.6M   29 19.5M    0     0   554k      0  0:02:01  0:00:36  0:01:25  425k 30 65.6M   30 20.1M    0     0   553k      0  0:02:01  0:00:37  0:01:24  432k 31 65.6M   31 20.5M    0     0   551k      0  0:02:01  0:00:38  0:01:23  464k 32 65.6M   32 21.1M    0     0   551k      0  0:02:01  0:00:39  0:01:22  498k 33 65.6M   33 21.7M    0     0   553k      0  0:02:01  0:00:40  0:01:21  525k 34 65.6M   34 22.4M    0     0   556k      0  0:02:00  0:00:41  0:01:19  573k 35 65.6M   35 23.0M    0     0   558k      0  0:02:00  0:00:42  0:01:18  595k 36 65.6M   36 23.7M    0     0   563k      0  0:01:59  0:00:43  0:01:16  650k 37 65.6M   37 24.5M    0     0   568k      0  0:01:58  0:00:44  0:01:14  697k 38 65.6M   38 25.4M    0     0   575k      0  0:01:56  0:00:45  0:01:11  756k 39 65.6M   39 26.2M    0     0   581k      0  0:01:55  0:00:46  0:01:09  784k 41 65.6M   41 27.1M    0     0   587k      0  0:01:54  0:00:47  0:01:07  835k 42 65.6M   42 28.0M    0     0   595k      0  0:01:52  0:00:48  0:01:04  875k 43 65.6M   43 28.8M    0     0   600k      0  0:01:51  0:00:49  0:01:02  884k 44 65.6M   44 29.2M    0     0   597k      0  0:01:52  0:00:50  0:01:02  793k 45 65.6M   45 29.8M    0     0   595k      0  0:01:52  0:00:51  0:01:01  731k 45 65.6M   45 30.1M    0     0   591k      0  0:01:53  0:00:52  0
+:01:01  621k 46 65.6M   46 30.5M    0     0   587k      0  0:01:54  0:00:53  0:01:01  505k 47 65.6M   47 30.8M    0     0   583k      0  0:01:55  0:00:54  0:01:01  414k 47 65.6M   47 31.1M    0     0   578k      0  0:01:56  0:00:55  0:01:01  385k 48 65.6M   48 31.5M    0     0   574k      0  0:01:56  0:00:56  0:01:00  360k 48 65.6M   48 31.9M    0     0   571k      0  0:01:57  0:00:57  0:01:00  372k 49 65.6M   49 32.3M    0     0   569k      0  0:01:57  0:00:58  0:00:59  384k 50 65.6M   50 32.9M    0     0   569k      0  0:01:57  0:00:59  0:00:58  423k 51 65.6M   51 33.6M    0     0   571k      0  0:01:57  0:01:00  0:00:57  496k 52 65.6M   52 34.3M    0     0   574k      0  0:01:56  0:01:01  0:00:55  571k 53 65.6M   53 35.0M    0     0   577k      0  0:01:56  0:01:02  0:00:54  635k 54 65.6M   54 35.6M    0     0   576k      0  0:01:56  0:01:03  0:00:53  656k 55 65.6M   55 36.2M    0     0   577k      0  0:01:56  0:01:04  0:00:52  670k 56 65.6M   56 36.7M    0     0   577k      0  0:01:56  0:01:05  0:00:51  647k 56 65.6M   56 37.4M    0     0   578k      0  0:01:56  0:01:06  0:00:50  623k 57 65.6M   57 38.0M    0     0   579k      0  0:01:55  0:01:07  0:00:48  613k 58 65.6M   58 38.6M    0     0   580k      0  0:01:55  0:01:08  0:00:47  633k 60 65.6M   60 39.4M    0     0   582k      0  0:01:55  0:01:09  0:00:46  650k 60 65.6M   60 40.0M    0     0   583k      0  0:01:55  0:01:10  0:00:45  665k 61 65.6M   61 40.6M    0     0   584k      0  0:01:55  0:01:11  0:00:44  659k 62 65.6M   62 41.2M    0     0   584k      0  0:01:55  0:01:12  0:00:43  646k 63 65.6M   63 41.8M    0     0   585k      0  0:01:54  0:01:13  0:00:41  653k 65 65.6M   65 42.6M    0     0   588k      0  0:01:54  0:01:14  0:00:40  673k 66 65.6M   66 43.6M    0     0   593k      0  0:01:53  0:01:15  0:00:38  730k 67 65.6M   67 44.4M    0     0   596k      0  0:01:52  0:01:16  0:00:36  774k 68 65.6M   68 45.2M    0     0   599k      0  0:01:52  0:01:17  0:00:35  822k 69 65.6M   69 45.9M    0     0   601k      0  0:01:51  0:01:18  0:00:33  829k 71 65.6M   71 46.6M    0     0   603k      0  0:01:51  0:01:19  0:00:32  820k 71 65.6M   71 47.2M    0     0   603k      0  0:01:51  0:01:20  0:00:31  750k 72 65.6M   72 47.8M    0     0   602k      0  0:01:51  0:01:21  0:00:30  696k 73 65.6M   73 48.3M    0     0   601k      0  0:01:51  0:01:22  0:00:29  632k 74 65.6M   74 48.9M    0     0   601k      0  0:01:51  0:01:23  0:00:28  611k 75 65.6M   75 49.5M    0     0   602k      0  0:01:51  0:01:24  0:00:27  583k 76 65.6M   76 50.0M    0     0   601k      0  0:01:51  0:01:25  0:00:26  580k 77 65.6M   77 50.5M    0     0   600k      0  0:01:51  0:01:26  0:00:25  568k 77 65.6M   77 51.1M    0     0   600k      0  0:01:51  0:01:27  0:00:24  586k 79 65.6M   79 51.8M    0     0   602k      0  0:01:51  0:01:28  0:00:23  607k 80 65.6M   80 52.6M    0     0   604k      0  0:01:51  0:01:29  0:00:22  645k 81 65.6M   81 53.6M    0     0   608k      0  0:01:50  0:01:30  0:00:20  728k 82 65.6M   82 54.4M    0     0   611k      0  0:01:49  0:01:31  0:00:18  796k 84 65.6M   84 55.3M    0     0   614k      0  0:01:49  0:01:32  0:00:17  860k 85 65.6M   85 56.3M    0     0   619k      0  0:01:48  0:01:33  0:00:15  918k 87 65.6M   87 57.3M    0     0   623k      0  0:01:47  0:01:34  0:00:13  958k 88 65.6M   88 58.3M    0     0   627k      0  0:01:47  0:01:35  0:00:12  959k 90 65.6M   90 59.1M    0     0   629k      0  0:01:46  0:01:36  0:00:10  952k 91 65.6M   91 59.7M    0     0   629k      0  0:01:46  0:01:37  0:00:09  893k 91 65.6M   91 60.3M    0     0   629k      0  0:01:46  0:01:38  0:00:08  819k 93 65.6M   93 61.0M    0     0   630k      0  0:01:46  0:01:39  0:00:07  761k 94 65.6M   94 61.7M    0     0   630k      0  0:01:46  0:01:40  0:00:06  701k 94 65.6M   94 62.2M    0     0   629k      0  0:01:46  0:01:41  0:00:05  634k 95 65.6M   95 62.6M    0     0   627k      0  0:01:47  0:01:42  0:00:05  601k 96 65.6M   96 63.2M    0     0   627k      0  0:01:47  0:01:43  0:00:04  583k 97 65.6M   97 63.8M    0     0   627k      0  0:01:47
+  0:01:44  0:00:03  572k 98 65.6M   98 64.6M    0     0   628k      0  0:01:46  0:01:45  0:00:01  590k 99 65.6M   99 65.5M    0     0   631k      0  0:01:46  0:01:46 --:--:--  675k100 65.6M  100 65.6M    0     0   632k      0  0:01:46  0:01:46 --:--:--  735k
+[36mINFO[0m[0239] Taking snapshot of full filesystem...        
+[36mINFO[0m[0240] Adding whiteout for /tmp/hsperfdata_root/5981 
+[36mINFO[0m[0269] Pushing layer gcr.io/jenkinsxio/cache:350c0857da78a443080f5c97601b0b40429da59d5f86c7b62eb5527b64004235 to cache now 
+2019/08/07 21:10:32 pushed blob: sha256:015cb050d97e459710e32dd02b3467e3bd45cd5808c748b759a2acf8783360cf
+2019/08/07 21:10:39 pushed blob: sha256:4814a03e7b3d03428bb18cb9e6b42cd7ccfd6ffbfddc142dbaf3834ea031c423
+2019/08/07 21:10:41 gcr.io/jenkinsxio/cache:350c0857da78a443080f5c97601b0b40429da59d5f86c7b62eb5527b64004235: digest: sha256:27ec1311796189bc6810f8409a515c71285992df7b5678d95e123b47edd0c005 size: 429
+2019/08/07 21:10:41 existing blob: sha256:e9bce06a847e3879c73e81411ccb712580ba0dd7b2837f2ac365d19d13487b5d
+2019/08/07 21:10:41 existing blob: sha256:b1c1d1dc3c9b9ab62839f55f0b0da8856c9afa9d6fd1df987a48f582cc28183c
+2019/08/07 21:10:41 existing blob: sha256:a8354d42e6911ab8001edfffa1934a1a9b357d1541f5cecc792b9a4172d76f46
+2019/08/07 21:10:41 existing blob: sha256:d8c575b2b52888c9ee09cee8dba37cd3b3035555769295d514229d43fbf47d8e
+2019/08/07 21:10:41 existing blob: sha256:8ba4d28c69c100373c4b96f3da07cbd5b170e0c17989fcc003c29cf28f86e3ae
+2019/08/07 21:10:41 existing blob: sha256:b6fba42ef133eece995deb10c314cf8baa51ec1bd7dbea9ab259a5d79dcdfda1
+2019/08/07 21:10:41 existing blob: sha256:cf9e3958d06a3ad26e44d702f64228735d63903a9edc8b0f43d0286342fc0fbd
+2019/08/07 21:10:41 existing blob: sha256:a99d55345bae39430f75db8c3f6f9dc774baf8d7672bb5c5f5f6be9d7bdf4dae
+2019/08/07 21:10:41 existing blob: sha256:b2919518b0ce2fd1a64eb2007c34232d8b60257d80fa45b67b9121e132b4e3db
+2019/08/07 21:10:41 existing blob: sha256:c5a0b7e8f77e1ac8afb62771d8d0325ee0f87791ee6ba486a6c40d4ba1d46125
+2019/08/07 21:10:41 existing blob: sha256:4814a03e7b3d03428bb18cb9e6b42cd7ccfd6ffbfddc142dbaf3834ea031c423
+2019/08/07 21:10:41 existing blob: sha256:bee0a13648017886c5915ce5dec608f24dbea7b8a1e044c8fb2105ceea408afa
+2019/08/07 21:10:41 existing blob: sha256:5470abb626135f17b82fe46ee94962781a8aba7069a4c0b1898182daa4f429e3
+2019/08/07 21:10:41 existing blob: sha256:429b38434357f169ce8a79a4bb39ca386ccf658ae7482b6ff602a86e6191960e
+2019/08/07 21:10:41 existing blob: sha256:8ba884070f611d31cb2c42eddb691319dc9facf5e0ec67672fcfa135181ab3df
+2019/08/07 21:10:41 existing blob: sha256:2cde0a33cb63aa41a1ab3fbdc3afc787a086314a625c30f7b68bc7ac02c6660e
+2019/08/07 21:10:41 existing blob: sha256:6d138d81df365a45ab5fcf8e3f3da8357c45afe495207ecd09d2af0eb98505c5
+2019/08/07 21:10:41 existing blob: sha256:5069d699406c01c82af4f4e6147348dc551cb5d39e0d20dd1750bdce5b49c585
+2019/08/07 21:10:41 existing blob: sha256:ce53723240799b4450ccf6661e55e7277a52d14666b060a129af4125a69ac70e
+2019/08/07 21:10:41 existing blob: sha256:e5e2dacee7b09f7927bbd054ec3859e5555a27d569da5193f4cabac285053f9b
+2019/08/07 21:10:41 existing blob: sha256:6756e87e029cdeb551ccf519eaebcf80e3441dd2bb37ed39b7c2268b4774b10b
+2019/08/07 21:10:41 existing blob: sha256:bf9a53bcc9019aae02864e6e43264e06837c7d984b9cf6132aca44a98ba348e6
+2019/08/07 21:10:41 existing blob: sha256:7c017636a6a609d8d318a4bebb3b6cc13feaf476f6a2ecc83d28e117314d5f6f
+2019/08/07 21:10:41 existing blob: sha256:897e54f35a4b2ed07f22d316f09a9aa9ea68765f226654989a175bb51361e86e
+2019/08/07 21:10:41 existing blob: sha256:065e519718393bdd264839cafc4d57eb600832a903765af6d41af5819dd4d160
+2019/08/07 21:10:41 existing blob: sha256:7ec2ffb56c90d8cad824dd30eeb4abbbc7321596c47a7dca90095935c3c2b656
+2019/08/07 21:10:41 existing blob: sha256:92ade984df77a2da628fb1374cdf03f767152d12cd5df74465e4bc8bb39edb58
+2019/08/07 21:10:41 existing blob: sha256:beeb2bddff350965322c530827ce314058a5af7f4f628d9ef9c97dd73e48d016
+2019/08/07 21:10:41 existing blob: sha256:d773df446b2002f5750748d96b7929546effb66991006aa6fb556a70823be462
+2019/08/07 21:10:41 existing blob: sha256:b1587e65165c461940963893326da19b2bc15471f6191bfdd9194758cb886aa6
+2019/08/07 21:10:41 existing blob: sha256:a792e7bf7b54dea6a827d27b81fc3674eef2c0ca65b9ccabb75b887a74bd06d2
+2019/08/07 21:10:44 pushed blob: sha256:45fbb4568cf5d1beb1cf49695cf8010b9cb9ada7756d04a5e6ac82c47b36a497
+2019/08/07 21:10:44 pushed blob: sha256:169e08b99b0bc2f30c3ebeda8f64aa9216755b53348ec3a321d07657021878a6
+2019/08/07 21:10:44 pushed blob: sha256:b31a431b10b2b50b1ac2f20ba510d28eb30d808309f45586d1f6846ff9c7f089
+2019/08/07 21:10:49 pushed blob: sha256:7b685f01de06ca80d9c645cfda44bbabc1223ef20bd36ed692797abd23edd3a7
+2019/08/07 21:10:51 pushed blob: sha256:574e74bedd3d6540c6e0410d79279859028d8fb65372d3466736a6fa47525986
+2019/08/07 21:11:11 pushed blob: sha256:4ad6037088fe6877b3878a1fd1750a24bb14b39ad799d8aa2f066ee64d0feb20
+2019/08/07 21:11:17 pushed blob: sha256:f6a537acf8b87acda0e5c83713bd73fd62a271d40d10eb262bff8f1a88b4fcb9
+2019/08/07 21:11:19 gcr.io/jenkinsxio/builder-gradle5:0.0.0-SNAPSHOT-PR-636-35: digest: sha256:44ca614c215f1e722739fc72f3ef2e504d2d8f113713805082d5cc96b2d161bc size: 6345
+Step: build-step-build-and-push-gradle5-java11:
+
+[36mINFO[0m[0000] Downloading base image gcr.io/jenkinsxio/builder-base:0.0.45 
+[36mINFO[0m[0000] Found sha256:4b5edd0093e2154c3b8e56247f72b0c50f931fb7c559a7e267bfcc9fa202e8ee in local cache 
+[36mINFO[0m[0000] Found manifest at /workspace/sha256:4b5edd0093e2154c3b8e56247f72b0c50f931fb7c559a7e267bfcc9fa202e8ee.json 
+[36mINFO[0m[0000] Checking for cached layer gcr.io/jenkinsxio/cache:41062bec564892cd8158dabbfdfb510505bc9f6d713c270031beaa1906c826f2... 
+[36mINFO[0m[0001] Using caching version of cmd: RUN set -o errexit -o nounset     && echo "Set URLS"     && GRADLE_URL="https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip"     && SHA256_URL="${GRADLE_URL}.sha256"         && echo "Determine sha256sum"     && GRADLE_DOWNLOAD_SHA256=$(curl -sLf "${SHA256_URL}")     	&& echo "Downloading Gradle" 	&& wget -q -O gradle.zip "${GRADLE_URL}" 		&& echo "Checking download hash" 	&& echo "${GRADLE_DOWNLOAD_SHA256} *gradle.zip" | sha256sum -c - 		&& echo "Installing Gradle" 	&& unzip -q gradle.zip 	&& rm gradle.zip 	&& mkdir -p /opt 	&& mv "gradle-${GRADLE_VERSION}" "${GRADLE_HOME}/" 	&& ln -s "${GRADLE_HOME}/bin/gradle" /usr/bin/gradle 
+[36mINFO[0m[0001] Checking for cached layer gcr.io/jenkinsxio/cache:6e258c56a9c21b37dd8d3c250839148b99749b282c07ebfe9c6c67511880be45... 
+[36mINFO[0m[0001] Cache entry expired: gcr.io/jenkinsxio/cache:6e258c56a9c21b37dd8d3c250839148b99749b282c07ebfe9c6c67511880be45 
+[36mINFO[0m[0001] No cached layer found for cmd RUN curl https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz | tar -xz 
+[36mINFO[0m[0001] Unpacking rootfs as cmd RUN curl https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz | tar -xz requires it. 
+[36mINFO[0m[0060] Taking snapshot of full filesystem...        
+[36mINFO[0m[0096] CMD ["gradle"]                               
+[36mINFO[0m[0096] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0096] ENV GRADLE_HOME /opt/gradle                  
+[36mINFO[0m[0096] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0096] ENV GRADLE_VERSION 5.1                       
+[36mINFO[0m[0096] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0096] RUN set -o errexit -o nounset     && echo "Set URLS"     && GRADLE_URL="https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip"     && SHA256_URL="${GRADLE_URL}.sha256"         && echo "Determine sha256sum"     && GRADLE_DOWNLOAD_SHA256=$(curl -sLf "${SHA256_URL}")     	&& echo "Downloading Gradle" 	&& wget -q -O gradle.zip "${GRADLE_URL}" 		&& echo "Checking download hash" 	&& echo "${GRADLE_DOWNLOAD_SHA256} *gradle.zip" | sha256sum -c - 		&& echo "Installing Gradle" 	&& unzip -q gradle.zip 	&& rm gradle.zip 	&& mkdir -p /opt 	&& mv "gradle-${GRADLE_VERSION}" "${GRADLE_HOME}/" 	&& ln -s "${GRADLE_HOME}/bin/gradle" /usr/bin/gradle 
+[36mINFO[0m[0096] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0097] Taking snapshot of files...                  
+[36mINFO[0m[0099] RUN curl https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz | tar -xz 
+[36mINFO[0m[0099] cmd: /bin/sh                                 
+[36mINFO[0m[0099] args: [-c curl https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz | tar -xz] 
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 10  178M   10 18.7M    0     0  18.3M      0  0:00:09  0:00:01  0:00:08 18.3M 36  178M   36 65.5M    0     0  32.4M      0  0:00:05  0:00:02  0:00:03 32.4M 56  178M   56  100M    0     0  33.3M      0  0:00:05  0:00:03  0:00:02 33.3M 77  178M   77  138M    0     0  34.0M      0  0:00:05  0:00:04  0:00:01 34.0M100  178M  100  178M    0     0  35.6M      0  0:00:05  0:00:05 --:--:-- 35.8M
+[36mINFO[0m[0104] Taking snapshot of full filesystem...        
+[36mINFO[0m[0135] RUN mv /home/jenkins/jdk-11.0.2 /usr/java    
+[36mINFO[0m[0135] cmd: /bin/sh                                 
+[36mINFO[0m[0135] args: [-c mv /home/jenkins/jdk-11.0.2 /usr/java] 
+[36mINFO[0m[0135] Taking snapshot of full filesystem...        
+[36mINFO[0m[0136] Pushing layer gcr.io/jenkinsxio/cache:6e258c56a9c21b37dd8d3c250839148b99749b282c07ebfe9c6c67511880be45 to cache now 
+[36mINFO[0m[0138] Adding whiteout for /home/jenkins/jdk-11.0.2 
+2019/08/07 21:13:38 pushed blob: sha256:a54c4881b8ecce0cc9a8fd901e0b866488a77f2aa93ce92f4a3a33ff9b1b0c8e
+2019/08/07 21:13:56 pushed blob: sha256:baa4c3372dbd28023f2c206737cca12ff2ea8010d948abe7b47d9d46df67fad7
+2019/08/07 21:13:58 gcr.io/jenkinsxio/cache:6e258c56a9c21b37dd8d3c250839148b99749b282c07ebfe9c6c67511880be45: digest: sha256:91fca7e1ccb3c531f981a119c8201a2eff47fde3694b32c17855254d31ea3702 size: 430
+[36mINFO[0m[0166] Pushing layer gcr.io/jenkinsxio/cache:0f8e91072fabcb2f98e201a0a04c0117cc4cfdd1b6bc2517e0aae9414d0ded13 to cache now 
+[36mINFO[0m[0166] RUN rm /usr/bin/java /usr/bin/javac /usr/bin/javadoc 
+[36mINFO[0m[0166] cmd: /bin/sh                                 
+[36mINFO[0m[0166] args: [-c rm /usr/bin/java /usr/bin/javac /usr/bin/javadoc] 
+[36mINFO[0m[0166] Taking snapshot of full filesystem...        
+[36mINFO[0m[0166] Adding whiteout for /usr/bin/javac           
+[36mINFO[0m[0166] Adding whiteout for /usr/bin/java            
+[36mINFO[0m[0166] Adding whiteout for /usr/bin/javadoc         
+2019/08/07 21:14:08 pushed blob: sha256:e66ffcd36149fef6a418abe670b3effc42b4bed33932c4e05fec7f52a2491290
+2019/08/07 21:14:25 pushed blob: sha256:cf951320ab292e499adb97925c627e15f328309fff2b640806d0554c1c097a6b
+2019/08/07 21:14:26 gcr.io/jenkinsxio/cache:0f8e91072fabcb2f98e201a0a04c0117cc4cfdd1b6bc2517e0aae9414d0ded13: digest: sha256:5000fc19ccdd224b9ff4aadf3acc0ef4ab21c6886f703d14ed7f4b7a89b7761a size: 430
+[36mINFO[0m[0188] RUN ln -s /usr/java/bin/java /usr/bin/java   
+[36mINFO[0m[0188] cmd: /bin/sh                                 
+[36mINFO[0m[0188] args: [-c ln -s /usr/java/bin/java /usr/bin/java] 
+[36mINFO[0m[0188] Pushing layer gcr.io/jenkinsxio/cache:04988c4cbb3f9633c0c605a6a0aa8a0a3715bbee0897b66a8a1b5aadee910d15 to cache now 
+[36mINFO[0m[0188] Taking snapshot of full filesystem...        
+2019/08/07 21:14:30 pushed blob: sha256:45575eb2928a3b903876b9fcc6a2b07fe2b388db22c029bef79cd8209a3f4d7b
+2019/08/07 21:14:30 pushed blob: sha256:c4e78ca5cf6bb8d54f27d4752286b0130c15e27fa3e191b86168e28fa66f9e40
+2019/08/07 21:14:31 gcr.io/jenkinsxio/cache:04988c4cbb3f9633c0c605a6a0aa8a0a3715bbee0897b66a8a1b5aadee910d15: digest: sha256:80bae079250c5d898a25fba79486083211187389b96e84b415a476727a84ee58 size: 424
+[36mINFO[0m[0210] RUN ln -s /usr/java/bin/javac /usr/bin/javac 
+[36mINFO[0m[0210] cmd: /bin/sh                                 
+[36mINFO[0m[0210] args: [-c ln -s /usr/java/bin/javac /usr/bin/javac] 
+[36mINFO[0m[0210] Pushing layer gcr.io/jenkinsxio/cache:cb4a82998879fb98dbc44a526850195e0beb17d704a26a5e3f61e4d048d01eb0 to cache now 
+[36mINFO[0m[0210] Taking snapshot of full filesystem...        
+2019/08/07 21:14:52 pushed blob: sha256:1c16d9101f58a32450bdf4235809ac9fe174eebc9bb74b12382280e2bb4b083d
+2019/08/07 21:14:52 pushed blob: sha256:3bd6c3cfc834f93dbcc5d02b656170de9de51f88fc581e8e82749672f339d0e6
+2019/08/07 21:14:54 gcr.io/jenkinsxio/cache:cb4a82998879fb98dbc44a526850195e0beb17d704a26a5e3f61e4d048d01eb0: digest: sha256:4ebfe6904018c2f187bd962d688f9ab6896ce3919251747b9ab5fbb2d6367853 size: 424
+[36mINFO[0m[0239] RUN ln -s /usr/java/bin/javadoc /usr/bin/javadoc 
+[36mINFO[0m[0239] cmd: /bin/sh                                 
+[36mINFO[0m[0239] args: [-c ln -s /usr/java/bin/javadoc /usr/bin/javadoc] 
+[36mINFO[0m[0239] Pushing layer gcr.io/jenkinsxio/cache:e1d8ba550bf286cf4ee7deacbb995264da7b386d748658af5e8653bd698e6dc8 to cache now 
+[36mINFO[0m[0239] Taking snapshot of full filesystem...        
+2019/08/07 21:15:21 pushed blob: sha256:231820f6e5aa9ad2eb896ad288adf78e819bc50d832130471b8f9c9aa9063036
+2019/08/07 21:15:27 pushed blob: sha256:598814b3277084a4fd613a244bb46743b15c2988bdaa8c70e93b08d506d66e8f
+2019/08/07 21:15:28 gcr.io/jenkinsxio/cache:e1d8ba550bf286cf4ee7deacbb995264da7b386d748658af5e8653bd698e6dc8: digest: sha256:d17920bb7e1683ebcb2539cf80c6793a94bd0945051beb5b6b9c3907fea1a8ff size: 424
+[36mINFO[0m[0262] ENV JAVA_HOME /usr/java                      
+[36mINFO[0m[0262] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0262] RUN gradle --version                         
+[36mINFO[0m[0262] cmd: /bin/sh                                 
+[36mINFO[0m[0262] args: [-c gradle --version]                  
+[36mINFO[0m[0262] Pushing layer gcr.io/jenkinsxio/cache:eaacbdf47c4c5d76c6e6ab2f3ba3e9d351dd6f0e3badafa55541628bbf68a674 to cache now 
+
+Welcome to Gradle 5.1!
+
+Here are the highlights of this release:
+ - Control which dependencies can be retrieved from which repositories
+ - Production-ready configuration avoidance APIs
+
+For more details see https://docs.gradle.org/5.1/release-notes.html
+
+
+------------------------------------------------------------
+Gradle 5.1
+------------------------------------------------------------
+
+Build time:   2019-01-02 18:57:47 UTC
+Revision:     d09c2e354576ac41078c322815cc6db2b66d976e
+
+Kotlin DSL:   1.1.0
+Kotlin:       1.3.11
+Groovy:       2.5.4
+Ant:          Apache Ant(TM) version 1.9.13 compiled on July 10 2018
+JVM:          11.0.2 (Oracle Corporation 11.0.2+9)
+OS:           Linux 4.14.127+ amd64
+
+[36mINFO[0m[0263] Taking snapshot of full filesystem...        
+2019/08/07 21:15:45 pushed blob: sha256:12b9e4ba445f36aaa545d152b6eb52274f85cedf1750fbf80d1a39adfca16d36
+2019/08/07 21:15:45 pushed blob: sha256:ee16e162101c148f46b4b0e3ce84e6075a9d35db5fd02b9211c8dd70fe7463b3
+2019/08/07 21:15:46 gcr.io/jenkinsxio/cache:eaacbdf47c4c5d76c6e6ab2f3ba3e9d351dd6f0e3badafa55541628bbf68a674: digest: sha256:fbecfe69922d4580c47cd1ec3e4e583eb52f72cd96c6b343e24edd1727256651 size: 424
+[36mINFO[0m[0276] Adding whiteout for /tmp/hsperfdata_root/5981 
+[36mINFO[0m[0298] ENV JX_VERSION 2.0.568                       
+[36mINFO[0m[0298] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0298] RUN curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/ 
+[36mINFO[0m[0298] cmd: /bin/sh                                 
+[36mINFO[0m[0298] args: [-c curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/] 
+[36mINFO[0m[0298] Pushing layer gcr.io/jenkinsxio/cache:4a82c927b1264a128bd4a8b2846c8f0280354616968d37761586403d116a9d04 to cache now 
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   612    0   612    0     0   1729      0 --:--:-- --:--:-- --:--:--  1733
+LICENSE
+README.md
+changelog.md
+**
+  0 65.6M    0 69191    0     0  77558      0  0:14:47 --:--:--  0:14:47 77558 28 65.6M   28 18.4M    0     0  9981k      0  0:00:06  0:00:01  0:00:05 18.3M 74 65.6M   74 48.9M    0     0  16.9M      0  0:00:03  0:00:02  0:00:01 24.4M2019/08/07 21:16:21 pushed blob: sha256:ae010794f9d77fb779d9277ae2539caad38d06bcfbfc01faaf7c2229d7925d3c
+2019/08/07 21:16:21 pushed blob: sha256:73e2cf94e4ac1f9f02f9b36552b1a76479f05a38e94d73e9707eed00b12a5fbd
+100 65.6M  100 65.6M    0     0  19.0M      0  0:00:03  0:00:03 --:--:-- 25.6M
+[36mINFO[0m[0301] Taking snapshot of full filesystem...        
+2019/08/07 21:16:23 gcr.io/jenkinsxio/cache:4a82c927b1264a128bd4a8b2846c8f0280354616968d37761586403d116a9d04: digest: sha256:c9ed9f0ec92fb8376744e43fc10c86070f91a53f1f481fc38926a3c81d014938 size: 426
+[36mINFO[0m[0340] Pushing layer gcr.io/jenkinsxio/cache:207cd6365580a900c37ff1e84a07a5c592726cc2737019713f64676e49d08870 to cache now 
+2019/08/07 21:17:03 pushed blob: sha256:2c56cd2079e470abdc970ed64e7e37f43a39dd5f0b1dbb64faca14293ecd06fd
+2019/08/07 21:17:10 pushed blob: sha256:2aa05920cb0c075bdc04da874e515efdfcd64b4443369f78c247f7bbd2b2b6b4
+2019/08/07 21:17:11 gcr.io/jenkinsxio/cache:207cd6365580a900c37ff1e84a07a5c592726cc2737019713f64676e49d08870: digest: sha256:447a05d594da297c10ab44e833d214a1f7d32c7f87af3b4c2d3a6f6d306d63c1 size: 429
+2019/08/07 21:17:12 existing blob: sha256:6756e87e029cdeb551ccf519eaebcf80e3441dd2bb37ed39b7c2268b4774b10b
+2019/08/07 21:17:12 existing blob: sha256:c5a0b7e8f77e1ac8afb62771d8d0325ee0f87791ee6ba486a6c40d4ba1d46125
+2019/08/07 21:17:12 existing blob: sha256:ee16e162101c148f46b4b0e3ce84e6075a9d35db5fd02b9211c8dd70fe7463b3
+2019/08/07 21:17:12 existing blob: sha256:7ec2ffb56c90d8cad824dd30eeb4abbbc7321596c47a7dca90095935c3c2b656
+2019/08/07 21:17:12 existing blob: sha256:8ba4d28c69c100373c4b96f3da07cbd5b170e0c17989fcc003c29cf28f86e3ae
+2019/08/07 21:17:12 existing blob: sha256:bee0a13648017886c5915ce5dec608f24dbea7b8a1e044c8fb2105ceea408afa
+2019/08/07 21:17:12 existing blob: sha256:5069d699406c01c82af4f4e6147348dc551cb5d39e0d20dd1750bdce5b49c585
+2019/08/07 21:17:12 existing blob: sha256:065e519718393bdd264839cafc4d57eb600832a903765af6d41af5819dd4d160
+2019/08/07 21:17:12 existing blob: sha256:a8354d42e6911ab8001edfffa1934a1a9b357d1541f5cecc792b9a4172d76f46
+2019/08/07 21:17:12 existing blob: sha256:6d138d81df365a45ab5fcf8e3f3da8357c45afe495207ecd09d2af0eb98505c5
+2019/08/07 21:17:12 existing blob: sha256:bf9a53bcc9019aae02864e6e43264e06837c7d984b9cf6132aca44a98ba348e6
+2019/08/07 21:17:12 existing blob: sha256:429b38434357f169ce8a79a4bb39ca386ccf658ae7482b6ff602a86e6191960e
+2019/08/07 21:17:12 existing blob: sha256:73e2cf94e4ac1f9f02f9b36552b1a76479f05a38e94d73e9707eed00b12a5fbd
+2019/08/07 21:17:12 existing blob: sha256:beeb2bddff350965322c530827ce314058a5af7f4f628d9ef9c97dd73e48d016
+2019/08/07 21:17:12 existing blob: sha256:d8c575b2b52888c9ee09cee8dba37cd3b3035555769295d514229d43fbf47d8e
+2019/08/07 21:17:12 existing blob: sha256:45575eb2928a3b903876b9fcc6a2b07fe2b388db22c029bef79cd8209a3f4d7b
+2019/08/07 21:17:12 existing blob: sha256:a99d55345bae39430f75db8c3f6f9dc774baf8d7672bb5c5f5f6be9d7bdf4dae
+2019/08/07 21:17:12 existing blob: sha256:cf951320ab292e499adb97925c627e15f328309fff2b640806d0554c1c097a6b
+2019/08/07 21:17:12 existing blob: sha256:1c16d9101f58a32450bdf4235809ac9fe174eebc9bb74b12382280e2bb4b083d
+2019/08/07 21:17:12 existing blob: sha256:b1c1d1dc3c9b9ab62839f55f0b0da8856c9afa9d6fd1df987a48f582cc28183c
+2019/08/07 21:17:12 existing blob: sha256:e5e2dacee7b09f7927bbd054ec3859e5555a27d569da5193f4cabac285053f9b
+2019/08/07 21:17:12 existing blob: sha256:b2919518b0ce2fd1a64eb2007c34232d8b60257d80fa45b67b9121e132b4e3db
+2019/08/07 21:17:12 existing blob: sha256:ce53723240799b4450ccf6661e55e7277a52d14666b060a129af4125a69ac70e
+2019/08/07 21:17:12 existing blob: sha256:2cde0a33cb63aa41a1ab3fbdc3afc787a086314a625c30f7b68bc7ac02c6660e
+2019/08/07 21:17:12 existing blob: sha256:897e54f35a4b2ed07f22d316f09a9aa9ea68765f226654989a175bb51361e86e
+2019/08/07 21:17:12 existing blob: sha256:d773df446b2002f5750748d96b7929546effb66991006aa6fb556a70823be462
+2019/08/07 21:17:12 existing blob: sha256:7c017636a6a609d8d318a4bebb3b6cc13feaf476f6a2ecc83d28e117314d5f6f
+2019/08/07 21:17:12 existing blob: sha256:cf9e3958d06a3ad26e44d702f64228735d63903a9edc8b0f43d0286342fc0fbd
+2019/08/07 21:17:12 existing blob: sha256:a792e7bf7b54dea6a827d27b81fc3674eef2c0ca65b9ccabb75b887a74bd06d2
+2019/08/07 21:17:12 existing blob: sha256:8ba884070f611d31cb2c42eddb691319dc9facf5e0ec67672fcfa135181ab3df
+2019/08/07 21:17:12 existing blob: sha256:92ade984df77a2da628fb1374cdf03f767152d12cd5df74465e4bc8bb39edb58
+2019/08/07 21:17:12 existing blob: sha256:e9bce06a847e3879c73e81411ccb712580ba0dd7b2837f2ac365d19d13487b5d
+2019/08/07 21:17:12 existing blob: sha256:2aa05920cb0c075bdc04da874e515efdfcd64b4443369f78c247f7bbd2b2b6b4
+2019/08/07 21:17:12 existing blob: sha256:baa4c3372dbd28023f2c206737cca12ff2ea8010d948abe7b47d9d46df67fad7
+2019/08/07 21:17:12 existing blob: sha256:5470abb626135f17b82fe46ee94962781a8aba7069a4c0b1898182daa4f429e3
+2019/08/07 21:17:12 existing blob: sha256:b1587e65165c461940963893326da19b2bc15471f6191bfdd9194758cb886aa6
+2019/08/07 21:17:12 existing blob: sha256:231820f6e5aa9ad2eb896ad288adf78e819bc50d832130471b8f9c9aa9063036
+2019/08/07 21:17:12 existing blob: sha256:b6fba42ef133eece995deb10c314cf8baa51ec1bd7dbea9ab259a5d79dcdfda1
+2019/08/07 21:17:15 pushed blob: sha256:45b1b25a61cb82f7779758567207afff998f81d49e9442b450da50b7d8495e4e
+2019/08/07 21:17:23 pushed blob: sha256:c503c34969a830af474cd01f3d9472876ab6bc3db3e4cc606bc537d68a298ca7
+2019/08/07 21:17:24 gcr.io/jenkinsxio/builder-gradle5-java11:0.0.0-SNAPSHOT-PR-636-35: digest: sha256:91a872be2eceff2372de8092287742e0f1070cc2c11cc088632ead2ac27a3727 size: 6657
