@@ -1,10 +1,114 @@
-Step: build-step-credential-initializer-rcjvz:
+Step: build-step-credential-initializer-**lkm:
 
-{"level":"warn","ts":1565211692.1998417,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
-{"level":"info","ts":1565211692.201468,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
-Step: build-step-working-dir-initializer-h5crs:
+{"level":"warn","ts":1565210812.3924797,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1565210812.3931813,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Step: build-step-working-dir-initializer-s2rh6:
 
-{"level":"warn","ts":1565211694.464127,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
-{"level":"info","ts":1565211694.468174,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+{"level":"warn","ts":1565210813.5784168,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1565210813.5804532,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
 Step: build-step-place-tools:
+
+Step: build-step-git-source-jenkins-x-jenkins-x-builders-pr-ffmg9:
+
+{"level":"warn","ts":1565210815.8382008,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1565210817.3795402,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/jenkins-x/jenkins-x-builders @ 1a335082d7a834e6e677cf9670f4965a7e374615 in path /workspace/source"}
+Step: build-step-git-merge:
+
+Warning failed to load version: failed to parse version -dev+9e73adc0b: No Major.Minor.Patch elements found
+time="2019-08-07T20:46:58Z" level=info msg="got "
+Using SHAs from PULL_REFS=master:de84a9c89157abcddea80fbe0fe918f59fe02647,636:1a335082d7a834e6e677cf9670f4965a7e374615
+ran git fetch --unshallow origin 1a335082d7a834e6e677cf9670f4965a7e374615: de84a9c89157abcddea80fbe0fe918f59fe02647: in 
+ran git checkout master in 
+ran git reset --hard de84a9c89157abcddea80fbe0fe918f59fe02647 in 
+ran clean --force -d . in 
+ran git merge 1a335082d7a834e6e677cf9670f4965a7e374615 in 
+Step: build-step-step2:
+
+updating builder-maven-java11
+/workspace/source/builder-maven-java11 /workspace/source
+FROM gcr.io/jenkinsxio/builder-base:0.0.44
+/workspace/source
+updating builder-maven-nodejs
+/workspace/source/builder-maven-nodejs /workspace/source
+FROM gcr.io/jenkinsxio/builder-base:0.0.44
+/workspace/source
+updating builder-go
+/workspace/source/builder-go /workspace/source
+FROM gcr.io/jenkinsxio/builder-base:0.0.44
+/workspace/source
+updating builder-go-maven
+/workspace/source/builder-go-maven /workspace/source
+FROM gcr.io/jenkinsxio/builder-base:0.0.44
+/workspace/source
+updating builder-terraform
+/workspace/source/builder-terraform /workspace/source
+FROM gcr.io/jenkinsxio/builder-base:0.0.44
+/workspace/source
+Step: build-step-step3:
+
+/builder/home/kaniko-secret.json
+Step: build-step-warm-cache:
+
+Step: build-step-build-and-push-ruby:
+
+[36mINFO[0m[0002] Downloading base image gcr.io/jenkinsxio/builder-rubybase:0.0.45 
+[36mINFO[0m[0005] Found sha256:68ea9a962e92314d002e439813ded44bb6a3cafb45ed630f976cbb92d4773b4b in local cache 
+[36mINFO[0m[0005] Found manifest at /workspace/sha256:68ea9a962e92314d002e439813ded44bb6a3cafb45ed630f976cbb92d4773b4b.json 
+[36mINFO[0m[0005] Checking for cached layer gcr.io/jenkinsxio/cache:d0635974ca565a8f9e9f532f1fd1274fc83348d362855795bdaeff4d7df3184a... 
+[36mINFO[0m[0006] No cached layer found for cmd RUN curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/ 
+[36mINFO[0m[0006] Unpacking rootfs as cmd RUN curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/ requires it. 
+LICENSE
+README.md
+changelog.md
+**
+[36mINFO[0m[0095] Taking snapshot of full filesystem...        
+[36mINFO[0m[0291] ENV JX_VERSION 2.0.568                       
+[36mINFO[0m[0291] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0291] RUN curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/ 
+[36mINFO[0m[0291] cmd: /bin/sh                                 
+[36mINFO[0m[0291] args: [-c curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/] 
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   612    0   612    0     0   2099      0 --:--:-- --:--:-- --:--:--  2103
+  0 65.6M    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  3 65.6M    3 2423k    0     0  1468k      0  0:00:45  0:00:01  0:00:44 2561k 17 65.6M   17 11.7M    0     0  3645k      0  0:00:18  0:00:03  0:00:15 4630k 29 65.6M   29 19.4M    0     0  5468k      0  0:00:12  0:00:03  0:00:09 6775k 36 65.6M   36 24.1M    0     0  5094k      0  0:00:13  0:00:04  0:00:09 5958k 64 65.6M   64 42.5M    0     0  7501k      0  0:00:08  0:00:05  0:00:03 8537k 97 65.6M   97 63.9M    0     0  9697k      0  0:00:06  0:00:06 --:--:-- 12.0M100 65.6M  100 65.6M    0     0  9754k      0  0:00:06  0:00:06 --:--:-- 15.0M
+[36mINFO[0m[0298] Taking snapshot of full filesystem...        
+[36mINFO[0m[0328] Pushing layer gcr.io/jenkinsxio/cache:d0635974ca565a8f9e9f532f1fd1274fc83348d362855795bdaeff4d7df3184a to cache now 
+2019/08/07 20:53:44 pushed blob: sha256:e47ded083ceba6dd84123f1e21231f2a24871263998ab60e0656ec66c2a383c4
+2019/08/07 20:53:54 pushed blob: sha256:8873b920fbe64ca0f658eb50daeb83ef93bc0da14f9d76fcdf2476cec26615c6
+2019/08/07 20:53:55 gcr.io/jenkinsxio/cache:d0635974ca565a8f9e9f532f1fd1274fc83348d362855795bdaeff4d7df3184a: digest: sha256:3acd1f105942f094c9e7abad01a79f267cb95ed11b43a72fc0f6e42745d6dc92 size: 429
+2019/08/07 20:53:56 existing blob: sha256:380e2049619257332988d1d9fa7cf39539f328dec43df5eadddf985efa9d5b70
+2019/08/07 20:53:56 existing blob: sha256:04213678e91c62a8bb16267a8e3a3cb00dc885782179388b40fe6532341530c7
+2019/08/07 20:53:56 existing blob: sha256:72744d0a318b0788001cc4f5f83c6847ba4b753307fadd046b508bbc41eb9e29
+2019/08/07 20:53:56 existing blob: sha256:232232af6ec6eec72491c0c9489f86dfdf41f841b950d45a382079ee38716a66
+2019/08/07 20:53:56 existing blob: sha256:65b45673f4373a9a3c307350a372ac8db0d05a996d90a733612fb8e8d91a6111
+2019/08/07 20:53:56 existing blob: sha256:9b2061e162632d77a25776356dbd31558543644cc1cf8a83515cb3aa3b270480
+2019/08/07 20:53:56 existing blob: sha256:4189ef76b32d1ef6520f2bebe686c27aa5fc7f38e21953ccb1cbbbfbab89b4a1
+2019/08/07 20:53:56 existing blob: sha256:c57b3995d9e150bed3d13f46a2ba1aa43b6f9d0621b3de76f6d3a8a1af50e3ab
+2019/08/07 20:53:56 existing blob: sha256:bc9ab73e5b14b9fbd3687a4d8c1f1360533d6ee9ffc3f5ecc6630794b40257b7
+2019/08/07 20:53:56 existing blob: sha256:934b06fa8cfa289eaad6c8ddc6f3f02e0083a09efcc091c6d07fae8d469dbb62
+2019/08/07 20:53:56 existing blob: sha256:8873b920fbe64ca0f658eb50daeb83ef93bc0da14f9d76fcdf2476cec26615c6
+2019/08/07 20:53:56 existing blob: sha256:33f55007e352482f079f1dbbf511a632c16e40e6b2b291f20fedc7a6bd84d7e5
+2019/08/07 20:53:56 existing blob: sha256:a2a7264255929d31586b2389e52c0939bdd2f627b72e6aca55ff169108589524
+2019/08/07 20:53:56 existing blob: sha256:15aae1fd4c8dd5cb295e732f9a15ee9e7829448cea52331b0c9577cbdc0f701e
+2019/08/07 20:53:56 existing blob: sha256:f7fc55f768eaf9aff651865fce65dc0484b90f0849bd368a210ae5eb6cf1b64a
+2019/08/07 20:53:56 existing blob: sha256:193a6306c92af328dbd41bbbd3200a2c90802624cccfe5725223324428110d7f
+2019/08/07 20:53:56 existing blob: sha256:74ae596dcbf434e7d3c4e4fb61f0770a591b44555d890967df9fb48d2784d660
+2019/08/07 20:53:56 existing blob: sha256:0141ed72a9086f88844b12693debd7da3920c3f3de2d5082c95fc063ff401181
+2019/08/07 20:53:56 existing blob: sha256:e5c3f8c317dc30af45021092a3d76f16ba7aa1ee5f18fec742c84d4960818580
+2019/08/07 20:53:56 existing blob: sha256:31d57ef7a684bffc0decadb0c268cf3c9b582271caab5565148ed4a87d7c4167
+2019/08/07 20:53:56 existing blob: sha256:38fecbcd9c18a2110608dd5af4ab05dd3d355eae3ea6c291f88ca9168016cb03
+2019/08/07 20:53:56 existing blob: sha256:a587a86c9dcb9df6584180042becf21e36ecd8b460a761711227b4b06889a005
+2019/08/07 20:53:56 existing blob: sha256:26c7c50954cdde3f0c07bba6f7380f8cc54a41341bcdd2e7a0921f241eb5e41b
+2019/08/07 20:53:56 existing blob: sha256:61867ca3bdaae8ffefd96eaa67fad1222e48b93ba875c10ebaee772a59843b8f
+2019/08/07 20:53:56 existing blob: sha256:4364de23977f05aa0d9c1428ea0c951124d9f8fd47f38284d1b433c667c6603a
+2019/08/07 20:53:56 existing blob: sha256:6a20895ca01c046a03b74a81de66b0d4cf7c4cc44b338855e425f4f60d9d0be4
+2019/08/07 20:53:56 existing blob: sha256:b260fc47d21d0a4c3b90c054d2d5353a737ac7bbc318eeebca645ba2a453f885
+2019/08/07 20:53:56 existing blob: sha256:fb15cc90504fedd5136d7cbbc0cdd7f061e04c46f5a3bde691cbab3ae5a21a4f
+2019/08/07 20:53:56 existing blob: sha256:75ae3c3502dfe7f8c63737ff5761cae5319bfd2b2729061c2d771f38c6a5e36f
+2019/08/07 20:53:56 existing blob: sha256:86743d0a4e7d9d868c585fde4d41099f044f4f9f75850b9e6fa2be04b6151b6b
+2019/08/07 20:53:56 existing blob: sha256:242245e0f8a525dda51325ad307194306db015974aa166e876c1170760bdd0d2
+2019/08/07 20:53:56 existing blob: sha256:4f2f2375eda7fcb98cd22858eb3008c610add3f9d1e993ccec0d32b5b0d9c825
+2019/08/07 20:53:59 pushed blob: sha256:c86f2acedf74db168cf42154a5aa12914d577b08cdf0feff3025a4a8997217ac
+error pushing image: failed to push to destination gcr.io/jenkinsxio/builder-ruby:0.0.0-SNAPSHOT-PR-636-35: UNKNOWN: Failed to check blob "sha256:74ae596dcbf434e7d3c4e4fb61f0770a591b44555d890967df9fb48d2784d660" for manifest "sha256:e28288bde514c931d5891882b0bb253ecf79a453f40df0fe5bf5886df66c5bc7"
+Step: build-step-build-and-push-rust:
 
