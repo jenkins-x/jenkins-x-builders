@@ -1,21 +1,21 @@
-Step: build-step-credential-initializer-**lkm:
+Step: build-step-credential-initializer-mgvn2:
 
-{"level":"warn","ts":1565210812.3924797,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
-{"level":"info","ts":1565210812.3931813,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
-Step: build-step-working-dir-initializer-s2rh6:
+{"level":"warn","ts":1565211614.2965422,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1565211614.2984695,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Step: build-step-working-dir-initializer-ssgmj:
 
-{"level":"warn","ts":1565210813.5784168,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
-{"level":"info","ts":1565210813.5804532,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+{"level":"warn","ts":1565211615.8171213,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1565211615.949337,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
 Step: build-step-place-tools:
 
-Step: build-step-git-source-jenkins-x-jenkins-x-builders-pr-ffmg9:
+Step: build-step-git-source-jenkins-x-jenkins-x-builders-pr-6tjz9:
 
-{"level":"warn","ts":1565210815.8382008,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
-{"level":"info","ts":1565210817.3795402,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/jenkins-x/jenkins-x-builders @ 1a335082d7a834e6e677cf9670f4965a7e374615 in path /workspace/source"}
+{"level":"warn","ts":1565211619.0161698,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1565211621.922023,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/jenkins-x/jenkins-x-builders @ 1a335082d7a834e6e677cf9670f4965a7e374615 in path /workspace/source"}
 Step: build-step-git-merge:
 
 Warning failed to load version: failed to parse version -dev+9e73adc0b: No Major.Minor.Patch elements found
-time="2019-08-07T20:46:58Z" level=info msg="got "
+time="2019-08-07T21:00:25Z" level=info msg="got "
 Using SHAs from PULL_REFS=master:de84a9c89157abcddea80fbe0fe918f59fe02647,636:1a335082d7a834e6e677cf9670f4965a7e374615
 ran git fetch --unshallow origin 1a335082d7a834e6e677cf9670f4965a7e374615: de84a9c89157abcddea80fbe0fe918f59fe02647: in 
 ran git checkout master in 
@@ -49,66 +49,572 @@ Step: build-step-step3:
 /builder/home/kaniko-secret.json
 Step: build-step-warm-cache:
 
-Step: build-step-build-and-push-ruby:
+Step: build-step-build-and-push-cf:
 
-[36mINFO[0m[0002] Downloading base image gcr.io/jenkinsxio/builder-rubybase:0.0.45 
-[36mINFO[0m[0005] Found sha256:68ea9a962e92314d002e439813ded44bb6a3cafb45ed630f976cbb92d4773b4b in local cache 
-[36mINFO[0m[0005] Found manifest at /workspace/sha256:68ea9a962e92314d002e439813ded44bb6a3cafb45ed630f976cbb92d4773b4b.json 
-[36mINFO[0m[0005] Checking for cached layer gcr.io/jenkinsxio/cache:d0635974ca565a8f9e9f532f1fd1274fc83348d362855795bdaeff4d7df3184a... 
-[36mINFO[0m[0006] No cached layer found for cmd RUN curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/ 
-[36mINFO[0m[0006] Unpacking rootfs as cmd RUN curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/ requires it. 
+[36mINFO[0m[0000] Downloading base image gcr.io/jenkinsxio/builder-base:0.0.45 
+[36mINFO[0m[0002] Found sha256:4b5edd0093e2154c3b8e56247f72b0c50f931fb7c559a7e267bfcc9fa202e8ee in local cache 
+[36mINFO[0m[0002] Found manifest at /workspace/sha256:4b5edd0093e2154c3b8e56247f72b0c50f931fb7c559a7e267bfcc9fa202e8ee.json 
+[36mINFO[0m[0002] Checking for cached layer gcr.io/jenkinsxio/cache:bc1a92083fec92da25fbc8514ba023febc76b24974a3edb629887620602a4d66... 
+[36mINFO[0m[0002] Using caching version of cmd: RUN yum-config-manager --add-repo https://packages.cloudfoundry.org/fedora/cloudfoundry-cli.repo   && yum install -y cf-cli   && yum clean all 
+[36mINFO[0m[0002] Checking for cached layer gcr.io/jenkinsxio/cache:2f19d106dfaf749edc1da2e337a92296838d4fa924912e1d652eb93d03a73af9... 
+[36mINFO[0m[0003] No cached layer found for cmd RUN curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/ 
+[36mINFO[0m[0003] Unpacking rootfs as cmd RUN curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/ requires it. 
+[36mINFO[0m[0098] Taking snapshot of full filesystem...        
+[36mINFO[0m[0124] RUN yum-config-manager --add-repo https://packages.cloudfoundry.org/fedora/cloudfoundry-cli.repo   && yum install -y cf-cli   && yum clean all 
+[36mINFO[0m[0124] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0126] Taking snapshot of files...                  
+[36mINFO[0m[0128] ENV JX_VERSION 2.0.568                       
+[36mINFO[0m[0128] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0128] RUN curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/ 
+[36mINFO[0m[0128] cmd: /bin/sh                                 
+[36mINFO[0m[0128] args: [-c curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/] 
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   612    0   612    0     0   1456      0 --:--:-- --:--:-- --:--:--  1457
 LICENSE
 README.md
 changelog.md
 **
-[36mINFO[0m[0095] Taking snapshot of full filesystem...        
-[36mINFO[0m[0291] ENV JX_VERSION 2.0.568                       
-[36mINFO[0m[0291] No files changed in this command, skipping snapshotting. 
-[36mINFO[0m[0291] RUN curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/ 
-[36mINFO[0m[0291] cmd: /bin/sh                                 
-[36mINFO[0m[0291] args: [-c curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/] 
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  7 65.6M    7 4937k    0     0  3264k      0  0:00:20  0:00:01  0:00:19 5058k 43 65.6M   43 28.4M    0     0  11.3M      0  0:00:05  0:00:02  0:00:03 14.3M 88 65.6M   88 57.8M    0     0  16.4M      0  0:00:03  0:00:03 --:--:-- 19.4M100 65.6M  100 65.6M    0     0  16.9M      0  0:00:03  0:00:03 --:--:-- 19.6M
+[36mINFO[0m[0132] Taking snapshot of full filesystem...        
+[36mINFO[0m[0135] Adding whiteout for /var/cache/yum/x86_64/7/updates/mirrorlist.txt 
+[36mINFO[0m[0135] Adding whiteout for /var/lib/yum/rpmdb-indexes/conflicts 
+[36mINFO[0m[0135] Adding whiteout for /var/cache/yum/x86_64/7/base/mirrorlist.txt 
+[36mINFO[0m[0135] Adding whiteout for /var/lib/yum/rpmdb-indexes/pkgtups-checksums 
+[36mINFO[0m[0135] Adding whiteout for /var/cache/yum/x86_64/7/extras/cachecookie 
+[36mINFO[0m[0135] Adding whiteout for /var/cache/yum/x86_64/7/base/gen/comps.xml 
+[36mINFO[0m[0135] Adding whiteout for /var/cache/yum/x86_64/7/extras/8040035f545d88fec517382949ce96902ed4ef232874e68bdf2ffdbcf2c6c2ec-primary.sqlite.bz2 
+[36mINFO[0m[0135] Adding whiteout for /var/cache/yum/x86_64/7/base/bc140c8149fc43a5248fccff0daeef38182e49f6fe75d9b46db1206dc25a6c1c-c7-x86_64-comps.xml.gz 
+[36mINFO[0m[0135] Adding whiteout for /var/lib/yum/rpmdb-indexes/file-requires 
+[36mINFO[0m[0135] Adding whiteout for /var/cache/yum/x86_64/7/epel/gen/comps.xml 
+[36mINFO[0m[0135] Adding whiteout for /var/lib/yum/rpmdb-indexes/version 
+[36mINFO[0m[0135] Adding whiteout for /var/cache/yum/x86_64/7/epel/cachecookie 
+[36mINFO[0m[0135] Adding whiteout for /var/cache/yum/x86_64/7/updates/7303cbcc9806f8d266e12f27067a972b40e736f13800129e79d035fdd8883df6-primary.sqlite.bz2 
+[36mINFO[0m[0135] Adding whiteout for /var/cache/yum/x86_64/7/updates/c317d43ffabba63436dd2fd246cd83fb0fef9cce712f8b67ef371e29e81aef4a-primary.sqlite.bz2 
+[36mINFO[0m[0135] Adding whiteout for /var/cache/yum/x86_64/7/base/repomd.xml 
+[36mINFO[0m[0135] Adding whiteout for /var/cache/yum/x86_64/7/updates/gen/filelists_db.sqlite 
+[36mINFO[0m[0135] Adding whiteout for /var/cache/yum/x86_64/7/epel/gen/primary_db.sqlite 
+[36mINFO[0m[0135] Adding whiteout for /var/cache/yum/x86_64/7/epel/67524caa6631e887a5ec38e3facaaa685101876958e16bcb69c6e7a5f77aa607-primary.sqlite.bz2 
+[36mINFO[0m[0135] Adding whiteout for /var/cache/yum/x86_64/7/epel/metalink.xml 
+[36mINFO[0m[0135] Adding whiteout for /var/cache/yum/x86_64/7/updates/2c2cf8e196fcaafe88087e86175911120578086d4648cb8260fbffc9326e2bcb-filelists.sqlite.bz2 
+[36mINFO[0m[0135] Adding whiteout for /var/cache/yum/x86_64/7/epel/repomd.xml 
+[36mINFO[0m[0135] Adding whiteout for /var/cache/yum/x86_64/7/base/gen/primary_db.sqlite 
+[36mINFO[0m[0135] Adding whiteout for /var/cache/yum/x86_64/7/base/cachecookie 
+[36mINFO[0m[0135] Adding whiteout for /var/cache/yum/x86_64/7/google-chrome/repomd.xml 
+[36mINFO[0m[0135] Adding whiteout for /var/cache/yum/x86_64/7/updates/cachecookie 
+[36mINFO[0m[0135] Adding whiteout for /var/cache/yum/x86_64/7/epel/d2d16b74b98b26292868d49413181da81c791150ce460be98bcf0628f3005bc7-updateinfo.xml.bz2 
+[36mINFO[0m[0135] Adding whiteout for /var/cache/yum/x86_64/7/extras/repomd.xml 
+[36mINFO[0m[0135] Adding whiteout for /var/cache/yum/x86_64/7/timedhosts.txt 
+[36mINFO[0m[0135] Adding whiteout for /var/cache/yum/x86_64/7/updates/repomd.xml 
+[36mINFO[0m[0135] Adding whiteout for /var/cache/yum/x86_64/7/epel/d97ad2922a45eb2a5fc007fdd84e7ae4981b257d3b94c3c9f5d7b0dda6baa098-comps-Everything.x86_64.xml.gz 
+[36mINFO[0m[0135] Adding whiteout for /var/cache/yum/x86_64/7/google-chrome/primary.xml.gz 
+[36mINFO[0m[0135] Adding whiteout for /var/cache/yum/x86_64/7/base/gen/filelists_db.sqlite 
+[36mINFO[0m[0135] Adding whiteout for /var/cache/yum/x86_64/7/base/6614b3605d961a4aaec45d74ac4e5e713e517debb3ee454a1c91097955780697-primary.sqlite.bz2 
+[36mINFO[0m[0135] Adding whiteout for /var/cache/yum/x86_64/7/google-chrome/gen/primary.xml 
+[36mINFO[0m[0135] Adding whiteout for /var/cache/yum/x86_64/7/base/a0ec5a4708a1026db100d4799c404c9ed48a9371a4bab234a1355f86628a244a-filelists.sqlite.bz2 
+[36mINFO[0m[0135] Adding whiteout for /var/lib/yum/rpmdb-indexes/obsoletes 
+[36mINFO[0m[0135] Adding whiteout for /var/cache/yum/x86_64/7/google-chrome/gen/primary.xml.sqlite 
+[36mINFO[0m[0135] Adding whiteout for /var/cache/yum/x86_64/7/google-chrome/cachecookie 
+[36mINFO[0m[0135] Adding whiteout for /var/cache/yum/x86_64/7/extras/gen/primary_db.sqlite 
+[36mINFO[0m[0135] Adding whiteout for /var/cache/yum/x86_64/7/extras/mirrorlist.txt 
+[36mINFO[0m[0135] Adding whiteout for /var/cache/yum/x86_64/7/epel/5bcd966a5e87d03e75963c79096fb0e5d5ad89a705a9f220c998fea556d32255-updateinfo.xml.bz2 
+[36mINFO[0m[0135] Adding whiteout for /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite 
+[36mINFO[0m[0135] Adding whiteout for /var/cache/yum/x86_64/7/epel/90a58610660455abd8f6aa587347a572e9ebc7bf949fd777fd9358d3d7c0b481-primary.sqlite.bz2 
+[36mINFO[0m[0162] CMD ["cf","--version"]                       
+[36mINFO[0m[0162] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0162] Pushing layer gcr.io/jenkinsxio/cache:2f19d106dfaf749edc1da2e337a92296838d4fa924912e1d652eb93d03a73af9 to cache now 
+2019/08/07 21:04:18 pushed blob: sha256:b9d729bcd80b2baeba42ba9bb479e524c219ef1793f3ad8f2df6a659aea48b2e
+2019/08/07 21:04:27 pushed blob: sha256:231db6ce2a6caeea87563126f073e07be85f8af3e42aa11a1a08feccd3fbfa2e
+2019/08/07 21:04:28 gcr.io/jenkinsxio/cache:2f19d106dfaf749edc1da2e337a92296838d4fa924912e1d652eb93d03a73af9: digest: sha256:8e01e7c99c4e7c650129b9390deb8557b361bda1676a3099c69e9be15a822927 size: 429
+2019/08/07 21:04:29 existing blob: sha256:cf9e3958d06a3ad26e44d702f64228735d63903a9edc8b0f43d0286342fc0fbd
+2019/08/07 21:04:29 existing blob: sha256:beeb2bddff350965322c530827ce314058a5af7f4f628d9ef9c97dd73e48d016
+2019/08/07 21:04:29 existing blob: sha256:065e519718393bdd264839cafc4d57eb600832a903765af6d41af5819dd4d160
+2019/08/07 21:04:29 existing blob: sha256:bf9a53bcc9019aae02864e6e43264e06837c7d984b9cf6132aca44a98ba348e6
+2019/08/07 21:04:29 existing blob: sha256:b1c1d1dc3c9b9ab62839f55f0b0da8856c9afa9d6fd1df987a48f582cc28183c
+2019/08/07 21:04:29 existing blob: sha256:7ec2ffb56c90d8cad824dd30eeb4abbbc7321596c47a7dca90095935c3c2b656
+2019/08/07 21:04:29 existing blob: sha256:ce53723240799b4450ccf6661e55e7277a52d14666b060a129af4125a69ac70e
+2019/08/07 21:04:29 existing blob: sha256:8ba884070f611d31cb2c42eddb691319dc9facf5e0ec67672fcfa135181ab3df
+2019/08/07 21:04:29 existing blob: sha256:897e54f35a4b2ed07f22d316f09a9aa9ea68765f226654989a175bb51361e86e
+2019/08/07 21:04:29 existing blob: sha256:a8354d42e6911ab8001edfffa1934a1a9b357d1541f5cecc792b9a4172d76f46
+2019/08/07 21:04:29 existing blob: sha256:92ade984df77a2da628fb1374cdf03f767152d12cd5df74465e4bc8bb39edb58
+2019/08/07 21:04:29 existing blob: sha256:a99d55345bae39430f75db8c3f6f9dc774baf8d7672bb5c5f5f6be9d7bdf4dae
+2019/08/07 21:04:29 existing blob: sha256:2cde0a33cb63aa41a1ab3fbdc3afc787a086314a625c30f7b68bc7ac02c6660e
+2019/08/07 21:04:29 existing blob: sha256:c5a0b7e8f77e1ac8afb62771d8d0325ee0f87791ee6ba486a6c40d4ba1d46125
+2019/08/07 21:04:29 existing blob: sha256:e5e2dacee7b09f7927bbd054ec3859e5555a27d569da5193f4cabac285053f9b
+2019/08/07 21:04:29 existing blob: sha256:b1587e65165c461940963893326da19b2bc15471f6191bfdd9194758cb886aa6
+2019/08/07 21:04:29 existing blob: sha256:a792e7bf7b54dea6a827d27b81fc3674eef2c0ca65b9ccabb75b887a74bd06d2
+2019/08/07 21:04:29 existing blob: sha256:5069d699406c01c82af4f4e6147348dc551cb5d39e0d20dd1750bdce5b49c585
+2019/08/07 21:04:29 existing blob: sha256:5470abb626135f17b82fe46ee94962781a8aba7069a4c0b1898182daa4f429e3
+2019/08/07 21:04:29 existing blob: sha256:6756e87e029cdeb551ccf519eaebcf80e3441dd2bb37ed39b7c2268b4774b10b
+2019/08/07 21:04:29 existing blob: sha256:7c017636a6a609d8d318a4bebb3b6cc13feaf476f6a2ecc83d28e117314d5f6f
+2019/08/07 21:04:29 existing blob: sha256:429b38434357f169ce8a79a4bb39ca386ccf658ae7482b6ff602a86e6191960e
+2019/08/07 21:04:29 existing blob: sha256:d773df446b2002f5750748d96b7929546effb66991006aa6fb556a70823be462
+2019/08/07 21:04:29 existing blob: sha256:bee0a13648017886c5915ce5dec608f24dbea7b8a1e044c8fb2105ceea408afa
+2019/08/07 21:04:29 existing blob: sha256:e9bce06a847e3879c73e81411ccb712580ba0dd7b2837f2ac365d19d13487b5d
+2019/08/07 21:04:29 existing blob: sha256:b6fba42ef133eece995deb10c314cf8baa51ec1bd7dbea9ab259a5d79dcdfda1
+2019/08/07 21:04:29 existing blob: sha256:8ba4d28c69c100373c4b96f3da07cbd5b170e0c17989fcc003c29cf28f86e3ae
+2019/08/07 21:04:29 existing blob: sha256:6d138d81df365a45ab5fcf8e3f3da8357c45afe495207ecd09d2af0eb98505c5
+2019/08/07 21:04:29 existing blob: sha256:b2919518b0ce2fd1a64eb2007c34232d8b60257d80fa45b67b9121e132b4e3db
+2019/08/07 21:04:29 existing blob: sha256:231db6ce2a6caeea87563126f073e07be85f8af3e42aa11a1a08feccd3fbfa2e
+2019/08/07 21:04:29 existing blob: sha256:d8c575b2b52888c9ee09cee8dba37cd3b3035555769295d514229d43fbf47d8e
+2019/08/07 21:04:32 pushed blob: sha256:07d66c9e0aaea36e0acf4080e0b8b9f7657c1aeccecd5b06d3d00243fd0abf48
+2019/08/07 21:04:35 pushed blob: sha256:c436937a1f0ee1a4ee1a1046c895f28900e55cf431c2c2783256fb9539053999
+2019/08/07 21:04:36 gcr.io/jenkinsxio/builder-cf:0.0.0-SNAPSHOT-PR-636-35: digest: sha256:9d148f7ad278bcf79c13f1b251d225b94c434cdb9fc0002f1c19425162470e4a size: 5523
+Step: build-step-build-and-push-go:
+
+[36mINFO[0m[0000] Downloading base image gcr.io/jenkinsxio/builder-base:0.0.44 
+[36mINFO[0m[0000] Error while retrieving image from cache: getting file info: stat /workspace/sha256:f889e888c351a595832da82ebbc375d22984bab79073185de16affdfcef40f73: no such file or directory 
+[36mINFO[0m[0000] Downloading base image gcr.io/jenkinsxio/builder-base:0.0.44 
+[36mINFO[0m[0001] Checking for cached layer gcr.io/jenkinsxio/cache:f6188eea80faa4e980a9800dcb1054d5253e04277a957340cd063964cd0e7c93... 
+[36mINFO[0m[0001] Using caching version of cmd: RUN curl -f -o /etc/yum.repos.d/vbatts-bazel-epel-7.repo  https://copr.fedorainfracloud.org/coprs/vbatts/bazel/repo/epel-7/vbatts-bazel-epel-7.repo   && yum install -y bazel   && yum clean all 
+[36mINFO[0m[0001] Checking for cached layer gcr.io/jenkinsxio/cache:05ac2073ed8217d0d56545f4833f97a1c985a33b748deef5b9a2f6f359da1e81... 
+[36mINFO[0m[0002] Using caching version of cmd: RUN wget https://golang.org/dl/go$GOLANG_VERSION.linux-amd64.tar.gz &&   tar -C /usr/local -xzf go$GOLANG_VERSION.linux-amd64.tar.gz &&   rm go${GOLANG_VERSION}.linux-amd64.tar.gz 
+[36mINFO[0m[0002] Checking for cached layer gcr.io/jenkinsxio/cache:a5ed679ef90b67fac8f870ec3dd5b1b3b845d13ddc63d9eb3b09af2b3a96b4a5... 
+[36mINFO[0m[0003] Using caching version of cmd: RUN wget https://github.com/Masterminds/glide/releases/download/$GLIDE_VERSION/glide-$GLIDE_VERSION-linux-amd64.tar.gz &&   tar -xzf glide-$GLIDE_VERSION-linux-amd64.tar.gz &&   mv linux-amd64 /usr/local/glide &&   rm glide-$GLIDE_VERSION-linux-amd64.tar.gz 
+[36mINFO[0m[0003] Checking for cached layer gcr.io/jenkinsxio/cache:1212280c156fb63f95d260c69d653bbbc070856b0a2d30f6ca96cb20024ed289... 
+[36mINFO[0m[0003] Using caching version of cmd: RUN wget https://github.com/golang/dep/releases/download/$DEP_VERSION/dep-linux-amd64 && chmod +x dep-linux-amd64 &&   mv dep-linux-amd64 /usr/local/dep 
+[36mINFO[0m[0003] Checking for cached layer gcr.io/jenkinsxio/cache:758c3a7426d919f4d4c87d912e9b2de53da31be7a61eb8386346230f565c505e... 
+[36mINFO[0m[0004] Using caching version of cmd: RUN wget https://github.com/progrium/gh-release/releases/download/v$GH_RELEASE_VERSION/gh-release_${GH_RELEASE_VERSION}_linux_x86_64.tgz &&   tar -xzf gh-release_${GH_RELEASE_VERSION}_linux_x86_64.tgz &&   mv gh-release /usr/local/gh-release &&   rm gh-release_${GH_RELEASE_VERSION}_linux_x86_64.tgz 
+[36mINFO[0m[0004] Checking for cached layer gcr.io/jenkinsxio/cache:8d1a04fa48ab76312189d6d778ad8ac8035b9bb37daa9b3c0cde3122ef7a8895... 
+[36mINFO[0m[0004] Using caching version of cmd: RUN wget https://github.com/google/protobuf/releases/download/v${PROTOBUF}/protoc-${PROTOBUF}-linux-x86_64.zip &&   unzip protoc-${PROTOBUF}-linux-x86_64.zip -d protoc &&   chmod +x protoc && cp protoc/bin/protoc /usr/bin/protoc && rm -rf protoc 
+[36mINFO[0m[0004] Checking for cached layer gcr.io/jenkinsxio/cache:ddb82ff62efdf6b351149268ff012c123c892c62294b7338f2038bff29ff1af6... 
+[36mINFO[0m[0005] Using caching version of cmd: RUN go get github.com/DATA-DOG/godog/cmd/godog &&   mv $GOPATH/bin/godog /usr/local/ &&   rm -rf $GOPATH/src/github.com/DATA-DOG 
+[36mINFO[0m[0005] Checking for cached layer gcr.io/jenkinsxio/cache:8bc24b989671276e02531e0478a9ea7c566904734bb7b94af5031789496cd50a... 
+[36mINFO[0m[0006] Using caching version of cmd: RUN curl -Lf -o hugo.tar.gz https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz &&   tar xvfz hugo.tar.gz &&   mv hugo /usr/local &&   rm -fr hugo* &&   hugo version 
+[36mINFO[0m[0006] Checking for cached layer gcr.io/jenkinsxio/cache:f91e8a5df469a56d4ca9ef934cf37ac6b3ce2661f4e3ffa4604f7072ef0bca42... 
+[36mINFO[0m[0006] Using caching version of cmd: RUN go get github.com/derekparker/delve/cmd/dlv &&   mv $GOPATH/bin/* /usr/local/ &&   rm -rf $GOPATH/src/github.com/derekparker 
+[36mINFO[0m[0006] Checking for cached layer gcr.io/jenkinsxio/cache:3775cda029db257bf48e7308d77f8c4319fd66b8e8c360837f49dfe272c35a59... 
+[36mINFO[0m[0007] Using caching version of cmd: RUN go get gotest.tools/gotestsum &&   mv $GOPATH/bin/gotestsum /usr/local/ &&   rm -rf $GOPATH/src/gotest.tools 
+[36mINFO[0m[0007] Checking for cached layer gcr.io/jenkinsxio/cache:d714f6fd6cfae4916d08152ee3993ad4ddafebc79081f8532dd90114949a031d... 
+[36mINFO[0m[0007] No cached layer found for cmd RUN curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/ 
+[36mINFO[0m[0007] Unpacking rootfs as cmd RUN curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/ requires it. 
+[36mINFO[0m[0096] Taking snapshot of full filesystem...        
+[36mINFO[0m[0122] RUN curl -f -o /etc/yum.repos.d/vbatts-bazel-epel-7.repo  https://copr.fedorainfracloud.org/coprs/vbatts/bazel/repo/epel-7/vbatts-bazel-epel-7.repo   && yum install -y bazel   && yum clean all 
+[36mINFO[0m[0122] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0128] Taking snapshot of files...                  
+[36mINFO[0m[0136] ENV GOLANG_VERSION 1.12.4                    
+[36mINFO[0m[0136] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0136] RUN wget https://golang.org/dl/go$GOLANG_VERSION.linux-amd64.tar.gz &&   tar -C /usr/local -xzf go$GOLANG_VERSION.linux-amd64.tar.gz &&   rm go${GOLANG_VERSION}.linux-amd64.tar.gz 
+[36mINFO[0m[0136] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0145] Taking snapshot of files...                  
+[36mINFO[0m[0158] ENV GLIDE_VERSION v0.13.1                    
+[36mINFO[0m[0158] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0158] ENV GO15VENDOREXPERIMENT 1                   
+[36mINFO[0m[0158] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0158] RUN wget https://github.com/Masterminds/glide/releases/download/$GLIDE_VERSION/glide-$GLIDE_VERSION-linux-amd64.tar.gz &&   tar -xzf glide-$GLIDE_VERSION-linux-amd64.tar.gz &&   mv linux-amd64 /usr/local/glide &&   rm glide-$GLIDE_VERSION-linux-amd64.tar.gz 
+[36mINFO[0m[0158] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0158] Taking snapshot of files...                  
+[36mINFO[0m[0159] ENV DEP_VERSION v0.5.0                       
+[36mINFO[0m[0159] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0159] RUN wget https://github.com/golang/dep/releases/download/$DEP_VERSION/dep-linux-amd64 && chmod +x dep-linux-amd64 &&   mv dep-linux-amd64 /usr/local/dep 
+[36mINFO[0m[0159] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0159] Taking snapshot of files...                  
+[36mINFO[0m[0160] ENV GH_RELEASE_VERSION 2.2.1                 
+[36mINFO[0m[0160] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0160] RUN wget https://github.com/progrium/gh-release/releases/download/v$GH_RELEASE_VERSION/gh-release_${GH_RELEASE_VERSION}_linux_x86_64.tgz &&   tar -xzf gh-release_${GH_RELEASE_VERSION}_linux_x86_64.tgz &&   mv gh-release /usr/local/gh-release &&   rm gh-release_${GH_RELEASE_VERSION}_linux_x86_64.tgz 
+[36mINFO[0m[0160] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0160] Taking snapshot of files...                  
+[36mINFO[0m[0160] ENV PROTOBUF 3.5.1                           
+[36mINFO[0m[0160] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0160] RUN wget https://github.com/google/protobuf/releases/download/v${PROTOBUF}/protoc-${PROTOBUF}-linux-x86_64.zip &&   unzip protoc-${PROTOBUF}-linux-x86_64.zip -d protoc &&   chmod +x protoc && cp protoc/bin/protoc /usr/bin/protoc && rm -rf protoc 
+[36mINFO[0m[0160] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0160] Taking snapshot of files...                  
+[36mINFO[0m[0161] ENV PATH $PATH:/usr/local/go/bin             
+[36mINFO[0m[0161] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0161] ENV PATH $PATH:/usr/local/glide              
+[36mINFO[0m[0161] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0161] ENV PATH $PATH:/usr/local/dep                
+[36mINFO[0m[0161] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0161] ENV PATH $PATH:/usr/local/                   
+[36mINFO[0m[0161] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0161] ENV GOROOT /usr/local/go                     
+[36mINFO[0m[0161] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0161] ENV GOPATH=/home/jenkins/go                  
+[36mINFO[0m[0161] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0161] ENV PATH $PATH:$GOPATH/bin                   
+[36mINFO[0m[0161] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0161] RUN go get github.com/DATA-DOG/godog/cmd/godog &&   mv $GOPATH/bin/godog /usr/local/ &&   rm -rf $GOPATH/src/github.com/DATA-DOG 
+[36mINFO[0m[0161] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0161] Taking snapshot of files...                  
+[36mINFO[0m[0161] ENV HUGO_VERSION 0.49                        
+[36mINFO[0m[0161] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0161] RUN curl -Lf -o hugo.tar.gz https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz &&   tar xvfz hugo.tar.gz &&   mv hugo /usr/local &&   rm -fr hugo* &&   hugo version 
+[36mINFO[0m[0161] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0162] Taking snapshot of files...                  
+[36mINFO[0m[0163] RUN go get github.com/derekparker/delve/cmd/dlv &&   mv $GOPATH/bin/* /usr/local/ &&   rm -rf $GOPATH/src/github.com/derekparker 
+[36mINFO[0m[0163] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0165] Taking snapshot of files...                  
+[36mINFO[0m[0167] RUN go get gotest.tools/gotestsum &&   mv $GOPATH/bin/gotestsum /usr/local/ &&   rm -rf $GOPATH/src/gotest.tools 
+[36mINFO[0m[0167] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0168] Taking snapshot of files...                  
+[36mINFO[0m[0170] ENV JX_VERSION 2.0.568                       
+[36mINFO[0m[0170] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0170] RUN curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/ 
+[36mINFO[0m[0170] cmd: /bin/sh                                 
+[36mINFO[0m[0170] args: [-c curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/] 
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   612    0   612    0     0   2099      0 --:--:-- --:--:-- --:--:--  2103
-  0 65.6M    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  3 65.6M    3 2423k    0     0  1468k      0  0:00:45  0:00:01  0:00:44 2561k 17 65.6M   17 11.7M    0     0  3645k      0  0:00:18  0:00:03  0:00:15 4630k 29 65.6M   29 19.4M    0     0  5468k      0  0:00:12  0:00:03  0:00:09 6775k 36 65.6M   36 24.1M    0     0  5094k      0  0:00:13  0:00:04  0:00:09 5958k 64 65.6M   64 42.5M    0     0  7501k      0  0:00:08  0:00:05  0:00:03 8537k 97 65.6M   97 63.9M    0     0  9697k      0  0:00:06  0:00:06 --:--:-- 12.0M100 65.6M  100 65.6M    0     0  9754k      0  0:00:06  0:00:06 --:--:-- 15.0M
-[36mINFO[0m[0298] Taking snapshot of full filesystem...        
-[36mINFO[0m[0328] Pushing layer gcr.io/jenkinsxio/cache:d0635974ca565a8f9e9f532f1fd1274fc83348d362855795bdaeff4d7df3184a to cache now 
-2019/08/07 20:53:44 pushed blob: sha256:e47ded083ceba6dd84123f1e21231f2a24871263998ab60e0656ec66c2a383c4
-2019/08/07 20:53:54 pushed blob: sha256:8873b920fbe64ca0f658eb50daeb83ef93bc0da14f9d76fcdf2476cec26615c6
-2019/08/07 20:53:55 gcr.io/jenkinsxio/cache:d0635974ca565a8f9e9f532f1fd1274fc83348d362855795bdaeff4d7df3184a: digest: sha256:3acd1f105942f094c9e7abad01a79f267cb95ed11b43a72fc0f6e42745d6dc92 size: 429
-2019/08/07 20:53:56 existing blob: sha256:380e2049619257332988d1d9fa7cf39539f328dec43df5eadddf985efa9d5b70
-2019/08/07 20:53:56 existing blob: sha256:04213678e91c62a8bb16267a8e3a3cb00dc885782179388b40fe6532341530c7
-2019/08/07 20:53:56 existing blob: sha256:72744d0a318b0788001cc4f5f83c6847ba4b753307fadd046b508bbc41eb9e29
-2019/08/07 20:53:56 existing blob: sha256:232232af6ec6eec72491c0c9489f86dfdf41f841b950d45a382079ee38716a66
-2019/08/07 20:53:56 existing blob: sha256:65b45673f4373a9a3c307350a372ac8db0d05a996d90a733612fb8e8d91a6111
-2019/08/07 20:53:56 existing blob: sha256:9b2061e162632d77a25776356dbd31558543644cc1cf8a83515cb3aa3b270480
-2019/08/07 20:53:56 existing blob: sha256:4189ef76b32d1ef6520f2bebe686c27aa5fc7f38e21953ccb1cbbbfbab89b4a1
-2019/08/07 20:53:56 existing blob: sha256:c57b3995d9e150bed3d13f46a2ba1aa43b6f9d0621b3de76f6d3a8a1af50e3ab
-2019/08/07 20:53:56 existing blob: sha256:bc9ab73e5b14b9fbd3687a4d8c1f1360533d6ee9ffc3f5ecc6630794b40257b7
-2019/08/07 20:53:56 existing blob: sha256:934b06fa8cfa289eaad6c8ddc6f3f02e0083a09efcc091c6d07fae8d469dbb62
-2019/08/07 20:53:56 existing blob: sha256:8873b920fbe64ca0f658eb50daeb83ef93bc0da14f9d76fcdf2476cec26615c6
-2019/08/07 20:53:56 existing blob: sha256:33f55007e352482f079f1dbbf511a632c16e40e6b2b291f20fedc7a6bd84d7e5
-2019/08/07 20:53:56 existing blob: sha256:a2a7264255929d31586b2389e52c0939bdd2f627b72e6aca55ff169108589524
-2019/08/07 20:53:56 existing blob: sha256:15aae1fd4c8dd5cb295e732f9a15ee9e7829448cea52331b0c9577cbdc0f701e
-2019/08/07 20:53:56 existing blob: sha256:f7fc55f768eaf9aff651865fce65dc0484b90f0849bd368a210ae5eb6cf1b64a
-2019/08/07 20:53:56 existing blob: sha256:193a6306c92af328dbd41bbbd3200a2c90802624cccfe5725223324428110d7f
-2019/08/07 20:53:56 existing blob: sha256:74ae596dcbf434e7d3c4e4fb61f0770a591b44555d890967df9fb48d2784d660
-2019/08/07 20:53:56 existing blob: sha256:0141ed72a9086f88844b12693debd7da3920c3f3de2d5082c95fc063ff401181
-2019/08/07 20:53:56 existing blob: sha256:e5c3f8c317dc30af45021092a3d76f16ba7aa1ee5f18fec742c84d4960818580
-2019/08/07 20:53:56 existing blob: sha256:31d57ef7a684bffc0decadb0c268cf3c9b582271caab5565148ed4a87d7c4167
-2019/08/07 20:53:56 existing blob: sha256:38fecbcd9c18a2110608dd5af4ab05dd3d355eae3ea6c291f88ca9168016cb03
-2019/08/07 20:53:56 existing blob: sha256:a587a86c9dcb9df6584180042becf21e36ecd8b460a761711227b4b06889a005
-2019/08/07 20:53:56 existing blob: sha256:26c7c50954cdde3f0c07bba6f7380f8cc54a41341bcdd2e7a0921f241eb5e41b
-2019/08/07 20:53:56 existing blob: sha256:61867ca3bdaae8ffefd96eaa67fad1222e48b93ba875c10ebaee772a59843b8f
-2019/08/07 20:53:56 existing blob: sha256:4364de23977f05aa0d9c1428ea0c951124d9f8fd47f38284d1b433c667c6603a
-2019/08/07 20:53:56 existing blob: sha256:6a20895ca01c046a03b74a81de66b0d4cf7c4cc44b338855e425f4f60d9d0be4
-2019/08/07 20:53:56 existing blob: sha256:b260fc47d21d0a4c3b90c054d2d5353a737ac7bbc318eeebca645ba2a453f885
-2019/08/07 20:53:56 existing blob: sha256:fb15cc90504fedd5136d7cbbc0cdd7f061e04c46f5a3bde691cbab3ae5a21a4f
-2019/08/07 20:53:56 existing blob: sha256:75ae3c3502dfe7f8c63737ff5761cae5319bfd2b2729061c2d771f38c6a5e36f
-2019/08/07 20:53:56 existing blob: sha256:86743d0a4e7d9d868c585fde4d41099f044f4f9f75850b9e6fa2be04b6151b6b
-2019/08/07 20:53:56 existing blob: sha256:242245e0f8a525dda51325ad307194306db015974aa166e876c1170760bdd0d2
-2019/08/07 20:53:56 existing blob: sha256:4f2f2375eda7fcb98cd22858eb3008c610add3f9d1e993ccec0d32b5b0d9c825
-2019/08/07 20:53:59 pushed blob: sha256:c86f2acedf74db168cf42154a5aa12914d577b08cdf0feff3025a4a8997217ac
-error pushing image: failed to push to destination gcr.io/jenkinsxio/builder-ruby:0.0.0-SNAPSHOT-PR-636-35: UNKNOWN: Failed to check blob "sha256:74ae596dcbf434e7d3c4e4fb61f0770a591b44555d890967df9fb48d2784d660" for manifest "sha256:e28288bde514c931d5891882b0bb253ecf79a453f40df0fe5bf5886df66c5bc7"
-Step: build-step-build-and-push-rust:
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   612    0   612    0     0   1488      0 --:--:-- --:--:-- --:--:--  1485
+LICENSE
+README.md
+changelog.md
+**
+  0 65.6M    0  423k    0     0   337k      0  0:03:19  0:00:01  0:03:18  337k 29 65.6M   29 19.6M    0     0  8904k      0  0:00:07  0:00:02  0:00:05 19.1M 71 65.6M   71 46.6M    0     0  14.3M      0  0:00:04  0:00:03  0:00:01 23.1M100 65.6M  100 65.6M    0     0  16.7M      0  0:00:03  0:00:03 --:--:-- 24.5M
+[36mINFO[0m[0173] Taking snapshot of full filesystem...        
+[36mINFO[0m[0177] Adding whiteout for /var/cache/yum/x86_64/7/base/gen/comps.xml 
+[36mINFO[0m[0177] Adding whiteout for /var/cache/yum/x86_64/7/google-chrome/repomd.xml 
+[36mINFO[0m[0177] Adding whiteout for /var/cache/yum/x86_64/7/base/cachecookie 
+[36mINFO[0m[0177] Adding whiteout for /var/lib/yum/rpmdb-indexes/conflicts 
+[36mINFO[0m[0177] Adding whiteout for /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite 
+[36mINFO[0m[0177] Adding whiteout for /var/cache/yum/x86_64/7/base/gen/primary_db.sqlite 
+[36mINFO[0m[0177] Adding whiteout for /var/cache/yum/x86_64/7/updates/2c2cf8e196fcaafe88087e86175911120578086d4648cb8260fbffc9326e2bcb-filelists.sqlite.bz2 
+[36mINFO[0m[0177] Adding whiteout for /var/cache/yum/x86_64/7/epel/metalink.xml 
+[36mINFO[0m[0177] Adding whiteout for /var/lib/yum/rpmdb-indexes/version 
+[36mINFO[0m[0177] Adding whiteout for /var/cache/yum/x86_64/7/epel/d97ad2922a45eb2a5fc007fdd84e7ae4981b257d3b94c3c9f5d7b0dda6baa098-comps-Everything.x86_64.xml.gz 
+[36mINFO[0m[0177] Adding whiteout for /var/cache/yum/x86_64/7/updates/mirrorlist.txt 
+[36mINFO[0m[0177] Adding whiteout for /var/cache/yum/x86_64/7/google-chrome/gen/primary.xml.sqlite 
+[36mINFO[0m[0177] Adding whiteout for /var/cache/yum/x86_64/7/base/gen/filelists_db.sqlite 
+[36mINFO[0m[0177] Adding whiteout for /var/cache/yum/x86_64/7/epel/cachecookie 
+[36mINFO[0m[0177] Adding whiteout for /var/cache/yum/x86_64/7/updates/repomd.xml 
+[36mINFO[0m[0177] Adding whiteout for /tmp/hsperfdata_root/5981 
+[36mINFO[0m[0177] Adding whiteout for /var/cache/yum/x86_64/7/base/repomd.xml 
+[36mINFO[0m[0177] Adding whiteout for /var/cache/yum/x86_64/7/timedhosts.txt 
+[36mINFO[0m[0177] Adding whiteout for /var/cache/yum/x86_64/7/epel/gen/comps.xml 
+[36mINFO[0m[0177] Adding whiteout for /var/cache/yum/x86_64/7/updates/gen/filelists_db.sqlite 
+[36mINFO[0m[0177] Adding whiteout for /var/cache/yum/x86_64/7/extras/repomd.xml 
+[36mINFO[0m[0177] Adding whiteout for /var/cache/yum/x86_64/7/epel/repomd.xml 
+[36mINFO[0m[0177] Adding whiteout for /var/cache/yum/x86_64/7/extras/cachecookie 
+[36mINFO[0m[0177] Adding whiteout for /var/cache/yum/x86_64/7/base/6614b3605d961a4aaec45d74ac4e5e713e517debb3ee454a1c91097955780697-primary.sqlite.bz2 
+[36mINFO[0m[0177] Adding whiteout for /var/cache/yum/x86_64/7/epel/67524caa6631e887a5ec38e3facaaa685101876958e16bcb69c6e7a5f77aa607-primary.sqlite.bz2 
+[36mINFO[0m[0177] Adding whiteout for /var/cache/yum/x86_64/7/google-chrome/cachecookie 
+[36mINFO[0m[0177] Adding whiteout for /var/cache/yum/x86_64/7/updates/c317d43ffabba63436dd2fd246cd83fb0fef9cce712f8b67ef371e29e81aef4a-primary.sqlite.bz2 
+[36mINFO[0m[0177] Adding whiteout for /var/cache/yum/x86_64/7/extras/mirrorlist.txt 
+[36mINFO[0m[0177] Adding whiteout for /var/cache/yum/x86_64/7/extras/gen/primary_db.sqlite 
+[36mINFO[0m[0177] Adding whiteout for /var/cache/yum/x86_64/7/updates/7303cbcc9806f8d266e12f27067a972b40e736f13800129e79d035fdd8883df6-primary.sqlite.bz2 
+[36mINFO[0m[0177] Adding whiteout for /var/cache/yum/x86_64/7/epel/5bcd966a5e87d03e75963c79096fb0e5d5ad89a705a9f220c998fea556d32255-updateinfo.xml.bz2 
+[36mINFO[0m[0177] Adding whiteout for /var/cache/yum/x86_64/7/base/a0ec5a4708a1026db100d4799c404c9ed48a9371a4bab234a1355f86628a244a-filelists.sqlite.bz2 
+[36mINFO[0m[0177] Adding whiteout for /var/cache/yum/x86_64/7/extras/8040035f545d88fec517382949ce96902ed4ef232874e68bdf2ffdbcf2c6c2ec-primary.sqlite.bz2 
+[36mINFO[0m[0177] Adding whiteout for /var/lib/yum/rpmdb-indexes/pkgtups-checksums 
+[36mINFO[0m[0177] Adding whiteout for /var/lib/yum/rpmdb-indexes/obsoletes 
+[36mINFO[0m[0177] Adding whiteout for /var/cache/yum/x86_64/7/google-chrome/primary.xml.gz 
+[36mINFO[0m[0177] Adding whiteout for /var/cache/yum/x86_64/7/base/mirrorlist.txt 
+[36mINFO[0m[0177] Adding whiteout for /var/cache/yum/x86_64/7/epel/d2d16b74b98b26292868d49413181da81c791150ce460be98bcf0628f3005bc7-updateinfo.xml.bz2 
+[36mINFO[0m[0177] Adding whiteout for /var/cache/yum/x86_64/7/updates/cachecookie 
+[36mINFO[0m[0177] Adding whiteout for /var/cache/yum/x86_64/7/epel/90a58610660455abd8f6aa587347a572e9ebc7bf949fd777fd9358d3d7c0b481-primary.sqlite.bz2 
+[36mINFO[0m[0177] Adding whiteout for /var/lib/yum/rpmdb-indexes/file-requires 
+[36mINFO[0m[0177] Adding whiteout for /var/cache/yum/x86_64/7/google-chrome/gen/primary.xml 
+[36mINFO[0m[0177] Adding whiteout for /var/cache/yum/x86_64/7/base/bc140c8149fc43a5248fccff0daeef38182e49f6fe75d9b46db1206dc25a6c1c-c7-x86_64-comps.xml.gz 
+[36mINFO[0m[0177] Adding whiteout for /var/cache/yum/x86_64/7/epel/gen/primary_db.sqlite 
+[36mINFO[0m[0209] Pushing layer gcr.io/jenkinsxio/cache:d714f6fd6cfae4916d08152ee3993ad4ddafebc79081f8532dd90114949a031d to cache now 
+[36mINFO[0m[0209] CMD ["go","version"]                         
+[36mINFO[0m[0209] No files changed in this command, skipping snapshotting. 
+2019/08/07 21:08:10 pushed blob: sha256:e3ceca2977a30141a853f91cb808a89a213d0dd93a53ac5f8a197c74bdcbe9a9
+2019/08/07 21:08:18 pushed blob: sha256:baa039f8e026e2497be315f0ad7bba72750992441f179eeb102f59a6ec3490d0
+2019/08/07 21:08:20 gcr.io/jenkinsxio/cache:d714f6fd6cfae4916d08152ee3993ad4ddafebc79081f8532dd90114949a031d: digest: sha256:ff265570955e0bd9f156325aa9fc3a9b194b96dd5660d2a2fef04c827cb8541c size: 429
+2019/08/07 21:08:20 existing blob: sha256:bee0a13648017886c5915ce5dec608f24dbea7b8a1e044c8fb2105ceea408afa
+2019/08/07 21:08:20 existing blob: sha256:7c017636a6a609d8d318a4bebb3b6cc13feaf476f6a2ecc83d28e117314d5f6f
+2019/08/07 21:08:20 existing blob: sha256:d8c575b2b52888c9ee09cee8dba37cd3b3035555769295d514229d43fbf47d8e
+2019/08/07 21:08:20 existing blob: sha256:7ec2ffb56c90d8cad824dd30eeb4abbbc7321596c47a7dca90095935c3c2b656
+2019/08/07 21:08:20 existing blob: sha256:beeb2bddff350965322c530827ce314058a5af7f4f628d9ef9c97dd73e48d016
+2019/08/07 21:08:20 existing blob: sha256:d773df446b2002f5750748d96b7929546effb66991006aa6fb556a70823be462
+2019/08/07 21:08:20 existing blob: sha256:a8354d42e6911ab8001edfffa1934a1a9b357d1541f5cecc792b9a4172d76f46
+2019/08/07 21:08:20 existing blob: sha256:429b38434357f169ce8a79a4bb39ca386ccf658ae7482b6ff602a86e6191960e
+2019/08/07 21:08:20 existing blob: sha256:d1f08e18f79c532c470770e5fb7824e610deebfdcfe3775f6a1ad385b65e5e95
+2019/08/07 21:08:20 existing blob: sha256:dc63401c3d75fac7a497daa2cafd4f9475f14315cad51212c86a771fc8483877
+2019/08/07 21:08:20 existing blob: sha256:7f205009ed1da43f1f35b5edc07400e345ce6c01cb46e1ae41365386e9434c45
+2019/08/07 21:08:20 existing blob: sha256:897e54f35a4b2ed07f22d316f09a9aa9ea68765f226654989a175bb51361e86e
+2019/08/07 21:08:20 existing blob: sha256:05ee8f48257315be25616db5b2ef5381d577bdee423068b8408404125b64fde4
+2019/08/07 21:08:20 existing blob: sha256:92ade984df77a2da628fb1374cdf03f767152d12cd5df74465e4bc8bb39edb58
+2019/08/07 21:08:20 existing blob: sha256:94b3b7648b5544a05178b5994d088a23b3b253f02d4aa676b986f9e7fb36a10e
+2019/08/07 21:08:20 existing blob: sha256:2b32a7993762fbfba5aa8a5daff2add717642b5093dc66b0cafb2cd38dd00c4d
+2019/08/07 21:08:20 existing blob: sha256:6d138d81df365a45ab5fcf8e3f3da8357c45afe495207ecd09d2af0eb98505c5
+2019/08/07 21:08:20 existing blob: sha256:b1587e65165c461940963893326da19b2bc15471f6191bfdd9194758cb886aa6
+2019/08/07 21:08:20 existing blob: sha256:5470abb626135f17b82fe46ee94962781a8aba7069a4c0b1898182daa4f429e3
+2019/08/07 21:08:20 existing blob: sha256:b6fba42ef133eece995deb10c314cf8baa51ec1bd7dbea9ab259a5d79dcdfda1
+2019/08/07 21:08:20 existing blob: sha256:f92a8369d697ee4bd7673d9254752c241eecc4a23096bbb32f3034d11811b5a1
+2019/08/07 21:08:20 existing blob: sha256:5069d699406c01c82af4f4e6147348dc551cb5d39e0d20dd1750bdce5b49c585
+2019/08/07 21:08:20 existing blob: sha256:baa039f8e026e2497be315f0ad7bba72750992441f179eeb102f59a6ec3490d0
+2019/08/07 21:08:20 existing blob: sha256:ad349869970c8798ce6e2a8404e3c3432c2a6b7a563597120bc871c539b652af
+2019/08/07 21:08:20 existing blob: sha256:6756e87e029cdeb551ccf519eaebcf80e3441dd2bb37ed39b7c2268b4774b10b
+2019/08/07 21:08:20 existing blob: sha256:f25494c611ea091e11b157eb61a293f87abd08ed88d620a7c339749a5df70962
+2019/08/07 21:08:20 existing blob: sha256:f9443307d73a890bbffbe23bbf8ce9a8e5e6d99b3a206bbd1959c80ea2cea61f
+2019/08/07 21:08:20 existing blob: sha256:f49b7820967adb88e448f3c2a00267d9ea953eabbd3a81db6b7906a4920623b4
+2019/08/07 21:08:20 existing blob: sha256:e5e2dacee7b09f7927bbd054ec3859e5555a27d569da5193f4cabac285053f9b
+2019/08/07 21:08:20 existing blob: sha256:b1c1d1dc3c9b9ab62839f55f0b0da8856c9afa9d6fd1df987a48f582cc28183c
+2019/08/07 21:08:20 existing blob: sha256:ce53723240799b4450ccf6661e55e7277a52d14666b060a129af4125a69ac70e
+2019/08/07 21:08:20 existing blob: sha256:2cde0a33cb63aa41a1ab3fbdc3afc787a086314a625c30f7b68bc7ac02c6660e
+2019/08/07 21:08:20 existing blob: sha256:065e519718393bdd264839cafc4d57eb600832a903765af6d41af5819dd4d160
+2019/08/07 21:08:20 existing blob: sha256:e9a4c35ad61cad784a131d0f92049275dd723a285dbbe655755f5d53793e621c
+2019/08/07 21:08:20 existing blob: sha256:c057044b6494e7faa7c8ee391944346ad0433ea60e58470725231b351b622f9c
+2019/08/07 21:08:20 existing blob: sha256:8ba884070f611d31cb2c42eddb691319dc9facf5e0ec67672fcfa135181ab3df
+2019/08/07 21:08:23 pushed blob: sha256:fd6d02a102df3873e6cefd320e8408e0d4f65f26c4c2d8dc88f0dc929061b59e
+2019/08/07 21:08:25 pushed blob: sha256:da73f6ac3c5b64699bd9919d0ef47fb72828c86cb8b8db107967376d58036c95
+2019/08/07 21:08:28 pushed blob: sha256:d5b8d1478952335d74c843b38a241b980a82b3001acef8fc10b177f2c2419a08
+2019/08/07 21:08:32 pushed blob: sha256:e06bdaf2cee435d88e4e2d202eccb86e8caa94d86582578876e6c544ca44a03a
+2019/08/07 21:08:47 pushed blob: sha256:fdc0c986edba84ca3a9271f31bf5d75de97cbf409d8da59040b162fd7d060faf
+2019/08/07 21:08:51 pushed blob: sha256:df95720b1869d499feb9cc8716305076c3be4952061e33089efcb4332f8b7a00
+2019/08/07 21:08:52 gcr.io/jenkinsxio/builder-go:0.0.0-SNAPSHOT-PR-636-35: digest: sha256:436477d40630e9d208bad3172dcf295a5bbb7ce8d55bb604357988162e14399f size: 7004
+Step: build-step-build-and-push-python37:
 
+[36mINFO[0m[0000] Downloading base image gcr.io/jenkinsxio/builder-base:0.0.45 
+[36mINFO[0m[0000] Found sha256:4b5edd0093e2154c3b8e56247f72b0c50f931fb7c559a7e267bfcc9fa202e8ee in local cache 
+[36mINFO[0m[0001] Found manifest at /workspace/sha256:4b5edd0093e2154c3b8e56247f72b0c50f931fb7c559a7e267bfcc9fa202e8ee.json 
+[36mINFO[0m[0001] Checking for cached layer gcr.io/jenkinsxio/cache:f3d81dfb64bbf637a2645ffecbde8a5e135909f9c719d9342763de32e55e98c1... 
+[36mINFO[0m[0001] Using caching version of cmd: RUN yum -y install gcc openssl-devel bzip2-devel libffi-devel && yum clean all 
+[36mINFO[0m[0001] Checking for cached layer gcr.io/jenkinsxio/cache:a27a633db1c50245dac8f0fa9e609867e5994e03243c69620eb96c25d2780665... 
+[36mINFO[0m[0002] Using caching version of cmd: RUN cd /usr/src &&     wget https://www.python.org/ftp/python/${PYTHONVERSION}/Python-${PYTHONVERSION}.tgz &&     tar xzf Python-${PYTHONVERSION}.tgz &&     cd Python-${PYTHONVERSION} &&     ./configure --enable-optimizations &&     make altinstall &&     rm /usr/src/Python-${PYTHONVERSION}.tgz &&     cd ../ &&     rm -rf /usr/src/Python-${PYTHONVERSION} 
+[36mINFO[0m[0002] Checking for cached layer gcr.io/jenkinsxio/cache:872416613abebcee62803d40dfcffe10c4ab01dab24b8a36b17eea71694acd91... 
+[36mINFO[0m[0003] Using caching version of cmd: RUN ln -s /usr/local/bin/python3.7 /usr/bin/python3 
+[36mINFO[0m[0003] Checking for cached layer gcr.io/jenkinsxio/cache:281c06d1be9c660c8b64ce125d859a4da6f6d75c680aeef8d0be83d20959cd9a... 
+[36mINFO[0m[0003] Using caching version of cmd: RUN yum -y remove gcc openssl-devel bzip2-devel 
+[36mINFO[0m[0003] Checking for cached layer gcr.io/jenkinsxio/cache:6b48ed334d6f0294f96577dacd46f484b406511fd02c8479af7872660d310bfc... 
+[36mINFO[0m[0004] Using caching version of cmd: RUN easy_install-3.7 pip 
+[36mINFO[0m[0004] Checking for cached layer gcr.io/jenkinsxio/cache:1860e814251a203440a6380b2ff72ca0ad299d24c725d496f43da87b033b07eb... 
+[36mINFO[0m[0004] Using caching version of cmd: RUN pip install --upgrade pip 
+[36mINFO[0m[0004] Checking for cached layer gcr.io/jenkinsxio/cache:2aef9743a1bc71ca29ed3d1b1553029f07052aae7ccaff73f1f36fae30c953da... 
+[36mINFO[0m[0005] Using caching version of cmd: RUN pip install --upgrade awscli 
+[36mINFO[0m[0005] Checking for cached layer gcr.io/jenkinsxio/cache:b9f165dd82f897b9506f4588cf68492eea3042bbcd861a88eecd9084a6338388... 
+[36mINFO[0m[0006] Using caching version of cmd: RUN pip install --upgrade awscli-local 
+[36mINFO[0m[0006] Checking for cached layer gcr.io/jenkinsxio/cache:fb655dd43a8828df372195199816115dde5e003ba7a6585631f58923053cf7eb... 
+[36mINFO[0m[0006] No cached layer found for cmd RUN curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/ 
+[36mINFO[0m[0006] Unpacking rootfs as cmd RUN curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/ requires it. 
+[36mINFO[0m[0080] Taking snapshot of full filesystem...        
+[36mINFO[0m[0117] ENV PYTHONVERSION 3.7.1                      
+[36mINFO[0m[0117] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0117] RUN yum -y install gcc openssl-devel bzip2-devel libffi-devel && yum clean all 
+[36mINFO[0m[0117] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0118] Taking snapshot of files...                  
+[36mINFO[0m[0119] RUN cd /usr/src &&     wget https://www.python.org/ftp/python/${PYTHONVERSION}/Python-${PYTHONVERSION}.tgz &&     tar xzf Python-${PYTHONVERSION}.tgz &&     cd Python-${PYTHONVERSION} &&     ./configure --enable-optimizations &&     make altinstall &&     rm /usr/src/Python-${PYTHONVERSION}.tgz &&     cd ../ &&     rm -rf /usr/src/Python-${PYTHONVERSION} 
+[36mINFO[0m[0119] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0124] Taking snapshot of files...                  
+[36mINFO[0m[0131] RUN ln -s /usr/local/bin/python3.7 /usr/bin/python3 
+[36mINFO[0m[0131] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0132] Taking snapshot of files...                  
+[36mINFO[0m[0132] RUN yum -y remove gcc openssl-devel bzip2-devel 
+[36mINFO[0m[0132] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0133] Taking snapshot of files...                  
+[36mINFO[0m[0135] RUN easy_install-3.7 pip                     
+[36mINFO[0m[0135] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0135] Taking snapshot of files...                  
+[36mINFO[0m[0135] RUN pip install --upgrade pip                
+[36mINFO[0m[0135] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0136] Taking snapshot of files...                  
+[36mINFO[0m[0136] RUN pip install --upgrade awscli             
+[36mINFO[0m[0136] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0138] Taking snapshot of files...                  
+[36mINFO[0m[0140] RUN pip install --upgrade awscli-local       
+[36mINFO[0m[0140] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0141] Taking snapshot of files...                  
+[36mINFO[0m[0141] ENV JX_VERSION 2.0.568                       
+[36mINFO[0m[0141] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0141] RUN curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/ 
+[36mINFO[0m[0141] cmd: /bin/sh                                 
+[36mINFO[0m[0141] args: [-c curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/] 
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   612    0   612    0     0   1706      0 --:--:-- --:--:-- --:--:--  1709
+LICENSE
+README.md
+changelog.md
+**
+  0 65.6M    0 16967    0     0  20862      0  0:54:59 --:--:--  0:54:59 20862 18 65.6M   18 12.3M    0     0  7203k      0  0:00:09  0:00:01  0:00:08 13.1M 55 65.6M   55 36.1M    0     0  13.1M      0  0:00:05  0:00:02  0:00:03 18.6M 85 65.6M   85 55.9M    0     0  14.9M      0  0:00:04  0:00:03  0:00:01 19.0M100 65.6M  100 65.6M    0     0  15.1M      0  0:00:04  0:00:04 --:--:-- 18.6M
+[36mINFO[0m[0145] Taking snapshot of full filesystem...        
+[36mINFO[0m[0149] Adding whiteout for /var/cache/yum/x86_64/7/google-chrome/gen/primary.xml 
+[36mINFO[0m[0149] Adding whiteout for /usr/lib/gcc/x86_64-redhat-linux/4.8.2/libcloog-isl.so.4 
+[36mINFO[0m[0149] Adding whiteout for /var/cache/yum/x86_64/7/epel/5bcd966a5e87d03e75963c79096fb0e5d5ad89a705a9f220c998fea556d32255-updateinfo.xml.bz2 
+[36mINFO[0m[0149] Adding whiteout for /usr/bin/x86_64-redhat-linux-gcc 
+[36mINFO[0m[0149] Adding whiteout for /var/cache/yum/x86_64/7/epel/90a58610660455abd8f6aa587347a572e9ebc7bf949fd777fd9358d3d7c0b481-primary.sqlite.bz2 
+[36mINFO[0m[0149] Adding whiteout for /var/cache/yum/x86_64/7/base/bc140c8149fc43a5248fccff0daeef38182e49f6fe75d9b46db1206dc25a6c1c-c7-x86_64-comps.xml.gz 
+[36mINFO[0m[0149] Adding whiteout for /usr/lib/gcc/x86_64-redhat-linux/4.8.2/libatomic.so 
+[36mINFO[0m[0149] Adding whiteout for /usr/bin/gcc-ar          
+[36mINFO[0m[0149] Adding whiteout for /usr/share/aclocal/libtool.m4 
+[36mINFO[0m[0149] Adding whiteout for /usr/share/aclocal/lt~obsolete.m4 
+[36mINFO[0m[0149] Adding whiteout for /var/lib/yum/yumdb/b/087ce96122a3b258ef40105d7237198210eadc6f-bzip2-devel-1.0.6-13.el7-x86_64 
+[36mINFO[0m[0149] Adding whiteout for /var/cache/yum/x86_64/7/epel/repomd.xml 
+[36mINFO[0m[0149] Adding whiteout for /var/cache/yum/x86_64/7/google-chrome/cachecookie 
+[36mINFO[0m[0149] Adding whiteout for /usr/bin/gfortran        
+[36mINFO[0m[0149] Adding whiteout for /usr/share/vim/vimfiles/ftdetect/stp.vim 
+[36mINFO[0m[0149] Adding whiteout for /var/cache/yum/x86_64/7/base/gen/comps.xml 
+[36mINFO[0m[0149] Adding whiteout for /var/cache/yum/x86_64/7/updates/c317d43ffabba63436dd2fd246cd83fb0fef9cce712f8b67ef371e29e81aef4a-primary.sqlite.bz2 
+[36mINFO[0m[0149] Adding whiteout for /usr/libexec/gcc/x86_64-redhat-linux/4.8.2/liblto_plugin.so.0 
+[36mINFO[0m[0149] Adding whiteout for /usr/share/vim/vimfiles/indent/stp.vim 
+[36mINFO[0m[0149] Adding whiteout for /usr/lib64/libssl.so     
+[36mINFO[0m[0149] Adding whiteout for /usr/share/aclocal/ltsugar.m4 
+[36mINFO[0m[0149] Adding whiteout for /usr/lib64/pkgconfig/openssl.pc 
+[36mINFO[0m[0149] Adding whiteout for /usr/lib/gcc/x86_64-redhat-linux/4.8.2/libgcov.a 
+[36mINFO[0m[0149] Adding whiteout for /usr/lib/gcc/x86_64-redhat-linux/4.8.2/crtprec32.o 
+[36mINFO[0m[0149] Adding whiteout for /var/lib/yum/yumdb/l/d9f9bde5f7771bda13ac697f0e96955cd9e76ac1-libquadmath-devel-4.8.5-36.el7_6.2-x86_64 
+[36mINFO[0m[0149] Adding whiteout for /usr/local/lib/python3.7/site-packages/pip/_internal/basecommand.py 
+[36mINFO[0m[0149] Adding whiteout for /usr/lib/gcc/x86_64-redhat-linux/4.8.2/crtendS.o 
+[36mINFO[0m[0149] Adding whiteout for /usr/lib/gcc/x86_64-redhat-linux/4.8.2/libquadmath.so 
+[36mINFO[0m[0149] Adding whiteout for /usr/bin/x86_64-redhat-linux-c++ 
+[36mINFO[0m[0149] Adding whiteout for /usr/local/lib/python3.7/site-packages/pip/_vendor/urllib3/packages/ordered_dict.py 
+[36mINFO[0m[0149] Adding whiteout for /var/lib/yum/yumdb/g/e2eaae72607c545e94c314ad20b4385d6c990c77-gcc-4.8.5-36.el7_6.2-x86_64 
+[36mINFO[0m[0149] Adding whiteout for /usr/local/lib/python3.7/site-packages/pip/_internal/compat.py 
+[36mINFO[0m[0149] Adding whiteout for /var/cache/yum/x86_64/7/base/cachecookie 
+[36mINFO[0m[0149] Adding whiteout for /var/cache/yum/x86_64/7/google-chrome/gen/primary.xml.sqlite 
+[36mINFO[0m[0149] Adding whiteout for /usr/lib64/libbz2.so     
+[36mINFO[0m[0149] Adding whiteout for /usr/local/lib/python3.7/site-packages/pip/_vendor/progress/__pycache__/helpers.cpython-37.pyc 
+[36mINFO[0m[0149] Adding whiteout for /usr/lib/gcc/x86_64-redhat-linux/4.8.2/libgfortran.spec 
+[36mINFO[0m[0149] Adding whiteout for /usr/local/lib/python3.7/site-packages/pip/_internal/__pycache__/compat.cpython-37.pyc 
+[36mINFO[0m[0149] Adding whiteout for /usr/libexec/gcc/x86_64-redhat-linux/4.8.2/f951 
+[36mINFO[0m[0149] Adding whiteout for /usr/bin/gcc-ranlib      
+[36mINFO[0m[0149] Adding whiteout for /usr/libexec/gcc/x86_64-redhat-linux/4.8.2/liblto_plugin.so 
+[36mINFO[0m[0149] Adding whiteout for /usr/bin/g++             
+[36mINFO[0m[0149] Adding whiteout for /var/cache/yum/x86_64/7/extras/repomd.xml 
+[36mINFO[0m[0149] Adding whiteout for /usr/lib/gcc/x86_64-redhat-linux/4.8.2/libgfortran.so 
+[36mINFO[0m[0149] Adding whiteout for /usr/lib/gcc/x86_64-redhat-linux/4.8.2/libcaf_single.a 
+[36mINFO[0m[0149] Adding whiteout for /usr/lib/gcc/x86_64-redhat-linux/4.8.2/32 
+[36mINFO[0m[0149] Adding whiteout for /usr/local/lib/python3.7/site-packages/pip/_vendor/urllib3/packages/__pycache__/ordered_dict.cpython-37.pyc 
+[36mINFO[0m[0149] Adding whiteout for /usr/lib/gcc/x86_64-redhat-linux/4.8.2/crtbegin.o 
+[36mINFO[0m[0149] Adding whiteout for /usr/lib/gcc/x86_64-redhat-linux/4.8.2/crtfastmath.o 
+[36mINFO[0m[0149] Adding whiteout for /usr/lib/gcc/x86_64-redhat-linux/4.8.2/libgomp.spec 
+[36mINFO[0m[0149] Adding whiteout for /usr/lib/gcc/x86_64-redhat-linux/4.8.2/libasan.so 
+[36mINFO[0m[0149] Adding whiteout for /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite 
+[36mINFO[0m[0149] Adding whiteout for /usr/local/lib/python3.7/site-packages/pip/_vendor/urllib3/util/__pycache__/selectors.cpython-37.pyc 
+[36mINFO[0m[0149] Adding whiteout for /usr/local/lib/python3.7/site-packages/pip/_internal/__pycache__/cmdoptions.cpython-37.pyc 
+[36mINFO[0m[0149] Adding whiteout for /usr/local/lib/python3.7/site-packages/pip-10.0.1.dist-info 
+[36mINFO[0m[0149] Adding whiteout for /usr/lib/gcc/x86_64-redhat-linux/4.8.2/include 
+[36mINFO[0m[0149] Adding whiteout for /usr/share/aclocal/argz.m4 
+[36mINFO[0m[0149] Adding whiteout for /var/cache/yum/x86_64/7/extras/8040035f545d88fec517382949ce96902ed4ef232874e68bdf2ffdbcf2c6c2ec-primary.sqlite.bz2 
+[36mINFO[0m[0149] Adding whiteout for /usr/libexec/gcc/x86_64-redhat-linux/4.8.2/collect2 
+[36mINFO[0m[0149] Adding whiteout for /usr/libexec/gcc/x86_64-redhat-linux/4.8.2/cc1plus 
+[36mINFO[0m[0149] Adding whiteout for /usr/libexec/gcc/x86_64-redhat-linux/4.8.2/lto-wrapper 
+[36mINFO[0m[0149] Adding whiteout for /var/cache/yum/x86_64/7/updates/7303cbcc9806f8d266e12f27067a972b40e736f13800129e79d035fdd8883df6-primary.sqlite.bz2 
+[36mINFO[0m[0149] Adding whiteout for /usr/lib/gcc/x86_64-redhat-linux/4.8.2/crtend.o 
+[36mINFO[0m[0149] Adding whiteout for /usr/share/emacs/site-lisp/site-start.d/systemtap-init.el 
+[36mINFO[0m[0149] Adding whiteout for /usr/lib/gcc/x86_64-redhat-linux/4.8.2/libtsan.so 
+[36mINFO[0m[0149] Adding whiteout for /usr/bin/c99             
+[36mINFO[0m[0149] Adding whiteout for /usr/lib64/pkgconfig/libcrypto.pc 
+[36mINFO[0m[0149] Adding whiteout for /usr/local/lib/python3.7/site-packages/pip/_internal/__pycache__/baseparser.cpython-37.pyc 
+[36mINFO[0m[0149] Adding whiteout for /usr/local/lib/python3.7/site-packages/pip/_internal/baseparser.py 
+[36mINFO[0m[0149] Adding whiteout for /var/cache/yum/x86_64/7/updates/cachecookie 
+[36mINFO[0m[0149] Adding whiteout for /usr/local/lib/python3.7/site-packages/pip/_internal/cmdoptions.py 
+[36mINFO[0m[0149] Adding whiteout for /var/lib/yum/yumdb/g/2e735f87c41ec89d81091a5d79904b3724f5bdf7-gcc-gfortran-4.8.5-36.el7_6.2-x86_64 
+[36mINFO[0m[0149] Adding whiteout for /var/cache/yum/x86_64/7/updates/mirrorlist.txt 
+[36mINFO[0m[0149] Adding whiteout for /var/lib/yum/yumdb/s/16fe934d92b2be8b1337a327e025a4cba017d566-systemtap-devel-3.3-3.el7-x86_64 
+[36mINFO[0m[0149] Adding whiteout for /var/cache/yum/x86_64/7/base/gen/primary_db.sqlite 
+[36mINFO[0m[0149] Adding whiteout for /usr/share/vim/vimfiles/ftplugin/stp.vim 
+[36mINFO[0m[0149] Adding whiteout for /usr/include/bzlib.h     
+[36mINFO[0m[0149] Adding whiteout for /usr/lib/gcc/x86_64-redhat-linux/4.8.2/crtprec80.o 
+[36mINFO[0m[0149] Adding whiteout for /var/cache/yum/x86_64/7/base/repomd.xml 
+[36mINFO[0m[0149] Adding whiteout for /usr/bin/cc              
+[36mINFO[0m[0149] Adding whiteout for /usr/bin/libtool         
+[36mINFO[0m[0149] Adding whiteout for /usr/lib64/libcrypto.so  
+[36mINFO[0m[0149] Adding whiteout for /var/cache/yum/x86_64/7/epel/gen/comps.xml 
+[36mINFO[0m[0149] Adding whiteout for /usr/bin/libtoolize      
+[36mINFO[0m[0149] Adding whiteout for /usr/libexec/systemtap/python/stap-resolve-module-function.py 
+[36mINFO[0m[0149] Adding whiteout for /usr/local/lib/python3.7/site-packages/pip/_internal/__pycache__/resolve.cpython-37.pyc 
+[36mINFO[0m[0149] Adding whiteout for /usr/bin/gcc-nm          
+[36mINFO[0m[0149] Adding whiteout for /var/cache/yum/x86_64/7/epel/cachecookie 
+[36mINFO[0m[0149] Adding whiteout for /usr/lib/gcc/x86_64-redhat-linux/4.8.2/libgcc_s.so 
+[36mINFO[0m[0149] Adding whiteout for /var/cache/yum/x86_64/7/base/6614b3605d961a4aaec45d74ac4e5e713e517debb3ee454a1c91097955780697-primary.sqlite.bz2 
+[36mINFO[0m[0149] Adding whiteout for /usr/lib/gcc/x86_64-redhat-linux/4.8.2/libgfortranbegin.a 
+[36mINFO[0m[0149] Adding whiteout for /usr/libexec/systemtap/libHelperSDT_amd64.so 
+[36mINFO[0m[0149] Adding whiteout for /usr/share/systemtap/runtime 
+[36mINFO[0m[0149] Adding whiteout for /usr/lib/gcc/x86_64-redhat-linux/4.8.2/libgcc_eh.a 
+[36mINFO[0m[0149] Adding whiteout for /usr/local/bin/pip3.6    
+[36mINFO[0m[0149] Adding whiteout for /usr/lib/gcc/x86_64-redhat-linux/4.8.2/finclude 
+[36mINFO[0m[0149] Adding whiteout for /usr/local/lib/python3.7/site-packages/pip/_internal/__pycache__/basecommand.cpython-37.pyc 
+[36mINFO[0m[0149] Adding whiteout for /usr/lib/gcc/x86_64-redhat-linux/4.8.2/libasan_preinit.o 
+[36mINFO[0m[0149] Adding whiteout for /var/cache/yum/x86_64/7/base/a0ec5a4708a1026db100d4799c404c9ed48a9371a4bab234a1355f86628a244a-filelists.sqlite.bz2 
+[36mINFO[0m[0149] Adding whiteout for /usr/lib/gcc/x86_64-redhat-linux/4.8.2/rpmver 
+[36mINFO[0m[0149] Adding whiteout for /usr/local/lib/python3.7/site-packages/pip/_internal/status_codes.py 
+[36mINFO[0m[0149] Adding whiteout for /var/cache/yum/x86_64/7/updates/gen/filelists_db.sqlite 
+[36mINFO[0m[0149] Adding whiteout for /usr/lib/gcc/x86_64-redhat-linux/4.8.2/crtprec64.o 
+[36mINFO[0m[0149] Adding whiteout for /usr/local/lib/python3.7/site-packages/pip/_internal/__pycache__/status_codes.cpython-37.pyc 
+[36mINFO[0m[0149] Adding whiteout for /var/cache/yum/x86_64/7/timedhosts.txt 
+[36mINFO[0m[0149] Adding whiteout for /usr/share/emacs/site-lisp/systemtap-mode.elc 
+[36mINFO[0m[0149] Adding whiteout for /usr/share/vim/vimfiles/syntax/stp.vim 
+[36mINFO[0m[0149] Adding whiteout for /usr/libexec/getconf/default 
+[36mINFO[0m[0149] Adding whiteout for /var/cache/yum/x86_64/7/google-chrome/primary.xml.gz 
+[36mINFO[0m[0149] Adding whiteout for /usr/bin/x86_64-redhat-linux-g++ 
+[36mINFO[0m[0149] Adding whiteout for /var/cache/yum/x86_64/7/google-chrome/repomd.xml 
+[36mINFO[0m[0149] Adding whiteout for /usr/share/aclocal/ltversion.m4 
+[36mINFO[0m[0149] Adding whiteout for /usr/local/lib/python3.7/site-packages/pip/_vendor/urllib3/util/selectors.py 
+[36mINFO[0m[0149] Adding whiteout for /usr/libexec/gcc/x86_64-redhat-linux/4.8.2/liblto_plugin.so.0.0.0 
+[36mINFO[0m[0149] Adding whiteout for /usr/bin/f95             
+[36mINFO[0m[0149] Adding whiteout for /var/cache/yum/x86_64/7/epel/gen/primary_db.sqlite 
+[36mINFO[0m[0149] Adding whiteout for /usr/libexec/gcc/x86_64-redhat-linux/4.8.2/lto1 
+[36mINFO[0m[0149] Adding whiteout for /usr/local/lib/python3.7/site-packages/pip/_vendor/progress/helpers.py 
+[36mINFO[0m[0149] Adding whiteout for /usr/bin/c89             
+[36mINFO[0m[0149] Adding whiteout for /var/cache/yum/x86_64/7/base/gen/filelists_db.sqlite 
+[36mINFO[0m[0149] Adding whiteout for /var/cache/yum/x86_64/7/extras/gen/primary_db.sqlite 
+[36mINFO[0m[0149] Adding whiteout for /usr/lib/gcc/x86_64-redhat-linux/4.8.2/libgcc.a 
+[36mINFO[0m[0149] Adding whiteout for /usr/share/libtool       
+[36mINFO[0m[0149] Adding whiteout for /usr/share/aclocal/ltoptions.m4 
+[36mINFO[0m[0149] Adding whiteout for /var/cache/yum/x86_64/7/updates/repomd.xml 
+[36mINFO[0m[0149] Adding whiteout for /usr/lib/gcc/x86_64-redhat-linux/4.8.2/libitm.spec 
+[36mINFO[0m[0149] Adding whiteout for /usr/lib64/pkgconfig/libssl.pc 
+[36mINFO[0m[0149] Adding whiteout for /usr/bin/gcov            
+[36mINFO[0m[0149] Adding whiteout for /usr/lib/gcc/x86_64-redhat-linux/4.8.2/libgomp.so 
+[36mINFO[0m[0149] Adding whiteout for /usr/lib/gcc/x86_64-redhat-linux/4.8.2/crtbeginS.o 
+[36mINFO[0m[0149] Adding whiteout for /usr/lib/gcc/x86_64-redhat-linux/4.8.2/crtbeginT.o 
+[36mINFO[0m[0149] Adding whiteout for /var/cache/yum/x86_64/7/epel/d2d16b74b98b26292868d49413181da81c791150ce460be98bcf0628f3005bc7-updateinfo.xml.bz2 
+[36mINFO[0m[0149] Adding whiteout for /usr/lib/gcc/x86_64-redhat-linux/4.8.2/libgomp.a 
+[36mINFO[0m[0149] Adding whiteout for /var/cache/yum/x86_64/7/epel/d97ad2922a45eb2a5fc007fdd84e7ae4981b257d3b94c3c9f5d7b0dda6baa098-comps-Everything.x86_64.xml.gz 
+[36mINFO[0m[0149] Adding whiteout for /usr/include/openssl     
+[36mINFO[0m[0149] Adding whiteout for /var/cache/yum/x86_64/7/epel/67524caa6631e887a5ec38e3facaaa685101876958e16bcb69c6e7a5f77aa607-primary.sqlite.bz2 
+[36mINFO[0m[0149] Adding whiteout for /usr/bin/c++             
+[36mINFO[0m[0149] Adding whiteout for /var/lib/yum/yumdb/g/554bd6207e17587a2c3d0786a8c2489dfac10939-gcc-c++-4.8.5-36.el7_6.2-x86_64 
+[36mINFO[0m[0149] Adding whiteout for /usr/share/licenses/systemtap-devel-3.3 
+[36mINFO[0m[0149] Adding whiteout for /usr/share/aclocal/ltdl.m4 
+[36mINFO[0m[0149] Adding whiteout for /usr/local/lib/python3.7/site-packages/pip/_internal/resolve.py 
+[36mINFO[0m[0149] Adding whiteout for /var/lib/yum/yumdb/s/96d6ea770c612910481f4fd8319cfdef06b44233-systemtap-3.3-3.el7-x86_64 
+[36mINFO[0m[0149] Adding whiteout for /var/cache/yum/x86_64/7/updates/2c2cf8e196fcaafe88087e86175911120578086d4648cb8260fbffc9326e2bcb-filelists.sqlite.bz2 
+[36mINFO[0m[0149] Adding whiteout for /usr/bin/gcc             
+[36mINFO[0m[0149] Adding whiteout for /usr/share/emacs/site-lisp/systemtap-mode.el 
+[36mINFO[0m[0149] Adding whiteout for /var/lib/yum/yumdb/l/35b875de0d541a1ff260b1f9b4997b719a2f73a2-libtool-2.4.2-22.el7_3-x86_64 
+[36mINFO[0m[0149] Adding whiteout for /var/cache/yum/x86_64/7/base/mirrorlist.txt 
+[36mINFO[0m[0149] Adding whiteout for /var/cache/yum/x86_64/7/epel/metalink.xml 
+[36mINFO[0m[0149] Adding whiteout for /var/cache/yum/x86_64/7/extras/mirrorlist.txt 
+[36mINFO[0m[0149] Adding whiteout for /var/lib/yum/yumdb/o/10bf4b276a08979bb608419d8abdc1d1f30b9898-openssl-devel-1.0.2k-16.el7_6.1-x86_64 
+[36mINFO[0m[0149] Adding whiteout for /var/cache/yum/x86_64/7/extras/cachecookie 
+[36mINFO[0m[0149] Adding whiteout for /usr/lib/gcc/x86_64-redhat-linux/4.8.2/libstdc++.so 
+[36mINFO[0m[0179] Pushing layer gcr.io/jenkinsxio/cache:fb655dd43a8828df372195199816115dde5e003ba7a6585631f58923053cf7eb to cache now 
+[36mINFO[0m[0179] CMD ["python3", "--version"]                 
+[36mINFO[0m[0179] No files changed in this command, skipping snapshotting. 
+2019/08/07 21:11:57 pushed blob: sha256:818a1d1334c3e7e141a9cb15ec845e1967d60f7307ab52fb2a8750c4669a83eb
+2019/08/07 21:12:05 pushed blob: sha256:bbf702880806a29d7d07fcc41718aa5e49b37d469fd0d839cadc74b130713caa
+2019/08/07 21:12:06 gcr.io/jenkinsxio/cache:fb655dd43a8828df372195199816115dde5e003ba7a6585631f58923053cf7eb: digest: sha256:dacedb89aceedbeacbbe6e09781c347593ea2c8bc0f949249954ec7fce7d06d5 size: 429
+2019/08/07 21:12:07 existing blob: sha256:a792e7bf7b54dea6a827d27b81fc3674eef2c0ca65b9ccabb75b887a74bd06d2
+2019/08/07 21:12:07 existing blob: sha256:b2919518b0ce2fd1a64eb2007c34232d8b60257d80fa45b67b9121e132b4e3db
+2019/08/07 21:12:07 existing blob: sha256:5470abb626135f17b82fe46ee94962781a8aba7069a4c0b1898182daa4f429e3
+2019/08/07 21:12:07 existing blob: sha256:cf9e3958d06a3ad26e44d702f64228735d63903a9edc8b0f43d0286342fc0fbd
+2019/08/07 21:12:07 existing blob: sha256:beeb2bddff350965322c530827ce314058a5af7f4f628d9ef9c97dd73e48d016
+2019/08/07 21:12:07 existing blob: sha256:a8354d42e6911ab8001edfffa1934a1a9b357d1541f5cecc792b9a4172d76f46
+2019/08/07 21:12:07 existing blob: sha256:c5a0b7e8f77e1ac8afb62771d8d0325ee0f87791ee6ba486a6c40d4ba1d46125
+2019/08/07 21:12:07 existing blob: sha256:a99d55345bae39430f75db8c3f6f9dc774baf8d7672bb5c5f5f6be9d7bdf4dae
+2019/08/07 21:12:07 existing blob: sha256:7c017636a6a609d8d318a4bebb3b6cc13feaf476f6a2ecc83d28e117314d5f6f
+2019/08/07 21:12:07 existing blob: sha256:6756e87e029cdeb551ccf519eaebcf80e3441dd2bb37ed39b7c2268b4774b10b
+2019/08/07 21:12:07 existing blob: sha256:429b38434357f169ce8a79a4bb39ca386ccf658ae7482b6ff602a86e6191960e
+2019/08/07 21:12:07 existing blob: sha256:897e54f35a4b2ed07f22d316f09a9aa9ea68765f226654989a175bb51361e86e
+2019/08/07 21:12:07 existing blob: sha256:6d138d81df365a45ab5fcf8e3f3da8357c45afe495207ecd09d2af0eb98505c5
+2019/08/07 21:12:07 existing blob: sha256:8ba4d28c69c100373c4b96f3da07cbd5b170e0c17989fcc003c29cf28f86e3ae
+2019/08/07 21:12:07 existing blob: sha256:8ba884070f611d31cb2c42eddb691319dc9facf5e0ec67672fcfa135181ab3df
+2019/08/07 21:12:07 existing blob: sha256:bee0a13648017886c5915ce5dec608f24dbea7b8a1e044c8fb2105ceea408afa
+2019/08/07 21:12:07 existing blob: sha256:e9bce06a847e3879c73e81411ccb712580ba0dd7b2837f2ac365d19d13487b5d
+2019/08/07 21:12:07 existing blob: sha256:5069d699406c01c82af4f4e6147348dc551cb5d39e0d20dd1750bdce5b49c585
+2019/08/07 21:12:07 existing blob: sha256:2cde0a33cb63aa41a1ab3fbdc3afc787a086314a625c30f7b68bc7ac02c6660e
+2019/08/07 21:12:07 existing blob: sha256:bf9a53bcc9019aae02864e6e43264e06837c7d984b9cf6132aca44a98ba348e6
+2019/08/07 21:12:07 existing blob: sha256:d8c575b2b52888c9ee09cee8dba37cd3b3035555769295d514229d43fbf47d8e
+2019/08/07 21:12:07 existing blob: sha256:d773df446b2002f5750748d96b7929546effb66991006aa6fb556a70823be462
+2019/08/07 21:12:07 existing blob: sha256:b1c1d1dc3c9b9ab62839f55f0b0da8856c9afa9d6fd1df987a48f582cc28183c
+2019/08/07 21:12:07 existing blob: sha256:e5e2dacee7b09f7927bbd054ec3859e5555a27d569da5193f4cabac285053f9b
+2019/08/07 21:12:07 existing blob: sha256:b1587e65165c461940963893326da19b2bc15471f6191bfdd9194758cb886aa6
+2019/08/07 21:12:07 existing blob: sha256:92ade984df77a2da628fb1374cdf03f767152d12cd5df74465e4bc8bb39edb58
+2019/08/07 21:12:07 existing blob: sha256:7ec2ffb56c90d8cad824dd30eeb4abbbc7321596c47a7dca90095935c3c2b656
+2019/08/07 21:12:07 existing blob: sha256:ce53723240799b4450ccf6661e55e7277a52d14666b060a129af4125a69ac70e
+2019/08/07 21:12:07 existing blob: sha256:065e519718393bdd264839cafc4d57eb600832a903765af6d41af5819dd4d160
+2019/08/07 21:12:07 existing blob: sha256:bbf702880806a29d7d07fcc41718aa5e49b37d469fd0d839cadc74b130713caa
+2019/08/07 21:12:07 existing blob: sha256:b6fba42ef133eece995deb10c314cf8baa51ec1bd7dbea9ab259a5d79dcdfda1
+2019/08/07 21:12:09 pushed blob: sha256:8e3c55e3e010b1388c0303bf613eb2d62a2db5cb94f60063789c7215afc086f1
+2019/08/07 21:12:10 pushed blob: sha256:78da3dfa573a385ee830fb2f0b77a09b33df7e00418a559cf0a7844d67e97683
+2019/08/07 21:12:10 pushed blob: sha256:9be28f281439e718bf29ed9d7efb85aa3e03ea905acd88a30898ac72a50df634
+2019/08/07 21:12:10 pushed blob: sha256:8e7b54c224f47c99c67ffa5b120889a6b152bd65400f10cfca3baef1d068d26d
+2019/08/07 21:12:11 pushed blob: sha256:66ed1dac26cc82a535c669ef2bf663c1361e2906eb828900652287bdbd2c24fd
+2019/08/07 21:12:15 pushed blob: sha256:4ea53a257be2860814c975b19ff56da526dbaba1b4d107af6492b1edbb85a874
+2019/08/07 21:12:15 pushed blob: sha256:92336fa658e3d6ab73fe3d291d4ade306d4a7df17b15e1eda2ab05381f6eeb35
+2019/08/07 21:12:15 pushed blob: sha256:2d84cfef266dfabedd34b659f81c7a7953fc05a4c1ce32763cb1ff9df554183e
+2019/08/07 21:12:22 pushed blob: sha256:c5f988b980626a74c35302d7337b0a4f3d4ef0a714928648b6341568957de07e
+2019/08/07 21:12:23 gcr.io/jenkinsxio/builder-python37:0.0.0-SNAPSHOT-PR-636-35: digest: sha256:8c56f89c53f2fc0630f14bd464400339c0b193ae84cfa43113056b2b8fb1f83a size: 6665
