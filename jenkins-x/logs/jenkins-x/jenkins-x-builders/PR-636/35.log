@@ -1,93 +1,10 @@
-Step: build-step-credential-initializer-c8l92:
+Step: build-step-credential-initializer-rcjvz:
 
-{"level":"warn","ts":1565211617.2449026,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
-{"level":"info","ts":1565211617.2454648,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
-Step: build-step-working-dir-initializer-vd8zt:
+{"level":"warn","ts":1565211692.1998417,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1565211692.201468,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Step: build-step-working-dir-initializer-h5crs:
 
-{"level":"warn","ts":1565211618.2162304,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
-{"level":"info","ts":1565211618.2180238,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+{"level":"warn","ts":1565211694.464127,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1565211694.468174,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
 Step: build-step-place-tools:
-
-Step: build-step-git-source-jenkins-x-jenkins-x-builders-pr-j59m5:
-
-{"level":"warn","ts":1565211621.3485491,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
-{"level":"info","ts":1565211623.4449985,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/jenkins-x/jenkins-x-builders @ 1a335082d7a834e6e677cf9670f4965a7e374615 in path /workspace/source"}
-Step: build-step-git-merge:
-
-Warning failed to load version: failed to parse version -dev+9e73adc0b: No Major.Minor.Patch elements found
-time="2019-08-07T21:00:25Z" level=info msg="got "
-Using SHAs from PULL_REFS=master:de84a9c89157abcddea80fbe0fe918f59fe02647,636:1a335082d7a834e6e677cf9670f4965a7e374615
-ran git fetch --unshallow origin 1a335082d7a834e6e677cf9670f4965a7e374615: de84a9c89157abcddea80fbe0fe918f59fe02647: in 
-ran git checkout master in 
-ran git reset --hard de84a9c89157abcddea80fbe0fe918f59fe02647 in 
-ran clean --force -d . in 
-ran git merge 1a335082d7a834e6e677cf9670f4965a7e374615 in 
-Step: build-step-step2:
-
-updating builder-maven-java11
-/workspace/source/builder-maven-java11 /workspace/source
-FROM gcr.io/jenkinsxio/builder-base:0.0.44
-/workspace/source
-updating builder-maven-nodejs
-/workspace/source/builder-maven-nodejs /workspace/source
-FROM gcr.io/jenkinsxio/builder-base:0.0.44
-/workspace/source
-updating builder-go
-/workspace/source/builder-go /workspace/source
-FROM gcr.io/jenkinsxio/builder-base:0.0.44
-/workspace/source
-updating builder-go-maven
-/workspace/source/builder-go-maven /workspace/source
-FROM gcr.io/jenkinsxio/builder-base:0.0.44
-/workspace/source
-updating builder-terraform
-/workspace/source/builder-terraform /workspace/source
-FROM gcr.io/jenkinsxio/builder-base:0.0.44
-/workspace/source
-Step: build-step-step3:
-
-/builder/home/kaniko-secret.json
-Step: build-step-warm-cache:
-
-Step: build-step-build-and-push-go-maven:
-
-[36mINFO[0m[0000] Downloading base image gcr.io/jenkinsxio/builder-base:0.0.44 
-[36mINFO[0m[0006] Error while retrieving image from cache: getting file info: stat /workspace/sha256:f889e888c351a595832da82ebbc375d22984bab79073185de16affdfcef40f73: no such file or directory 
-[36mINFO[0m[0006] Downloading base image gcr.io/jenkinsxio/builder-base:0.0.44 
-[36mINFO[0m[0007] Checking for cached layer gcr.io/jenkinsxio/cache:f6188eea80faa4e980a9800dcb1054d5253e04277a957340cd063964cd0e7c93... 
-[36mINFO[0m[0008] Using caching version of cmd: RUN curl -f -o /etc/yum.repos.d/vbatts-bazel-epel-7.repo  https://copr.fedorainfracloud.org/coprs/vbatts/bazel/repo/epel-7/vbatts-bazel-epel-7.repo   && yum install -y bazel   && yum clean all 
-[36mINFO[0m[0008] Checking for cached layer gcr.io/jenkinsxio/cache:05ac2073ed8217d0d56545f4833f97a1c985a33b748deef5b9a2f6f359da1e81... 
-[36mINFO[0m[0009] Using caching version of cmd: RUN wget https://golang.org/dl/go$GOLANG_VERSION.linux-amd64.tar.gz &&   tar -C /usr/local -xzf go$GOLANG_VERSION.linux-amd64.tar.gz &&   rm go${GOLANG_VERSION}.linux-amd64.tar.gz 
-[36mINFO[0m[0009] Checking for cached layer gcr.io/jenkinsxio/cache:a5ed679ef90b67fac8f870ec3dd5b1b3b845d13ddc63d9eb3b09af2b3a96b4a5... 
-[36mINFO[0m[0009] Using caching version of cmd: RUN wget https://github.com/Masterminds/glide/releases/download/$GLIDE_VERSION/glide-$GLIDE_VERSION-linux-amd64.tar.gz &&   tar -xzf glide-$GLIDE_VERSION-linux-amd64.tar.gz &&   mv linux-amd64 /usr/local/glide &&   rm glide-$GLIDE_VERSION-linux-amd64.tar.gz 
-[36mINFO[0m[0009] Checking for cached layer gcr.io/jenkinsxio/cache:1212280c156fb63f95d260c69d653bbbc070856b0a2d30f6ca96cb20024ed289... 
-[36mINFO[0m[0010] Using caching version of cmd: RUN wget https://github.com/golang/dep/releases/download/$DEP_VERSION/dep-linux-amd64 && chmod +x dep-linux-amd64 &&   mv dep-linux-amd64 /usr/local/dep 
-[36mINFO[0m[0010] Checking for cached layer gcr.io/jenkinsxio/cache:758c3a7426d919f4d4c87d912e9b2de53da31be7a61eb8386346230f565c505e... 
-[36mINFO[0m[0011] Using caching version of cmd: RUN wget https://github.com/progrium/gh-release/releases/download/v$GH_RELEASE_VERSION/gh-release_${GH_RELEASE_VERSION}_linux_x86_64.tgz &&   tar -xzf gh-release_${GH_RELEASE_VERSION}_linux_x86_64.tgz &&   mv gh-release /usr/local/gh-release &&   rm gh-release_${GH_RELEASE_VERSION}_linux_x86_64.tgz 
-[36mINFO[0m[0011] Checking for cached layer gcr.io/jenkinsxio/cache:8d1a04fa48ab76312189d6d778ad8ac8035b9bb37daa9b3c0cde3122ef7a8895... 
-[36mINFO[0m[0011] Using caching version of cmd: RUN wget https://github.com/google/protobuf/releases/download/v${PROTOBUF}/protoc-${PROTOBUF}-linux-x86_64.zip &&   unzip protoc-${PROTOBUF}-linux-x86_64.zip -d protoc &&   chmod +x protoc && cp protoc/bin/protoc /usr/bin/protoc && rm -rf protoc 
-[36mINFO[0m[0011] Checking for cached layer gcr.io/jenkinsxio/cache:ddb82ff62efdf6b351149268ff012c123c892c62294b7338f2038bff29ff1af6... 
-[36mINFO[0m[0012] Using caching version of cmd: RUN go get github.com/DATA-DOG/godog/cmd/godog &&   mv $GOPATH/bin/godog /usr/local/ &&   rm -rf $GOPATH/src/github.com/DATA-DOG 
-[36mINFO[0m[0012] Checking for cached layer gcr.io/jenkinsxio/cache:8bc24b989671276e02531e0478a9ea7c566904734bb7b94af5031789496cd50a... 
-[36mINFO[0m[0013] Using caching version of cmd: RUN curl -Lf -o hugo.tar.gz https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz &&   tar xvfz hugo.tar.gz &&   mv hugo /usr/local &&   rm -fr hugo* &&   hugo version 
-[36mINFO[0m[0013] Checking for cached layer gcr.io/jenkinsxio/cache:f91e8a5df469a56d4ca9ef934cf37ac6b3ce2661f4e3ffa4604f7072ef0bca42... 
-[36mINFO[0m[0013] Using caching version of cmd: RUN go get github.com/derekparker/delve/cmd/dlv &&   mv $GOPATH/bin/* /usr/local/ &&   rm -rf $GOPATH/src/github.com/derekparker 
-[36mINFO[0m[0013] Checking for cached layer gcr.io/jenkinsxio/cache:3775cda029db257bf48e7308d77f8c4319fd66b8e8c360837f49dfe272c35a59... 
-[36mINFO[0m[0014] Using caching version of cmd: RUN go get gotest.tools/gotestsum &&   mv $GOPATH/bin/gotestsum /usr/local/ &&   rm -rf $GOPATH/src/gotest.tools 
-[36mINFO[0m[0014] Checking for cached layer gcr.io/jenkinsxio/cache:c14aae04a4be65473e6a688453f3e3a2ba894e8d46ddfd13058876eeb5e3388f... 
-[36mINFO[0m[0015] Using caching version of cmd: RUN yum remove -y java-1.8.0-openjdk-devel java-1.8.0-openjdk-headless 
-[36mINFO[0m[0015] Checking for cached layer gcr.io/jenkinsxio/cache:581ab32ac5777bd81131b6f743f5f10bdac1b59356d32b6fd559ea4315b87979... 
-[36mINFO[0m[0015] Using caching version of cmd: RUN yum install -y java-1.8.0-openjdk-devel.i686 
-[36mINFO[0m[0015] Checking for cached layer gcr.io/jenkinsxio/cache:b1b752aaeee604e9f619f2e8c50bae64594578192859c57faf3552ea922bf3b7... 
-[36mINFO[0m[0016] Using caching version of cmd: RUN curl -f -L http://central.maven.org/maven2/org/apache/maven/apache-maven/$MAVEN_VERSION/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar -C /opt -xzv 
-[36mINFO[0m[0016] Using files from context: [/workspace/source/builder-go-maven/set_java] 
-[36mINFO[0m[0016] Checking for cached layer gcr.io/jenkinsxio/cache:a27cedd1d1fe53f1cd6b9e4da7b760db391b560f50266767549f5b4ef6f6610d... 
-[36mINFO[0m[0017] Using caching version of cmd: RUN $M2/set_java && rm $M2/set_java 
-[36mINFO[0m[0017] Checking for cached layer gcr.io/jenkinsxio/cache:9b712832f1d01fd00ff1a7f100efde3d559901435909c2f68f5f4a093c419c0b... 
-[36mINFO[0m[0018] No cached layer found for cmd RUN curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/ 
-[36mINFO[0m[0018] Unpacking rootfs as cmd RUN curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/ requires it. 
-error building image: error building stage: read tcp 10.52.0.206:58722->74.125.133.128:443: read: connection reset by peer
-Step: build-step-build-and-push-**:
-
-Step: build-step-build-and-push-python:
 
