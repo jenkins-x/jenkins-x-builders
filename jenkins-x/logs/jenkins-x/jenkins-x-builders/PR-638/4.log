@@ -1,0 +1,450 @@
+Step: build-step-credential-initializer-gt97l:
+
+{"level":"warn","ts":1565282055.6007288,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1565282055.6024683,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Step: build-step-working-dir-initializer-h58zb:
+
+{"level":"warn","ts":1565282057.1382005,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1565282057.1565053,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+Step: build-step-place-tools:
+
+Step: build-step-git-source-jenkins-x-jenkins-x-builders-pr-xgrx4:
+
+{"level":"warn","ts":1565282059.2666135,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1565282061.3250375,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/jenkins-x/jenkins-x-builders @ 170ece6d8c93903c97cf7a11cd3a6147944a32cc in path /workspace/source"}
+Step: build-step-git-merge:
+
+Warning failed to load version: failed to parse version -dev+9e73adc0b: No Major.Minor.Patch elements found
+time="2019-08-08T16:34:22Z" level=info msg="got "
+Using SHAs from PULL_REFS=master:c95b505a201dde09af20857b3a61ee97b99f3fe1,638:170ece6d8c93903c97cf7a11cd3a6147944a32cc
+ran git fetch --unshallow origin 170ece6d8c93903c97cf7a11cd3a6147944a32cc: c95b505a201dde09af20857b3a61ee97b99f3fe1: in 
+ran git checkout master in 
+ran git reset --hard c95b505a201dde09af20857b3a61ee97b99f3fe1 in 
+ran clean --force -d . in 
+ran git merge 170ece6d8c93903c97cf7a11cd3a6147944a32cc in 
+Step: build-step-step2:
+
+updating builder-maven-java11
+/workspace/source/builder-maven-java11 /workspace/source
+FROM gcr.io/jenkinsxio/builder-base:0.0.44
+/workspace/source
+updating builder-maven-nodejs
+/workspace/source/builder-maven-nodejs /workspace/source
+FROM gcr.io/jenkinsxio/builder-base:0.0.44
+/workspace/source
+updating builder-go
+/workspace/source/builder-go /workspace/source
+FROM gcr.io/jenkinsxio/builder-base:0.0.44
+/workspace/source
+updating builder-go-maven
+/workspace/source/builder-go-maven /workspace/source
+FROM gcr.io/jenkinsxio/builder-base:0.0.44
+/workspace/source
+updating builder-terraform
+/workspace/source/builder-terraform /workspace/source
+FROM gcr.io/jenkinsxio/builder-base:0.0.44
+/workspace/source
+Step: build-step-step3:
+
+/builder/home/kaniko-secret.json
+Step: build-step-warm-cache:
+
+Step: build-step-build-and-push-maven-java11:
+
+[36mINFO[0m[0000] Downloading base image gcr.io/jenkinsxio/builder-base:0.0.44 
+[36mINFO[0m[0000] Error while retrieving image from cache: getting file info: stat /workspace/sha256:f889e888c351a595832da82ebbc375d22984bab79073185de16affdfcef40f73: no such file or directory 
+[36mINFO[0m[0000] Downloading base image gcr.io/jenkinsxio/builder-base:0.0.44 
+[36mINFO[0m[0001] Checking for cached layer gcr.io/jenkinsxio/cache:659f7a474dea773ed24fb4e8e8917cd9fdbe67b1d2638a1d7df0bdd87f0b2e54... 
+[36mINFO[0m[0002] Using caching version of cmd: RUN curl -f -L http://central.maven.org/maven2/org/apache/maven/apache-maven/$MAVEN_VERSION/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar -C /opt -xzv 
+[36mINFO[0m[0002] Checking for cached layer gcr.io/jenkinsxio/cache:822a8923e537953dcc5a8a2d9c1877365f6762cd99364bd4ea1702f9d96a6600... 
+[36mINFO[0m[0002] Using caching version of cmd: RUN curl https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz | tar -xz 
+[36mINFO[0m[0002] Checking for cached layer gcr.io/jenkinsxio/cache:01047c6bb339a1f851c705086a905de2379ee76cbf85537fecd6c05f717d1b0e... 
+[36mINFO[0m[0003] Using caching version of cmd: RUN mv /home/jenkins/jdk-11.0.2 /usr/java 
+[36mINFO[0m[0003] Checking for cached layer gcr.io/jenkinsxio/cache:018f37d12576f44e4d1d448f1dc5f4e4b1a605aa23ab89e949274cf5845c926b... 
+[36mINFO[0m[0004] Using caching version of cmd: RUN rm /usr/bin/java /usr/bin/javac /usr/bin/javadoc 
+[36mINFO[0m[0004] Checking for cached layer gcr.io/jenkinsxio/cache:4d1e0f5523cb81a07eba5ca1ed03b4607f8a118742638ec042dd4c66514a8c9b... 
+[36mINFO[0m[0005] Using caching version of cmd: RUN ln -s /usr/java/bin/java /usr/bin/java 
+[36mINFO[0m[0005] Checking for cached layer gcr.io/jenkinsxio/cache:d98c4034489fd97a812524d4a22369ce72d846aa23628a7d3d874cc61d7c69bc... 
+[36mINFO[0m[0005] Using caching version of cmd: RUN ln -s /usr/java/bin/javac /usr/bin/javac 
+[36mINFO[0m[0005] Checking for cached layer gcr.io/jenkinsxio/cache:6319e2c741591adc1145666a158411efb1f555e2130ef320b4ea331a56f8872f... 
+[36mINFO[0m[0006] Using caching version of cmd: RUN ln -s /usr/java/bin/javadoc /usr/bin/javadoc 
+[36mINFO[0m[0006] Checking for cached layer gcr.io/jenkinsxio/cache:ef5ffcbfda11efd456de082cb8347cf722c2700f197a004d145903a11052d00f... 
+[36mINFO[0m[0007] No cached layer found for cmd RUN curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/ 
+[36mINFO[0m[0007] Unpacking rootfs as cmd RUN curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/ requires it. 
+[36mINFO[0m[0222] Taking snapshot of full filesystem...        
+[36mINFO[0m[0302] ENV MAVEN_VERSION 3.5.3                      
+[36mINFO[0m[0302] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0302] RUN curl -f -L http://central.maven.org/maven2/org/apache/maven/apache-maven/$MAVEN_VERSION/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar -C /opt -xzv 
+[36mINFO[0m[0302] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0303] Taking snapshot of files...                  
+[36mINFO[0m[0304] ENV M2_HOME /opt/apache-maven-$MAVEN_VERSION 
+[36mINFO[0m[0304] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0304] ENV maven.home $M2_HOME                      
+[36mINFO[0m[0304] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0304] ENV M2 $M2_HOME/bin                          
+[36mINFO[0m[0304] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0304] ENV PATH $M2:$PATH                           
+[36mINFO[0m[0304] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0304] RUN curl https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz | tar -xz 
+[36mINFO[0m[0304] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0314] Taking snapshot of files...                  
+[36mINFO[0m[0325] RUN mv /home/jenkins/jdk-11.0.2 /usr/java    
+[36mINFO[0m[0325] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0334] Taking snapshot of files...                  
+[36mINFO[0m[0344] RUN rm /usr/bin/java /usr/bin/javac /usr/bin/javadoc 
+[36mINFO[0m[0344] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0344] Taking snapshot of files...                  
+[36mINFO[0m[0344] RUN ln -s /usr/java/bin/java /usr/bin/java   
+[36mINFO[0m[0344] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0344] Taking snapshot of files...                  
+[36mINFO[0m[0344] RUN ln -s /usr/java/bin/javac /usr/bin/javac 
+[36mINFO[0m[0344] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0345] Taking snapshot of files...                  
+[36mINFO[0m[0345] RUN ln -s /usr/java/bin/javadoc /usr/bin/javadoc 
+[36mINFO[0m[0345] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0345] Taking snapshot of files...                  
+[36mINFO[0m[0345] ENV JAVA_HOME /usr/java                      
+[36mINFO[0m[0345] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0345] ENV JX_VERSION 2.0.573                       
+[36mINFO[0m[0345] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0345] RUN curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/ 
+[36mINFO[0m[0345] cmd: /bin/sh                                 
+[36mINFO[0m[0345] args: [-c curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/] 
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   612    0   612    0     0    890      0 --:--:-- --:--:-- --:--:--   889
+LICENSE
+README.md
+changelog.md
+**
+  0 65.6M    0  559k    0     0   378k      0  0:02:57  0:00:01  0:02:56  378k 27 65.6M   27 18.2M    0     0  7775k      0  0:00:08  0:00:02  0:00:06 19.0M 61 65.6M   61 40.2M    0     0  11.8M      0  0:00:05  0:00:03  0:00:02 20.5M 98 65.6M   98 64.3M    0     0  14.6M      0  0:00:04  0:00:04 --:--:-- 21.8M100 65.6M  100 65.6M    0     0  13.9M      0  0:00:04  0:00:04 --:--:-- 20.2M
+[36mINFO[0m[0350] Taking snapshot of full filesystem...        
+[36mINFO[0m[0388] Adding whiteout for /home/jenkins/jdk-11.0.2 
+[36mINFO[0m[0437] Pushing layer gcr.io/jenkinsxio/cache:ef5ffcbfda11efd456de082cb8347cf722c2700f197a004d145903a11052d00f to cache now 
+[36mINFO[0m[0437] CMD ["mvn","-version"]                       
+[36mINFO[0m[0437] No files changed in this command, skipping snapshotting. 
+2019/08/08 16:47:41 pushed blob: sha256:47cb185c59eaec0e6dfd1943ac4ae1add633de2829e65639222027bc8a3b2cef
+2019/08/08 16:47:54 pushed blob: sha256:0050b15225103752a71df75435056479389815ba8c02a4dc08703d025582394a
+2019/08/08 16:47:55 gcr.io/jenkinsxio/cache:ef5ffcbfda11efd456de082cb8347cf722c2700f197a004d145903a11052d00f: digest: sha256:055b921f985c96379ae6cbee22d85f90cae9618ed644e0beacedb04d12e74941 size: 429
+2019/08/08 16:47:56 existing blob: sha256:7ec2ffb56c90d8cad824dd30eeb4abbbc7321596c47a7dca90095935c3c2b656
+2019/08/08 16:47:56 existing blob: sha256:d773df446b2002f5750748d96b7929546effb66991006aa6fb556a70823be462
+2019/08/08 16:47:56 existing blob: sha256:8ba884070f611d31cb2c42eddb691319dc9facf5e0ec67672fcfa135181ab3df
+2019/08/08 16:47:56 existing blob: sha256:d1f08e18f79c532c470770e5fb7824e610deebfdcfe3775f6a1ad385b65e5e95
+2019/08/08 16:47:56 existing blob: sha256:7c017636a6a609d8d318a4bebb3b6cc13feaf476f6a2ecc83d28e117314d5f6f
+2019/08/08 16:47:56 existing blob: sha256:bee0a13648017886c5915ce5dec608f24dbea7b8a1e044c8fb2105ceea408afa
+2019/08/08 16:47:56 existing blob: sha256:a8354d42e6911ab8001edfffa1934a1a9b357d1541f5cecc792b9a4172d76f46
+2019/08/08 16:47:56 existing blob: sha256:e5e2dacee7b09f7927bbd054ec3859e5555a27d569da5193f4cabac285053f9b
+2019/08/08 16:47:56 existing blob: sha256:05ee8f48257315be25616db5b2ef5381d577bdee423068b8408404125b64fde4
+2019/08/08 16:47:56 existing blob: sha256:b1587e65165c461940963893326da19b2bc15471f6191bfdd9194758cb886aa6
+2019/08/08 16:47:56 existing blob: sha256:897e54f35a4b2ed07f22d316f09a9aa9ea68765f226654989a175bb51361e86e
+2019/08/08 16:47:56 existing blob: sha256:6d138d81df365a45ab5fcf8e3f3da8357c45afe495207ecd09d2af0eb98505c5
+2019/08/08 16:47:56 existing blob: sha256:5470abb626135f17b82fe46ee94962781a8aba7069a4c0b1898182daa4f429e3
+2019/08/08 16:47:56 existing blob: sha256:ce53723240799b4450ccf6661e55e7277a52d14666b060a129af4125a69ac70e
+2019/08/08 16:47:56 existing blob: sha256:065e519718393bdd264839cafc4d57eb600832a903765af6d41af5819dd4d160
+2019/08/08 16:47:56 existing blob: sha256:6756e87e029cdeb551ccf519eaebcf80e3441dd2bb37ed39b7c2268b4774b10b
+2019/08/08 16:47:56 existing blob: sha256:92ade984df77a2da628fb1374cdf03f767152d12cd5df74465e4bc8bb39edb58
+2019/08/08 16:47:56 existing blob: sha256:d8c575b2b52888c9ee09cee8dba37cd3b3035555769295d514229d43fbf47d8e
+2019/08/08 16:47:56 existing blob: sha256:b6fba42ef133eece995deb10c314cf8baa51ec1bd7dbea9ab259a5d79dcdfda1
+2019/08/08 16:47:56 existing blob: sha256:94b3b7648b5544a05178b5994d088a23b3b253f02d4aa676b986f9e7fb36a10e
+2019/08/08 16:47:56 existing blob: sha256:beeb2bddff350965322c530827ce314058a5af7f4f628d9ef9c97dd73e48d016
+2019/08/08 16:47:56 existing blob: sha256:f92a8369d697ee4bd7673d9254752c241eecc4a23096bbb32f3034d11811b5a1
+2019/08/08 16:47:56 existing blob: sha256:f9443307d73a890bbffbe23bbf8ce9a8e5e6d99b3a206bbd1959c80ea2cea61f
+2019/08/08 16:47:56 existing blob: sha256:b1c1d1dc3c9b9ab62839f55f0b0da8856c9afa9d6fd1df987a48f582cc28183c
+2019/08/08 16:47:56 existing blob: sha256:0050b15225103752a71df75435056479389815ba8c02a4dc08703d025582394a
+2019/08/08 16:47:56 existing blob: sha256:2cde0a33cb63aa41a1ab3fbdc3afc787a086314a625c30f7b68bc7ac02c6660e
+2019/08/08 16:47:56 existing blob: sha256:5069d699406c01c82af4f4e6147348dc551cb5d39e0d20dd1750bdce5b49c585
+2019/08/08 16:47:56 existing blob: sha256:429b38434357f169ce8a79a4bb39ca386ccf658ae7482b6ff602a86e6191960e
+2019/08/08 16:47:56 existing blob: sha256:7f205009ed1da43f1f35b5edc07400e345ce6c01cb46e1ae41365386e9434c45
+2019/08/08 16:47:56 existing blob: sha256:0b5c8cfe57715353eaa9e8c429fcdd3ee80a44c0eacf4a37c7c075379fd9b7d1
+2019/08/08 16:47:56 existing blob: sha256:f49b7820967adb88e448f3c2a00267d9ea953eabbd3a81db6b7906a4920623b4
+2019/08/08 16:47:56 existing blob: sha256:f25494c611ea091e11b157eb61a293f87abd08ed88d620a7c339749a5df70962
+2019/08/08 16:47:59 pushed blob: sha256:d6bcf20a5c41b4516ec16a3c2852f2830e67d2533dbf6c986d243416c5d45d6f
+2019/08/08 16:47:59 pushed blob: sha256:798890f16c9fcf5a6409f4e02fc434b56f6b447ba3c8f4e6a1be3f82b0b9fcb7
+2019/08/08 16:47:59 pushed blob: sha256:db4293dd8e135d12c0549b993d711bc3e23f6e8210cb2693a7c231a2969d7c87
+2019/08/08 16:47:59 pushed blob: sha256:8e0f13401a15054b4e27ba67e62d1c823588be18992ff66950bf7662eaf2cbf2
+2019/08/08 16:48:09 pushed blob: sha256:b0550a81d9dde2ab2374ae574adbc4aee3a8502284b12ce27872fe836228cd6f
+2019/08/08 16:48:45 pushed blob: sha256:893961e23e5aac9511321842b2c7735d554b2f07e2a52a4b7355580f40626f42
+2019/08/08 16:48:47 pushed blob: sha256:667067ea3915f95aa746b07f2142c5e920b7ab927327842b0a080e12ad7cc417
+2019/08/08 16:48:48 gcr.io/jenkinsxio/builder-maven-java11:0.0.0-SNAPSHOT-PR-638-4: digest: sha256:c8422f9d0d67c6ba2cc2525d9341b4eb0a64f96a9166f56e681c2ae549b30974 size: 6494
+Step: build-step-build-and-push-maven-graalvm:
+
+[36mINFO[0m[0000] Downloading base image gcr.io/jenkinsxio/builder-base:0.0.45 
+[36mINFO[0m[0001] Found sha256:4b5edd0093e2154c3b8e56247f72b0c50f931fb7c559a7e267bfcc9fa202e8ee in local cache 
+[36mINFO[0m[0002] Found manifest at /workspace/sha256:4b5edd0093e2154c3b8e56247f72b0c50f931fb7c559a7e267bfcc9fa202e8ee.json 
+[36mINFO[0m[0002] Checking for cached layer gcr.io/jenkinsxio/cache:b46cd25aa5e02648ed7356ab4a29d466746e001035a1ac8946e64ba87ca31237... 
+[36mINFO[0m[0003] Using caching version of cmd: RUN curl -f -L http://central.maven.org/maven2/org/apache/maven/apache-maven/$MAVEN_VERSION/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar -C /opt -xzv 
+[36mINFO[0m[0003] Checking for cached layer gcr.io/jenkinsxio/cache:f12bdc283b6d778d7545e4ec135ae1fd1b6f005f8e485b4d6f03573fa789eba4... 
+[36mINFO[0m[0004] Using caching version of cmd: RUN yum install -y ${INSTALL_PKGS} && 	 mkdir -p ${GRAALVM_HOME} && 	 cd ${GRAALVM_HOME} && 	 curl -fsSL ${GRAAL_CE_URL} | tar -xzC ${GRAALVM_HOME} --strip-components=1  &&      yum clean all &&      rm -f /tmp/graalvm-ce-amd64.tar.gz &&      rm -rf /var/cache/yum 
+[36mINFO[0m[0004] Checking for cached layer gcr.io/jenkinsxio/cache:eb021140d42dbe7d1b099948e84889ced1c11049c3d256c3d78cb957b13ac5a7... 
+[36mINFO[0m[0005] No cached layer found for cmd RUN curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/ 
+[36mINFO[0m[0005] Unpacking rootfs as cmd RUN curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/ requires it. 
+[36mINFO[0m[0278] Taking snapshot of full filesystem...        
+[36mINFO[0m[0640] ENV MAVEN_VERSION 3.5.3                      
+[36mINFO[0m[0640] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0640] RUN curl -f -L http://central.maven.org/maven2/org/apache/maven/apache-maven/$MAVEN_VERSION/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar -C /opt -xzv 
+[36mINFO[0m[0640] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0641] Taking snapshot of files...                  
+[36mINFO[0m[0641] ENV M2_HOME /opt/apache-maven-$MAVEN_VERSION 
+[36mINFO[0m[0641] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0641] ENV maven.home $M2_HOME                      
+[36mINFO[0m[0641] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0641] ENV M2 $M2_HOME/bin                          
+[36mINFO[0m[0641] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0641] ENV PATH $M2:$PATH                           
+[36mINFO[0m[0641] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0641] ARG GRAAL_VERSION=1.0.0-rc16                 
+[36mINFO[0m[0641] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0641] ENV GRAAL_CE_URL=https://github.com/oracle/graal/releases/download/vm-${GRAAL_VERSION}/graalvm-ce-${GRAAL_VERSION}-linux-amd64.tar.gz 
+[36mINFO[0m[0641] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0641] ARG INSTALL_PKGS="gzip"                      
+[36mINFO[0m[0641] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0641] ENV GRAALVM_HOME /opt/graalvm                
+[36mINFO[0m[0641] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0641] ENV JAVA_HOME /opt/graalvm                   
+[36mINFO[0m[0641] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0641] RUN yum install -y ${INSTALL_PKGS} && 	 mkdir -p ${GRAALVM_HOME} && 	 cd ${GRAALVM_HOME} && 	 curl -fsSL ${GRAAL_CE_URL} | tar -xzC ${GRAALVM_HOME} --strip-components=1  &&      yum clean all &&      rm -f /tmp/graalvm-ce-amd64.tar.gz &&      rm -rf /var/cache/yum 
+[36mINFO[0m[0641] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0677] Taking snapshot of files...                  
+[36mINFO[0m[0713] ENV JX_VERSION 2.0.573                       
+[36mINFO[0m[0713] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0713] RUN curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/ 
+[36mINFO[0m[0713] cmd: /bin/sh                                 
+[36mINFO[0m[0713] args: [-c curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/] 
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   612    0   612    0     0   1638      0 --:--:-- --:--:-- --:--:--  1640
+LICENSE
+README.md
+changelog.md
+**
+ 40 65.6M   40 26.7M    0     0  10.6M      0  0:00:06  0:00:02  0:00:04 13.8M 79 65.6M   79 52.1M    0     0  14.6M      0  0:00:04  0:00:03  0:00:01 17.4M100 65.6M  100 65.6M    0     0  15.6M      0  0:00:04  0:00:04 --:--:-- 18.0M
+[36mINFO[0m[0717] Taking snapshot of full filesystem...        
+[36mINFO[0m[0726] Adding whiteout for /var/cache/yum           
+[36mINFO[0m[0726] Adding whiteout for /var/lib/yum/rpmdb-indexes/version 
+[36mINFO[0m[0726] Adding whiteout for /var/lib/yum/rpmdb-indexes/conflicts 
+[36mINFO[0m[0726] Adding whiteout for /var/lib/yum/rpmdb-indexes/obsoletes 
+[36mINFO[0m[0726] Adding whiteout for /var/lib/yum/rpmdb-indexes/pkgtups-checksums 
+[36mINFO[0m[0726] Adding whiteout for /var/lib/yum/rpmdb-indexes/file-requires 
+[36mINFO[0m[0769] Pushing layer gcr.io/jenkinsxio/cache:eb021140d42dbe7d1b099948e84889ced1c11049c3d256c3d78cb957b13ac5a7 to cache now 
+[36mINFO[0m[0770] CMD ["mvn","-version"]                       
+[36mINFO[0m[0770] No files changed in this command, skipping snapshotting. 
+2019/08/08 17:01:42 pushed blob: sha256:bcdae8e29145f8711f5741c8ae867e45fe31aa05c701d68e6b6442dcbf2c45dc
+2019/08/08 17:01:52 pushed blob: sha256:91348d634b73a18c8b47ea7c7bcfd452ed0ac9eee6ab5230b58b2217b04e5e0d
+2019/08/08 17:01:53 gcr.io/jenkinsxio/cache:eb021140d42dbe7d1b099948e84889ced1c11049c3d256c3d78cb957b13ac5a7: digest: sha256:0348beea0b7c0e515be7c37c8212c0681ff837eb037877968653b620f63850e5 size: 429
+2019/08/08 17:01:53 existing blob: sha256:bee0a13648017886c5915ce5dec608f24dbea7b8a1e044c8fb2105ceea408afa
+2019/08/08 17:01:53 existing blob: sha256:065e519718393bdd264839cafc4d57eb600832a903765af6d41af5819dd4d160
+2019/08/08 17:01:53 existing blob: sha256:8ba884070f611d31cb2c42eddb691319dc9facf5e0ec67672fcfa135181ab3df
+2019/08/08 17:01:53 existing blob: sha256:a792e7bf7b54dea6a827d27b81fc3674eef2c0ca65b9ccabb75b887a74bd06d2
+2019/08/08 17:01:53 existing blob: sha256:d8c575b2b52888c9ee09cee8dba37cd3b3035555769295d514229d43fbf47d8e
+2019/08/08 17:01:53 existing blob: sha256:a8354d42e6911ab8001edfffa1934a1a9b357d1541f5cecc792b9a4172d76f46
+2019/08/08 17:01:53 existing blob: sha256:b1587e65165c461940963893326da19b2bc15471f6191bfdd9194758cb886aa6
+2019/08/08 17:01:53 existing blob: sha256:7ec2ffb56c90d8cad824dd30eeb4abbbc7321596c47a7dca90095935c3c2b656
+2019/08/08 17:01:53 existing blob: sha256:5069d699406c01c82af4f4e6147348dc551cb5d39e0d20dd1750bdce5b49c585
+2019/08/08 17:01:53 existing blob: sha256:5470abb626135f17b82fe46ee94962781a8aba7069a4c0b1898182daa4f429e3
+2019/08/08 17:01:53 existing blob: sha256:b1c1d1dc3c9b9ab62839f55f0b0da8856c9afa9d6fd1df987a48f582cc28183c
+2019/08/08 17:01:53 existing blob: sha256:e5e2dacee7b09f7927bbd054ec3859e5555a27d569da5193f4cabac285053f9b
+2019/08/08 17:01:53 existing blob: sha256:c5a0b7e8f77e1ac8afb62771d8d0325ee0f87791ee6ba486a6c40d4ba1d46125
+2019/08/08 17:01:53 existing blob: sha256:2cde0a33cb63aa41a1ab3fbdc3afc787a086314a625c30f7b68bc7ac02c6660e
+2019/08/08 17:01:53 existing blob: sha256:6756e87e029cdeb551ccf519eaebcf80e3441dd2bb37ed39b7c2268b4774b10b
+2019/08/08 17:01:53 existing blob: sha256:e9bce06a847e3879c73e81411ccb712580ba0dd7b2837f2ac365d19d13487b5d
+2019/08/08 17:01:53 existing blob: sha256:7c017636a6a609d8d318a4bebb3b6cc13feaf476f6a2ecc83d28e117314d5f6f
+2019/08/08 17:01:53 existing blob: sha256:b6fba42ef133eece995deb10c314cf8baa51ec1bd7dbea9ab259a5d79dcdfda1
+2019/08/08 17:01:53 existing blob: sha256:bf9a53bcc9019aae02864e6e43264e06837c7d984b9cf6132aca44a98ba348e6
+2019/08/08 17:01:53 existing blob: sha256:429b38434357f169ce8a79a4bb39ca386ccf658ae7482b6ff602a86e6191960e
+2019/08/08 17:01:53 existing blob: sha256:897e54f35a4b2ed07f22d316f09a9aa9ea68765f226654989a175bb51361e86e
+2019/08/08 17:01:53 existing blob: sha256:91348d634b73a18c8b47ea7c7bcfd452ed0ac9eee6ab5230b58b2217b04e5e0d
+2019/08/08 17:01:53 existing blob: sha256:cf9e3958d06a3ad26e44d702f64228735d63903a9edc8b0f43d0286342fc0fbd
+2019/08/08 17:01:53 existing blob: sha256:b2919518b0ce2fd1a64eb2007c34232d8b60257d80fa45b67b9121e132b4e3db
+2019/08/08 17:01:53 existing blob: sha256:92ade984df77a2da628fb1374cdf03f767152d12cd5df74465e4bc8bb39edb58
+2019/08/08 17:01:53 existing blob: sha256:ce53723240799b4450ccf6661e55e7277a52d14666b060a129af4125a69ac70e
+2019/08/08 17:01:53 existing blob: sha256:d773df446b2002f5750748d96b7929546effb66991006aa6fb556a70823be462
+2019/08/08 17:01:53 existing blob: sha256:8ba4d28c69c100373c4b96f3da07cbd5b170e0c17989fcc003c29cf28f86e3ae
+2019/08/08 17:01:53 existing blob: sha256:beeb2bddff350965322c530827ce314058a5af7f4f628d9ef9c97dd73e48d016
+2019/08/08 17:01:53 existing blob: sha256:6d138d81df365a45ab5fcf8e3f3da8357c45afe495207ecd09d2af0eb98505c5
+2019/08/08 17:01:53 existing blob: sha256:a99d55345bae39430f75db8c3f6f9dc774baf8d7672bb5c5f5f6be9d7bdf4dae
+2019/08/08 17:01:56 pushed blob: sha256:0b382547bf54e8e6c22ce5e581c0d33fb72e290cf4d51bd51b8c08e44324232b
+2019/08/08 17:01:57 pushed blob: sha256:5609a3d49985cc2be0b0f8e7aba0be57a7fc3f940775e061059e5778dc2b24ef
+2019/08/08 17:02:44 pushed blob: sha256:4ff6db0fe1dcccf17b249b175e0007f1e37d0bcf4d440f3a1d58d48b36e07e77
+2019/08/08 17:02:45 gcr.io/jenkinsxio/builder-maven-graalvm:0.0.0-SNAPSHOT-PR-638-4: digest: sha256:05a3d1463970e95d8f518f7564fe5b18a8b6ed1eca1e40d54de5a177525ac261 size: 5688
+Step: build-step-build-and-push-maven-nodejs:
+
+[36mINFO[0m[0000] Downloading base image gcr.io/jenkinsxio/builder-base:0.0.44 
+[36mINFO[0m[0000] Error while retrieving image from cache: getting file info: stat /workspace/sha256:f889e888c351a595832da82ebbc375d22984bab79073185de16affdfcef40f73: no such file or directory 
+[36mINFO[0m[0000] Downloading base image gcr.io/jenkinsxio/builder-base:0.0.44 
+[36mINFO[0m[0001] Checking for cached layer gcr.io/jenkinsxio/cache:659f7a474dea773ed24fb4e8e8917cd9fdbe67b1d2638a1d7df0bdd87f0b2e54... 
+[36mINFO[0m[0001] Using caching version of cmd: RUN curl -f -L http://central.maven.org/maven2/org/apache/maven/apache-maven/$MAVEN_VERSION/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar -C /opt -xzv 
+[36mINFO[0m[0001] Checking for cached layer gcr.io/jenkinsxio/cache:822a8923e537953dcc5a8a2d9c1877365f6762cd99364bd4ea1702f9d96a6600... 
+[36mINFO[0m[0002] Using caching version of cmd: RUN curl https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz | tar -xz 
+[36mINFO[0m[0002] Checking for cached layer gcr.io/jenkinsxio/cache:01047c6bb339a1f851c705086a905de2379ee76cbf85537fecd6c05f717d1b0e... 
+[36mINFO[0m[0002] Using caching version of cmd: RUN mv /home/jenkins/jdk-11.0.2 /usr/java 
+[36mINFO[0m[0002] Checking for cached layer gcr.io/jenkinsxio/cache:018f37d12576f44e4d1d448f1dc5f4e4b1a605aa23ab89e949274cf5845c926b... 
+[36mINFO[0m[0003] Using caching version of cmd: RUN rm /usr/bin/java /usr/bin/javac /usr/bin/javadoc 
+[36mINFO[0m[0003] Checking for cached layer gcr.io/jenkinsxio/cache:4d1e0f5523cb81a07eba5ca1ed03b4607f8a118742638ec042dd4c66514a8c9b... 
+[36mINFO[0m[0004] Using caching version of cmd: RUN ln -s /usr/java/bin/java /usr/bin/java 
+[36mINFO[0m[0004] Checking for cached layer gcr.io/jenkinsxio/cache:d98c4034489fd97a812524d4a22369ce72d846aa23628a7d3d874cc61d7c69bc... 
+[36mINFO[0m[0004] Using caching version of cmd: RUN ln -s /usr/java/bin/javac /usr/bin/javac 
+[36mINFO[0m[0004] Checking for cached layer gcr.io/jenkinsxio/cache:6319e2c741591adc1145666a158411efb1f555e2130ef320b4ea331a56f8872f... 
+[36mINFO[0m[0005] Using caching version of cmd: RUN ln -s /usr/java/bin/javadoc /usr/bin/javadoc 
+[36mINFO[0m[0005] Checking for cached layer gcr.io/jenkinsxio/cache:fc46c4dbb83ffa5c536f28f1ce8e14260e254379e61eb80d528eb901fa333a6e... 
+[36mINFO[0m[0005] Using caching version of cmd: RUN yum install -y gcc-c++ make bzip2 GConf2 gtk2 chromedriver chromium xorg-x11-server-Xvfb && 	curl -f --silent --location https://rpm.nodesource.com/setup_11.x | bash -  && 	yum install -y nodejs  && 	yum clean all 
+[36mINFO[0m[0005] Checking for cached layer gcr.io/jenkinsxio/cache:9db3132f44a4d91f6309d8bf8f19782e81f4bf9cf9a760091122afedaa973533... 
+[36mINFO[0m[0006] Using caching version of cmd: RUN npm i -g watch-cli vsce typescript aws-cdk 
+[36mINFO[0m[0006] Checking for cached layer gcr.io/jenkinsxio/cache:e28f2f49e28c837d466e6c26c578a54ec80b908a60b800ebb5daa44874a52ce3... 
+[36mINFO[0m[0007] Using caching version of cmd: RUN curl -f -L -o /tmp/yarn.tgz https://github.com/yarnpkg/yarn/releases/download/v${YARN_VERSION}/yarn-v${YARN_VERSION}.tar.gz && 	tar xf /tmp/yarn.tgz && 	mv yarn-v${YARN_VERSION} /opt/yarn && 	ln -s /opt/yarn/bin/yarn /usr/local/bin/yarn 
+[36mINFO[0m[0007] Checking for cached layer gcr.io/jenkinsxio/cache:6c77bcde41cc528739fb802d22cda4705797331f43a9d286efe158607fe0cf34... 
+[36mINFO[0m[0007] No cached layer found for cmd RUN curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/ 
+[36mINFO[0m[0007] Unpacking rootfs as cmd RUN curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/ requires it. 
+[36mINFO[0m[0151] Taking snapshot of full filesystem...        
+[36mINFO[0m[0257] ENV MAVEN_VERSION 3.5.3                      
+[36mINFO[0m[0257] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0257] RUN curl -f -L http://central.maven.org/maven2/org/apache/maven/apache-maven/$MAVEN_VERSION/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar -C /opt -xzv 
+[36mINFO[0m[0257] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0257] Taking snapshot of files...                  
+[36mINFO[0m[0258] ENV M2_HOME /opt/apache-maven-$MAVEN_VERSION 
+[36mINFO[0m[0258] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0258] ENV maven.home $M2_HOME                      
+[36mINFO[0m[0258] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0258] ENV M2 $M2_HOME/bin                          
+[36mINFO[0m[0258] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0258] ENV PATH $M2:$PATH                           
+[36mINFO[0m[0258] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0258] RUN curl https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz | tar -xz 
+[36mINFO[0m[0258] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0268] Taking snapshot of files...                  
+[36mINFO[0m[0284] RUN mv /home/jenkins/jdk-11.0.2 /usr/java    
+[36mINFO[0m[0284] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0291] Taking snapshot of files...                  
+[36mINFO[0m[0302] RUN rm /usr/bin/java /usr/bin/javac /usr/bin/javadoc 
+[36mINFO[0m[0302] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0302] Taking snapshot of files...                  
+[36mINFO[0m[0302] RUN ln -s /usr/java/bin/java /usr/bin/java   
+[36mINFO[0m[0302] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0302] Taking snapshot of files...                  
+[36mINFO[0m[0302] RUN ln -s /usr/java/bin/javac /usr/bin/javac 
+[36mINFO[0m[0302] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0302] Taking snapshot of files...                  
+[36mINFO[0m[0302] RUN ln -s /usr/java/bin/javadoc /usr/bin/javadoc 
+[36mINFO[0m[0302] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0302] Taking snapshot of files...                  
+[36mINFO[0m[0302] ENV JAVA_HOME /usr/java                      
+[36mINFO[0m[0302] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0302] RUN yum install -y gcc-c++ make bzip2 GConf2 gtk2 chromedriver chromium xorg-x11-server-Xvfb && 	curl -f --silent --location https://rpm.nodesource.com/setup_11.x | bash -  && 	yum install -y nodejs  && 	yum clean all 
+[36mINFO[0m[0302] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0317] Taking snapshot of files...                  
+[36mINFO[0m[0340] RUN npm i -g watch-cli vsce typescript aws-cdk 
+[36mINFO[0m[0340] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0346] Taking snapshot of files...                  
+[36mINFO[0m[0352] ENV YARN_VERSION 1.3.2                       
+[36mINFO[0m[0352] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0352] RUN curl -f -L -o /tmp/yarn.tgz https://github.com/yarnpkg/yarn/releases/download/v${YARN_VERSION}/yarn-v${YARN_VERSION}.tar.gz && 	tar xf /tmp/yarn.tgz && 	mv yarn-v${YARN_VERSION} /opt/yarn && 	ln -s /opt/yarn/bin/yarn /usr/local/bin/yarn 
+[36mINFO[0m[0352] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0352] Taking snapshot of files...                  
+[36mINFO[0m[0352] ENV JX_VERSION 2.0.573                       
+[36mINFO[0m[0352] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0352] RUN curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/ 
+[36mINFO[0m[0352] cmd: /bin/sh                                 
+[36mINFO[0m[0352] args: [-c curl -f -L https://github.com/jenkins-x/**/releases/download/v${JX_VERSION}/**-linux-amd64.tar.gz | tar xzv &&   mv ** /usr/bin/] 
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   612    0   612    0     0   1694      0 --:--:-- --:--:-- --:--:--  1700
+LICENSE
+README.md
+changelog.md
+**
+  0 65.6M    0 33327    0     0  39363      0  0:29:08 --:--:--  0:29:08 39363 22 65.6M   22 15.0M    0     0  8475k      0  0:00:07  0:00:01  0:00:06 15.4M 66 65.6M   66 43.6M    0     0  15.4M      0  0:00:04  0:00:02  0:00:02 22.1M100 65.6M  100 65.6M    0     0  18.4M      0  0:00:03  0:00:03 --:--:-- 24.1M
+[36mINFO[0m[0356] Taking snapshot of full filesystem...        
+[36mINFO[0m[0371] Adding whiteout for /var/lib/yum/yumdb/x/537f81ca8681fdddcff6682175e45fe03f694e8e-xorg-x11-server-common-1.20.1-5.3.el7_6-x86_64 
+[36mINFO[0m[0371] Adding whiteout for /var/cache/yum/x86_64/7/extras/cachecookie 
+[36mINFO[0m[0371] Adding whiteout for /var/cache/yum/x86_64/7/google-chrome/cachecookie 
+[36mINFO[0m[0371] Adding whiteout for /var/cache/yum/x86_64/7/base/repomd.xml 
+[36mINFO[0m[0371] Adding whiteout for /var/lib/yum/rpmdb-indexes/pkgtups-checksums 
+[36mINFO[0m[0371] Adding whiteout for /var/cache/yum/x86_64/7/epel/67524caa6631e887a5ec38e3facaaa685101876958e16bcb69c6e7a5f77aa607-primary.sqlite.bz2 
+[36mINFO[0m[0371] Adding whiteout for /var/cache/yum/x86_64/7/base/6614b3605d961a4aaec45d74ac4e5e713e517debb3ee454a1c91097955780697-primary.sqlite.bz2 
+[36mINFO[0m[0371] Adding whiteout for /var/cache/yum/x86_64/7/updates/gen/filelists_db.sqlite 
+[36mINFO[0m[0371] Adding whiteout for /var/cache/yum/x86_64/7/base/cachecookie 
+[36mINFO[0m[0371] Adding whiteout for /var/lib/yum/yumdb/x/b2f6c43294e98ca8d25694731b8ee7cd87535d79-xorg-x11-server-Xvfb-1.20.1-5.3.el7_6-x86_64 
+[36mINFO[0m[0371] Adding whiteout for /var/cache/yum/x86_64/7/base/a0ec5a4708a1026db100d4799c404c9ed48a9371a4bab234a1355f86628a244a-filelists.sqlite.bz2 
+[36mINFO[0m[0371] Adding whiteout for /var/cache/yum/x86_64/7/extras/gen/primary_db.sqlite 
+[36mINFO[0m[0371] Adding whiteout for /var/cache/yum/x86_64/7/timedhosts.txt 
+[36mINFO[0m[0371] Adding whiteout for /var/cache/yum/x86_64/7/google-chrome/gen/primary.xml 
+[36mINFO[0m[0371] Adding whiteout for /var/lib/yum/rpmdb-indexes/version 
+[36mINFO[0m[0371] Adding whiteout for /var/cache/yum/x86_64/7/epel/gen/primary_db.sqlite 
+[36mINFO[0m[0371] Adding whiteout for /var/cache/yum/x86_64/7/epel/cachecookie 
+[36mINFO[0m[0371] Adding whiteout for /var/cache/yum/x86_64/7/base/bc140c8149fc43a5248fccff0daeef38182e49f6fe75d9b46db1206dc25a6c1c-c7-x86_64-comps.xml.gz 
+[36mINFO[0m[0371] Adding whiteout for /var/cache/yum/x86_64/7/epel/gen/comps.xml 
+[36mINFO[0m[0371] Adding whiteout for /var/cache/yum/x86_64/7/extras/repomd.xml 
+[36mINFO[0m[0371] Adding whiteout for /var/cache/yum/x86_64/7/extras/8040035f545d88fec517382949ce96902ed4ef232874e68bdf2ffdbcf2c6c2ec-primary.sqlite.bz2 
+[36mINFO[0m[0371] Adding whiteout for /var/cache/yum/x86_64/7/epel/5bcd966a5e87d03e75963c79096fb0e5d5ad89a705a9f220c998fea556d32255-updateinfo.xml.bz2 
+[36mINFO[0m[0371] Adding whiteout for /var/cache/yum/x86_64/7/epel/d2d16b74b98b26292868d49413181da81c791150ce460be98bcf0628f3005bc7-updateinfo.xml.bz2 
+[36mINFO[0m[0371] Adding whiteout for /var/cache/yum/x86_64/7/google-chrome/primary.xml.gz 
+[36mINFO[0m[0371] Adding whiteout for /var/cache/yum/x86_64/7/updates/cachecookie 
+[36mINFO[0m[0371] Adding whiteout for /var/cache/yum/x86_64/7/updates/mirrorlist.txt 
+[36mINFO[0m[0371] Adding whiteout for /var/cache/yum/x86_64/7/epel/repomd.xml 
+[36mINFO[0m[0371] Adding whiteout for /var/cache/yum/x86_64/7/google-chrome/repomd.xml 
+[36mINFO[0m[0371] Adding whiteout for /var/lib/yum/rpmdb-indexes/obsoletes 
+[36mINFO[0m[0371] Adding whiteout for /var/cache/yum/x86_64/7/base/gen/filelists_db.sqlite 
+[36mINFO[0m[0371] Adding whiteout for /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite 
+[36mINFO[0m[0371] Adding whiteout for /var/cache/yum/x86_64/7/updates/repomd.xml 
+[36mINFO[0m[0371] Adding whiteout for /var/lib/yum/rpmdb-indexes/file-requires 
+[36mINFO[0m[0371] Adding whiteout for /var/cache/yum/x86_64/7/base/mirrorlist.txt 
+[36mINFO[0m[0371] Adding whiteout for /var/cache/yum/x86_64/7/base/gen/primary_db.sqlite 
+[36mINFO[0m[0371] Adding whiteout for /var/cache/yum/x86_64/7/base/gen/comps.xml 
+[36mINFO[0m[0371] Adding whiteout for /var/cache/yum/x86_64/7/updates/c317d43ffabba63436dd2fd246cd83fb0fef9cce712f8b67ef371e29e81aef4a-primary.sqlite.bz2 
+[36mINFO[0m[0371] Adding whiteout for /var/cache/yum/x86_64/7/google-chrome/gen/primary.xml.sqlite 
+[36mINFO[0m[0371] Adding whiteout for /home/jenkins/jdk-11.0.2 
+[36mINFO[0m[0371] Adding whiteout for /var/cache/yum/x86_64/7/updates/7303cbcc9806f8d266e12f27067a972b40e736f13800129e79d035fdd8883df6-primary.sqlite.bz2 
+[36mINFO[0m[0371] Adding whiteout for /var/cache/yum/x86_64/7/epel/90a58610660455abd8f6aa587347a572e9ebc7bf949fd777fd9358d3d7c0b481-primary.sqlite.bz2 
+[36mINFO[0m[0371] Adding whiteout for /var/cache/yum/x86_64/7/epel/metalink.xml 
+[36mINFO[0m[0371] Adding whiteout for /var/cache/yum/x86_64/7/epel/d97ad2922a45eb2a5fc007fdd84e7ae4981b257d3b94c3c9f5d7b0dda6baa098-comps-Everything.x86_64.xml.gz 
+[36mINFO[0m[0371] Adding whiteout for /var/lib/yum/rpmdb-indexes/conflicts 
+[36mINFO[0m[0371] Adding whiteout for /var/cache/yum/x86_64/7/extras/mirrorlist.txt 
+[36mINFO[0m[0371] Adding whiteout for /var/cache/yum/x86_64/7/updates/2c2cf8e196fcaafe88087e86175911120578086d4648cb8260fbffc9326e2bcb-filelists.sqlite.bz2 
+[36mINFO[0m[0411] Pushing layer gcr.io/jenkinsxio/cache:6c77bcde41cc528739fb802d22cda4705797331f43a9d286efe158607fe0cf34 to cache now 
+[36mINFO[0m[0411] CMD ["mvn","-version"]                       
+[36mINFO[0m[0411] No files changed in this command, skipping snapshotting. 
+2019/08/08 17:09:40 pushed blob: sha256:8e96ed5f6c27a467fafe67a80ff33d178a7ffeb9a80fe669c578d68e1b443473
+2019/08/08 17:09:49 pushed blob: sha256:d8654f5f8b9d7ca45ddf784b5edd95f325dc4a152719a8b3386e6f4ac436420f
+2019/08/08 17:09:51 gcr.io/jenkinsxio/cache:6c77bcde41cc528739fb802d22cda4705797331f43a9d286efe158607fe0cf34: digest: sha256:63fa97671a9907c6ede8f671418f5968b3a59b3f5ef32870f30fa847b847d431 size: 429
+2019/08/08 17:09:51 existing blob: sha256:bee0a13648017886c5915ce5dec608f24dbea7b8a1e044c8fb2105ceea408afa
+2019/08/08 17:09:51 existing blob: sha256:6d138d81df365a45ab5fcf8e3f3da8357c45afe495207ecd09d2af0eb98505c5
+2019/08/08 17:09:51 existing blob: sha256:beeb2bddff350965322c530827ce314058a5af7f4f628d9ef9c97dd73e48d016
+2019/08/08 17:09:51 existing blob: sha256:f92a8369d697ee4bd7673d9254752c241eecc4a23096bbb32f3034d11811b5a1
+2019/08/08 17:09:51 existing blob: sha256:d8654f5f8b9d7ca45ddf784b5edd95f325dc4a152719a8b3386e6f4ac436420f
+2019/08/08 17:09:51 existing blob: sha256:897e54f35a4b2ed07f22d316f09a9aa9ea68765f226654989a175bb51361e86e
+2019/08/08 17:09:51 existing blob: sha256:f9443307d73a890bbffbe23bbf8ce9a8e5e6d99b3a206bbd1959c80ea2cea61f
+2019/08/08 17:09:51 existing blob: sha256:b1c1d1dc3c9b9ab62839f55f0b0da8856c9afa9d6fd1df987a48f582cc28183c
+2019/08/08 17:09:51 existing blob: sha256:d8c575b2b52888c9ee09cee8dba37cd3b3035555769295d514229d43fbf47d8e
+2019/08/08 17:09:51 existing blob: sha256:065e519718393bdd264839cafc4d57eb600832a903765af6d41af5819dd4d160
+2019/08/08 17:09:51 existing blob: sha256:7ec2ffb56c90d8cad824dd30eeb4abbbc7321596c47a7dca90095935c3c2b656
+2019/08/08 17:09:51 existing blob: sha256:05ee8f48257315be25616db5b2ef5381d577bdee423068b8408404125b64fde4
+2019/08/08 17:09:51 existing blob: sha256:f49b7820967adb88e448f3c2a00267d9ea953eabbd3a81db6b7906a4920623b4
+2019/08/08 17:09:51 existing blob: sha256:ce53723240799b4450ccf6661e55e7277a52d14666b060a129af4125a69ac70e
+2019/08/08 17:09:51 existing blob: sha256:94b3b7648b5544a05178b5994d088a23b3b253f02d4aa676b986f9e7fb36a10e
+2019/08/08 17:09:51 existing blob: sha256:d773df446b2002f5750748d96b7929546effb66991006aa6fb556a70823be462
+2019/08/08 17:09:51 existing blob: sha256:429b38434357f169ce8a79a4bb39ca386ccf658ae7482b6ff602a86e6191960e
+2019/08/08 17:09:51 existing blob: sha256:0b5c8cfe57715353eaa9e8c429fcdd3ee80a44c0eacf4a37c7c075379fd9b7d1
+2019/08/08 17:09:51 existing blob: sha256:92ade984df77a2da628fb1374cdf03f767152d12cd5df74465e4bc8bb39edb58
+2019/08/08 17:09:51 existing blob: sha256:b6fba42ef133eece995deb10c314cf8baa51ec1bd7dbea9ab259a5d79dcdfda1
+2019/08/08 17:09:51 existing blob: sha256:e5e2dacee7b09f7927bbd054ec3859e5555a27d569da5193f4cabac285053f9b
+2019/08/08 17:09:51 existing blob: sha256:6756e87e029cdeb551ccf519eaebcf80e3441dd2bb37ed39b7c2268b4774b10b
+2019/08/08 17:09:51 existing blob: sha256:8ba884070f611d31cb2c42eddb691319dc9facf5e0ec67672fcfa135181ab3df
+2019/08/08 17:09:51 existing blob: sha256:7c017636a6a609d8d318a4bebb3b6cc13feaf476f6a2ecc83d28e117314d5f6f
+2019/08/08 17:09:51 existing blob: sha256:7f205009ed1da43f1f35b5edc07400e345ce6c01cb46e1ae41365386e9434c45
+2019/08/08 17:09:51 existing blob: sha256:5069d699406c01c82af4f4e6147348dc551cb5d39e0d20dd1750bdce5b49c585
+2019/08/08 17:09:51 existing blob: sha256:f25494c611ea091e11b157eb61a293f87abd08ed88d620a7c339749a5df70962
+2019/08/08 17:09:51 existing blob: sha256:b1587e65165c461940963893326da19b2bc15471f6191bfdd9194758cb886aa6
+2019/08/08 17:09:51 existing blob: sha256:5470abb626135f17b82fe46ee94962781a8aba7069a4c0b1898182daa4f429e3
+2019/08/08 17:09:51 existing blob: sha256:a8354d42e6911ab8001edfffa1934a1a9b357d1541f5cecc792b9a4172d76f46
+2019/08/08 17:09:51 existing blob: sha256:2cde0a33cb63aa41a1ab3fbdc3afc787a086314a625c30f7b68bc7ac02c6660e
+2019/08/08 17:09:52 existing blob: sha256:d1f08e18f79c532c470770e5fb7824e610deebfdcfe3775f6a1ad385b65e5e95
+2019/08/08 17:09:54 pushed blob: sha256:bbcc91bc568d4b7743eeb8dbeda0c63ac7a9ebdd2002f1f182cc9f0ab9082163
+2019/08/08 17:09:54 pushed blob: sha256:dd7c6c1786c075d41509edd24d6f3aac53de089feed9e45903a742d513b91b6a
+2019/08/08 17:09:54 pushed blob: sha256:26a79b93433fc9dd7bdbc9d7fc5a3322f14cba0c0da9019e8473c2fbecb457b1
+2019/08/08 17:09:54 pushed blob: sha256:82de81e48609920c783bc204eead1bc1d99825a7e8f493b680c513133c39a708
+2019/08/08 17:09:55 pushed blob: sha256:e45e41c846b1db4eb0402e11e8ea9efbb0a7fbda42f82bd3c655d2de810db982
+2019/08/08 17:09:57 pushed blob: sha256:474a490283cb897ce8867fd2730d9ba885fa311ce2625ea7c304519a10613cf1
+2019/08/08 17:10:14 pushed blob: sha256:f13f7afeba1e7c278d2baf63fb3fd0a4ca3cfa2a60fe531ecabb249ab951b576
+2019/08/08 17:10:33 pushed blob: sha256:a7119f1984dac0f5f8f96f9fd7e86c5fed7c38fce4feb65da0dd5c3b094546d4
+2019/08/08 17:10:34 pushed blob: sha256:7d90ad6bfb90926acc0c734d3b0aabe0df73aebb737917292509646e28a0bcd6
+2019/08/08 17:10:51 pushed blob: sha256:1cb98411a87c2ecde3dc4c19d4101416002fc3a0e0f14a9ee9aebc5f48cf9b2b
+2019/08/08 17:10:52 gcr.io/jenkinsxio/builder-maven-nodejs:0.0.0-SNAPSHOT-PR-638-4: digest: sha256:3bcda9c04fa7aefad3939d38736a4850035ff84fffcf9832aec7e56b6a03dba8 size: 6989
