@@ -3,7 +3,7 @@ FROM gcr.io/jenkinsxio/builder-base:0.0.45
 CMD ["gradle"]
 
 ENV GRADLE_HOME /opt/gradle
-ENV GRADLE_VERSION 5.1
+ENV GRADLE_VERSION 5.6
 
 RUN set -o errexit -o nounset \
     && echo "Set URLS" \
