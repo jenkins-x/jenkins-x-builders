@@ -817,7 +817,21 @@ pipelineConfig:
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
                 - --cache-dir=/workspace
-
+          - name: update-and-release-notes
+            environment:
+              - name: PUSH_LATEST
+                value: "false"
+              - name: GOOGLE_APPLICATION_CREDENTIALS
+                value: /builder/home/kaniko-secret.json
+              - name: GIT_COMMITTER_EMAIL
+                value: jenkins-x@googlegroups.com
+              - name: GIT_COMMITTER_NAME
+                value: jenkins-x-bot
+              - name: GIT_AUTHOR_EMAIL
+                value: jenkins-x@googlegroups.com
+              - name: GIT_AUTHOR_NAME
+                value: jenkins-x-bot
+            steps:
             # update downstream dependencies
             - name: update-bot
               image: gcr.io/jenkinsxio/builder-maven:${inputs.params.version}
