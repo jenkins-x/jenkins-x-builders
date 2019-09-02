@@ -422,6 +422,7 @@ pipelineConfig:
               args:
                 - --dockerfile=/workspace/source/builder-jx/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-jx:${inputs.params.version}
+                - --destination=gcr.io/jenkinsxio/builder-jx:latest
                 - --context=/workspace/source
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
@@ -437,6 +438,7 @@ pipelineConfig:
               args:
                 - --dockerfile=/workspace/source/builder-maven-java11/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-maven-java11:${inputs.params.version}
+                - --destination=gcr.io/jenkinsxio/builder-maven-java11:latest
                 - --context=/workspace/source
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
@@ -446,6 +448,7 @@ pipelineConfig:
               args:
                 - --dockerfile=/workspace/source/builder-maven-graalvm/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-maven-graalvm:${inputs.params.version}
+                - --destination=gcr.io/jenkinsxio/builder-maven-graalvm:latest
                 - --context=/workspace/source
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
@@ -455,6 +458,7 @@ pipelineConfig:
               args:
                 - --dockerfile=/workspace/source/builder-maven-nodejs/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-maven-nodejs:${inputs.params.version}
+                - --destination=gcr.io/jenkinsxio/builder-maven-nodejs:latest
                 - --context=/workspace/source
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
@@ -464,6 +468,7 @@ pipelineConfig:
               args:
                 - --dockerfile=/workspace/source/builder-cf/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-cf:${inputs.params.version}
+                - --destination=gcr.io/jenkinsxio/builder-cf:latest
                 - --context=/workspace/source
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
@@ -473,6 +478,7 @@ pipelineConfig:
               args:
                 - --dockerfile=/workspace/source/builder-go/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-go:${inputs.params.version}
+                - --destination=gcr.io/jenkinsxio/builder-go:latest
                 - --context=/workspace/source
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
@@ -482,6 +488,7 @@ pipelineConfig:
               args:
                 - --dockerfile=/workspace/source/builder-python37/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-python37:${inputs.params.version}
+                - --destination=gcr.io/jenkinsxio/builder-python37:latest
                 - --context=/workspace/source
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
@@ -491,6 +498,7 @@ pipelineConfig:
               args:
                 - --dockerfile=/workspace/source/builder-go-maven/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-go-maven:${inputs.params.version}
+                - --destination=gcr.io/jenkinsxio/builder-go-maven:latest
                 - --context=/workspace/source/builder-go-maven
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
@@ -500,6 +508,7 @@ pipelineConfig:
               args:
                 - --dockerfile=/workspace/source/builder-jx/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-jx:${inputs.params.version}
+                - --destination=gcr.io/jenkinsxio/builder-jx:latest
                 - --context=/workspace/source
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
@@ -509,6 +518,7 @@ pipelineConfig:
               args:
                 - --dockerfile=/workspace/source/builder-python/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-python:${inputs.params.version}
+                - --destination=gcr.io/jenkinsxio/builder-python:latest
                 - --context=/workspace/source
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
@@ -518,6 +528,7 @@ pipelineConfig:
               args:
                 - --dockerfile=/workspace/source/builder-maven-32/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-maven-32:${inputs.params.version}
+                - --destination=gcr.io/jenkinsxio/builder-maven-32:latest
                 - --context=/workspace/source/builder-maven-32
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
@@ -527,6 +538,7 @@ pipelineConfig:
               args:
                 - --dockerfile=/workspace/source/builder-dlang/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-dlang:${inputs.params.version}
+                - --destination=gcr.io/jenkinsxio/builder-dlang:latest
                 - --context=/workspace/source
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
@@ -536,6 +548,7 @@ pipelineConfig:
               args:
                 - --dockerfile=/workspace/source/builder-gradle/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-gradle:${inputs.params.version}
+                - --destination=gcr.io/jenkinsxio/builder-gradle:latest
                 - --context=/workspace/source
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
@@ -545,6 +558,7 @@ pipelineConfig:
               args:
                 - --dockerfile=/workspace/source/builder-gradle4/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-gradle4:${inputs.params.version}
+                - --destination=gcr.io/jenkinsxio/builder-gradle4:latest
                 - --context=/workspace/source
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
@@ -554,6 +568,7 @@ pipelineConfig:
               args:
                 - --dockerfile=/workspace/source/builder-gradle5/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-gradle5:${inputs.params.version}
+                - --destination=gcr.io/jenkinsxio/builder-gradle5:latest
                 - --context=/workspace/source
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
@@ -563,6 +578,7 @@ pipelineConfig:
               args:
                 - --dockerfile=/workspace/source/builder-gradle5-java11/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-gradle5-java11:${inputs.params.version}
+                - --destination=gcr.io/jenkinsxio/builder-gradle5-java11:latest
                 - --context=/workspace/source
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
@@ -573,6 +589,7 @@ pipelineConfig:
 #              args:
 #                - --dockerfile=/workspace/source/builder-machine-learning/Dockerfile
 #                - --destination=gcr.io/jenkinsxio/builder-machine-learning:${inputs.params.version}
+#                - --destination=gcr.io/jenkinsxio/builder-machine-learning:latest
 #                - --context=/workspace/source
 #                - --cache-repo=gcr.io/jenkinsxio/cache
 #                - --cache=true
@@ -582,6 +599,7 @@ pipelineConfig:
 #              args:
 #                - --dockerfile=/workspace/source/builder-machine-learning-gpu/Dockerfile
 #                - --destination=gcr.io/jenkinsxio/builder-machine-learning-gpu:${inputs.params.version}
+#                - --destination=gcr.io/jenkinsxio/builder-machine-learning-gpu:latest
 #                - --context=/workspace/source
 #                - --cache-repo=gcr.io/jenkinsxio/cache
 #                - --cache=true
@@ -591,6 +609,7 @@ pipelineConfig:
               args:
                 - --dockerfile=/workspace/source/builder-maven/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-maven:${inputs.params.version}
+                - --destination=gcr.io/jenkinsxio/builder-maven:latest
                 - --context=/workspace/source
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
@@ -600,6 +619,7 @@ pipelineConfig:
               args:
                 - --dockerfile=/workspace/source/builder-newman/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-newman:${inputs.params.version}
+                - --destination=gcr.io/jenkinsxio/builder-newman:latest
                 - --context=/workspace/source
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
@@ -609,6 +629,7 @@ pipelineConfig:
               args:
                 - --dockerfile=/workspace/source/builder-nodejs/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-nodejs:${inputs.params.version}
+                - --destination=gcr.io/jenkinsxio/builder-nodejs:latest
                 - --context=/workspace/source
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
@@ -618,6 +639,7 @@ pipelineConfig:
               args:
                 - --dockerfile=/workspace/source/builder-nodejs8x/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-nodejs8x:${inputs.params.version}
+                - --destination=gcr.io/jenkinsxio/builder-nodejs8x:latest
                 - --context=/workspace/source
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
@@ -627,6 +649,7 @@ pipelineConfig:
               args:
                 - --dockerfile=/workspace/source/builder-nodejs10x/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-nodejs10x:${inputs.params.version}
+                - --destination=gcr.io/jenkinsxio/builder-nodejs10x:latest
                 - --context=/workspace/source
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
@@ -636,6 +659,7 @@ pipelineConfig:
               args:
                 - --dockerfile=/workspace/source/builder-python2/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-python2:${inputs.params.version}
+                - --destination=gcr.io/jenkinsxio/builder-python2:latest
                 - --context=/workspace/source
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
@@ -645,6 +669,7 @@ pipelineConfig:
               args:
                 - --dockerfile=/workspace/source/builder-ruby/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-ruby:${inputs.params.version}
+                - --destination=gcr.io/jenkinsxio/builder-ruby:latest
                 - --context=/workspace/source
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
@@ -654,6 +679,7 @@ pipelineConfig:
               args:
                 - --dockerfile=/workspace/source/builder-rust/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-rust:${inputs.params.version}
+                - --destination=gcr.io/jenkinsxio/builder-rust:latest
                 - --context=/workspace/source
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
@@ -663,6 +689,7 @@ pipelineConfig:
               args:
                 - --dockerfile=/workspace/source/builder-scala/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-scala:${inputs.params.version}
+                - --destination=gcr.io/jenkinsxio/builder-scala:latest
                 - --context=/workspace/source
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
@@ -672,6 +699,7 @@ pipelineConfig:
               args:
                 - --dockerfile=/workspace/source/builder-swift/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-swift:${inputs.params.version}
+                - --destination=gcr.io/jenkinsxio/builder-swift:latest
                 - --context=/workspace/source
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
@@ -681,6 +709,7 @@ pipelineConfig:
               args:
                 - --dockerfile=/workspace/source/builder-terraform/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-terraform:${inputs.params.version}
+                - --destination=gcr.io/jenkinsxio/builder-terraform:latest
                 - --context=/workspace/source
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
