@@ -32,7 +32,7 @@ RUN yes | sdkmanager \
     "build-tools;28.0.0"
 
 # jx
-ENV JX_VERSION 2.0.670
+ENV JX_VERSION 2.0.673
 RUN curl -f -L https://github.com/jenkins-x/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv && \
   mv jx /usr/bin/
 
