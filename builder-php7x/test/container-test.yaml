@@ -1,7 +1,7 @@
 schemaVersion: '2.0.0' # Make sure to test the latest schema version
 commandTests:
-- name: 'node'
-  command: 'node'
+- name: 'php7x'
+  command: 'php'
   args: ['-v']
   excludedError: ['.*FAIL.*']
-  expectedOutput: ['.*v12.*']
+  expectedOutput: ['.*PHP 7.2.*']
