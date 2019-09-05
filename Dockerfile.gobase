@@ -43,11 +43,15 @@ RUN go get github.com/DATA-DOG/godog/cmd/godog && \
   mv $GOPATH/bin/godog /usr/local/ && \
   rm -rf $GOPATH/src/github.com/DATA-DOG
 
-ENV HUGO_VERSION 0.49
-RUN curl -Lf -o hugo.tar.gz https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz && \
-  tar xvfz hugo.tar.gz && \
-  mv hugo /usr/local && \
-  rm -fr hugo* && \
+# Hugo needs version of GLIBCXX that's not in Centros 7
+# will have to download and compile
+
+ENV HUGO_VERSION 0.58.0
+RUN curl -Lf -o hugo.zip https://github.com/gohugoio/hugo/archive/v${HUGO_VERSION}.zip && \
+  unzip hugo.zip && \
+  cd hugo-${HUGO_VERSION} && \
+  GOBIN=/usr/local go install -tags extended && \
+  cd .. && rm -fr hugo* && \
   hugo version
 
 RUN go get github.com/derekparker/delve/cmd/dlv && \
