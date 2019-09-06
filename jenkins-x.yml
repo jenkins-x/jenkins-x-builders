@@ -400,6 +400,24 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
+                  - name: build-and-push-php5x
+                    command: /kaniko/executor
+                    args:
+                      - --dockerfile=/workspace/source/builder-php5x/Dockerfile
+                      - --destination=gcr.io/jenkinsxio/builder-php5x:${inputs.params.version}
+                      - --context=/workspace/source
+                      - --cache-repo=gcr.io/jenkinsxio/cache
+                      - --cache=true
+                      - --cache-dir=/workspace
+                  - name: build-and-push-php7x
+                    command: /kaniko/executor
+                    args:
+                      - --dockerfile=/workspace/source/builder-php7x/Dockerfile
+                      - --destination=gcr.io/jenkinsxio/builder-php7x:${inputs.params.version}
+                      - --context=/workspace/source
+                      - --cache-repo=gcr.io/jenkinsxio/cache
+                      - --cache=true
+                      - --cache-dir=/workspace
     release:
       pipeline:
         options:
@@ -694,6 +712,22 @@ pipelineConfig:
                 - --dockerfile=/workspace/source/builder-nodejs12x/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-nodejs12x:${inputs.params.version}
                 - --destination=gcr.io/jenkinsxio/builder-nodejs12x:latest
+            - name: build-and-push-php5x
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/source/builder-php5x/Dockerfile
+                - --destination=gcr.io/jenkinsxio/builder-php5x:${inputs.params.version}
+                - --destination=gcr.io/jenkinsxio/builder-php5x:latest
+                - --context=/workspace/source
+                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache=true
+                - --cache-dir=/workspace
+            - name: build-and-push-php7x
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/source/builder-php7x/Dockerfile
+                - --destination=gcr.io/jenkinsxio/builder-php7x:${inputs.params.version}
+                - --destination=gcr.io/jenkinsxio/builder-php7x:latest
                 - --context=/workspace/source
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
