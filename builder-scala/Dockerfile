@@ -1,7 +1,7 @@
 FROM gcr.io/jenkinsxio/builder-base:0.0.56
 
-ENV SCALA_VERSION 2.12.5
-ENV SBT_VERSION 1.1.2
+ENV SCALA_VERSION 2.12.9
+ENV SBT_VERSION 1.2.8
 
 RUN \
   curl -fsL https://downloads.typesafe.com/scala/$SCALA_VERSION/scala-$SCALA_VERSION.tgz | tar xfz - -C /root/ && \
