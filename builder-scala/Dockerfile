@@ -1,5 +1,8 @@
 FROM gcr.io/jenkinsxio/builder-base:0.0.58
 
+RUN yum install -y java-1.8.0-openjdk-devel
+RUN yum -y groupinstall 'Development Tools'
+
 ENV SCALA_VERSION 2.12.9
 ENV SBT_VERSION 1.2.8
 

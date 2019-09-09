@@ -2,6 +2,9 @@ FROM gcr.io/jenkinsxio/builder-base:0.0.58
 
 CMD ["gradle"]
 
+RUN yum install -y java-1.8.0-openjdk-devel
+RUN yum -y groupinstall 'Development Tools'
+
 ENV GRADLE_HOME /opt/gradle
 ENV GRADLE_VERSION 5.6.2
 
