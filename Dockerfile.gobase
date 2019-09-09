@@ -1,4 +1,4 @@
-FROM gcr.io/jenkinsxio/builder-base:0.0.44
+FROM gcr.io/jenkinsxio/builder-base:0.0.58
 
 RUN curl -f -o /etc/yum.repos.d/vbatts-bazel-epel-7.repo  https://copr.fedorainfracloud.org/coprs/vbatts/bazel/repo/epel-7/vbatts-bazel-epel-7.repo \
   && yum install -y bazel \

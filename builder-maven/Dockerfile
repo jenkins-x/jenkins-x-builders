@@ -1,4 +1,6 @@
-FROM gcr.io/jenkinsxio/builder-base:0.0.56
+FROM gcr.io/jenkinsxio/builder-base:0.0.58
+
+RUN yum install -y java-1.8.0-openjdk-devel
 
 # Maven
 ENV MAVEN_VERSION 3.6.2
