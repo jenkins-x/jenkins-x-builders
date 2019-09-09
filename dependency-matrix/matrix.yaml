@@ -5,3 +5,9 @@ dependencies:
   url: https://github.com/jenkins-x/jx
   version: 2.0.699
   versionURL: https://github.com/jenkins-x/jx/releases/tag/v2.0.699
+- host: github.com
+  owner: jenkins-x
+  repo: jenkins-x-builders-base
+  url: https://github.com/jenkins-x/jenkins-x-builders-base.git
+  version: 0.0.59
+  versionURL: https://github.com/jenkins-x/jenkins-x-builders-base/releases/tag/v0.0.59
