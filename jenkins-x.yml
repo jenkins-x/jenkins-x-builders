@@ -111,6 +111,15 @@ pipelineConfig:
                     - --cache-repo=gcr.io/jenkinsxio/cache
                     - --cache=true
                     - --cache-dir=/workspace
+                - name: build-and-push-nodejs12x
+                  command: /kaniko/executor
+                  args:
+                    - --dockerfile=/workspace/source/builder-nodejs12x/Dockerfile
+                    - --destination=gcr.io/jenkinsxio/builder-nodejs12x:${inputs.params.version}
+                    - --context=/workspace/source
+                    - --cache-repo=gcr.io/jenkinsxio/cache
+                    - --cache=true
+                    - --cache-dir=/workspace
               - name: batch-two
                 steps:
                   - image: centos:7
@@ -185,6 +194,24 @@ pipelineConfig:
                     args:
                       - --dockerfile=/workspace/source/builder-gradle/Dockerfile
                       - --destination=gcr.io/jenkinsxio/builder-gradle:${inputs.params.version}
+                      - --context=/workspace/source
+                      - --cache-repo=gcr.io/jenkinsxio/cache
+                      - --cache=true
+                      - --cache-dir=/workspace
+                  - name: build-and-push-php5x
+                    command: /kaniko/executor
+                    args:
+                      - --dockerfile=/workspace/source/builder-php5x/Dockerfile
+                      - --destination=gcr.io/jenkinsxio/builder-php5x:${inputs.params.version}
+                      - --context=/workspace/source
+                      - --cache-repo=gcr.io/jenkinsxio/cache
+                      - --cache=true
+                      - --cache-dir=/workspace
+                  - name: build-and-push-php7x
+                    command: /kaniko/executor
+                    args:
+                      - --dockerfile=/workspace/source/builder-php7x/Dockerfile
+                      - --destination=gcr.io/jenkinsxio/builder-php7x:${inputs.params.version}
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
@@ -365,7 +392,6 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-
     release:
       pipeline:
         options:
@@ -650,6 +676,36 @@ pipelineConfig:
                 - --dockerfile=/workspace/source/builder-nodejs10x/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-nodejs10x:${inputs.params.version}
                 - --destination=gcr.io/jenkinsxio/builder-nodejs10x:latest
+                - --context=/workspace/source
+                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache=true
+                - --cache-dir=/workspace
+            - name: build-and-push-nodejs12x
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/source/builder-nodejs12x/Dockerfile
+                - --destination=gcr.io/jenkinsxio/builder-nodejs12x:${inputs.params.version}
+                - --destination=gcr.io/jenkinsxio/builder-nodejs12x:latest
+                - --context=/workspace/source
+                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache=true
+                - --cache-dir=/workspace
+            - name: build-and-push-php5x
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/source/builder-php5x/Dockerfile
+                - --destination=gcr.io/jenkinsxio/builder-php5x:${inputs.params.version}
+                - --destination=gcr.io/jenkinsxio/builder-php5x:latest
+                - --context=/workspace/source
+                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache=true
+                - --cache-dir=/workspace
+            - name: build-and-push-php7x
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/source/builder-php7x/Dockerfile
+                - --destination=gcr.io/jenkinsxio/builder-php7x:${inputs.params.version}
+                - --destination=gcr.io/jenkinsxio/builder-php7x:latest
                 - --context=/workspace/source
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
