@@ -23,7 +23,7 @@ RUN mkdir -p $OPENAPI_DIR
 RUN mvn --no-transfer-progress org.apache.maven.plugins:maven-dependency-plugin:2.9:get -DremoteRepositories=$OPENAPI_REPO -Dartifact=$OPENAPI_GROUPID:$OPENAPI_ARTIFACTID:$OPENAPI_VERSION -Dtransitive=false -Ddest=$OPENAPI_CODEGEN_BIN
 
 # jx
-ENV JX_VERSION 2.0.700
+ENV JX_VERSION 2.0.701
 RUN curl -f -L https://github.com/jenkins-x/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv && \
   mv jx /usr/bin/
 
