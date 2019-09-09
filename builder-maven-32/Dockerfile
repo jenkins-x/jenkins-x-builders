@@ -1,4 +1,5 @@
-RUN yum remove -y java-1.8.0-openjdk-devel java-1.8.0-openjdk-headless
+FROM gcr.io/jenkinsxio/builder-base:0.0.58
+
 RUN yum install -y java-1.8.0-openjdk-devel.i686
 
 # Maven

@@ -1,3 +1,7 @@
+FROM gcr.io/jenkinsxio/builder-base:0.0.58
+
+RUN yum install -y java-1.8.0-openjdk-devel
+
 # Maven
 ENV MAVEN_VERSION 3.6.2
 RUN curl -f -L http://central.maven.org/maven2/org/apache/maven/apache-maven/$MAVEN_VERSION/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar -C /opt -xzv
