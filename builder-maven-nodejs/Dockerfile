@@ -1,3 +1,9 @@
+ENV UPDATEBOT_VERSION 1.1.41
+RUN curl -f  -o ./updatebot -L https://oss.sonatype.org/content/groups/public/io/jenkins/updatebot/updatebot/${UPDATEBOT_VERSION}/updatebot-${UPDATEBOT_VERSION}.jar && \	
+  chmod +x updatebot && \	
+  cp updatebot /usr/bin/ && \	
+  rm -rf updatebot
+
 RUN yum install -y gcc-c++ make bzip2 GConf2 gtk2 chromedriver chromium xorg-x11-server-Xvfb && \
 	curl -f --silent --location https://rpm.nodesource.com/setup_11.x | bash -  && \
 	yum install -y nodejs  && \
