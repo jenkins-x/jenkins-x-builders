@@ -1,4 +1,4 @@
-FROM gcr.io/jenkinsxio/builder-base:0.0.59
+FROM gcr.io/jenkinsxio/builder-base:0.0.60
 
 RUN rpm -Uvh https://packages.microsoft.com/config/rhel/7/packages-microsoft-prod.rpm \
     && yum update \
