@@ -1,6 +1,12 @@
 RUN yum remove -y java-1.8.0-openjdk-devel java-1.8.0-openjdk-headless
 RUN yum install -y java-1.8.0-openjdk-devel.i686
 
+ENV UPDATEBOT_VERSION 1.1.41
+RUN curl -f  -o ./updatebot -L https://oss.sonatype.org/content/groups/public/io/jenkins/updatebot/updatebot/${UPDATEBOT_VERSION}/updatebot-${UPDATEBOT_VERSION}.jar && \	
+  chmod +x updatebot && \	
+  cp updatebot /usr/bin/ && \	
+  rm -rf updatebot
+
 # Maven
 ENV MAVEN_VERSION 3.6.2
 RUN curl -f -L http://central.maven.org/maven2/org/apache/maven/apache-maven/$MAVEN_VERSION/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar -C /opt -xzv
