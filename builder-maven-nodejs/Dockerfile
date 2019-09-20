@@ -18,7 +18,7 @@ RUN curl -f -L -o /tmp/yarn.tgz https://github.com/yarnpkg/yarn/releases/downloa
 	ln -s /opt/yarn/bin/yarn /usr/local/bin/yarn
 
 # jx
-ENV JX_VERSION 2.0.767
+ENV JX_VERSION 2.0.768
 RUN curl -f -L https://github.com/jenkins-x/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv && \
   mv jx /usr/bin/
 
