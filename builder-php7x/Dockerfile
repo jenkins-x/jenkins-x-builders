@@ -6,7 +6,7 @@ RUN yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm && \
   yum install -y php php-mcrypt php-cli php-gd php-curl php-mysql php-ldap php-zip php-fileinfo
 
 # jx
-ENV JX_VERSION 2.0.788
+ENV JX_VERSION 2.0.790
 RUN curl -f -L https://github.com/jenkins-x/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv && \
   mv jx /usr/bin/
 
