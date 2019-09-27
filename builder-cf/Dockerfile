@@ -1,4 +1,4 @@
-FROM gcr.io/jenkinsxio/builder-base:0.0.60
+FROM gcr.io/jenkinsxio/builder-base:0.0.61
 
 RUN yum-config-manager --add-repo https://packages.cloudfoundry.org/fedora/cloudfoundry-cli.repo \
   && yum install -y cf-cli \
