@@ -6,7 +6,7 @@ RUN curl -f  -o ./updatebot -L https://oss.sonatype.org/content/groups/public/io
 
 
 # jx
-ENV JX_VERSION 2.0.797
+ENV JX_VERSION 2.0.798
 RUN curl -f -L https://github.com/jenkins-x/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv && \
   mv jx /usr/bin/
 
