@@ -14,7 +14,7 @@ RUN cd /usr/src && \
     cd ../ && \
     rm -rf /usr/src/Python-${PYTHONVERSION}
 
-RUN ln -s /usr/local/bin/python3.7 /usr/bin/python3
+RUN ln -fs /usr/local/bin/python3.7 /usr/bin/python3
 RUN yum -y remove gcc openssl-devel bzip2-devel
 
 RUN easy_install-3.7 pip
