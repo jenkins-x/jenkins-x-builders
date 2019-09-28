@@ -3,7 +3,8 @@ FROM gcr.io/jenkinsxio/builder-base:0.0.63
 RUN yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm && \
   yum install -y yum-utils && \
   yum-config-manager --enable remi-php56 && \
-  yum install -y php php-mcrypt php-cli php-gd php-curl php-mysql php-ldap php-zip php-fileinfo
+  yum install -y php php-mcrypt php-cli php-gd php-curl php-mysql php-ldap php-zip php-fileinfo && \
+  yum clean all
 
 # jx
 ENV JX_VERSION 2.0.800

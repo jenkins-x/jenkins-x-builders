@@ -12,16 +12,14 @@ RUN cd /usr/src && \
     make altinstall && \
     rm /usr/src/Python-${PYTHONVERSION}.tgz && \
     cd ../ && \
-    rm -rf /usr/src/Python-${PYTHONVERSION}
-
-RUN ln -fs /usr/local/bin/python3.7 /usr/bin/python3
-RUN yum -y remove gcc openssl-devel bzip2-devel
-
-RUN easy_install-3.7 pip
-
-RUN pip install --upgrade pip
-RUN pip install --upgrade awscli
-RUN pip install --upgrade awscli-local	
+    rm -rf /usr/src/Python-${PYTHONVERSION} && \
+    ln -fs /usr/local/bin/python3.7 /usr/bin/python3 && \
+    yum -y remove gcc openssl-devel bzip2-devel && \
+    yum clean all && \
+    easy_install-3.7 pip && \
+    pip install --upgrade pip && \
+    pip install --upgrade awscli && \
+    pip install --upgrade awscli-local
 
 
 # jx

@@ -27,8 +27,10 @@ RUN set -o errexit -o nounset \
 	&& ln -s "${GRADLE_HOME}/bin/gradle" /usr/bin/gradle
 
 # JDK 11
-RUN curl https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz | tar -xz
-RUN mv /home/jenkins/jdk-11.0.2 /usr/java
+# /home/jenkins/jdk-11.0.2 seems to still be present in final images so let's just force a rm.
+RUN curl https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz | tar -xz && \
+   mv /home/jenkins/jdk-11.0.2 /usr/java && \
+   rm -rf /home/jenkins/jdk-11.0.2
 RUN ln -s /usr/java/bin/java /usr/bin/java
 RUN ln -s /usr/java/bin/javac /usr/bin/javac
 RUN ln -s /usr/java/bin/javadoc /usr/bin/javadoc

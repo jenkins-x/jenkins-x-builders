@@ -1,9 +1,9 @@
 FROM gcr.io/jenkinsxio/builder-base:0.0.63
 
-RUN curl -f --silent --location https://rpm.nodesource.com/setup_10.x | bash -
-RUN yum install -y nodejs
-RUN yum install -y gcc-c++ make bzip2 GConf2 gtk2 chromedriver chromium xorg-x11-server-Xvfb
-RUN yum clean all
+RUN curl -f --silent --location https://rpm.nodesource.com/setup_10.x | bash - && \
+    yum install -y nodejs && \
+    yum install -y gcc-c++ make bzip2 GConf2 gtk2 chromedriver chromium xorg-x11-server-Xvfb && \
+    yum clean all
 
 RUN npm i -g watch-cli vsce typescript
 
