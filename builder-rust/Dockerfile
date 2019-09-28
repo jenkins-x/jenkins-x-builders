@@ -1,14 +1,14 @@
 FROM gcr.io/jenkinsxio/builder-base:0.0.63
 
+ENV PATH=$PATH:/root/.cargo/bin
+
 RUN yum install -y gcc && yum clean all
 
 RUN wget https://static.rust-lang.org/rustup/dist/x86_64-unknown-linux-gnu/rustup-init && \
-  chmod +x rustup-init &&\
-  ./rustup-init -y &&\
-  rm -rf rustup-init
-
-ENV PATH=$PATH:/root/.cargo/bin
-RUN rustup override set nightly
+  chmod +x rustup-init && \
+  ./rustup-init -y && \
+  rm -rf rustup-init && \
+  rustup override set nightly
 
 # jx
 ENV JX_VERSION 2.0.800

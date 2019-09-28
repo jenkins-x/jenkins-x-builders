@@ -38,34 +38,27 @@ ENV PATH $PATH:/usr/local/
 ENV GOROOT /usr/local/go
 ENV GOPATH=/home/jenkins/go
 ENV PATH $PATH:$GOPATH/bin
+ENV HUGO_VERSION 0.58.0
 
 RUN go get github.com/DATA-DOG/godog/cmd/godog && \
   mv $GOPATH/bin/godog /usr/local/ && \
-  rm -rf $GOPATH/src/github.com/DATA-DOG
-
 # Hugo needs version of GLIBCXX that's not in Centros 7
 # will have to download and compile
-
-ENV HUGO_VERSION 0.58.0
-RUN curl -Lf -o hugo.zip https://github.com/gohugoio/hugo/archive/v${HUGO_VERSION}.zip && \
+  curl -Lf -o hugo.zip https://github.com/gohugoio/hugo/archive/v${HUGO_VERSION}.zip && \
   unzip hugo.zip && \
   cd hugo-${HUGO_VERSION} && \
   GOBIN=/usr/local go install -tags extended && \
   cd .. && rm -fr hugo* && \
-  hugo version
-
-RUN go get github.com/derekparker/delve/cmd/dlv && \
+  hugo version && \
+  go get github.com/derekparker/delve/cmd/dlv && \
   mv $GOPATH/bin/* /usr/local/ && \
-  rm -rf $GOPATH/src/github.com/derekparker
-
 #RUN go get github.com/golang/protobuf/proto && \
 #  go get github.com/micro/protoc-gen-micro && \
 #  go get github.com/golang/protobuf/protoc-gen-go && \ 
 #  go get -u github.com/micro/micro && \
 #  mv $GOPATH/bin/* /usr/local/ && \ 
 #  cp -r $GOPATH/src/* /usr/local/go/src
-
 # Gotestsum; nicer output for tests and converts go test output to junit xml
-RUN go get gotest.tools/gotestsum && \
+  go get gotest.tools/gotestsum && \
   mv $GOPATH/bin/gotestsum /usr/local/ && \
-  rm -rf $GOPATH/src/gotest.tools
+  go clean -cache -modcache && rm -rf $GOPATH/src/*

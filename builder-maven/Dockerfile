@@ -1,6 +1,6 @@
 FROM gcr.io/jenkinsxio/builder-base:0.0.63
 
-RUN yum install -y java-1.8.0-openjdk-devel
+RUN yum install -y java-1.8.0-openjdk-devel && yum clean all
 
 ENV UPDATEBOT_VERSION 1.1.41
 RUN curl -f  -o ./updatebot -L https://oss.sonatype.org/content/groups/public/io/jenkins/updatebot/updatebot/${UPDATEBOT_VERSION}/updatebot-${UPDATEBOT_VERSION}.jar && \	

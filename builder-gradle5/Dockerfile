@@ -33,7 +33,8 @@ RUN set -o errexit -o nounset \
 ENV ANDROID_VERSION 4333796
 ENV ANDROID_HOME /opt/android-sdk-linux
 RUN wget https://dl.google.com/android/repository/sdk-tools-linux-${ANDROID_VERSION}.zip && \
-  unzip sdk-tools-linux-${ANDROID_VERSION}.zip -d android-sdk-linux && mv android-sdk-linux /opt/
+  unzip sdk-tools-linux-${ANDROID_VERSION}.zip -d android-sdk-linux && \
+  rm sdk-tools-linux-${ANDROID_VERSION}.zip && mv android-sdk-linux /opt/
 ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/tools/bin:${ANDROID_HOME}/platform-tools
 RUN yes | sdkmanager --licenses
 RUN sdkmanager "platform-tools"
