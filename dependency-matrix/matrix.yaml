@@ -9,5 +9,21 @@ dependencies:
   owner: jenkins-x
   repo: jenkins-x-builders-base
   url: https://github.com/jenkins-x/jenkins-x-builders-base.git
-  version: 0.0.60
-  versionURL: https://github.com/jenkins-x/jenkins-x-builders-base/releases/tag/v0.0.60
+  version: 0.0.61
+  versionURL: https://github.com/jenkins-x/jenkins-x-builders-base/releases/tag/v0.0.61
+- host: github.com
+  owner: jenkins-x
+  repo: jenkins-x-builders-base-image
+  sources:
+  - path:
+    - host: github.com
+      owner: jenkins-x
+      repo: jenkins-x-builders-base
+      url: https://github.com/jenkins-x/jenkins-x-builders-base.git
+      version: 0.0.61
+      versionURL: https://github.com/jenkins-x/jenkins-x-builders-base/releases/tag/v0.0.61
+    version: 0.0.32
+    versionURL: ""
+  url: https://github.com/jenkins-x/jenkins-x-builders-base-image
+  version: 0.0.32
+  versionURL: ""
