@@ -240,6 +240,7 @@ pipelineConfig:
                     args:
                       - --cache-dir=/workspace
                       - --image=gcr.io/jenkinsxio/builder-base:0.0.61
+                      - --image=gcr.io/jenkinsxio/builder-base:0.0.0-SNAPSHOT-PR-62-1
                   - name: build-and-push-gradle4
                     command: /kaniko/executor
                     args:
