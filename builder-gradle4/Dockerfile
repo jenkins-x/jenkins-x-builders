@@ -2,8 +2,21 @@ FROM gcr.io/jenkinsxio/builder-base:0.0.66
 
 CMD ["gradle"]
 
-RUN yum install -y java-1.8.0-openjdk-devel
-RUN yum -y groupinstall 'Development Tools'
+ENV ANDROID_VERSION 4333796
+ENV ANDROID_HOME /opt/android-sdk-linux
+ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/tools/bin:${ANDROID_HOME}/platform-tools
+
+RUN yum install -y java-1.8.0-openjdk-devel && \
+    yum -y groupinstall 'Development Tools' && \
+    yum clean all && \
+    wget https://dl.google.com/android/repository/sdk-tools-linux-${ANDROID_VERSION}.zip && \
+    unzip sdk-tools-linux-${ANDROID_VERSION}.zip -d android-sdk-linux && \
+    rm sdk-tools-linux-${ANDROID_VERSION}.zip && mv android-sdk-linux /opt/ && \
+    yes | sdkmanager --licenses && \
+    sdkmanager "platform-tools" && \
+    yes | sdkmanager \
+    "platforms;android-28" \
+    "build-tools;28.0.0"
 
 ENV GRADLE_HOME /opt/gradle
 ENV GRADLE_VERSION 4.10.3
@@ -28,19 +41,6 @@ RUN set -o errexit -o nounset \
 	&& mkdir -p /opt \
 	&& mv "gradle-${GRADLE_VERSION}" "${GRADLE_HOME}/" \
 	&& ln -s "${GRADLE_HOME}/bin/gradle" /usr/bin/gradle
-
-
-ENV ANDROID_VERSION 4333796
-ENV ANDROID_HOME /opt/android-sdk-linux
-RUN wget https://dl.google.com/android/repository/sdk-tools-linux-${ANDROID_VERSION}.zip && \
-  unzip sdk-tools-linux-${ANDROID_VERSION}.zip -d android-sdk-linux && \
-  rm sdk-tools-linux-${ANDROID_VERSION}.zip && mv android-sdk-linux /opt/
-ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/tools/bin:${ANDROID_HOME}/platform-tools
-RUN yes | sdkmanager --licenses
-RUN sdkmanager "platform-tools"
-RUN yes | sdkmanager \
-    "platforms;android-28" \
-    "build-tools;28.0.0"
 
 # jx
 ENV JX_VERSION 2.0.806
