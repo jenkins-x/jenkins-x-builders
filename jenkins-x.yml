@@ -417,6 +417,11 @@ pipelineConfig:
                       - --cache=true
                       - --cache-dir=/workspace
     release:
+      setVersion:
+        steps:
+          - name: next-version
+            sh: "jx step next-version --version $(jx step get dependency-version --host=github.com --owner=jenkins-x --repo=jx --dir . | sed 's/.*: \\(.*\\)/\\1/')-${BUILD_NUMBER} --tag"
+
       pipeline:
         options:
           containerOptions:
