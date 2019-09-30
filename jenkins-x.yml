@@ -54,7 +54,7 @@ pipelineConfig:
                   command: /kaniko/warmer
                   args:
                     - --cache-dir=/workspace
-                    - --image=gcr.io/jenkinsxio/builder-base:0.0.63
+                    - --image=gcr.io/jenkinsxio/builder-base:0.0.66
 
                 # builders
                 - name: build-and-push-maven-java11
@@ -143,7 +143,7 @@ pipelineConfig:
                     command: /kaniko/warmer
                     args:
                       - --cache-dir=/workspace
-                      - --image=gcr.io/jenkinsxio/builder-base:0.0.63
+                      - --image=gcr.io/jenkinsxio/builder-base:0.0.66
                   - name: build-and-push-go-maven
                     command: /kaniko/executor
                     args:
@@ -239,7 +239,7 @@ pipelineConfig:
                     command: /kaniko/warmer
                     args:
                       - --cache-dir=/workspace
-                      - --image=gcr.io/jenkinsxio/builder-base:0.0.63
+                      - --image=gcr.io/jenkinsxio/builder-base:0.0.66
                   - name: build-and-push-gradle4
                     command: /kaniko/executor
                     args:
@@ -326,9 +326,9 @@ pipelineConfig:
                     command: /kaniko/warmer
                     args:
                       - --cache-dir=/workspace
-                      - --image=gcr.io/jenkinsxio/builder-swiftbase:0.0.63
-                      - --image=gcr.io/jenkinsxio/builder-base:0.0.63
-                      - --image=gcr.io/jenkinsxio/builder-rubybase:0.0.63
+                      - --image=gcr.io/jenkinsxio/builder-swiftbase:0.0.66
+                      - --image=gcr.io/jenkinsxio/builder-base:0.0.66
+                      - --image=gcr.io/jenkinsxio/builder-rubybase:0.0.66
                   - name: build-and-push-nodejs10x
                     command: /kaniko/executor
                     args:
@@ -439,9 +439,9 @@ pipelineConfig:
               command: /kaniko/warmer
               args:
                 - --cache-dir=/workspace
-                - --image=gcr.io/jenkinsxio/builder-swiftbase:0.0.63
-                - --image=gcr.io/jenkinsxio/builder-base:0.0.63
-                - --image=gcr.io/jenkinsxio/builder-rubybase:0.0.63
+                - --image=gcr.io/jenkinsxio/builder-swiftbase:0.0.66
+                - --image=gcr.io/jenkinsxio/builder-base:0.0.66
+                - --image=gcr.io/jenkinsxio/builder-rubybase:0.0.66
 
             - name: build-and-push-jx2
               command: /kaniko/executor
