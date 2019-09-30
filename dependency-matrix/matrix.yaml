@@ -3,14 +3,14 @@ dependencies:
   owner: jenkins-x
   repo: jx
   url: https://github.com/jenkins-x/jx
-  version: 2.0.804
-  versionURL: https://github.com/jenkins-x/jx/releases/tag/v2.0.804
+  version: 2.0.806
+  versionURL: https://github.com/jenkins-x/jx/releases/tag/v2.0.806
 - host: github.com
   owner: jenkins-x
   repo: jenkins-x-builders-base
-  url: https://github.com/jenkins-x/jenkins-x-builders-base.git
-  version: 0.0.63
-  versionURL: https://github.com/jenkins-x/jenkins-x-builders-base/releases/tag/v0.0.63
+  url: https://github.com/jenkins-x/jenkins-x-builders-base
+  version: 0.0.66
+  versionURL: https://github.com/jenkins-x/jenkins-x-builders-base/releases/tag/v0.0.66
 - host: github.com
   owner: jenkins-x
   repo: jenkins-x-builders-base-image
