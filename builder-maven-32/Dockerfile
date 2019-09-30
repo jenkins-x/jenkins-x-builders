@@ -1,4 +1,4 @@
-FROM gcr.io/jenkinsxio/builder-base:0.0.63
+FROM gcr.io/jenkinsxio/builder-base:0.0.66
 
 RUN yum install -y java-1.8.0-openjdk-devel.i686 && yum clean all
 
