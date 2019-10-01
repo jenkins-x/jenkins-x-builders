@@ -9,6 +9,7 @@ approvers:
 - warrenbailey
 - abayer
 - jenkins-x-bot
+- cagiti
 reviewers:
 - rawlingsj
 - jstrachan
@@ -20,3 +21,4 @@ reviewers:
 - warrenbailey
 - abayer
 - jenkins-x-bot
+- cagiti
