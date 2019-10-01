@@ -20,5 +20,5 @@ jx step create pr regex --regex "(?m)^\s+repository: gcr.io/jenkinsxio/builder-[
 jx step create pr regex --regex "(?m)^\s+repository: gcr.io/jenkinsxio/builder-maven\s+tag: (?P<version>.*)" --version ${VERSION} --files prow/values.yaml --files environment-controller/values.yaml --repo https://github.com/jenkins-x-charts/prow.git --repo https://github.com/jenkins-x-charts/environment-controller.git
 
 JX_VERSION=$(echo $VERSION|cut -d'-' -f1)
-jx step create pr chart --name jx --version $JX_VERSION  --repo https://github.com/jenkins-x/jenkins-x-platform.git
-jx step create pr regex --regex "\s*jxTag:\s*(.*)" --version $JX_VERSION --files prow/values.yaml --repo https://github.com/jenkins-x-charts/prow.git
+jx step create pr chart --name jx --version $JX_VERSION  --repo https://github.com/jenkins-x/jenkins-x-platform.git --src-repo https://github.com/jenkins-x/jx.git
+jx step create pr regex --regex "\s*jxTag:\s*(.*)" --version $JX_VERSION --files prow/values.yaml --repo https://github.com/jenkins-x-charts/prow.git --src-repo https://github.com/jenkins-x/jx.git
