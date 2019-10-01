@@ -416,6 +416,10 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
+          - name: test-after-parallel
+            steps:
+              - name: ls
+                sh: ls -la
     release:
       setVersion:
         steps:
