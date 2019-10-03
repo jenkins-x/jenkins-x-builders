@@ -1,4 +1,4 @@
-FROM gcr.io/jenkinsxio/builder-base:0.0.67
+FROM gcr.io/jenkinsxio/builder-base:0.0.68
 
 RUN yum install -y gcc-c++ make bzip2 GConf2 gtk2 chromedriver chromium xorg-x11-server-Xvfb && \
 	curl -f --silent --location https://rpm.nodesource.com/setup_11.x | bash -  && \
