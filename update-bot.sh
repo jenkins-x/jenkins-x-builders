@@ -22,3 +22,6 @@ jx step create pr regex --regex "(?m)^\s+repository: gcr.io/jenkinsxio/builder-m
 JX_VERSION=$(echo $VERSION|cut -d'-' -f1)
 jx step create pr chart --name jx --version $JX_VERSION  --repo https://github.com/jenkins-x/jenkins-x-platform.git --src-repo https://github.com/jenkins-x/jx.git
 jx step create pr regex --regex "\s*jxTag:\s*(.*)" --version $JX_VERSION --files prow/values.yaml --repo https://github.com/jenkins-x-charts/prow.git --src-repo https://github.com/jenkins-x/jx.git
+
+# arcalos
+jx step create pr regex --regex "(?m)^\s+image: gcr.io/jenkinsxio/builder-go:(?P<version>.*)$" --version ${VERSION} --files jenkins-x-prod.yml --files jenkins-x.yml --files templates/update.tmpl.yaml --files templates/cloudbees-poc/service.yaml --files templates/yaml/bdd-test-job.yaml --repo https://github.com/cloudbees/arcalos.git
