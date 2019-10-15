@@ -7,7 +7,7 @@ RUN yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm && \
   yum clean all
 
 # jx
-ENV JX_VERSION 2.0.870
+ENV JX_VERSION 2.0.871
 RUN curl -f -L https://github.com/jenkins-x/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv && \
   mv jx /usr/bin/
 
