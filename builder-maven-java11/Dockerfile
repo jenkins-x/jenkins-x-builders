@@ -6,7 +6,7 @@ RUN curl -f  -o ./updatebot -L https://repo1.maven.org/maven2/io/jenkins/updateb
 
 
 # jx
-ENV JX_VERSION 2.0.888
+ENV JX_VERSION 2.0.889
 RUN curl -f -L https://github.com/jenkins-x/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv && \
   mv jx /usr/bin/
 
