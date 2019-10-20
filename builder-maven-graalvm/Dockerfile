@@ -9,7 +9,6 @@ ENV M2 $M2_HOME/bin
 ENV PATH $M2:$PATH
 
 # GraalVM
-# https://github.com/quarkusio/quarkus-images/blob/graalvm-1.0.0-rc16/centos-quarkus-maven/Dockerfile
 ARG GRAAL_VERSION=19.2.1
 
 ENV GRAAL_CE_URL=https://github.com/oracle/graal/releases/download/vm-${GRAAL_VERSION}/graalvm-ce-linux-amd64-${GRAAL_VERSION}.tar.gz
