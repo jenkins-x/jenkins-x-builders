@@ -25,3 +25,7 @@ jx step create pr regex --regex "\s*jxTag:\s*(.*)" --version $JX_VERSION --files
 
 # arcalos
 jx step create pr regex --regex "(?m)^\s+image: gcr.io/jenkinsxio/builder-go:(?P<version>.*)$" --version ${VERSION} --files jenkins-x-prod.yml --files jenkins-x.yml --files templates/update.tmpl.yaml --files templates/cloudbees-poc/service.yaml --files templates/yaml/bdd-test-job.yaml --repo https://github.com/cloudbees/arcalos.git
+jx step create pr regex --regex "(?m)^FROM gcr.io/jenkinsxio/builder-go:(?P<version>.*)$" --version ${VERSION} --files Dockerfile --repo https://github.com/cloudbees/jx-tenant-service.git
+jx step create pr regex --regex "(?m)^FROM gcr.io/jenkinsxio/builder-go:(?P<version>.*)$" --version ${VERSION} --files Dockerfile --repo https://github.com/cloudbees/lighthouse-githubapp.git
+jx step create pr go --name github.com/jenkins-x/jx --version $JX_VERSION --build "make mod" --repo https://github.com/cloudbees/jx-tenant-service.git
+
