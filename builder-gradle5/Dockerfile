@@ -19,7 +19,7 @@ RUN yum install -y java-1.8.0-openjdk-devel && \
     "build-tools;28.0.0"
 
 ENV GRADLE_HOME /opt/gradle
-ENV GRADLE_VERSION 5.6.2
+ENV GRADLE_VERSION 5.6.3
 
 RUN set -o errexit -o nounset \
     && echo "Set URLS" \
