@@ -816,7 +816,7 @@ pipelineConfig:
             steps:
             # update downstream dependencies
             - name: update-bot
-              image: gcr.io/jenkinsxio/builder-maven:${inputs.params.version}
+              image: gcr.io/jenkinsxio/builder-go-maven:${inputs.params.version}
               command: ./update-bot.sh
 
             # Create the release notes
