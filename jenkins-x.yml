@@ -162,11 +162,11 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
-                  - name: build-and-push-dlang
+                  - name: build-and-push-go-nodejs
                     command: /kaniko/executor
                     args:
-                      - --dockerfile=/workspace/source/builder-dlang/Dockerfile
-                      - --destination=gcr.io/jenkinsxio/builder-dlang:${inputs.params.version}
+                      - --dockerfile=/workspace/source/builder-go-nodejs/Dockerfile
+                      - --destination=gcr.io/jenkinsxio/builder-go-nodejs:${inputs.params.version}
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
@@ -407,6 +407,15 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
+                  - name: build-and-push-dlang
+                    command: /kaniko/executor
+                    args:
+                      - --dockerfile=/workspace/source/builder-dlang/Dockerfile
+                      - --destination=gcr.io/jenkinsxio/builder-dlang:${inputs.params.version}
+                      - --context=/workspace/source
+                      - --cache-repo=gcr.io/jenkinsxio/cache
+                      - --cache=true
+                      - --cache-dir=/workspace
                   - name: build-and-push-rust
                     command: /kaniko/executor
                     args:
@@ -534,6 +543,16 @@ pipelineConfig:
                 - --dockerfile=/workspace/source/builder-go/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-go:${inputs.params.version}
                 - --destination=gcr.io/jenkinsxio/builder-go:latest
+                - --context=/workspace/source
+                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache=true
+                - --cache-dir=/workspace
+            - name: build-and-push-go-nodejs
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/source/builder-go-nodejs/Dockerfile
+                - --destination=gcr.io/jenkinsxio/builder-go-nodejs:${inputs.params.version}
+                - --destination=gcr.io/jenkinsxio/builder-go-nodejs:latest
                 - --context=/workspace/source
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true

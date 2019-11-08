@@ -34,4 +34,4 @@ function combine_with_base_image {
 }
 
 combine_with_base_image "maven" "maven-java11 maven-nodejs"
-combine_with_base_image "go" "go go-maven terraform"
+combine_with_base_image "go" "go go-maven terraform go-nodejs"
