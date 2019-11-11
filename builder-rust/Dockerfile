@@ -1,4 +1,4 @@
-FROM gcr.io/jenkinsxio/builder-base:0.0.69
+FROM gcr.io/jenkinsxio/builder-base:0.0.71
 
 ENV PATH=$PATH:/root/.cargo/bin
 
@@ -11,6 +11,6 @@ RUN wget https://static.rust-lang.org/rustup/dist/x86_64-unknown-linux-gnu/rustu
   rustup override set nightly
 
 # jx
-ENV JX_VERSION 2.0.974
+ENV JX_VERSION 2.0.975
 RUN curl -f -L https://github.com/jenkins-x/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv && \
   mv jx /usr/bin/
