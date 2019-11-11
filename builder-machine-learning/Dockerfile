@@ -1,4 +1,4 @@
-FROM gcr.io/jenkinsxio/builder-base:0.0.70
+FROM gcr.io/jenkinsxio/builder-base:0.0.71
 
 ENV ANACONDAVERSION 3-2019.03
 RUN curl -fLo anaconda.sh https://repo.anaconda.com/archive/Anaconda${ANACONDAVERSION}-Linux-x86_64.sh && \
