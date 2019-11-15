@@ -28,8 +28,8 @@ RUN set -o errexit -o nounset \
 
 # JDK 11
 # /home/jenkins/jdk-11.0.2 seems to still be present in final images so let's just force a rm.
-RUN curl https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz | tar -xz && \
-   mv /home/jenkins/jdk-11.0.2 /usr/java && \
+RUN curl https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.5_linux-x64_bin.tar.gz | tar -xz && \
+   mv /home/jenkins/jdk-11.0.5 /usr/java && \
    rm -rf /home/jenkins/jdk-11.0.2
 RUN ln -s /usr/java/bin/java /usr/bin/java
 RUN ln -s /usr/java/bin/javac /usr/bin/javac
