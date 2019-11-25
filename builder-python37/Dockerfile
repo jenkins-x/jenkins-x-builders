@@ -1,4 +1,4 @@
-FROM gcr.io/jenkinsxio/builder-base:0.0.73
+FROM gcr.io/jenkinsxio/builder-base:0.0.74
 
 ENV PYTHONVERSION 3.7.1
 
