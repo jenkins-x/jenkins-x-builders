@@ -416,6 +416,15 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
+                  - name: build-and-push-dotnet
+                    command: /kaniko/executor
+                    args:
+                      - --dockerfile=/workspace/source/builder-dotnet/Dockerfile
+                      - --destination=gcr.io/jenkinsxio/builder-dotnet:${inputs.params.version}
+                      - --context=/workspace/source
+                      - --cache-repo=gcr.io/jenkinsxio/cache
+                      - --cache=true
+                      - --cache-dir=/workspace
                   - name: build-and-push-rust
                     command: /kaniko/executor
                     args:
@@ -613,6 +622,16 @@ pipelineConfig:
                 - --dockerfile=/workspace/source/builder-dlang/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-dlang:${inputs.params.version}
                 - --destination=gcr.io/jenkinsxio/builder-dlang:latest
+                - --context=/workspace/source
+                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache=true
+                - --cache-dir=/workspace
+            - name: build-and-push-dotnet
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/source/builder-dotnet/Dockerfile
+                - --destination=gcr.io/jenkinsxio/builder-dotnet:${inputs.params.version}
+                - --destination=gcr.io/jenkinsxio/builder-dotnet:latest
                 - --context=/workspace/source
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
