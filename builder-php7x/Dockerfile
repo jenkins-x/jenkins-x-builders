@@ -1,4 +1,4 @@
-FROM gcr.io/jenkinsxio/builder-base:0.0.74
+FROM gcr.io/jenkinsxio/builder-base:0.0.75
 
 RUN yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm && \
   yum install -y yum-utils && \
