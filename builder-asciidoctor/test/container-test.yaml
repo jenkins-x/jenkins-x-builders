@@ -1,0 +1,7 @@
+schemaVersion: '2.0.0' # Make sure to test the latest schema version
+commandTests:
+- name: 'asciidoctor'
+  command: 'asciidoctor'
+  args: ['--version']
+  excludedError: ['.*FAIL.*']
+  expectedOutput: ['.*1.5.*']
