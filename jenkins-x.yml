@@ -302,6 +302,15 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
+                  - name: build-and-push-asciidoctor
+                    command: /kaniko/executor
+                    args:
+                      - --dockerfile=/workspace/source/builder-asciidoctor/Dockerfile
+                      - --destination=gcr.io/jenkinsxio/builder-asciidoctor:${inputs.params.version}
+                      - --context=/workspace/source
+                      - --cache-repo=gcr.io/jenkinsxio/cache
+                      - --cache=true
+                      - --cache-dir=/workspace
                   - name: build-and-push-nodejs10x
                     command: /kaniko/executor
                     args:
@@ -592,6 +601,16 @@ pipelineConfig:
                 - --dockerfile=/workspace/source/builder-jx/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-jx:${inputs.params.version}
                 - --destination=gcr.io/jenkinsxio/builder-jx:latest
+                - --context=/workspace/source
+                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache=true
+                - --cache-dir=/workspace
+            - name: build-and-push-asciidoctor
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/source/builder-asciidoctor/Dockerfile
+                - --destination=gcr.io/jenkinsxio/builder-asciidoctor:${inputs.params.version}
+                - --destination=gcr.io/jenkinsxio/builder-asciidoctor:latest
                 - --context=/workspace/source
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
