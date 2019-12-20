@@ -5,7 +5,8 @@ RUN yum install -y gcc-c++ make bzip2 GConf2 gtk2 chromedriver chromium xorg-x11
 	yum install -y nodejs  && \
 	yum clean all
 
-RUN npm i -g watch-cli vsce typescript
+# added force after a v0.0.35 released of jenkins-x-builders-base-image
+RUN npm i -g watch-cli vsce typescript --force
 
 # Yarn
 ENV YARN_VERSION 1.3.2
