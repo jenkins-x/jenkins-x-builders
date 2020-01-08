@@ -1,4 +1,4 @@
-FROM gcr.io/jenkinsxio/builder-base:0.0.76
+FROM gcr.io/jenkinsxio/builder-base:0.0.77
 
 # CUDA 10.0
 RUN echo $'[cudarepo]\n\
