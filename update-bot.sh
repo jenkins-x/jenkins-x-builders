@@ -20,7 +20,7 @@ jx step create pr regex --regex "builderTag: (.*)" --version ${VERSION} --files 
 jx step create pr regex --regex "(?m)^\s+repository: gcr.io/jenkinsxio/builder-[\w-_]+\s+tag: (?P<version>.*)$" --version ${VERSION} --files jenkins-x-platform/values.yaml --files values.yaml --repo https://github.com/jenkins-x/jenkins-x-platform.git
 jx step create pr regex --regex "(?m)^\s+repository: gcr.io/jenkinsxio/builder-maven\s+tag: (?P<version>.*)" --version ${VERSION} --files prow/values.yaml --files environment-controller/values.yaml --repo https://github.com/jenkins-x-charts/prow.git --repo https://github.com/jenkins-x-charts/environment-controller.git
 jx step create pr regex --regex "(?m)^\s+repository: gcr.io/jenkinsxio/builder-[\w-_]+\s+tag: (?P<version>.*)$" --version ${VERSION} --files jxboot-helmfile-resources/values.yaml --repo https://github.com/jenkins-x-charts/jxboot-helmfile-resources.git
-jx step create pr regex --regex "(?m)^\s+image: gcr.io/jenkinsxio/builder-[\w-_]+\s+tag: (?P<version>.*)$" --version ${VERSION} --files jxboot-helmfile-resources/values.yaml --repo https://github.com/jenkins-x-charts/jxboot-helmfile-resources.git
+jx step create pr regex --regex "(?m)^\s+image: gcr.io/jenkinsxio/builder-[\w-_]+:(?P<version>.*)$" --version ${VERSION} --files jxboot-helmfile-resources/values.yaml --repo https://github.com/jenkins-x-charts/jxboot-helmfile-resources.git
 
 JX_VERSION=$(echo $VERSION|cut -d'-' -f1)
 jx step create pr chart --name jx --version $JX_VERSION  --repo https://github.com/jenkins-x/jenkins-x-platform.git --src-repo https://github.com/jenkins-x/jx.git
