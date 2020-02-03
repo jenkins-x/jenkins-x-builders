@@ -1,4 +1,4 @@
-FROM gcr.io/jenkinsxio/builder-base:0.0.78
+FROM gcr.io/jenkinsxio/builder-base:0.0.79
 
 ENV PATH=$PATH:/root/.cargo/bin
 
