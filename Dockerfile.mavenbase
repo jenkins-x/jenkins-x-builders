@@ -1,4 +1,4 @@
-FROM gcr.io/jenkinsxio/builder-base:0.0.79
+FROM gcr.io/jenkinsxio/builder-base:0.0.80
 
 # Maven
 ENV MAVEN_VERSION 3.6.3
