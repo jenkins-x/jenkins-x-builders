@@ -14,7 +14,7 @@ pipelineConfig:
                 cpu: 2
           distributeParallelAcrossNodes: true
         agent:
-          image: gcr.io/kaniko-project/executor:7c7d899633a0d86d7f71c995f0993f1fe733e83b
+          image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
         stages:
           - name: build-and-push
             environment:
@@ -65,6 +65,7 @@ pipelineConfig:
                     - --context=/workspace/source
                     - --cache-repo=gcr.io/jenkinsxio/cache
                     - --cache=true
+                    - --cache-ttl=5m
                     - --cache-dir=/workspace
                 - name: build-and-push-maven-graalvm
                   command: /kaniko/executor
@@ -74,6 +75,7 @@ pipelineConfig:
                     - --context=/workspace/source
                     - --cache-repo=gcr.io/jenkinsxio/cache
                     - --cache=true
+                    - --cache-ttl=5m
                     - --cache-dir=/workspace
                 - name: build-and-push-maven-nodejs
                   command: /kaniko/executor
@@ -83,6 +85,7 @@ pipelineConfig:
                     - --context=/workspace/source
                     - --cache-repo=gcr.io/jenkinsxio/cache
                     - --cache=true
+                    - --cache-ttl=5m
                     - --cache-dir=/workspace
                 - name: build-and-push-maven
                   command: /kaniko/executor
@@ -92,6 +95,7 @@ pipelineConfig:
                     - --context=/workspace/source
                     - --cache-repo=gcr.io/jenkinsxio/cache
                     - --cache=true
+                    - --cache-ttl=5m
                     - --cache-dir=/workspace
                 - name: build-and-push-python
                   command: /kaniko/executor
@@ -101,6 +105,7 @@ pipelineConfig:
                     - --context=/workspace/source
                     - --cache-repo=gcr.io/jenkinsxio/cache
                     - --cache=true
+                    - --cache-ttl=5m
                     - --cache-dir=/workspace
                 - name: build-and-push-maven-32
                   command: /kaniko/executor
@@ -110,6 +115,7 @@ pipelineConfig:
                     - --context=/workspace/source/builder-maven-32
                     - --cache-repo=gcr.io/jenkinsxio/cache
                     - --cache=true
+                    - --cache-ttl=5m
                     - --cache-dir=/workspace
               - name: batch-2
                 steps:
@@ -486,7 +492,7 @@ pipelineConfig:
                 memory: 12Gi
                 cpu: 2
         agent:
-          image: gcr.io/kaniko-project/executor:7c7d899633a0d86d7f71c995f0993f1fe733e83b
+          image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
         stages:
           - name: build-base
             environment:
