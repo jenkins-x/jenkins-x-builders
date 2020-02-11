@@ -14,7 +14,7 @@ pipelineConfig:
                 cpu: 2
           distributeParallelAcrossNodes: true
         agent:
-          image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+          image: gcr.io/kaniko-project/executor:7c7d899633a0d86d7f71c995f0993f1fe733e83b
         stages:
           - name: build-and-push
             environment:
@@ -460,7 +460,7 @@ pipelineConfig:
                 memory: 12Gi
                 cpu: 2
         agent:
-          image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+          image: gcr.io/kaniko-project/executor:7c7d899633a0d86d7f71c995f0993f1fe733e83b
         stages:
           - name: build-base
             environment:
