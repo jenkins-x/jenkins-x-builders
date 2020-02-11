@@ -143,6 +143,7 @@ pipelineConfig:
                       - --context=/workspace/source/builder-go-maven
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
+                      - --cache-ttl=5m
                       - --cache-dir=/workspace
                   - name: build-and-push-go
                     command: /kaniko/executor
@@ -152,6 +153,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
+                      - --cache-ttl=5m
                       - --cache-dir=/workspace
                   - name: build-and-push-terraform
                     command: /kaniko/executor
@@ -161,6 +163,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
+                      - --cache-ttl=5m
                       - --cache-dir=/workspace
                   - name: build-and-push-go-nodejs
                     command: /kaniko/executor
@@ -170,6 +173,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
+                      - --cache-ttl=5m
                       - --cache-dir=/workspace
                   - name: build-and-push-php5x
                     command: /kaniko/executor
@@ -179,6 +183,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
+                      - --cache-ttl=5m
                       - --cache-dir=/workspace
                   - name: build-and-push-php7x
                     command: /kaniko/executor
@@ -188,6 +193,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
+                      - --cache-ttl=5m
                       - --cache-dir=/workspace
               - name: batch-3
                 steps:
@@ -221,6 +227,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
+                      - --cache-ttl=5m
                       - --cache-dir=/workspace
                   - name: build-and-push-gradle4
                     command: /kaniko/executor
@@ -230,6 +237,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
+                      - --cache-ttl=5m
                       - --cache-dir=/workspace
                   - name: build-and-push-gradle5
                     command: /kaniko/executor
@@ -239,6 +247,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
+                      - --cache-ttl=5m
                       - --cache-dir=/workspace
                   - name: build-and-push-gradle5-java11
                     command: /kaniko/executor
@@ -248,6 +257,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
+                      - --cache-ttl=5m
                       - --cache-dir=/workspace
                   - name: build-and-push-nodejs
                     command: /kaniko/executor
@@ -257,6 +267,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
+                      - --cache-ttl=5m
                       - --cache-dir=/workspace
                   - name: build-and-push-nodejs8x
                     command: /kaniko/executor
@@ -266,6 +277,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
+                      - --cache-ttl=5m
                       - --cache-dir=/workspace
               - name: batch-4
                 steps:
@@ -301,6 +313,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
+                      - --cache-ttl=5m
                       - --cache-dir=/workspace
                   - name: build-and-push-asciidoctor
                     command: /kaniko/executor
@@ -310,6 +323,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
+                      - --cache-ttl=5m
                       - --cache-dir=/workspace
                   - name: build-and-push-nodejs10x
                     command: /kaniko/executor
@@ -319,6 +333,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
+                      - --cache-ttl=5m
                       - --cache-dir=/workspace
                   - name: build-and-push-python2
                     command: /kaniko/executor
@@ -328,6 +343,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
+                      - --cache-ttl=5m
                       - --cache-dir=/workspace
                   - name: build-and-push-ruby
                     command: /kaniko/executor
@@ -337,6 +353,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
+                      - --cache-ttl=5m
                       - --cache-dir=/workspace
                   - name: build-and-push-scala
                     command: /kaniko/executor
@@ -346,6 +363,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
+                      - --cache-ttl=5m
                       - --cache-dir=/workspace
                   - name: build-and-push-swift
                     command: /kaniko/executor
@@ -355,6 +373,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
+                      - --cache-ttl=5m
                       - --cache-dir=/workspace
               - name: batch-5
                 steps:
@@ -388,6 +407,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
+                      - --cache-ttl=5m
                       - --cache-dir=/workspace
                   - name: build-and-push-nodejs12x
                     command: /kaniko/executor
@@ -397,6 +417,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
+                      - --cache-ttl=5m
                       - --cache-dir=/workspace
                   - name: build-and-push-newman
                     command: /kaniko/executor
@@ -406,6 +427,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
+                      - --cache-ttl=5m
                       - --cache-dir=/workspace
                   - name: build-and-push-cf
                     command: /kaniko/executor
@@ -415,6 +437,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
+                      - --cache-ttl=5m
                       - --cache-dir=/workspace
                   - name: build-and-push-dlang
                     command: /kaniko/executor
@@ -424,6 +447,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
+                      - --cache-ttl=5m
                       - --cache-dir=/workspace
                   - name: build-and-push-dotnet
                     command: /kaniko/executor
@@ -433,6 +457,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
+                      - --cache-ttl=5m
                       - --cache-dir=/workspace
                   - name: build-and-push-rust
                     command: /kaniko/executor
@@ -442,6 +467,7 @@ pipelineConfig:
                       - --context=/workspace/source
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
+                      - --cache-ttl=5m
                       - --cache-dir=/workspace
     release:
       setVersion:
