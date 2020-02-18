@@ -18,7 +18,7 @@ git-lfs/install.sh && \
 rm -rf git-lfs
 
 # jx
-ENV JX_VERSION 2.0.1196
+ENV JX_VERSION 2.0.1197
 RUN curl -f -L https://github.com/jenkins-x/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv && \
   mv jx /usr/bin/
 
