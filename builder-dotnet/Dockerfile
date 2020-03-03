@@ -8,6 +8,6 @@ RUN rpm -Uvh https://packages.microsoft.com/config/rhel/7/packages-microsoft-pro
 RUN dotnet new --install "Microsoft.DotNet.Web.ProjectTemplates.2.2"
 
 # jx
-ENV JX_VERSION 2.0.1228
+ENV JX_VERSION 2.0.1229
 RUN curl -f -L https://github.com/jenkins-x/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv && \
   mv jx /usr/bin/
