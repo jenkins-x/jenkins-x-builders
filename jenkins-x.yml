@@ -50,7 +50,7 @@ pipelineConfig:
 
                 # cache base images
                 - name: warm-cache
-                  image: gcr.io/kaniko-project/warmer
+                  image: gcr.io/kaniko-project/warmer:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
                   command: /kaniko/warmer
                   args:
                     - --cache-dir=/workspace
@@ -130,7 +130,7 @@ pipelineConfig:
 
                   # cache base images
                   - name: warm-cache
-                    image: gcr.io/kaniko-project/warmer
+                    image: gcr.io/kaniko-project/warmer:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
                     command: /kaniko/warmer
                     args:
                       - --cache-dir=/workspace
@@ -208,7 +208,7 @@ pipelineConfig:
 
                   # cache base images
                   - name: warm-cache
-                    image: gcr.io/kaniko-project/warmer
+                    image: gcr.io/kaniko-project/warmer:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
                     command: /kaniko/warmer
                     args:
                       - --cache-dir=/workspace
@@ -286,7 +286,7 @@ pipelineConfig:
 
                   # cache base images
                   - name: warm-cache
-                    image: gcr.io/kaniko-project/warmer
+                    image: gcr.io/kaniko-project/warmer:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
                     command: /kaniko/warmer
                     args:
                       - --cache-dir=/workspace
@@ -375,7 +375,7 @@ pipelineConfig:
 
                   # cache base images
                   - name: warm-cache
-                    image: gcr.io/kaniko-project/warmer
+                    image: gcr.io/kaniko-project/warmer:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
                     command: /kaniko/warmer
                     args:
                       - --cache-dir=/workspace
@@ -491,7 +491,7 @@ pipelineConfig:
 
             # cache base images
             - name: warm-cache
-              image: gcr.io/kaniko-project/warmer
+              image: gcr.io/kaniko-project/warmer:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
               command: /kaniko/warmer
               args:
                 - --cache-dir=/workspace
