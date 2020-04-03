@@ -4,8 +4,8 @@ RUN yum install -y java-1.8.0-openjdk-devel && \
     yum -y groupinstall 'Development Tools' && \
     yum clean all
 
-ENV SCALA_VERSION 2.12.10
-ENV SBT_VERSION 1.3.2
+ENV SCALA_VERSION 2.12.11
+ENV SBT_VERSION 1.3.9
 
 RUN \
   curl -fsL https://downloads.typesafe.com/scala/$SCALA_VERSION/scala-$SCALA_VERSION.tgz | tar xfz - -C /root/ && \
