@@ -40,7 +40,8 @@ ENV GOPATH=/home/jenkins/go
 ENV PATH $PATH:$GOPATH/bin
 ENV HUGO_VERSION 0.58.0
 
-RUN go get github.com/DATA-DOG/godog/cmd/godog && \
+# godog needs to have GO111MODULE=on, but we don't want to set that everywhere.
+RUN GO111MODULE=on go get github.com/cucumber/godog/cmd/godog && \
   mv $GOPATH/bin/godog /usr/local/ && \
 # Hugo needs version of GLIBCXX that's not in Centros 7
 # will have to download and compile
