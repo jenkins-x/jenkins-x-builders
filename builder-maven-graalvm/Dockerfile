@@ -9,7 +9,7 @@ ENV M2 $M2_HOME/bin
 ENV PATH $M2:$PATH
 
 # GraalVM
-ARG GRAAL_VERSION=19.3.1
+ARG GRAAL_VERSION=20.0.0
 
 ENV GRAAL_CE_URL=https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-${GRAAL_VERSION}/graalvm-ce-java11-linux-amd64-${GRAAL_VERSION}.tar.gz
 ARG INSTALL_PKGS="gzip"
