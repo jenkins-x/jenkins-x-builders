@@ -1,6 +1,6 @@
 FROM gcr.io/jenkinsxio/builder-base:0.0.81
 
-RUN curl -f --silent --location https://rpm.nodesource.com/setup_9.x | bash - && \
+RUN curl -f --silent --location https://rpm.nodesource.com/setup_10.x | bash - && \
   yum install -y nodejs && \
   yum clean all
 
