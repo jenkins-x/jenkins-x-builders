@@ -1,4 +1,4 @@
-FROM gcr.io/jenkinsxio/builder-swiftbase:0.0.82
+FROM gcr.io/jenkinsxio/builder-swiftbase:0.0.83
 
 # jx
 ENV JX_VERSION 2.1.47
