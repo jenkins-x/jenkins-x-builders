@@ -1,4 +1,4 @@
-FROM gcr.io/jenkinsxio/builder-base:0.0.81
+FROM gcr.io/jenkinsxio/builder-base:0.0.83
 
 RUN yum install -y java-1.8.0-openjdk-devel && \
     yum -y groupinstall 'Development Tools' && \
@@ -19,6 +19,6 @@ RUN \
   yum clean all
 
 # jx
-ENV JX_VERSION 2.1.46
+ENV JX_VERSION 2.1.47
 RUN curl -f -L https://github.com/jenkins-x/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv && \
   mv jx /usr/bin/
