@@ -43,7 +43,7 @@ RUN set -o errexit -o nounset \
 	&& ln -s "${GRADLE_HOME}/bin/gradle" /usr/bin/gradle
 
 # jx
-ENV JX_VERSION 2.1.49
+ENV JX_VERSION 2.1.51
 RUN curl -f -L https://github.com/jenkins-x/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv && \
   mv jx /usr/bin/
 
