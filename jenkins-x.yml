@@ -253,6 +253,15 @@ pipelineConfig:
                       - --cache-repo=gcr.io/jenkinsxio/cache
                       - --cache=true
                       - --cache-dir=/workspace
+                  - name: build-and-push-nodejs14x
+                    command: /kaniko/executor
+                    args:
+                      - --dockerfile=/workspace/source/builder-nodejs14x/Dockerfile
+                      - --destination=gcr.io/jenkinsxio/builder-nodejs14x:${inputs.params.version}
+                      - --context=/workspace/source
+                      - --cache-repo=gcr.io/jenkinsxio/cache
+                      - --cache=true
+                      - --cache-dir=/workspace
               - name: batch-4
                 steps:
                   - image: centos:7
@@ -744,6 +753,16 @@ pipelineConfig:
                 - --dockerfile=/workspace/source/builder-nodejs12x/Dockerfile
                 - --destination=gcr.io/jenkinsxio/builder-nodejs12x:${inputs.params.version}
                 - --destination=gcr.io/jenkinsxio/builder-nodejs12x:latest
+                - --context=/workspace/source
+                - --cache-repo=gcr.io/jenkinsxio/cache
+                - --cache=true
+                - --cache-dir=/workspace
+            - name: build-and-push-nodejs14x
+              command: /kaniko/executor
+              args:
+                - --dockerfile=/workspace/source/builder-nodejs14x/Dockerfile
+                - --destination=gcr.io/jenkinsxio/builder-nodejs14x:${inputs.params.version}
+                - --destination=gcr.io/jenkinsxio/builder-nodejs14x:latest
                 - --context=/workspace/source
                 - --cache-repo=gcr.io/jenkinsxio/cache
                 - --cache=true
