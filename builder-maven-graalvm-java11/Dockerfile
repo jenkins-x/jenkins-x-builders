@@ -1,4 +1,4 @@
-FROM gcr.io/jenkinsxio/builder-base:0.0.81
+FROM gcr.io/jenkinsxio/builder-base:0.0.83
 
 RUN yum install -y java-11-openjdk-devel && yum update -y && yum clean all
 
@@ -34,7 +34,7 @@ ENV PATH $GRAALVM_HOME/bin:$PATH
 RUN gu install native-image
 
 # jx
-ENV JX_VERSION 2.1.30
+ENV JX_VERSION 2.1.85
 RUN curl -f -L https://github.com/jenkins-x/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv && \
   mv jx /usr/bin/
 
