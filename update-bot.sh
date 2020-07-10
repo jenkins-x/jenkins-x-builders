@@ -14,7 +14,7 @@ jx step create pr chart --name gcr.io/jenkinsxio/builder-ruby --name gcr.io/jenk
   --name gcr.io/jenkinsxio/builder-python --name gcr.io/jenkinsxio/builder-python2 --name gcr.io/jenkinsxio/builder-python37 \
   --name gcr.io/jenkinsxio/builder-rust --name gcr.io/jenkinsxio/builder-scala --name gcr.io/jenkinsxio/builder-terraform \
   --name gcr.io/jenkinsxio/builder-go-nodejs --name gcr.io/jenkinsxio/builder-dotnet --name gcr.io/jenkinsxio/builder-maven-java14 \
-  --name gcr.io/jenkinsxio/builder-nodejs14x \
+  --name gcr.io/jenkinsxio/builder-nodejs14x --name gcr.io/jenkinsxio/builder-maven-graalvm-java11 \
   --version ${VERSION} --repo https://github.com/jenkins-x/jenkins-x-platform.git
 
 jx step create pr regex --regex "builderTag: (.*)" --version ${VERSION} --files jx-build-templates/values.yaml --repo https://github.com/jenkins-x-charts/jx-build-templates.git
@@ -26,12 +26,4 @@ jx step create pr regex --regex "(?m)^\s+image: gcr.io/jenkinsxio/builder-[\w-_]
 JX_VERSION=$(echo $VERSION|cut -d'-' -f1)
 jx step create pr chart --name jx --version $JX_VERSION  --repo https://github.com/jenkins-x/jenkins-x-platform.git --src-repo https://github.com/jenkins-x/jx.git
 jx step create pr regex --regex "\s*jxTag:\s*(.*)" --version $JX_VERSION --files prow/values.yaml --repo https://github.com/jenkins-x-charts/prow.git --src-repo https://github.com/jenkins-x/jx.git
-
-# arcalos
-export GOPROXY=""
-jx step create pr go --name github.com/jenkins-x/jx/v2 --version $JX_VERSION --build "make mod" --repo https://github.com/cloudbees/jx-tenant-service.git
-jx step create pr regex --regex "(?m)^FROM gcr.io/jenkinsxio/builder-go:(?P<version>.*)$" --version ${VERSION} --files Dockerfile --repo https://github.com/cloudbees/jx-tenant-service.git
-jx step create pr regex --regex "(?m)^\s+image: gcr.io/jenkinsxio/builder-go-maven:(?P<version>.*)$" --version ${VERSION} --files templates/yaml/bdd-test-job.yaml --repo https://github.com/cloudbees/arcalos.git
-jx step create pr regex --regex "(?m)^FROM gcr.io/jenkinsxio/builder-go:(?P<version>.*)$" --version ${VERSION} --files Dockerfile --repo https://github.com/cloudbees/lighthouse-githubapp.git
-
 

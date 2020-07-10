@@ -1,5 +1,7 @@
 FROM gcr.io/jenkinsxio/builder-base:0.0.83
 
+RUN yum install -y java-11-openjdk-devel && yum update -y && yum clean all
+
 # Maven
 ENV MAVEN_VERSION 3.6.3
 RUN curl -f -L https://repo1.maven.org/maven2/org/apache/maven/apache-maven/$MAVEN_VERSION/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar -C /opt -xzv
