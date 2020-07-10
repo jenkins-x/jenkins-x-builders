@@ -14,7 +14,7 @@ jx step create pr chart --name gcr.io/jenkinsxio/builder-ruby --name gcr.io/jenk
   --name gcr.io/jenkinsxio/builder-python --name gcr.io/jenkinsxio/builder-python2 --name gcr.io/jenkinsxio/builder-python37 \
   --name gcr.io/jenkinsxio/builder-rust --name gcr.io/jenkinsxio/builder-scala --name gcr.io/jenkinsxio/builder-terraform \
   --name gcr.io/jenkinsxio/builder-go-nodejs --name gcr.io/jenkinsxio/builder-dotnet --name gcr.io/jenkinsxio/builder-maven-java14 \
-  --name gcr.io/jenkinsxio/builder-maven-graalvm-java11 \
+  --name gcr.io/jenkinsxio/builder-nodejs14x --name gcr.io/jenkinsxio/builder-maven-graalvm-java11 \
   --version ${VERSION} --repo https://github.com/jenkins-x/jenkins-x-platform.git
 
 jx step create pr regex --regex "builderTag: (.*)" --version ${VERSION} --files jx-build-templates/values.yaml --repo https://github.com/jenkins-x-charts/jx-build-templates.git
