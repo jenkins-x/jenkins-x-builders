@@ -3,8 +3,8 @@ dependencies:
   owner: jenkins-x
   repo: jx
   url: https://github.com/jenkins-x/jx
-  version: 2.1.138
-  versionURL: https://github.com/jenkins-x/jx/releases/tag/v2.1.138
+  version: 2.1.139
+  versionURL: https://github.com/jenkins-x/jx/releases/tag/v2.1.139
 - host: github.com
   owner: jenkins-x
   repo: jenkins-x-builders-base
