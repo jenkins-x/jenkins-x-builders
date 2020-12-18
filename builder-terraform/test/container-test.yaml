@@ -4,4 +4,4 @@ commandTests:
   command: 'terraform'
   args: ['--version']
   excludedError: ['.*FAIL.*']
-  expectedOutput: ['.*Terraform v0.11.*']
+  expectedOutput: ['.*Terraform v0.14.*']
