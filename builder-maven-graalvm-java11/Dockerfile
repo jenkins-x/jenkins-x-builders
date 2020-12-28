@@ -1,4 +1,4 @@
-FROM gcr.io/jenkinsxio/builder-base:0.0.86
+FROM gcr.io/jenkinsxio/builder-base:0.0.87
 
 RUN yum install -y java-11-openjdk-devel && yum update -y && yum clean all
 
